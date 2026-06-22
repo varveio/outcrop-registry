@@ -1,0 +1,29 @@
+schema_version: '0.4'
+bucket: ihdataset-01
+backend: s3
+role: primary
+region: us-east-2
+
+prefixes:
+- prefix: IHTest_*/
+  copy:
+    headline: Dated field collects, each one site captured over a week
+    lede: Each IHTest_<date>_DistStA prefix is a single data collect — one collection location captured
+      over the course of one week — at the top of the dataset's collect → path → step → imagery hierarchy.
+    text: 'Each IHTest_<date>_DistStA prefix is one data collect: imagery gathered at a single collection
+      location over the course of one week, with the DistStA suffix marking Distribution Statement A (approved
+      for unlimited public release). Within a collect, raw data follows a path → step → imagery hierarchy
+      — a path is a trajectory driven by the sensor-mounted vehicle, a step is an intermediate position
+      where the sensors captured simultaneous images, and the imagery is the individual sensor files.
+      File names encode the sensor used: AutoLidar (low-resolution LiDAR), HiResLIDAR (high-resolution
+      LiDAR), BBLW (broadband long-wave), BBSWIR (broadband short-wave infrared), BBVIS (broadband visual),
+      LWHSI (long-wave hyperspectral), and LWPol (long-wave polarimetric). Derived data mirrors this hierarchy
+      with an added final level naming the type, such as stereo, LiDAR_annotations, or LWHSI_annotation.'
+  refs:
+  - ih-kitware-dataset-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,125 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nasa-psi
+title: NASA Physical Sciences Informatics (PSI)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: dsi-investigation
+  kind: web_research
+  url: https://www1.grc.nasa.gov/space/iss-research/iss-fluids/declic/
+  label: NASA — DECLIC Directional Solidification Insert (DSI)
+  excerpt: The DECLIC Directional Solidification Insert (DSI) provides in situ, real-time characterization
+    of solid-liquid interface patterns during directional solidification of transparent model alloys in
+    microgravity.
+  retrieved_at: '2026-06-20'
+
+- id: nasa-media-usage-guidelines
+  kind: publisher_doc
+  url: https://www.nasa.gov/nasa-brand-center/images-and-media/
+  label: NASA Images and Media Usage Guidelines (US Government works — not subject to copyright)
+  excerpt: NASA content – images, audio, video, and media files used in the rendition of 3-dimensional
+    models, such as texture maps and polygon data in any format – generally are not subject to copyright
+    in the United States. You may use this material for educational or informational purposes, including
+    photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages.
+  retrieved_at: '2026-06-20'
+
+- id: nasa-psi-bps-data-doc
+  kind: publisher_doc
+  url: https://science.nasa.gov/physical-sciences-informatics-psi/
+  label: NASA Biological & Physical Sciences — Physical Sciences Informatics (PSI) data page
+  excerpt: The NASA Open Science Data Repository (OSDR) and Physical Sciences Informatics (PSI) provide
+    open access to biological and physical science datasets from spaceflight and ground studies, enabling
+    data reuse for discovery and innovation.
+  retrieved_at: '2026-06-20'
+
+- id: nasa-psi-data-for-all
+  kind: publisher_doc
+  url: https://science.nasa.gov/science-research/biological-physical-sciences/physical-science-data-for-all/
+  label: NASA Science — Physical Science Data for All (PSI open-access announcement)
+  excerpt: Recently, PSI was upgraded to an Open Science Data Repository (OSDR) to provide the public
+    with open access to data generated in reduced-gravity environments such as the International Space
+    Station, Space Shuttle flights, free-flyers, and flight analogs, as well as important ground-based
+    studies.
+  retrieved_at: '2026-06-20'
+
+- id: nasa-psi-homepage
+  kind: publisher_homepage
+  url: https://psi.nasa.gov/
+  label: NASA Physical Sciences Informatics (PSI) homepage
+  excerpt: Physical Sciences Informatics (PSI) — NASA's data repository for physical sciences experiments
+    performed in reduced-gravity environments such as the ISS, Space Shuttle flights, and free-flyers.
+  retrieved_at: '2026-06-20'
+
+- id: nasa-psi-pk4-investigation
+  kind: publisher_doc
+  url: https://psi.nasa.gov/physci/repo/data/investigations/PSI-5
+  label: NASA PSI catalog lists PK-4 as a single investigation (PSI-5), organized internally into campaigns.
+  excerpt: PSI-5 Version 2 Plasma Kristall 4 (PK-4) Investigation
+  retrieved_at: '2026-06-20'
+
+- id: oasis-investigation
+  kind: web_research
+  url: https://www1.grc.nasa.gov/space/iss-research/msg/oasis/
+  label: NASA Glenn — OASIS (Observation and Analysis of Smectic Islands In Space)
+  excerpt: OASIS probes the interfacial and hydrodynamic behavior of freely suspended liquid crystal films
+    in space, the thinnest known stable condensed-phase structures.
+  retrieved_at: '2026-06-20'
+
+- id: pk4-investigation
+  kind: web_research
+  url: https://www1.grc.nasa.gov/space/iss-research/iss-fluids/declic/
+  label: Baylor CASPER — Plasma Kristall-4 (PK-4) complex-plasma laboratory
+  excerpt: PK-4 is a joint Russian-European laboratory for the investigation of complex (dusty) plasmas
+    aboard the ISS, located in the ESA Columbus module.
+  retrieved_at: '2026-06-20'
+
+- id: pk4-psi-page
+  kind: publisher_doc
+  url: https://psi.nasa.gov/physci/repo/data/investigations/PSI-5
+  label: NASA PSI investigation PSI-5 — Plasma Kristall-4 (PK-4)
+  excerpt: Plasma Kristall-4 (PK-4) investigation, hosted in the NASA PSI repository as investigation
+    PSI-5.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: NASA's open repository for physical-sciences experiment data
+    lede: Physical Sciences Informatics (PSI) is NASA's open repository for physical-sciences experiment
+      data from the ISS, Space Shuttle, free-flyers, and ground analogs.
+    text: Physical Sciences Informatics (PSI) is the open repository of NASA's Biological and Physical
+      Sciences (BPS) division for physical-sciences experiment data drawn from the International Space
+      Station, Space Shuttle, free-flyers, and ground analogs. Alongside the Open Science Data Repository
+      (OSDR) for biological data, it provides open access to spaceflight and ground-study datasets so
+      that researchers can reuse them for discovery and innovation. PSI is governed by the BPS Data Management
+      Policy and presented as part of NASA's open-science mission, with a search interface and submission
+      portal for exploring and contributing physical-sciences data.
+  refs:
+  - nasa-psi-bps-data-doc
+
+source:
+  publisher: NASA Physical Sciences Informatics (PSI)
+  homepage_url: https://psi.nasa.gov/
+
+display:
+  canonical_path: /nasa-psi/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

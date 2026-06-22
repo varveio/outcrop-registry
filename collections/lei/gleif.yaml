@@ -1,0 +1,130 @@
+schema_version: '0.4'
+bucket: gleif
+backend: s3
+role: primary
+region: eu-central-1
+
+prefixes:
+- prefix: data/csv/lei/
+  copy:
+    headline: LEI-CDF Golden Copy records in CSV
+    lede: The full Golden Copy of Level 1 LEI records — every LEI and its Legal Entity Reference Data
+      — in comma-separated form.
+    text: 'Level 1 LEI Common Data File (LEI-CDF) records: the core ''who is who'' reference data for
+      every Legal Entity Identifier, including legal name, registered and headquarters address, registration
+      and entity status, and validation metadata. Delivered as the concatenated Golden Copy in CSV, with
+      one row per LEI, written as gzip-compressed files partitioned by publication date and time (three
+      releases daily).'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/csv/repex/
+  copy:
+    headline: Reporting Exceptions Golden Copy in CSV
+    lede: The Golden Copy of GLEIF Reporting Exceptions — why an entity does not report a parent — in
+      comma-separated form.
+    text: 'Reporting Exceptions records (RepEx, Format 2.1): for each LEI, the documented reason a legal
+      entity does not report a direct or ultimate accounting consolidating parent — for example that it
+      has no parent, that the parent has no LEI, or that disclosure is excepted (including the NON_PUBLIC
+      reason). These exceptions complement the relationship records to give a complete Level 2 picture.
+      Delivered as the concatenated Golden Copy in CSV, written as gzip-compressed files partitioned by
+      publication date and time.'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/csv/rr/
+  copy:
+    headline: Relationship Records (who owns whom) in CSV
+    lede: The Golden Copy of GLEIF Level 2 Relationship Records — direct and ultimate parent relationships
+      between legal entities — in comma-separated form.
+    text: 'Relationship Records (RR-CDF, Format 2.1): the Level 2 ''who owns whom'' data, recording each
+      legal entity''s direct and ultimate accounting consolidating parent where those parents themselves
+      hold an LEI. Each record links a child LEI to a parent LEI with the relationship type and validation
+      details, enabling traversal of corporate ownership hierarchies. Delivered as the concatenated Golden
+      Copy in CSV, written as gzip-compressed files partitioned by publication date and time.'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/json/lei/
+  copy:
+    headline: LEI-CDF Golden Copy records in JSON
+    lede: The full Golden Copy of Level 1 LEI records — every LEI and its Legal Entity Reference Data
+      — in JSON form.
+    text: 'Level 1 LEI Common Data File (LEI-CDF) records: the core ''who is who'' reference data for
+      every Legal Entity Identifier, including legal name, registered and headquarters address, registration
+      and entity status, and validation metadata. The same Golden Copy content as the CSV and XML deliveries,
+      encoded as JSON for programmatic consumption, written as gzip-compressed files partitioned by publication
+      date and time (three releases daily).'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/json/repex/
+  copy:
+    headline: Reporting Exceptions Golden Copy in JSON
+    lede: The Golden Copy of GLEIF Reporting Exceptions — why an entity does not report a parent — in
+      JSON form.
+    text: 'Reporting Exceptions records (RepEx, Format 2.1): for each LEI, the documented reason a legal
+      entity does not report a direct or ultimate accounting consolidating parent — no parent, parent
+      without an LEI, or an excepted disclosure such as the NON_PUBLIC reason. The same Golden Copy content
+      as the CSV and XML deliveries, encoded as JSON, written as gzip-compressed files partitioned by
+      publication date and time.'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/json/rr/
+  copy:
+    headline: Relationship Records (who owns whom) in JSON
+    lede: The Golden Copy of GLEIF Level 2 Relationship Records — direct and ultimate parent relationships
+      between legal entities — in JSON form.
+    text: 'Relationship Records (RR-CDF, Format 2.1): the Level 2 ''who owns whom'' data linking each
+      child LEI to its direct and ultimate accounting consolidating parent LEIs, with relationship type
+      and validation details, supporting traversal of corporate ownership hierarchies. The same Golden
+      Copy content as the CSV and XML deliveries, encoded as JSON, written as gzip-compressed files partitioned
+      by publication date and time.'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/xml/lei/
+  copy:
+    headline: LEI-CDF Golden Copy records in XML
+    lede: The full Golden Copy of Level 1 LEI records — every LEI and its Legal Entity Reference Data
+      — in the canonical LEI-CDF XML.
+    text: 'Level 1 LEI Common Data File (LEI-CDF) records: the core ''who is who'' reference data for
+      every Legal Entity Identifier, including legal name, registered and headquarters address, registration
+      and entity status, and validation metadata. Encoded in the canonical LEI-CDF XML schema — the reference
+      format for the Common Data File — as the concatenated Golden Copy, written as gzip-compressed files
+      partitioned by publication date and time (three releases daily).'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/xml/repex/
+  copy:
+    headline: Reporting Exceptions Golden Copy in XML
+    lede: The Golden Copy of GLEIF Reporting Exceptions — why an entity does not report a parent — in
+      the canonical RepEx XML.
+    text: 'Reporting Exceptions records (RepEx, Format 2.1): for each LEI, the documented reason a legal
+      entity does not report a direct or ultimate accounting consolidating parent — no parent, parent
+      without an LEI, or an excepted disclosure such as the NON_PUBLIC reason. Encoded in the canonical
+      Reporting Exceptions XML schema as the concatenated Golden Copy, written as gzip-compressed files
+      partitioned by publication date and time.'
+  refs:
+  - gleif-goldencopy-overview
+
+- prefix: data/xml/rr/
+  copy:
+    headline: Relationship Records (who owns whom) in XML
+    lede: The Golden Copy of GLEIF Level 2 Relationship Records — direct and ultimate parent relationships
+      between legal entities — in the canonical RR-CDF XML.
+    text: 'Relationship Records (RR-CDF, Format 2.1): the Level 2 ''who owns whom'' data linking each
+      child LEI to its direct and ultimate accounting consolidating parent LEIs, with relationship type
+      and validation details, supporting traversal of corporate ownership hierarchies. Encoded in the
+      canonical RR-CDF XML schema as the concatenated Golden Copy, written as gzip-compressed files partitioned
+      by publication date and time.'
+  refs:
+  - gleif-goldencopy-overview
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

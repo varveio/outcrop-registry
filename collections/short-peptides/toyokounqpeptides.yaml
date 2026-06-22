@@ -1,0 +1,41 @@
+schema_version: '0.4'
+bucket: toyokounqpeptides
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: 5pep/
+  copy:
+    headline: Pentapeptide simulation archives (one tarball per peptide)
+    lede: Molecular-dynamics runs for all 3,200,000 possible pentapeptides, each packaged as a single
+      bzip2-compressed tarball named by its amino-acid sequence.
+    text: 'Each pentapeptide''s simulation is compressed into one tar.bz2 archive following the N{AA}{AA}{AA}{AA}C{AA}-R1
+      naming convention, where the amino acids are written in IUPAC three-letter notation (for example
+      NALAALAALAALACALA-R1.tar.bz2 for the all-alanine pentapeptide). Inside each tarball are up to four
+      Amber files: the Sander output (.out, with run parameters), the trajectory (.traj), the coordinate
+      file (.crd), and a Tleap topology (.top). Pentapeptides are run without replicas. This is the larger
+      of the two products, covering the full enumeration of five-residue peptides.'
+  refs:
+  - short-peptides-manifest
+
+- prefix: tripep/
+  copy:
+    headline: Tripeptide molecular-dynamics trajectories and outputs
+    lede: Amber simulation files for all 8,000 possible tripeptides, two replicas each, stored as individual
+      output, trajectory and coordinate files.
+    text: 'Covers the exhaustive set of 8,000 tripeptides, each simulated in two replicas. Unlike the
+      pentapeptides, tripeptide runs are stored as individual uncompressed files rather than tarballs,
+      named by sequence in the form N{AA}C{AA}-R{n}.dmd.1.{ext} using IUPAC three-letter codes (for example
+      NALASERCASN-R2.dmd.1.traj). Each run yields Amber Sander files: a text output (.out) recording the
+      running parameters, a binary trajectory (.traj), and a binary production coordinate file (.crd).
+      This product supports docking and binding-pocket analyses — comparing how alternative tripeptides
+      occupy a given protein binding site.'
+  refs:
+  - short-peptides-manifest
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,95 @@
+schema_version: '0.4'
+bucket: encode-public
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: '*/'
+  copy:
+    headline: Submission-date partitions of the ENCODE file corpus
+    lede: The bucket's top-level YYYY/, YYYY/MM/, and YYYY/MM/DD/ prefixes partition every ENCODE file
+      by its submission date rather than by assay, experiment, or biosample.
+    text: 'Each ENCODE file object is keyed as YYYY/MM/DD/<uuid>/<accession>, where the leading segments
+      are the file''s submission date and the rest is a per-file UUID directory holding the accession-named
+      object. This holds across years on the portal: ENCFF002COS (created 2014-06-06) resolves under 2014/06/06/,
+      ENCFF000VWQ (2012-07-01) under 2012/07/01/, and ENCFF001MXE (2010-04-26) under 2010/04/26/. Because
+      the layout follows ingestion dates, the year prefixes and their month and day children partition
+      one corpus chronologically rather than grouping browseable per-assay datasets: the files for any
+      given assay, biosample, or experiment scatter across whatever dates they were submitted. Users locate
+      data through the ENCODE portal and REST API by accession, experiment, assay, biosample, or file
+      type, then follow each file''s cloud_metadata to its object under the appropriate date prefix.'
+  refs:
+  - encode-s3-layout
+
+- prefix: 2013/04/15/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2013/07/09/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2014/01/27/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2014/04/01/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2014/07/21/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2014/09/09/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2014/10/16/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2014/4/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2015/01/22/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2015/07/21/
+  copy:
+    text: This is a single upload-day directory under the archive's date tree, a mechanical temporal slice
+      rather than a distinct catalogued dataset.
+    headline: This is a single upload-day directory under the archive's date tree…
+
+- prefix: 2020/
+  copy:
+    text: The dozen children are the upload-month directories (2020/01 through 2020/12) of one date-organized
+      archive, not twelve separately catalogued datasets.
+    headline: The dozen children are the upload-month directories
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

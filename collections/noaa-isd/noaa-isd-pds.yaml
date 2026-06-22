@@ -1,0 +1,83 @@
+schema_version: '0.4'
+bucket: noaa-isd-pds
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: ISH-DVD2012/
+  copy:
+    text: A 2012 snapshot of the Integrated Surface (ISH/ISD) data and documentation packaged for DVD
+      distribution, including supporting files such as the country list and the known-problems report.
+    headline: A 2012 snapshot of the Integrated Surface
+
+- prefix: additional/
+  copy:
+    headline: Supplementary ISD station and history files
+    lede: Supplementary files accompanying the Integrated Surface Database, including additional station-history
+      records.
+    text: Supplementary material that accompanies the main ISD archive, including additional station-history
+      data (isd-history-additional-data.txt) beyond the primary station-history listing.
+  refs:
+  - noaa-isd-readme
+
+- prefix: data/
+  copy:
+    headline: Full ISD station-year observation files, partitioned by year
+    lede: The complete Integrated Surface Database in its native fixed-width format, as gzipped per-station-year
+      files organized into one directory per year.
+    text: The full ISD record lives here as gzipped fixed-width files, one per station per year, partitioned
+      into directories by year from 1901 onward. Each filename joins a station's USAF and WBAN identifiers
+      with the observation year (for example 723150-03812-2006), keying every file back to the station-history
+      listing. The files carry the complete observed parameter set in the common ISD data model — wind,
+      temperature, dew point, cloud, pressure, present weather, visibility, precipitation, and snow depth
+      — and require the published ISD format documentation to parse. This is the authoritative archive
+      that the ISD-Lite subset is derived from.
+  refs:
+  - noaa-isd-ncei-product
+
+- prefix: isd-lite/data/
+  copy:
+    headline: ISD-Lite — eight-parameter fixed-width hourly subset
+    lede: ISD-Lite is a streamlined subset of the full ISD holding eight common hourly surface parameters
+      in a simple fixed-width format, designed for trend and climatological analysis.
+    text: ISD-Lite extracts eight common hourly variables from the full database — air temperature, dew-point
+      temperature, sea-level pressure, wind direction, wind speed, total cloud cover, and one-hour and
+      six-hour accumulated precipitation — and writes them in a fixed-width format free of duplicate values,
+      sub-hourly records, and complicated quality flags. Observations are stamped to the nearest hour
+      and missing values are coded -9999. Like the full ISD, files are gzipped per station-year and partitioned
+      by year. The product is meant for investigating trends, larger-scale patterns, and rough climatological
+      averages, and is not intended to replace the full ISD where exact observation time or density matters.
+  refs:
+  - noaa-isd-lite-tech
+
+- prefix: software/
+  copy:
+    headline: Reader and summary programs for ISD data
+    lede: Utility programs for reading and processing ISD records, including a Fortran daily-summary routine
+      and a Perl display/read tool.
+    text: These utilities help read and process the fixed-width ISD records. They include a Fortran program
+      — a set of subroutines called by main1.f — that summarizes the observations by day, and a Perl program
+      that displays and reads the data. They complement the standalone ishJava converter and the format
+      documentation needed to interpret raw ISD files.
+  refs:
+  - noaa-isd-readme
+
+- prefix: updates/
+  copy:
+    headline: Recently updated station-year files
+    lede: Gzipped station-year files that have been revised or newly added, mirrored here as ISD is refreshed
+      alongside the by-year data directories.
+    text: As stations report new observations or earlier records are corrected, the revised gzipped station-year
+      files are collected here, mirroring updates that are also written into the respective by-year directories
+      of the full database. The companion updates.txt listing records which files were updated and when,
+      except for the current year, where updates are more frequent and not individually logged. This makes
+      it possible to track incremental changes to the archive without re-downloading the full record.
+  refs:
+  - noaa-isd-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

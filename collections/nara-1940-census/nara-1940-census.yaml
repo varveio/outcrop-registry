@@ -1,0 +1,72 @@
+schema_version: '0.4'
+bucket: nara-1940-census
+backend: s3
+role: primary
+region: us-east-2
+
+prefixes:
+- prefix: ed-descriptions/
+  copy:
+    headline: Enumeration district descriptions for the 1940 census
+    lede: The 1940 enumeration district descriptions are written accounts of the geographic areas covered
+      by each census district, subdivision, and enumeration district.
+    text: 'Digitized JPG images of written descriptions of the geographic areas included within the 1940
+      census enumeration districts, covering census districts, subdivisions, and enumeration districts.
+      These textual descriptions complement the ED maps: where the maps show boundaries graphically, the
+      descriptions narrate the areas that fall inside each enumeration district. Together they let researchers
+      resolve a location to the enumeration district number used to retrieve the corresponding population
+      schedules.'
+  refs:
+  - nara-1940-developer-doc
+
+- prefix: ed-maps/
+  copy:
+    headline: Enumeration district maps for the 1940 census
+    lede: The 1940 enumeration district maps are annotated maps of counties, cities, and minor civil divisions
+      showing the district boundaries and numbers used for the census.
+    text: Digitized JPG images of annotated maps of counties, cities, and other minor civil divisions
+      that show enumeration districts, census tracts, and the related boundaries and numbers used for
+      the census. Coverage is nationwide and includes territorial areas. The maps serve as the geographic
+      key to the schedules, letting a researcher translate a place into the enumeration district number
+      needed to find the matching population schedules.
+  refs:
+  - nara-1940-developer-doc
+
+- prefix: metadata/
+  copy:
+    headline: JSON metadata index for the 1940 census holdings
+    lede: The metadata index is the full JSON index to the 1940 census population schedules, enumeration
+      district maps, and enumeration district descriptions.
+    text: The full metadata index to the 1940 Census holdings, covering the population schedules, the
+      enumeration district maps, and the enumeration district descriptions. The index is provided in JSON
+      and totals 251 megabytes — small relative to the 15.1439 terabytes of imagery — and serves as the
+      entry point for programmatically mapping a place or enumeration district to the image files under
+      the other prefixes. It can be synced anonymously with aws s3 sync s3://nara-1940-census/metadata/
+      using --no-sign-request.
+  refs:
+  - nara-1940-developer-doc
+
+- prefix: population-schedules/
+  copy:
+    headline: Digitized 1940 census population schedules
+    lede: The 1940 population schedules are the enumeration forms census takers used to record every household,
+      organized so people can be located by enumeration district.
+    text: 'Digitized JPG images of the forms (population schedules) census enumerators used to record
+      U.S. residents in the 1940 decennial census. NARA''s FAQs explain that the records are organized
+      by enumeration district: a researcher locates people by identifying the enumeration district in
+      which they lived in 1940 and then browsing the schedules for that district. The 1940 census was
+      the first U.S. census NARA released online, on April 2, 2012, and the schedules are also available
+      free through the National Archives Catalog.
+
+
+      Because the forms record individual-level personal information — names, ages, addresses, occupations,
+      and other details for persons enumerated on April 1, 1940 — they carry historical personally identifiable
+      information.'
+  refs:
+  - nara-1940-developer-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

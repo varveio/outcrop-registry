@@ -1,0 +1,156 @@
+schema_version: '0.4'
+bucket: geoglows-v2
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: grace-groundwater/
+  copy:
+    headline: GRACE-derived groundwater storage anomalies (GGST)
+    lede: 'Outputs of the GRACE Groundwater Subsetting Tool: groundwater storage anomalies derived from
+      NASA GRACE/GRACE-FO and GLDAS data for regional monitoring.'
+    text: 'These are products from the GRACE Groundwater Subsetting Tool (GGST), which uses NASA Gravity
+      Recovery and Climate Experiment (GRACE) and GRACE-FO total-water-storage anomalies together with
+      NASA GLDAS surface-water data to estimate groundwater storage anomalies. They enable global monitoring
+      of groundwater change for selected regions since 2002 (excepting high latitudes) at a coarse 1-degree-by-1-degree
+      resolution (roughly 100x100 km cells), best used for long-term regional trends rather than local
+      issues such as well placement. GGST is delivered through GEOGLOWS at apps.geoglows.org/apps/ggst
+      with an API. The contents include the GRACE/GLDAS source inputs (grace_dir_output: gldas and mascon)
+      and per-region subset outputs (ggst).'
+  refs:
+  - geoglows-ggst
+
+- prefix: groundwater/
+  copy:
+    headline: Gridded GRACE/GLDAS groundwater anomaly cubes
+    lede: Gridded GRACE-derived groundwater and total-water-storage anomaly cubes backing the GEOGLOWS
+      groundwater monitoring products.
+    text: These gridded anomaly cubes are derived from NASA GRACE and GRACE-FO total-water-storage anomalies
+      combined with NASA GLDAS surface-water data to isolate groundwater storage change. Like the GRACE
+      Groundwater Subsetting Tool (GGST) products, they support monitoring of long-term regional groundwater
+      change since 2002 (excepting high latitudes), packaged here as analysis-ready gridded cubes rather
+      than per-region subsets.
+  refs:
+  - geoglows-ggst
+
+- prefix: hydrography/
+  copy:
+    headline: TDX-Hydro-derived stream network and catchments
+    lede: The GEOGLOWS V2 hydrography is a network of about 7 million river reaches conditioned from NGA's
+      TDX-Hydro, defining the geometry the model routes over.
+    text: The hydrography is built on TDX-Hydro, a streams dataset derived from a 12m Airbus DEM created
+      by the U.S. National Geospatial-Intelligence Agency (NGA). From TDX-Hydro's roughly 16 million global
+      river segments, GEOGLOWS conditioned a network of about 7 million rivers by excluding far-northern
+      regions and small islands, correcting errors, dissolving headwater streams into downstream segments,
+      and removing small watersheds (25-200 km2 depending on geography) to reduce spurious features in
+      arid and flat regions. Each stream carries unique identifiers (LINKNO, geoglowsID), upstream/downstream
+      connectivity, physical characteristics (length, slope, elevation drop, stream order), Muskingum
+      routing parameters (k and x), and topological ordering; catchments are the matching drainage areas.
+      Streams are organized into Vector Processing Units (VPUs), three-digit regional codes used as processing
+      zones.
+  refs:
+  - geoglows-hydrography-doc
+
+- prefix: hydrography-global/
+  copy:
+    headline: Global, all-domain hydrography product
+    lede: A global hydrography product that packages the GEOGLOWS V2 stream and catchment network for
+      the whole domain rather than split by Vector Processing Unit.
+    text: This is the GEOGLOWS V2 hydrography offered as a global product covering the full domain, for
+      users who want the whole stream and catchment network rather than individual Vector Processing Units.
+      It is the same TDX-Hydro-derived network of about 7 million river reaches described under the hydrography
+      product, provided here in globally combined form.
+  refs:
+  - geoglows-hydrography-doc
+
+- prefix: maptiles/
+  copy:
+    headline: Map tiles for the GEOGLOWS web applications
+    lede: Pre-rendered map tiles used to display GEOGLOWS layers in the browser-based web applications.
+    text: These are pre-rendered map tiles that back the browser-based GEOGLOWS web applications, used
+      to display the model's layers on a map. They are presentation tiles for the web maps rather than
+      primary model data.
+  refs:
+  - geoglows-catalog
+
+- prefix: retrospective/
+  copy:
+    headline: Retrospective river discharge since 1940
+    lede: GEOGLOWS V2's retrospective is a continuous historical run of the routing model forced with
+      ERA5 runoff, covering about 80 years of river discharge from January 1940 to the present.
+    text: 'The retrospective is a continuous historical simulation of river discharge, forced with ERA5
+      runoff and following the Climate and Forecast (CF) conventions. The core variables are rivid (river
+      identification numbers), time, and Qout (the average water discharge downstream of each river reach,
+      one column per river and one row per timestep), each rivid carrying a latitude and longitude. GEOGLOWS
+      distributes it in Zarr optimized for on-demand time-series queries of a few hundred rivers, alongside
+      netCDF for bulk download. It is offered at several temporal resolutions — hourly, daily, monthly,
+      and yearly — together with derived products: flow duration curves, and annual maximums used to derive
+      return periods.'
+  refs:
+  - geoglows-retro-doc
+
+- prefix: routing-configs/
+  copy:
+    headline: Per-VPU routing configuration inputs
+    lede: The routing configuration inputs derived from the hydrography — connectivity, Muskingum parameters,
+      and topological ordering — organized by Vector Processing Unit.
+    text: 'These configuration inputs parameterize how the GEOGLOWS V2 model routes runoff through the
+      stream network, derived from the TDX-Hydro hydrography: stream upstream/downstream connectivity,
+      Muskingum routing parameters (k and x), and topological ordering. They are organized by Vector Processing
+      Unit (VPU), the three-digit regional zones the model processes.'
+  refs:
+  - geoglows-hydrography-doc
+
+- prefix: sources/
+  copy:
+    headline: Observed-gauge reference data for bias correction
+    lede: Observational gauge reference data used by the SABER method to compute observed flow duration
+      curves at gauged river segments.
+    text: These are the observational reference inputs GEOGLOWS V2 draws on for bias correction. The SABER
+      method compares observed and simulated discharge using flow duration curves at gauged river segments;
+      the observed flow duration curves it derives from this gauge data are what the simulated curves
+      are compared against to build the scalar flow duration curve transforms stored under the transformers.
+  refs:
+  - geoglows-hydrography-doc
+
+- prefix: tables/
+  copy:
+    headline: Supplementary Parquet tables for the stream network
+    lede: Supplementary tabular data in Parquet that accompanies the GEOGLOWS V2 hydrography and model
+      outputs.
+    text: These supplementary Parquet tables accompany the GEOGLOWS V2 hydrography and outputs, providing
+      tabular metadata over the stream network — such as the identifiers and Vector Processing Unit codes
+      used to relate model results to individual river reaches.
+  refs:
+  - geoglows-hydrography-doc
+
+- prefix: transformers/
+  copy:
+    headline: SABER bias-correction transform tables
+    lede: Fitted SABER artifacts — scalar flow duration curves and polynomial fits — used to bias-correct
+      GEOGLOWS model discharge toward observations.
+    text: 'GEOGLOWS V2 applies SABER (Stream Analysis for Bias Estimation and Reduction), a model-agnostic
+      postprocessor that bias-corrects discharge from large hydrologic models using flow duration curves
+      (FDC). The scalar flow duration curve (SFDC) is the ratio of the simulated to the observed FDC at
+      gauged river segments: above 1 the simulation is biased high for that exceedance probability, below
+      1 biased low. SABER computes SFDCs separately for each month and for every exceedance probability
+      from 0% to 100%, then uses machine-learning clustering to group watersheds with similar flow and
+      propagate the correction from gauged to ungauged basins. These transformers hold the fitted SABER/SFDC
+      transform tables — including the polynomial fits that map discharge to probability and back (ptoq/qtop)
+      — used to bias-correct the retrospective and forecast streamflow.'
+  refs:
+  - geoglows-saber
+
+- prefix: transformers/polyfits.zarr/
+  copy:
+    text: The eight sub-directories (PtoQ, QtoP, Qrange, minmax, month, river_id, ptoq_exponent_degree,
+      qtop_exponent_degree) are the internal data variables and coordinate arrays of a single polyfits.zarr
+      store, not eight separate datasets.
+    headline: The eight sub-directories
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

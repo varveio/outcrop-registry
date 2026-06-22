@@ -1,0 +1,41 @@
+schema_version: '0.4'
+bucket: nasa-irsa-wise
+outcrop_bucket: wise-allwise
+backend: s3
+role: primary
+region: us-west-2
+prefix: wise/allwise/
+
+prefixes:
+- prefix: wise/allwise/catalogs/p3as_psd/healpix_k5/wise-allwise.parquet/
+  copy:
+    headline: AllWISE Source Catalog as HEALPix-partitioned Parquet
+    lede: The full AllWISE Source Catalog — positions, motions and four-band photometry for 747 million
+      sources — in Apache Parquet partitioned by HEALPix order 5.
+    text: This is the AllWISE Source Catalog (the P3AS PSD product) rendered as Apache Parquet for cloud-scale
+      spatial queries. It carries accurate positions, apparent-motion measurements, four-band fluxes and
+      flux-variability statistics for the over 747 million objects detected on the coadded Atlas Images.
+      The files are partitioned by HEALPix order 5 so a sky region maps directly to a small set of partitions,
+      making spatially-bounded reads efficient without scanning the whole catalog.
+  refs:
+  - wise-allwise-release
+
+- prefix: wise/allwise/images/
+  copy:
+    headline: AllWISE Atlas coadded four-band FITS images
+    lede: 'The AllWISE Images Atlas: 18,240 coadded four-band FITS image sets with depth-of-coverage and
+      noise maps spanning the full sky.'
+    text: The AllWISE Images Atlas (the p3am_cdd coadd product) contains 18,240 four-band calibrated 1.56-degree
+      FITS image sets, coadded from nearly 7.9 million single-exposure frames across all WISE survey phases
+      at 3.4, 4.6, 12 and 22 microns. Each coadd is keyed by coadd_id and band, with intensity images,
+      uncertainty/noise maps and depth-of-coverage products, plus IPAC-ASCII .tbl metadata and artifact
+      (spurious-source) tables and .md5 checksum sidecars alongside the FITS files. The layout groups
+      products under coadd-group and coadd-id directories so an image set can be located by sky position.
+  refs:
+  - allwise-atlas-ibe
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

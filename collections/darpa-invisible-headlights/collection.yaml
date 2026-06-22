@@ -1,0 +1,80 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: darpa-invisible-headlights
+title: DARPA Invisible Headlights Dataset
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: ih-darpa-homepage
+  kind: publisher_homepage
+  url: https://www.darpa.mil/
+  label: DARPA homepage (Defense Advanced Research Projects Agency)
+  excerpt: Defense Advanced Research Projects Agency. To create and prevent technological surprise for
+    our national security.
+  retrieved_at: '2026-06-20'
+
+- id: ih-kitware-dataset-doc
+  kind: publisher_doc
+  url: https://www.kitware.com/darpa-headlights-dataset/
+  label: DARPA Invisible Headlights Dataset documentation (Kitware)
+  excerpt: The DARPA Invisible Headlights Dataset is a large-scale multi-sensor dataset annotated for
+    autonomous, off-road navigation in challenging off-road environments. It features simultaneously collected
+    off-road imagery from multispectral, hyperspectral, polarimetric, and broadband sensors spanning wave-lengths
+    from the visible spectrum to long-wave infrared and provides aligned LIDAR data for ground-truth shape.
+    The dataset consists of approximately 145 paths from 4 different collection sites across
+  retrieved_at: '2026-06-20'
+
+- id: ih-kitware-terms
+  kind: publisher_doc
+  url: https://www.kitware.com/darpa-headlights-dataset/
+  label: DARPA Invisible Headlights Dataset — Attribution and license (CC BY 4.0)
+  excerpt: 'This dataset is licensed under CC BY 4.0. This dataset was developed with funding from the
+    Defense Advanced Research Projects Agency (DARPA). Distribution Statement A: Approved for public release.
+    Distribution is unlimited.'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Multi-sensor off-road imagery for passive thermal terrain navigation
+    lede: The DARPA Invisible Headlights Dataset pairs multispectral, hyperspectral, polarimetric, and
+      broadband off-road imagery with aligned LIDAR for autonomous off-road navigation research, released
+      under CC BY 4.0.
+    text: The DARPA Invisible Headlights Dataset is a large-scale multi-sensor collection annotated for
+      autonomous, off-road navigation in challenging environments. Developed with DARPA funding, it features
+      simultaneously collected imagery from multispectral, hyperspectral, polarimetric, and broadband
+      sensors spanning wavelengths from the visible spectrum to long-wave infrared, with aligned LIDAR
+      providing ground-truth shape. It comprises approximately 145 paths from four collection sites across
+      the US, gathered across multiple seasons, varied weather, and both day and night, capturing scenes
+      and obstacles such as forest, desert, snow, ponds, and fields. Raw sensor captures are organized
+      into a four-level collect → path → step → imagery hierarchy, alongside derived data including camera
+      calibrations, LiDAR registrations, and traversability annotations for a subset. A subset is publicly
+      available; the full dataset is on the AWS Registry of Open Data, licensed under CC BY 4.0.
+  refs:
+  - ih-kitware-dataset-doc
+
+source:
+  publisher: Defense Advanced Research Projects Agency (DARPA)
+  homepage_url: https://www.darpa.mil/
+
+display:
+  canonical_path: /darpa-invisible-headlights/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

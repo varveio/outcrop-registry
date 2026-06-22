@@ -1,0 +1,43 @@
+schema_version: '0.4'
+bucket: iwmi-datasets
+outcrop_bucket: blue-et
+backend: s3
+role: primary
+region: af-south-1
+prefix: Water_accounting_plus/Africa/Incremental_ET_M/
+
+prefixes:
+- prefix: Water_accounting_plus/
+  copy:
+    headline: Water Accounting+ (WA+) outputs, by region
+    lede: The Water Accounting+ (WA+) container for IWMI's DIWASA evapotranspiration products, organized
+      by region — currently Africa.
+    text: This container holds IWMI's Water Accounting+ (WA+) outputs, organized by region (currently
+      Africa). Beneath it sit the DIWASA evapotranspiration products — the Blue (incremental) and Green
+      ET grids produced by the International Water Management Institute through the Digital Innovation
+      for Water Secure Africa (DIWASA) project, which partition operational SSEBop satellite ET into blue
+      (irrigation, groundwater, surface water) and green (rainfall) components using the WA+ mass-balance
+      framework.
+  refs:
+  - blueet-dea-specs
+
+- prefix: Water_accounting_plus/Africa/
+  copy:
+    headline: Monthly incremental (blue) ET rasters for Africa
+    lede: Continent-wide monthly Blue ET (incremental evapotranspiration) for Africa, the irrigation-
+      and surface-water-driven component of total ET in IWMI's Water Accounting+ partitioning.
+    text: 'These are the monthly incremental-ET grids that make up IWMI''s DIWASA Blue ET product for
+      Africa: the share of evapotranspiration drawn from blue water — irrigation, groundwater, and open
+      surface water — separated from rainfall-driven green ET using the Water Accounting+ mass balance
+      over SSEBop satellite ET. Each monthly time step is a ~1 km (EPSG:4326) raster of values in millimetres,
+      distributed as scaled Int16 GeoTIFFs with paired STAC item metadata for catalog discovery. The series
+      spans 2003 through 2021 and underpins assessments of consumptive irrigation water use and water
+      productivity across the continent.'
+  refs:
+  - blueet-dea-specs
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

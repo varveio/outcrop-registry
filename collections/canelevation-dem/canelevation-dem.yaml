@@ -1,0 +1,83 @@
+schema_version: '0.4'
+bucket: canelevation-dem
+backend: s3
+role: primary
+region: ca-central-1
+
+prefixes:
+- prefix: hrdem-arcticdem/
+  copy:
+    headline: Northern HRDEM surface models from satellite imagery
+    lede: High-resolution Digital Surface Models covering northern Canada, generated mainly from optical
+      satellite imagery where airborne lidar coverage is sparse.
+    text: North of the productive forest line, where vegetation and infrastructure are sparse, the HRDEM
+      is generated as Digital Surface Models only, drawn mostly from optical digital satellite imagery
+      rather than airborne lidar. These northern datasets are produced at 2 m resolution in the Polar
+      Stereographic North coordinate system referenced to the WGS84 horizontal datum, or in UTM NAD83
+      (CSRS), with each dataset covering a 50 km by 50 km area and referenced vertically to CGVD2013.
+      As with the rest of the HRDEM product, no integration or edge-matching is performed between separately
+      acquired projects.
+  refs:
+  - canelevation-hrdem-catalog
+
+- prefix: hrdem-lidar/
+  copy:
+    headline: Project-level HRDEM from airborne lidar
+    lede: Per-project HRDEM terrain and surface models generated from airborne lidar across southern Canada,
+      before mosaicking.
+    text: Across southern Canada, the HRDEM is generated from airborne lidar as both Digital Terrain Models
+      (DTM) and Digital Surface Models (DSM), along with derived layers including slope, aspect, shaded
+      relief, colour relief, and colour shaded relief. Products are offered at 1 m or 2 m resolution and
+      referenced to the Canadian Geodetic Vertical Datum of 2013 (CGVD2013); northern datasets use UTM
+      NAD83 (CSRS) or Polar Stereographic North on WGS84. The data is organized by acquisition project,
+      each covering a 50 km by 50 km area, with no integration or edge-matching performed between separately
+      acquired projects.
+  refs:
+  - canelevation-hrdem-catalog
+
+- prefix: hrdem-mosaic-1m/
+  copy:
+    headline: National 1 m lidar HRDEM mosaic
+    lede: The country-scale HRDEM mosaic at 1 m resolution, assembled from the airborne-lidar HRDEM and
+      used as the high-resolution source for the MRDEM.
+    text: 'The national high-resolution HRDEM mosaic, derived from airborne lidar, assembles the project-level
+      HRDEM into a single product at 1 m resolution. It is referenced to the Canadian Geodetic Vertical
+      Datum of 2013 (CGVD2013). This mosaic serves as the preferred high-resolution source for the Medium
+      Resolution Digital Elevation Model: where it is available, its values are resampled from 1 m to
+      30 m to build the lidar-derived portion of the MRDEM, because it already provides reliable terrain
+      elevation.'
+  refs:
+  - canelevation-hrdem-catalog
+
+- prefix: hrdem-mosaic-2m/
+  copy:
+    headline: HRDEM mosaic at 2 m resolution
+    lede: The HRDEM mosaic at 2 m resolution, the coarser companion to the 1 m product.
+    text: A 2 m-resolution mosaic of the High Resolution Digital Elevation Model, complementing the 1
+      m mosaic at a lighter ground sampling. The underlying HRDEM is generated at 1 m or 2 m resolution
+      and referenced to the Canadian Geodetic Vertical Datum of 2013 (CGVD2013).
+  refs:
+  - canelevation-hrdem-catalog
+
+- prefix: mrdem-30/
+  copy:
+    headline: MRDEM — 30 m complete-coverage national mosaic
+    lede: The Medium Resolution Digital Elevation Model is a gap-free 30 m mosaic of Canada that fuses
+      Copernicus GLO-30 with the lidar HRDEM, replacing the retired CDEM.
+    text: 'The Medium Resolution Digital Elevation Model (MRDEM) provides complete 30 m coverage of the
+      Canadian landmass, extending into the United States where required to cover transboundary watersheds,
+      and replaces the no-longer-maintained Canadian Digital Elevation Model (CDEM). It is a mosaic derived
+      from two main sources: the Copernicus DEM (GLO-30), acquired during the TanDEM-X mission by Airbus,
+      and the national high-resolution HRDEM mosaic derived from airborne lidar, which is preferred wherever
+      available and resampled from 1 m to 30 m because it already provides reliable terrain values. The
+      product comprises three datasets — a Digital Surface Model, a Digital Terrain Model, and a data-source
+      layer indicating which source contributed at each location — referenced to the Canadian Geodetic
+      Vertical Datum of 2013 (CGVD2013). The files are designed for streaming rather than bulk download.'
+  refs:
+  - canelevation-mrdem-catalog
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

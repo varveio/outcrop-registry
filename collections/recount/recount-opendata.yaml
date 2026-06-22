@@ -1,0 +1,62 @@
+schema_version: '0.4'
+bucket: recount-opendata
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: recount2/
+  copy:
+    headline: recount2 archive — RNA-seq counts for 2,041 studies
+    lede: 'recount2 is the second generation of the ReCount project: analysis-ready RNA-seq gene and exon
+      counts plus coverage bigWig files for 2,041 studies, processed with Rail-RNA.'
+    text: recount2 is the earlier generation of the ReCount project, an online multi-experiment resource
+      of analysis-ready RNA-seq gene and exon count datasets for 2,041 studies. The raw sequencing data
+      was processed with the Rail-RNA pipeline, and for each study the project produced gene- and exon-level
+      count tables and extracted phenotype data, provided in raw form and as RangedSummarizedExperiment
+      R objects, alongside coverage bigWig files. The full collection exceeds 8 terabytes; it is hosted
+      on SciServer, where it can also be accessed locally via a Jupyter Notebook. The publisher states
+      the data is licensed under CC BY 4.0.
+  refs:
+  - recount2-data-license
+  terms:
+    license: CC-BY-4.0
+    status: verified
+    name: Creative Commons Attribution 4.0 International
+    url: https://creativecommons.org/licenses/by/4.0/
+    display_policy: include
+
+- prefix: recount3/release/
+  copy:
+    headline: recount3 release — human & mouse study-level RNA-seq counts
+    lede: 'The main recount3 release: uniformly processed gene, exon, and exon-exon junction counts plus
+      coverage bigWig files for thousands of human and mouse studies, organized by organism and data source.'
+    text: The primary recount3 release organizes files by organism (human, mouse), then by data source
+      — most commonly the Sequence Read Archive (SRA), plus GTEx and TCGA — or by a manually curated collection,
+      then by expression level and annotation. For each project it provides gene, exon, and exon-exon
+      junction (split-read) counts in Matrix Market format with coordinate and sample-ID sidecar files,
+      five project-level metadata tables, and sample-level coverage bigWig files. Gene sums span several
+      human annotations (Gencode v26 and v29, FANTOM6-CAT, RefSeq R109) and mouse (Gencode v23). Large
+      studies such as GTEx and TCGA are fragmented at the tissue level. The same files are reachable over
+      HTTP at duffel.rail.bio/recount3 and idies.jhu.edu/recount3/data.
+  refs:
+  - recount3-raw-files
+
+- prefix: recount3expansion/
+  copy:
+    headline: recount3 expansion — community-contributed collections
+    lede: 'The ''Expand ReCount'' area: studies and curated collections that contributors add so they
+      integrate with the main recount3 resource.'
+    text: recount3expansion gathers the 'Expand ReCount' contributions documented under the project's
+      'Your data' guide, where users process their own data and contribute curated collections. A collection
+      is a manually curated set of samples from one or more studies, paired with a custom metadata file
+      in which the curators specify collection-specific metadata variables. Contributed data follows the
+      same recount3 file conventions as the main release so it integrates with the core resource.
+  refs:
+  - recount3-docs-index
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

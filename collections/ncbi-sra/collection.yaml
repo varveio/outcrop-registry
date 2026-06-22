@@ -1,0 +1,91 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: ncbi-sra
+title: NCBI Sequence Read Archive (SRA) — Metadata
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: ncbi-sra-athena-access
+  kind: publisher_doc
+  url: https://www.ncbi.nlm.nih.gov/sra/docs/sra-athena/
+  label: NCBI — Get started with the SRA and Amazon Athena
+  excerpt: 'These data can be accessed using the command line interface with the --no-sign-request option,
+    see examples below. For all SRA metadata metadata: aws s3 ls s3://sra-pub-metadata-us-east-1/sra/metadata/
+    --no-sign-request'
+  retrieved_at: '2026-06-22'
+
+- id: ncbi-sra-homepage
+  kind: publisher_homepage
+  url: https://www.ncbi.nlm.nih.gov/sra/
+  label: NCBI Sequence Read Archive (SRA) homepage
+  excerpt: The Sequence Read Archive (SRA) stores raw sequence data from "next-generation" sequencing
+    technologies.
+  retrieved_at: '2026-06-22'
+
+- id: ncbi-sra-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/ncbi-sra.yaml
+  label: AWS Open Data Registry — NIH NCBI SRA on AWS (ncbi-sra.yaml)
+  excerpt: 'The Sequence Read Archive (SRA), produced by the National Center for Biotechnology Information
+    (NCBI) ... stores raw DNA sequencing data and alignment information from high-throughput sequencing
+    platforms. The SRA provides open access to these biological sequence data ... Also included is all
+    SRA metadata that can be leveraged for attribute-based data discovery. License: NCBI Policy and NIH
+    Genomic Data Sharing Policy. Resource: Metadata files for the Sequence Read Archive, ready to load
+    into AW'
+  retrieved_at: '2026-06-22'
+
+- id: ncbi-sra-tabledef
+  kind: publisher_doc
+  url: https://www.ncbi.nlm.nih.gov/sra/docs/sra-cloud-based-metadata-table/
+  label: NCBI — SRA Cloud-based Metadata Table definitions
+  excerpt: Metadata Table (sra.metadata) contains information about the run and biological samples. ...
+    acc STRING SRA Run accession ... attributes RECORD Full list of sample attributes in a nested (array)
+    structure ... jattr STRING JSON based string of the sample attributes
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: SRA run, sample, study, and experiment metadata on AWS
+    lede: The cloud-delivered metadata for NCBI's Sequence Read Archive — the queryable run, sample, study,
+      and experiment tables that index every public SRA submission, mirrored to S3 for AWS Glue and Amazon
+      Athena.
+    text: 'This is the AWS-hosted metadata layer of the NCBI Sequence Read Archive (SRA), maintained by
+      the National Center for Biotechnology Information at NLM/NIH. It carries the descriptive metadata
+      that indexes SRA submissions — run accessions, the experiments, samples, studies, and BioProject/BioSample
+      links behind them, plus sequencing attributes such as assay type, platform, instrument, library
+      layout, and organism. The tables are published so they can be loaded into AWS Glue and queried with
+      Amazon Athena for attribute-based discovery across the archive, and are refreshed daily. This collection
+      covers only the metadata bucket: the actual sequence reads (.sra, .bam, .cram, .fastq runs) live
+      in separate SRA buckets in the same AWS registry entry and are not part of this mirror.'
+  refs:
+  - ncbi-sra-registry
+  - ncbi-sra-athena-access
+  - ncbi-sra-tabledef
+
+source:
+  publisher: National Center for Biotechnology Information (NCBI), National Library of Medicine (NLM),
+    NIH
+  homepage_url: https://www.ncbi.nlm.nih.gov/sra/
+
+display:
+  canonical_path: /ncbi-sra/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

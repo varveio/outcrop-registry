@@ -1,0 +1,91 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nrel-pds-nsrdb
+title: NREL National Solar Radiation Database (NSRDB)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: nsrdb-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/nrel-pds-nsrdb/
+  label: registry.opendata.aws — nrel pds nsrdb
+  excerpt: 4km-10min data from the Himawari satellites starting in 2015 ... 4km-15min data from the Meteosat
+    satellites starting in 2017 ... 2km-10min data for the all of the Western Hemisphere (GOES full-disc)
+    starting with 2018
+
+- id: nsrdb-dev-api
+  kind: publisher_doc
+  url: https://registry.opendata.aws/nrel-pds-nsrdb/
+  label: NSRDB Data Downloads API (NREL Developer Network)
+  retrieved_at: '2026-06-20'
+
+- id: nsrdb-homepage
+  kind: publisher_homepage
+  url: https://data.openei.org/submissions/1
+  label: NSRDB homepage (NREL)
+  retrieved_at: '2026-06-20'
+
+- id: nsrdb-oedi-terms
+  kind: catalog_metadata
+  url: https://data.openei.org/submissions/1
+  label: NSRDB on the NREL Data Catalog / DOE Open Energy Data Initiative (DOI 10.25984/1810289)
+  excerpt: 'Publicly accessible. License: Creative Commons Attribution 4.0. Content is available under
+    Creative Commons Attribution 4.0 unless otherwise noted.'
+  retrieved_at: '2026-06-20'
+
+- id: nsrdb-registry
+  kind: registry_entry
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/nrel-pds-nsrdb.yaml
+  label: AWS Open Data Registry entry for nrel-pds-nsrdb (per-prefix resource descriptions)
+  excerpt: NSRDB 2km-5min data for the Contiguous United States (CONUS) starting with 2018. NSRDB 2km-10min
+    data for all of the Western Hemisphere (GOES full-disc) starting with 2018. NSRDB 4km-15min data from
+    the Meteosat satellites starting in 2017. NSRDB 4km-10min data from the Himawari satellites starting
+    in 2015. NSRDB Suny-India data (2000-2014).
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Satellite-derived solar irradiance and meteorological record for the U.S. and a growing
+      list of international regions
+    lede: The National Solar Radiation Database (NSRDB), published by NREL for the U.S. Department of
+      Energy, is a serially complete record of solar irradiance and meteorology covering the United States
+      and a growing list of international locations from 1998.
+    text: 'The NSRDB is a serially complete collection of meteorological and solar irradiance data for
+      the United States and a growing list of international locations from 1998 onward, updated annually
+      by the National Renewable Energy Laboratory to support DOE programs, research, industry, and the
+      general public. The solar radiation values represent the resource available to solar energy systems.
+
+
+      The baseline record provides time-series data at 30-minute resolution averaged over surface cells
+      of 0.038 degrees in latitude and longitude, nominally 4 km. Higher-cadence data at 5-minute resolution
+      for the U.S. and 10-minute resolution for North, Central, and South America at 2 km is produced
+      from the next generation of GOES satellites and available from 2019.'
+  refs:
+  - nsrdb-oedi-terms
+
+source:
+  publisher: National Renewable Energy Laboratory (NREL)
+  homepage_url: https://nsrdb.nrel.gov/
+
+display:
+  canonical_path: /nrel-pds-nsrdb/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

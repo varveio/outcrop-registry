@@ -1,0 +1,100 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: smithsonian-open-access
+title: Smithsonian Open Access
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: measured-smithsonian-open-access
+  kind: measured_structure
+  url: s3://smithsonian-open-access/
+  label: Measured bucket structure
+  excerpt: 'Engine path-namespace snapshot: 2486 prefixes, 8871700 objects.'
+
+- id: si-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/smithsonian-open-access/
+  label: AWS Open Data Registry — Smithsonian Open Access (CC0, smithsonian-open-access bucket)
+  excerpt: 'The dataset comprises over 2.8 million CC0 interdisciplinary 2-D and 3-D images with related
+    metadata. License: CC0. arn:aws:s3:::smithsonian-open-access (us-west-2). Access: aws s3 ls --no-sign-request
+    s3://smithsonian-open-access/'
+  retrieved_at: '2026-06-17'
+
+- id: si-github-readme
+  kind: publisher_doc
+  url: https://github.com/Smithsonian/OpenAccess
+  label: Smithsonian/OpenAccess GitHub README (unit codes + bucket layout)
+  excerpt: Over 11 million metadata records from the Smithsonian Institution. Files are serialized as
+    line-delimited JSON and Directories are organized by owning unit and files are distributed by first
+    two characters of content serialization hash. Owning units are internal Smithsonian acronyms.
+  retrieved_at: '2026-06-17'
+
+- id: si-homepage
+  kind: publisher_homepage
+  url: https://github.com/Smithsonian/OpenAccess
+  label: Smithsonian Open Access homepage (si.edu/openaccess)
+  excerpt: More information about Open Access at the Smithsonian as well as documentation on metadata
+    schemas can be found at https://www.si.edu/openaccess and https://edan.si.edu/openaccess/docs/.
+  retrieved_at: '2026-06-17'
+
+- id: si-license-cc0
+  kind: publisher_file
+  url: https://raw.githubusercontent.com/Smithsonian/OpenAccess/master/LICENSE
+  label: Smithsonian/OpenAccess LICENSE — CC0 1.0 Universal
+  excerpt: Creative Commons Legal Code. CC0 1.0 Universal. ... Certain owners wish to permanently relinquish
+    those rights to a Work for the purpose of contributing to a commons of creative, cultural and scientific
+    works ("Commons") that the public can reliably and without fear of later claims of infringement build
+    upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form
+    whatsoever.
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: 'Smithsonian Open Access: 2.8M+ CC0 images and 11M+ catalog records'
+    lede: Smithsonian Open Access releases over 2.8 million interdisciplinary 2-D and 3-D images and more
+      than 11 million metadata records into the public domain under CC0, drawn from museums, archives,
+      libraries, and research units across the Smithsonian Institution.
+    text: 'Smithsonian Open Access publishes the Smithsonian Institution''s digitized collections as a
+      single public-domain corpus: 2-D and 3-D images of objects, specimens, artworks, and archival items,
+      together with the underlying EDAN catalog metadata. Released February 25, 2020, it comprises more
+      than 2.8 million 2-D and 3-D images with related metadata and over 11 million metadata records spanning
+      the institution''s art, history, natural-history, air-and-space, portraiture, design, and archival
+      units.
+
+
+      Everything carries a CC0 1.0 Universal dedication, relinquishing copyright so the assets can be
+      downloaded, modified, reused, and redistributed for any purpose, including commercial use, without
+      permission, attribution, or fee. The corpus is organized by owning Smithsonian unit, identified
+      by internal acronyms such as NMNH, NPG, SAAM, NASM, and NMAAHC, and is mirrored to the public smithsonian-open-access
+      S3 bucket in AWS us-west-2, where new and updated files are pushed weekly.'
+  refs:
+  - si-github-readme
+  - si-aws-registry
+  - si-license-cc0
+
+source:
+  publisher: Smithsonian Institution
+  homepage_url: https://www.si.edu/openaccess
+
+display:
+  canonical_path: /smithsonian-open-access/
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

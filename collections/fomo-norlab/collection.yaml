@@ -1,0 +1,103 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: fomo-norlab
+title: FoMo — Forêt Montmorency Multi-Season Robot Navigation Dataset
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: fomo-arxiv-deployments
+  kind: publisher_doc
+  url: https://arxiv.org/abs/2603.08433
+  label: arxiv.org — 2603
+  excerpt: 'FoMo: A Multi-Season Dataset for Robot Navigation in Forêt Montmorency ... over 64 km of six
+    diverse trajectories, repeated during 12 deployments throughout the year'
+
+- id: fomo-homepage
+  kind: publisher_homepage
+  url: https://norlab.ulaval.ca/
+  label: Northern Robotics Laboratory (Norlab) — Université Laval
+  excerpt: Northern Robotics Laboratory
+  retrieved_at: '2026-06-22'
+
+- id: fomo-license-txt
+  kind: publisher_file
+  url: https://fomo-dataset.s3.amazonaws.com/LICENSE.txt
+  label: FoMo dataset LICENSE.txt (CC BY 4.0)
+  excerpt: 'This dataset is licensed under the Creative Commons Attribution 4.0 International License
+    (CC BY 4.0). You are free to: Share — copy and redistribute the material in any medium or format;
+    Adapt — remix, transform, and build upon the material for any purpose, even commercially. Under the
+    following terms: Attribution — You must give appropriate credit, provide a link to the license, and
+    indicate if changes were made.'
+  retrieved_at: '2026-06-22'
+
+- id: fomo-norlab-site
+  kind: publisher_doc
+  url: https://norlab-ulaval.github.io/bibliography/boxan2024fomo/
+  label: norlab-ulaval.github.io — boxan2024fomo
+  excerpt: a comprehensive multi-season data collection, recorded over the span of one year in a boreal
+    forest ... 12 deployments
+
+- id: fomo-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/fomo-norlab.yaml
+  label: AWS Open Data Registry — fomo-norlab.yaml (Norlab, Université Laval)
+  excerpt: 'License: Creative Commons Attribution 4.0 International (CC BY 4.0). See https://creativecommons.org/licenses/by/4.0/  Resources:
+    ARN: arn:aws:s3:::fomo-dataset  Region: us-west-2  Type: S3 Bucket  ManagedBy: Norlab, Université
+    Laval'
+  retrieved_at: '2026-06-22'
+
+- id: fomo-tutorial-readme
+  kind: publisher_doc
+  url: https://github.com/norlab-ulaval/fomo-dataset-tutorials
+  label: FoMo Dataset Tutorials README (Norlab, Université Laval)
+  excerpt: 'The FoMo dataset is a year-long robotic data collection recorded in a boreal forest 80 km
+    north of Quebec City, Canada. It features over 64 km of trajectories repeated across 12 deployments
+    spanning dramatic seasonal changes. Storage: s3://fomo-dataset (public, no AWS credentials required).
+    No AWS account is required — the dataset is publicly accessible.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Multi-season robot-navigation dataset from a Québec boreal forest
+    lede: FoMo is a year-long, multi-sensor robot-navigation dataset recorded by Norlab (Université Laval)
+      in Forêt Montmorency, a boreal forest 80 km north of Québec City.
+    text: 'FoMo captures repeated robotic traversals of six trajectories — over 64 km in total — driven
+      across twelve deployments spanning a full year, from −19 °C winters under more than a metre of snow
+      to warm summers with dense vegetation. An uncrewed ground vehicle carries a synchronized multi-modal
+      sensor suite: two lidars (one rotating, one hybrid solid-state), an FMCW radar, stereo and monocular
+      cameras, dual IMUs, microphones, wheel odometry, power telemetry, and GNSS, with centimetre-accurate
+      ground-truth trajectories from post-processed GNSS-PPK fusion and one-minute weather-station metadata.
+      It is built to stress long-term SLAM, odometry, localization, and traversability methods against
+      the seasonal change that degrades state-of-the-art re-localization. Published by Norlab, Université
+      Laval under CC BY 4.0 and distributed openly on AWS as the s3://fomo-dataset bucket; the paper is
+      arXiv:2603.08433.'
+  refs:
+  - fomo-tutorial-readme
+  - fomo-registry
+
+source:
+  publisher: Norlab, Université Laval
+  homepage_url: https://norlab.ulaval.ca/
+
+display:
+  canonical_path: /fomo-norlab/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

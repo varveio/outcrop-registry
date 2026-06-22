@@ -1,0 +1,98 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: multiconer
+title: MultiCoNER Complex NER Datasets
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: multiconer-2022-task
+  kind: publisher_doc
+  url: https://aclanthology.org/2022.semeval-1.196/
+  label: aclanthology.org — 2022.semeval 1
+  excerpt: The task was based on the MULTICONER dataset comprising of 2.3 millions instances in Bangla,
+    Chinese, Dutch, English, Farsi, German, Hindi, Korean, Russian, Spanish, and Turkish ... divided into
+    13 tracks.
+
+- id: multiconer-2023-task
+  kind: publisher_doc
+  url: https://arxiv.org/abs/2305.06586
+  label: arxiv.org — 2305
+  excerpt: Divided into 13 tracks, the task focused on methods to identify complex fine-grained named
+    entities ... across 12 languages ... The task used the MULTICONER V2 dataset, composed of 2.2 million
+    instances in Bangla, Chinese, English, Farsi, French, German, Hindi, Italian, Portuguese, Spanish,
+    Swedish, and Ukrainian.
+
+- id: multiconer-aws-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/multiconer.yaml
+  label: AWS Open Data registry entry — MultiCoNER Datasets (provider catalog metadata)
+  excerpt: 'License: "[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)". ManagedBy: "[Amazon](https://www.amazon.com/)".
+    Resources: MultiCoNER 1 Data files arn:aws:s3:::multiconer/multiconer2022/ (us-west-2); MultiCoNER
+    2 Data files arn:aws:s3:::multiconer/multiconer2023/ (us-west-2). aws s3 ls --no-sign-request s3://multiconer/multiconer2022/'
+  retrieved_at: '2026-06-22'
+
+- id: multiconer-homepage
+  kind: publisher_homepage
+  url: https://multiconer.github.io/
+  label: MultiCoNER task homepage (SemEval-2022/2023)
+  excerpt: 'SemEval 2023 Task 2: MultiCoNER II Multilingual Complex Named Entity Recognition'
+  retrieved_at: '2026-06-22'
+
+- id: multiconer-readme
+  kind: publisher_doc
+  url: https://multiconer.s3.us-west-2.amazonaws.com/readme.html
+  label: MultiCoNER dataset README (CC BY 4.0, S3 access)
+  excerpt: 'We release a MultiCoNER dataset, a large multilingual dataset for Named Entity Recognition
+    that covers 3 domains (Wiki sentences, questions, and search queries) and includes 11 languages, as
+    well as multilingual and code-mixing subsets. License: CC BY 4.0. The dataset is stored at the public
+    Amazon S3 bucket: multiconer. To download the dataset use: aws s3 cp s3://multiconer ./ --recursive
+    --no-sign-request'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Multilingual complex named-entity-recognition benchmark datasets
+    lede: MultiCoNER is a family of large multilingual NER datasets built for the SemEval-2022 Task 11
+      and SemEval-2023 Task 2 shared tasks, released by Amazon under CC BY 4.0.
+    text: 'MultiCoNER targets the hard cases in named entity recognition: short, low-context, uncased
+      text drawn from Wikipedia sentences, questions, and search queries, with syntactically complex entities
+      such as movie and product titles and a long-tail entity distribution. The data is built from public
+      resources using heuristic sentence sampling, template extraction and slotting, and machine translation,
+      and tokens are labeled in the CoNLL format with the BIO scheme.
+
+
+      Two releases sit side by side. The 2022 release (MultiCoNER 1) spans 11 languages plus multilingual
+      and code-mixed subsets over a coarse six-class taxonomy. The 2023 release (MultiCoNER 2) spans 12
+      languages over a fine-grained taxonomy of 36 entity classes and adds noisy test instances with character-level
+      corruptions. Each release is organized by language, with train/dev/test splits provided as plain-text
+      CoNLL files.'
+  refs:
+  - multiconer-readme
+  - multiconer-aws-registry
+
+source:
+  publisher: Amazon
+  homepage_url: https://multiconer.github.io/
+
+display:
+  canonical_path: /multiconer/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,38 @@
+schema_version: '0.4'
+bucket: uscb-2020-product-releases
+outcrop_bucket: census-2020-pl94-gls
+backend: s3
+role: primary
+region: us-west-2
+prefix: decennial/gls/2020/redistricting-gls-estimates/
+
+prefixes:
+- prefix: decennial/gls/2020/redistricting-gls-estimates/us/County/
+  copy:
+    headline: County-level GLS estimates and standard deviations
+    lede: 'County-geography slice of the 2020 Redistricting Data File Least Squares Estimates: GLS count
+      estimates with standard deviations for each persons-universe tabulation, by county.'
+    text: The county-level estimates give a generalized-least-squares estimate and an accompanying standard
+      deviation for every persons-universe tabulation of the 2020 P.L. 94-171 redistricting data at county
+      geography, supporting confidence-interval construction for the published county counts. CSV tables
+      are partitioned by State= then County=.
+  refs:
+  - gls-registry-metadata
+
+- prefix: decennial/gls/2020/redistricting-gls-estimates/us/Tract/
+  copy:
+    headline: Tract-level GLS estimates and standard deviations
+    lede: 'Census-tract slice of the 2020 Redistricting Data File Least Squares Estimates: GLS count estimates
+      with standard deviations for each persons-universe tabulation, by tract.'
+    text: The tract-level estimates give a generalized-least-squares estimate and a standard deviation
+      for every persons-universe tabulation of the 2020 P.L. 94-171 redistricting data at census-tract
+      geography — the finest geography in this product — enabling confidence intervals for the published
+      tract counts. CSV tables are partitioned by State=, then County=, then Tract=.
+  refs:
+  - gls-registry-metadata
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

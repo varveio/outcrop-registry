@@ -1,0 +1,110 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: wise-allwise
+title: AllWISE Data Release (WISE)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: allwise-atlas-ibe
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/ibe/docs/wise/allwise/p3am_cdd/
+  label: WISE AllWISE Atlas (L3a) Images — IRSA/IPAC IBE
+  excerpt: 'Intensity images ... located at paths following this pattern: {coaddgrp}/{coadd_ra}/{coadd_id}/{coadd_id}-w{band}-int-3.fits.
+    Uncertainty maps (compressed as .fits.gz) provide noise characterization.'
+  retrieved_at: '2026-06-22'
+
+- id: aws-registry-wise-allwise
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/wise-allwise/
+  label: AllWISE Data — AWS Open Data Registry (usage example)
+  excerpt: aws s3 ls --no-sign-request s3://nasa-irsa-wise/wise/allwise/
+  retrieved_at: '2026-06-22'
+
+- id: irsa-ack
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/ack.html
+  label: IRSA Acknowledgement & Citation Requirements
+  excerpt: This research has made use of the NASA/IPAC Infrared Science Archive, which is funded by the
+    National Aeronautics and Space Administration and operated by the California Institute of Technology.
+  retrieved_at: '2026-06-22'
+
+- id: irsa-cloud-access
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/cloud_access/
+  label: IRSA Cloud Data Access
+  excerpt: The files are hosted through the AWS Open Data Sponsorship Program, allowing them to be downloaded
+    or accessed directly without credentials or egress charges. ... The data are freely available and
+    no special permissions or credentials are required.
+  retrieved_at: '2026-06-22'
+
+- id: irsa-data-use-terms
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/data_use_terms.html
+  label: Terms of Use of Data Hosted by IRSA
+  excerpt: Most data served by IRSA is public, with no usage restrictions. ... It is best practice for
+    users of data hosted at IRSA to include the appropriate acknowledgements and citations in any publications.
+  retrieved_at: '2026-06-22'
+
+- id: wise-allwise-release
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/
+  label: AllWISE Data Release — IRSA
+  excerpt: The AllWISE program combines data from the WISE cryogenic and NEOWISE post-cryogenic survey
+    phases to form the most comprehensive view of the full mid-infrared sky currently available. ... accurate
+    positions, apparent motion measurements, four-band fluxes and flux variability statistics for over
+    747 million objects detected on the coadded Atlas Images.
+  retrieved_at: '2026-06-22'
+
+- id: wise-pub-homepage
+  kind: publisher_homepage
+  url: https://irsa.ipac.caltech.edu/Missions/wise.html
+  label: IRSA — Wide-field Infrared Survey Explorer (WISE) and NEOWISE mission page
+  excerpt: The IRSA/WISE archive contains the AllWISE Source Catalog and Reject Table extracted from the
+    coadded Atlas Images, the Multiepoch Photometry Database, and metadata tables associated with the
+    Atlas images and source tables.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: AllWISE all-sky mid-infrared source catalog and image atlas
+    lede: The AllWISE Data Release is NASA's combined Wide-field Infrared Survey Explorer release, cataloging
+      over 747 million sources across the full mid-infrared sky.
+    text: The AllWISE Data Release combines observations from the WISE cryogenic and NEOWISE post-cryogenic
+      survey phases into the most comprehensive view of the full mid-infrared sky to date. Its Source
+      Catalog records accurate positions, apparent-motion measurements, four-band fluxes (3.4, 4.6, 12
+      and 22 microns) and flux-variability statistics for over 747 million objects detected on the deep
+      coadded Atlas Images; exploiting the 6-to-12-month baseline between WISE sky-coverage epochs let
+      AllWISE measure source motions and improved variability for the first time. The companion Images
+      Atlas provides 18,240 four-band calibrated 1.56-degree FITS image sets with depth-of-coverage and
+      noise maps, coadded from nearly 7.9 million single-exposure frames. The release is stewarded by
+      the NASA/IPAC Infrared Science Archive (IRSA) at Caltech/JPL and mirrored to AWS S3 under the Open
+      Data program.
+  refs:
+  - wise-allwise-release
+
+source:
+  publisher: NASA/IPAC Infrared Science Archive (IRSA)
+  homepage_url: https://irsa.ipac.caltech.edu/
+
+display:
+  canonical_path: /wise-allwise/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

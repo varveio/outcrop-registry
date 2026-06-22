@@ -1,0 +1,235 @@
+schema_version: '0.4'
+bucket: nz-imagery
+backend: s3
+role: primary
+region: ap-southeast-2
+
+prefixes:
+- prefix: auckland/
+  copy:
+    headline: Auckland region imagery surveys
+    lede: Imagery whose main coverage is the Auckland region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: 'Imagery whose main coverage is the Auckland region, drawn from the imagery types LINZ publishes
+      to the bucket: urban and rural aerial photos, near-infrared products where captured, and historical
+      scanned surveys from the Crown Aerial Film Library (survey numbers starting SN). Following LINZ''s
+      naming convention, each dataset is stored by region then by survey, product and coordinate reference
+      system, with a STAC Collection naming the licensor and delivery as Cloud Optimised GeoTIFFs.'
+  refs:
+  - nz-imagery-naming
+
+- prefix: bay-of-plenty/
+  copy:
+    headline: Bay of Plenty region imagery surveys
+    lede: Imagery whose main coverage is the Bay of Plenty region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Bay of Plenty region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural aerial photos at regional coverage and urban surveys. Following LINZ's
+      naming convention, each dataset is stored by region then by survey, product and coordinate reference
+      system, with a STAC Collection naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: canterbury/
+  copy:
+    headline: Canterbury region imagery surveys
+    lede: Imagery whose main coverage is the Canterbury region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: 'Imagery whose main coverage is the Canterbury region, drawn from the imagery types LINZ publishes
+      to the bucket: urban and rural aerial photos, near-infrared products where captured, and historical
+      scanned surveys from the Crown Aerial Film Library. Following LINZ''s naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.'
+  refs:
+  - nz-imagery-naming
+
+- prefix: chatham-islands/
+  copy:
+    headline: Chatham Islands imagery surveys
+    lede: Imagery whose main coverage is the Chatham Islands, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Chatham Islands, drawn from the imagery types LINZ publishes
+      to the bucket, including aerial photos and any historical scanned surveys from the Crown Aerial
+      Film Library. Following LINZ's naming convention, each dataset is stored by region then by survey,
+      product and coordinate reference system, with a STAC Collection naming the licensor and delivery
+      as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: gisborne/
+  copy:
+    headline: Gisborne region imagery surveys
+    lede: Imagery whose main coverage is the Gisborne region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: 'Imagery whose main coverage is the Gisborne region, drawn from the imagery types LINZ publishes
+      to the bucket: rural and urban aerial photos, and emergency-response captures made to assist with
+      post-event recovery. Following LINZ''s naming convention, each dataset is stored by region then
+      by survey, product and coordinate reference system, with a STAC Collection naming the licensor and
+      delivery as Cloud Optimised GeoTIFFs.'
+  refs:
+  - nz-imagery-naming
+
+- prefix: hawkes-bay/
+  copy:
+    headline: Hawke's Bay region imagery surveys
+    lede: Imagery whose main coverage is the Hawke's Bay region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Hawke's Bay region, drawn from the imagery types LINZ publishes
+      to the bucket, such as urban and rural aerial photos and near-infrared products where captured.
+      Following LINZ's naming convention, each dataset is stored by region then by survey, product and
+      coordinate reference system, with a STAC Collection naming the licensor and delivery as Cloud Optimised
+      GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: manawatu-whanganui/
+  copy:
+    headline: Manawatū-Whanganui region imagery surveys
+    lede: Imagery whose main coverage is the Manawatū-Whanganui region, organised by survey, product and
+      coordinate reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Manawatū-Whanganui region, drawn from the imagery types LINZ
+      publishes to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention,
+      each dataset is stored by region then by survey, product and coordinate reference system, with a
+      STAC Collection naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: marlborough/
+  copy:
+    headline: Marlborough region imagery surveys
+    lede: Imagery whose main coverage is the Marlborough region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Marlborough region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: nelson/
+  copy:
+    headline: Nelson region imagery surveys
+    lede: Imagery whose main coverage is the Nelson region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Nelson region, drawn from the imagery types LINZ publishes
+      to the bucket, such as urban and rural aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: new-zealand/
+  copy:
+    headline: National and multi-region imagery, including annual satellite mosaics
+    lede: Datasets spanning two or more full regions, including the annual cloud-free Sentinel-2 satellite
+      mosaics that give complete national coverage, as STAC-described Cloud Optimised GeoTIFFs.
+    text: Per LINZ's naming convention, datasets covering two or more full regions are placed under new-zealand
+      rather than a single region. These include the annual cloud-free satellite imagery mosaics built
+      from European Space Agency Sentinel-2 imagery, which provide complete national coverage. Each dataset
+      is stored by survey, product and coordinate reference system, with a STAC Collection naming the
+      licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: northland/
+  copy:
+    headline: Northland region imagery surveys
+    lede: Imagery whose main coverage is the Northland region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Northland region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: otago/
+  copy:
+    headline: Otago region imagery surveys
+    lede: Imagery whose main coverage is the Otago region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Otago region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: southland/
+  copy:
+    headline: Southland region imagery surveys
+    lede: Imagery whose main coverage is the Southland region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Southland region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: taranaki/
+  copy:
+    headline: Taranaki region imagery surveys
+    lede: Imagery whose main coverage is the Taranaki region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Taranaki region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: tasman/
+  copy:
+    headline: Tasman region imagery surveys
+    lede: Imagery whose main coverage is the Tasman region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Tasman region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: waikato/
+  copy:
+    headline: Waikato region imagery surveys
+    lede: Imagery whose main coverage is the Waikato region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Waikato region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos and near-infrared products where captured.
+      Following LINZ's naming convention, each dataset is stored by region then by survey, product and
+      coordinate reference system, with a STAC Collection naming the licensor and delivery as Cloud Optimised
+      GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: wellington/
+  copy:
+    headline: Wellington region imagery surveys
+    lede: Imagery whose main coverage is the Wellington region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the Wellington region, drawn from the imagery types LINZ publishes
+      to the bucket, such as urban and rural aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+- prefix: west-coast/
+  copy:
+    headline: West Coast region imagery surveys
+    lede: Imagery whose main coverage is the West Coast region, organised by survey, product and coordinate
+      reference system as STAC-described Cloud Optimised GeoTIFFs.
+    text: Imagery whose main coverage is the West Coast region, drawn from the imagery types LINZ publishes
+      to the bucket, such as rural and urban aerial photos. Following LINZ's naming convention, each dataset
+      is stored by region then by survey, product and coordinate reference system, with a STAC Collection
+      naming the licensor and delivery as Cloud Optimised GeoTIFFs.
+  refs:
+  - nz-imagery-naming
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,28 @@
+Outcrop Registry License
+
+Unless otherwise noted, Varve-authored registry content in this repository is
+licensed by Varve Ltd under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+Canonical license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+For this repository, "Varve-authored registry content" means the Outcrop
+Materials described in NOTICE.md, including Varve-authored collection
+records, source/reference structure, reviewed summaries, tags, review
+guidance, sample policies, display metadata, and editorial selection and
+arrangement.
+
+This license does not apply to source-derived material. Dataset names, source
+paths, schemas, table names, quoted source excerpts, upstream metadata, source
+descriptions, source documentation, and required attribution text remain subject
+to their original upstream terms.
+
+This license also does not apply to Varve software, product code, trademarks,
+service marks, logos, brand assets, UI design, page layout, component styling,
+or product look-and-feel.
+
+Suggested attribution:
+
+Outcrop Registry, licensed under CC BY 4.0. Source-derived material
+remains subject to upstream terms.

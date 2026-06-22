@@ -1,0 +1,93 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: overture
+title: Overture Maps — Open Map Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: overture-attribution-doc
+  kind: publisher_doc
+  url: https://docs.overturemaps.org/attribution/
+  label: Overture Maps — Attribution and Licensing
+  excerpt: 'Some of the data sources we use in Overture datasets require their own attribution, according
+    to their licenses... we added the following line of attribution to adhere to the requirements of the
+    Open Database License: © OpenStreetMap contributors, Overture Maps Foundation. Addresses ... Base
+    ... Buildings ... Divisions ... Places ... Transportation.'
+  retrieved_at: '2026-06-22'
+
+- id: overture-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/overture/
+  label: AWS Open Data Registry — Overture Maps Foundation Open Map Data
+  excerpt: aws s3 ls --no-sign-request s3://overturemaps-us-west-2/release/ . Overture data is licensed
+    under the Community Database License Agreement Permissive v2 (CDLA) unless derived from a source that
+    requires publishing under a different license, such as data derived from OpenStreetMap ... which will
+    be licensed under ODbL v1.0.
+  retrieved_at: '2026-06-22'
+
+- id: overture-cloud-sources-doc
+  kind: publisher_doc
+  url: https://docs.overturemaps.org/getting-data/cloud-sources/
+  label: Overture Maps — Accessing the Overture Catalog
+  excerpt: 'AWS CLI — download all files in the infrastructure type: aws s3 cp --no-sign-request --recursive
+    s3://overturemaps-us-west-2/release/<RELEASE>/theme=base/type=infrastructure/ . Overture partitions
+    the data by theme and type; specifying those directories narrows the data you access.'
+  retrieved_at: '2026-06-22'
+
+- id: overture-homepage
+  kind: publisher_homepage
+  url: https://overturemaps.org/
+  label: Overture Maps Foundation homepage
+  excerpt: Overture is a collaboratively built, global, open map data project for developers who build
+    map services or use geospatial data.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open global map data across six standardized themes
+    lede: Overture Maps is a collaboratively built, open map dataset of addresses, base layers, buildings,
+      divisions, places, and transportation, published by the Overture Maps Foundation as monthly GeoParquet
+      releases.
+    text: 'Overture Maps is a global, open map data project run by the Overture Maps Foundation for developers
+      building map services and working with geospatial data. It standardizes data from OpenStreetMap
+      and more than 200 other open sources into six documented themes — addresses, base, buildings, divisions,
+      places, and transportation — each split into feature types and aligned to Overture''s Global Entity
+      Reference System (GERS).
+
+
+      The data ships as cloud-native GeoParquet on Amazon S3 (and Azure), organized into dated monthly
+      releases partitioned by theme and type so a reader can scan and pull only the layers they need.
+      Licensing is per-theme: base, buildings, divisions, and transportation derive from OpenStreetMap
+      and are released under ODbL, while places is CDLA-Permissive-2.0 (with some sub-providers under
+      Apache-2.0 or CC0), so the release as a whole is multi-licensed.'
+  refs:
+  - overture-attribution-doc
+  - overture-cloud-sources-doc
+  - overture-aws-registry
+
+source:
+  publisher: Overture Maps Foundation
+  homepage_url: https://overturemaps.org/
+
+display:
+  canonical_path: /overture/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

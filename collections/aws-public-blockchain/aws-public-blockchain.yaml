@@ -1,0 +1,390 @@
+schema_version: '0.4'
+bucket: aws-public-blockchain
+backend: s3
+role: primary
+region: us-east-2
+
+prefixes:
+- prefix: v1.0/
+  copy:
+    headline: First-generation AWS-maintained Bitcoin and Ethereum datasets
+    lede: 'The v1.0 release is the original AWS Public Blockchain Data namespace: the AWS-maintained Bitcoin
+      and Ethereum datasets, each as date-partitioned Parquet.'
+    text: v1.0 is the first-generation layout of AWS Public Blockchain Data, maintained directly by AWS.
+      It contains two chains, Bitcoin under v1.0/btc/ and Ethereum under v1.0/eth/, each organized into
+      per-table prefixes (blocks and transactions, plus for Ethereum logs, token_transfers, traces, and
+      contracts), with every table partitioned as date={YYYY-MM-DD}/{id}.snappy.parquet. AWS backfilled
+      both chains from their first block and keeps them current with an on-chain listener.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/btc/
+  copy:
+    headline: Full Bitcoin chain, backfilled from the 2009 genesis block
+    lede: The v1.0 Bitcoin dataset is the AWS-maintained full chain from its first 2009 block, kept current
+      by an on-chain listener as date-partitioned Parquet.
+    text: The Bitcoin dataset covers the complete Bitcoin blockchain transformed into analytics-ready
+      Parquet. It is split into two tables, blocks/ (block-level data) and transactions/ (transaction-level
+      data), each partitioned as date={YYYY-MM-DD}/{id}.snappy.parquet. AWS performed an initial backfill
+      from the first Bitcoin block in 2009 and continuously appends new data via an on-chain listener.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/btc/blocks/
+  copy:
+    headline: Block-level records for the Bitcoin chain
+    lede: Bitcoin block-level data from the v1.0 dataset, as Snappy-compressed Parquet partitioned by
+      date.
+    text: Block-level records of the Bitcoin chain, as Snappy-compressed Parquet partitioned by date (date={YYYY-MM-DD}/).
+      It is the AWS-maintained companion to the transactions table for block-oriented analytics.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/btc/transactions/
+  copy:
+    headline: Transaction-level records for the Bitcoin chain
+    lede: Bitcoin transaction-level data from the v1.0 dataset, as Snappy-compressed Parquet partitioned
+      by date.
+    text: Transaction-level records for the full Bitcoin chain, as Snappy-compressed Parquet partitioned
+      by date (date={YYYY-MM-DD}/). It is the primary table for transaction-flow and address-activity
+      analysis, the companion to the blocks table.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/eth/
+  copy:
+    headline: Full Ethereum chain, backfilled from the 2015 genesis block
+    lede: The v1.0 Ethereum dataset is the AWS-maintained full chain from 2015, kept current by an on-chain
+      listener across six analytics tables.
+    text: 'The Ethereum dataset covers the complete Ethereum blockchain transformed into analytics-ready
+      Parquet, split into six tables: blocks/, transactions/, logs/, token_transfers/, traces/, and contracts/,
+      each partitioned as date={YYYY-MM-DD}/{id}.snappy.parquet. AWS backfilled from the first Ethereum
+      block in 2015 and continuously appends new data via an on-chain listener. The richer table set supports
+      smart-contract and token-flow analytics beyond what Bitcoin''s tables carry.'
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/eth/blocks/
+  copy:
+    headline: Block-level records for the Ethereum chain
+    lede: Ethereum block-level data from the v1.0 dataset, as Snappy-compressed Parquet partitioned by
+      date.
+    text: Block-level records for the full Ethereum chain, as Snappy-compressed Parquet partitioned by
+      date (date={YYYY-MM-DD}/). One of the six tables in the AWS-maintained Ethereum dataset.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/eth/contracts/
+  copy:
+    headline: Smart-contract records for the Ethereum chain
+    lede: Ethereum smart-contract data from the v1.0 dataset, as Snappy-compressed Parquet partitioned
+      by date.
+    text: Smart-contract records for the Ethereum chain, as Snappy-compressed Parquet partitioned by date
+      (date={YYYY-MM-DD}/). One of the six tables in the AWS-maintained Ethereum dataset, supporting contract-deployment
+      analytics.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/eth/logs/
+  copy:
+    headline: Event logs emitted by Ethereum on-chain activity
+    lede: Ethereum event-log data from the v1.0 dataset, as Snappy-compressed Parquet partitioned by date.
+    text: Event logs emitted during on-chain activity on Ethereum, as Snappy-compressed Parquet partitioned
+      by date (date={YYYY-MM-DD}/). It is the basis for decoding contract events and reconstructing token
+      and protocol activity, and feeds the token_transfers table.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/eth/token_transfers/
+  copy:
+    headline: Decoded token-transfer events for the Ethereum chain
+    lede: Ethereum token-transfer data from the v1.0 dataset, as Snappy-compressed Parquet partitioned
+      by date.
+    text: Decoded token transfer events for the Ethereum chain, as Snappy-compressed Parquet partitioned
+      by date (date={YYYY-MM-DD}/). It supports token-flow analytics without parsing the raw logs table
+      directly.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/eth/traces/
+  copy:
+    headline: Execution traces for the Ethereum chain
+    lede: Ethereum trace data from the v1.0 dataset, as Snappy-compressed Parquet partitioned by date.
+    text: Execution traces, the internal transactions and message calls produced during Ethereum contract
+      execution, as Snappy-compressed Parquet partitioned by date (date={YYYY-MM-DD}/). Traces reveal
+      value movement and calls that do not appear as top-level transactions.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.0/eth/transactions/
+  copy:
+    headline: Transaction-level records for the Ethereum chain
+    lede: Ethereum transaction-level data from the v1.0 dataset, as Snappy-compressed Parquet partitioned
+      by date.
+    text: Top-level transaction records for the full Ethereum chain, as Snappy-compressed Parquet partitioned
+      by date (date={YYYY-MM-DD}/). It is the primary table for account-activity analytics, the companion
+      to the logs and traces tables.
+  refs:
+  - apb-web3-blog
+
+- prefix: v1.1/
+  copy:
+    headline: Partner-maintained chains beyond Bitcoin and Ethereum
+    lede: The v1.1 release expands AWS Public Blockchain Data with SonarX-provided networks under v1.1/sonarx/,
+      plus Cronos, Stellar, and TON maintained by their own organizations.
+    text: 'v1.1 is the second-generation layout that broadened AWS Public Blockchain Data beyond AWS''s
+      own Bitcoin and Ethereum sets. It groups partner-maintained chains: a sonarx/ subtree contributed
+      by AWS Partner SonarX (Aptos, Arbitrum, Base, Provenance, and the XRP Ledger), and standalone chain
+      prefixes maintained by their respective organizations, cronos/ (Cronos), stellar/ (Stellar), and
+      ton/ (The Open Network). All datasets follow the same convention, Parquet partitioned by date, organized
+      hierarchically by chain for querying specific time ranges or cross-chain analysis.'
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/cronos/
+  copy:
+    headline: Cronos on-chain data, maintained by Cronos
+    lede: The v1.1 Cronos dataset covers the Cronos network across blocks, transactions, receipts, logs,
+      and decoded events, as date-partitioned Parquet.
+    text: 'The Cronos dataset, maintained by Cronos, provides on-chain data for the Cronos network organized
+      into per-table prefixes: blocks/ (Cronos block data), transactions/ (actions initiated by externally
+      owned accounts), receipts/ (transaction receipts showing outcomes), logs/ (event logs emitted during
+      on-chain activity), and decoded-events/ (decoded event data for popular Cronos event types). All
+      tables are Parquet partitioned by date for query performance.'
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/cronos/blocks/
+  copy:
+    headline: Block data for the Cronos chain
+    lede: Cronos block-level data from the v1.1 dataset, as Parquet partitioned by date.
+    text: Block-level records of the Cronos chain, as Parquet partitioned by date. One of the five tables
+      in the Cronos dataset maintained by Cronos.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/cronos/decoded-events/
+  copy:
+    headline: Decoded event data for popular Cronos event types
+    lede: Decoded Cronos event records for popular event types, derived from raw logs and stored as Parquet
+      partitioned by date.
+    text: Decoded event data for popular Cronos event types, derived from the raw logs table and stored
+      as Parquet partitioned by date. It saves consumers from decoding common contract events themselves.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/cronos/logs/
+  copy:
+    headline: Event logs emitted by Cronos on-chain activity
+    lede: Cronos event-log data from the v1.1 dataset, as Parquet partitioned by date.
+    text: Event logs emitted during on-chain activity on Cronos, as Parquet partitioned by date. It is
+      the raw source for the decoded-events table.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/cronos/receipts/
+  copy:
+    headline: Transaction receipts for the Cronos chain
+    lede: Cronos transaction-receipt data from the v1.1 dataset, as Parquet partitioned by date.
+    text: Transaction receipts recording the outcome of each Cronos transaction, as Parquet partitioned
+      by date. One of the five tables in the Cronos dataset.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/cronos/transactions/
+  copy:
+    headline: Transaction-level records for the Cronos chain
+    lede: Cronos transaction data from the v1.1 dataset, as Parquet partitioned by date.
+    text: Transaction-level records for the Cronos chain, the actions initiated by externally owned accounts,
+      as Parquet partitioned by date.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/sonarx/
+  copy:
+    headline: SonarX-indexed datasets for Aptos, Arbitrum, Base, Provenance, and XRP Ledger
+    lede: The v1.1/sonarx/ subtree groups the indexed on-chain datasets contributed to AWS Open Data by
+      AWS Partner SonarX, one subtree per chain.
+    text: The sonarx/ subtree groups datasets indexed and maintained by SonarX, an AWS Partner specializing
+      in blockchain data indexing. It covers Aptos, Arbitrum, Base, Provenance, and the XRP Ledger, each
+      under its own prefix with chain-appropriate Parquet tables partitioned by date. SonarX placed its
+      curated, indexed on-chain datasets into the AWS Open Data program in a collaboration announced around
+      AWS re:Invent 2024, and regularly updates these sets. The datasets are accessible without a commercial
+      AWS account.
+  refs:
+  - apb-sonarx-blog
+
+- prefix: v1.1/sonarx/aptos/
+  copy:
+    headline: Aptos on-chain data, indexed by SonarX
+    lede: The SonarX-indexed Aptos dataset covers the Move-based Aptos Layer-1 across blocks, transactions,
+      events, and state-change tables, as date-partitioned Parquet.
+    text: 'The Aptos dataset, indexed by SonarX, covers Aptos, a Move-based Layer-1, across per-table
+      prefixes: blocks/, transactions/ and transactions_failed/, events/, changes/ (the write-set / state-change
+      stream), deposits/ and withdrawals/, and transfers/. All tables are Parquet partitioned by date.
+      The state-change stream reflects Aptos''s resource-oriented state model.'
+  refs:
+  - apb-sonarx-blog
+
+- prefix: v1.1/sonarx/arbitrum/
+  copy:
+    headline: Arbitrum Layer-2 on-chain data, indexed by SonarX
+    lede: The SonarX-indexed Arbitrum dataset covers Offchain Labs' Arbitrum Layer-2 rollup with EVM-style
+      tables, as date-partitioned Parquet.
+    text: 'The Arbitrum dataset, indexed by SonarX, covers the Arbitrum Layer-2 rollup (Offchain Labs)
+      across per-table prefixes: blocks/, transactions/ and transactions_failed/, receipts/, logs/, traces/,
+      transfers/, and approvals/. All tables are Parquet partitioned by date, in the same EVM-style shape
+      as the other SonarX-indexed EVM chains for cross-chain analysis.'
+  refs:
+  - apb-sonarx-blog
+
+- prefix: v1.1/sonarx/base/
+  copy:
+    headline: Base Layer-2 on-chain data, indexed by SonarX
+    lede: The SonarX-indexed Base dataset covers Coinbase's Base Layer-2 network with EVM-style tables,
+      as date-partitioned Parquet.
+    text: 'The Base dataset, indexed by SonarX, covers Coinbase''s Base Layer-2 chain across per-table
+      prefixes: blocks/, transactions/ and transactions_failed/, receipts/, logs/, traces/, transfers/,
+      and approvals/. All tables are Parquet partitioned by date, in the same EVM-style shape as the other
+      SonarX-indexed EVM chains.'
+  refs:
+  - apb-sonarx-blog
+
+- prefix: v1.1/sonarx/provenance/
+  copy:
+    headline: Provenance Blockchain data, indexed by SonarX
+    lede: The SonarX-indexed Provenance dataset covers the Cosmos-SDK Provenance Blockchain with Tendermint-style
+      block and event tables, as date-partitioned Parquet.
+    text: 'The Provenance dataset, indexed by SonarX, covers the Cosmos-SDK Provenance Blockchain. Its
+      tables reflect that architecture: blocks/ and block_results/, transactions/ and transactions_failed/,
+      events/ plus the lifecycle streams begin_block_events/, end_block_events/, and finalize_block_events/,
+      logs/, signatures/, transfers/, and validator_updates/. All tables are Parquet partitioned by date,
+      supporting consensus-, staking-, and transfer-level analytics specific to a Cosmos chain.'
+  refs:
+  - apb-sonarx-blog
+
+- prefix: v1.1/sonarx/xrp/
+  copy:
+    headline: XRP Ledger on-chain data, indexed by SonarX
+    lede: The SonarX-indexed XRP Ledger dataset covers the XRPL with ledger, transaction, and affected-node
+      tables, as date-partitioned Parquet.
+    text: 'The XRP Ledger dataset, indexed by SonarX, covers the XRPL across per-table prefixes: blocks/
+      (ledgers), transactions/ and transactions_failed/, transfers/, and affected_nodes/, the per-transaction
+      ledger-state deltas XRPL records as metadata. All tables are Parquet partitioned by date; the affected_nodes
+      table captures fine-grained state changes for each transaction.'
+  refs:
+  - apb-sonarx-blog
+
+- prefix: v1.1/stellar/
+  copy:
+    headline: Stellar ledger data for pubnet and testnet, maintained by Stellar
+    lede: The v1.1 Stellar dataset covers both the public network and the testnet, offered in raw XDR
+      ledger and analytics-ready Parquet forms.
+    text: 'The Stellar dataset, maintained by Stellar, provides Stellar ledger data for both networks:
+      the public network (pubnet) and the testnet. It comes in two forms, a ledgers/ tree with the raw
+      per-ledger data in Stellar''s XDR encoding under pubnet/ and testnet/, and a parquet/ tree with
+      analytics-ready Parquet under pubnet/v1/ and testnet/v1/. The Parquet form is partitioned for efficient
+      querying with Amazon Athena and the AWS analytics stack.'
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/stellar/ledgers/
+  copy:
+    headline: Raw Stellar ledgers in XDR encoding, for pubnet and testnet
+    lede: The raw Stellar ledger stream in native XDR encoding, split by network into pubnet and testnet.
+    text: Raw Stellar ledger data in the network's native XDR encoding, split by network into pubnet/
+      (the public/mainnet network) and testnet/. It is the unprocessed source from which the analytics-ready
+      parquet/ tree is derived.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/stellar/ledgers/pubnet/
+  copy:
+    headline: Raw Stellar pubnet ledgers in XDR encoding
+    lede: Raw XDR ledger data for the Stellar public network.
+    text: Raw per-ledger XDR data for the Stellar public network (mainnet). It is the production ledger
+      stream feeding the pubnet Parquet tables.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/stellar/ledgers/testnet/
+  copy:
+    headline: Raw Stellar testnet ledgers in XDR encoding
+    lede: Raw XDR ledger data for the Stellar test network.
+    text: Raw per-ledger XDR data for the Stellar testnet, kept separate from pubnet. It is the test-network
+      counterpart to the pubnet raw ledgers.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/stellar/parquet/
+  copy:
+    headline: Analytics-ready Stellar Parquet, for pubnet and testnet
+    lede: The Parquet form of Stellar ledger data for both networks, versioned under v1 within pubnet
+      and testnet.
+    text: Stellar ledger data converted to analytics-ready Parquet, split by network into pubnet/v1/ and
+      testnet/v1/. This is the form intended for querying with Amazon Athena and the AWS analytics stack,
+      derived from the raw XDR ledgers.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/stellar/parquet/pubnet/v1/
+  copy:
+    headline: Analytics-ready Stellar pubnet Parquet (v1)
+    lede: Analytics-ready Parquet for the Stellar public network, schema version v1.
+    text: Stellar public-network ledger data converted to analytics-ready Parquet (schema version v1),
+      partitioned for efficient querying with Amazon Athena and the AWS analytics stack.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/stellar/parquet/testnet/v1/
+  copy:
+    headline: Analytics-ready Stellar testnet Parquet (v1)
+    lede: Analytics-ready Parquet for the Stellar test network, schema version v1.
+    text: Stellar testnet ledger data converted to analytics-ready Parquet (schema version v1), partitioned
+      for querying. It is the test-network counterpart to the pubnet Parquet tables.
+  refs:
+  - apb-repost-newchains
+
+- prefix: v1.1/ton/
+  copy:
+    headline: The Open Network on-chain data, maintained by TON
+    lede: The v1.1 TON dataset captures The Open Network's asynchronous, actor-model chain across messages,
+      jetton, NFT, and DEX tables, updated daily as date-partitioned Parquet.
+    text: The TON dataset, maintained by The Open Network, captures TON's asynchronous, actor-model execution.
+      The messages table reflects TON operations composed of multiple message payloads routed between
+      contracts; the jetton tables (jetton_events plus metadata and metadata-snapshot tables) record jetton,
+      TON's fungible-token standard, transfers, burns, and mints; the NFT tables cover non-fungible token
+      items, events, transfers, sales, and metadata; the DEX tables cover decentralized-exchange pools
+      and trades; and account_states, balances_history, blocks, and transactions provide a comprehensive
+      on-chain view. The dataset is updated daily as Parquet partitioned by date, queryable with Amazon
+      Athena, Amazon SageMaker, Amazon QuickSight, and Amazon EMR.
+  refs:
+  - apb-repost-ton
+
+- prefix: v1.1/ton/jetton_events/
+  copy:
+    headline: Jetton transfers, burns, and mints for The Open Network
+    lede: TON jetton activity, transfers, burns, and mints of TON's fungible-token standard, as date-partitioned
+      Parquet.
+    text: Jetton activity, the transfers, burns, and mints of jetton, TON's fungible-token standard, as
+      Parquet partitioned by date. It is the primary table for TON token-flow analytics, complemented
+      by the jetton metadata and metadata-snapshot tables.
+  refs:
+  - apb-repost-ton
+
+- prefix: v1.1/ton/messages/
+  copy:
+    headline: Message payloads composing TON's asynchronous operations
+    lede: The message payloads that compose TON operations, routed between contracts, as date-partitioned
+      Parquet.
+    text: 'The message payloads of TON''s message-passing execution model: each on-chain operation is
+      composed of multiple message payloads routed between contracts. Stored as Parquet partitioned by
+      date, it is central to reconstructing transaction flows on TON''s asynchronous, actor-based architecture.'
+  refs:
+  - apb-repost-ton
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

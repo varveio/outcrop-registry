@@ -1,0 +1,334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/varveio/outcrop-registry/schema/collection.schema.json",
+  "title": "Outcrop collection file (v0.4)",
+  "description": "v0.4 collection-file schema. Describes a collection's identity, terms defaults, refs pool, non-bucket locations, and collection-scoped facts. Bucket-backed locations are described in per-bucket files (<bucket>.yaml) within the same directory. additionalProperties:false throughout. Cross-field rules enforced by scripts/validate_registry.py. The authoritative prose specification is docs/record-format.md.",
+  "$defs": {
+    "copy": {
+      "description": "Length-tier copy block with required text field. Populate only tiers with genuinely distinct hand-authored content; never repeat a value across label/headline/lede/text tiers. The validator warns on redundant tiers. Renderer fallback chains: label→[label,headline,text]; headline→[headline,lede,text]; lede→[lede,text,headline]; text→[text,lede]. locale is dropped (en-only).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text"],
+      "properties": {
+        "label": { "type": "string" },
+        "headline": { "type": "string" },
+        "lede": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "url", "label"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string" },
+        "url": { "type": "string" },
+        "label": { "type": "string" },
+        "excerpt": { "type": "string" },
+        "retrieved_at": { "type": "string" }
+      }
+    },
+    "terms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "name"],
+      "properties": {
+        "license": {
+          "type": ["string", "null"],
+          "description": "Primary license identity as an SPDX expression (e.g. 'MIT', 'CC-BY-4.0', 'ODbL-1.0') or an SPDX sentinel ('NOASSERTION' when terms are unverified/mixed, 'NONE' when no license applies). Set to NOASSERTION when the precise license cannot be confirmed from sources. Preferred over license_spdx_id for new records."
+        },
+        "status": { "type": "string" },
+        "name": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "license_spdx_id": {
+          "type": ["string", "null"],
+          "description": "Deprecated alias for license. Use the license field for new records; this field is kept for compatibility with existing records."
+        },
+        "required_attribution": { "type": ["string", "null"] },
+        "no_endorsement_required": { "type": "boolean" },
+        "display_policy": { "type": "string" },
+        "reviewed_at": { "type": ["string", "null"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "samplePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_object_samples", "path_templates", "schema_samples"],
+      "properties": {
+        "raw_object_samples": { "type": "string" },
+        "path_templates": { "type": "string" },
+        "schema_samples": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "stewardship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generated_by", "verification_status"],
+      "properties": {
+        "last_reviewed_at": { "type": ["string", "null"] },
+        "last_reviewed_by": { "type": ["string", "null"] },
+        "generated_by": { "type": "string" },
+        "verification_status": { "type": "string" },
+        "generated_by_model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider", "model_id", "generated_at"],
+          "properties": {
+            "provider": { "type": "string" },
+            "model_id": { "type": "string" },
+            "generated_at": { "type": "string" }
+          }
+        },
+        "stale_after": { "type": "string" }
+      }
+    },
+    "maintainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "role"],
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "registryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registry", "ref"],
+      "properties": {
+        "registry": { "type": "string" },
+        "ref": { "type": "string" }
+      }
+    },
+    "sponsorship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["program", "sponsor"],
+      "properties": {
+        "program": { "type": "string" },
+        "sponsor": { "type": "string" },
+        "covers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "nonBucketLocation": {
+      "description": "An access location that spans the collection as a whole or is not tied to a single bucket (e.g. a publisher portal, DOI, registry entry serving multiple buckets). Bucket-backed locations are described in per-bucket files. A mirror/replica of a specific bucket's content goes in that bucket file's mirrors[] list, NOT here.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "backend", "role"],
+      "properties": {
+        "id": { "type": "string" },
+        "backend": { "type": "string" },
+        "role": { "type": "string" },
+        "base_url": { "type": "string" },
+        "repo": { "type": "string" },
+        "record_id": { "type": "string" },
+        "region": { "type": "string" },
+        "anonymous": { "type": "boolean" },
+        "frozen": { "type": "boolean" },
+        "superseded_by": { "type": "string" },
+        "facts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/fact" }
+        }
+      }
+    },
+    "source": {
+      "description": "The upstream dataset: its publisher, access points, registry listings, and sponsorships. Does not include refs (top-level) or bucket locations (described in bucket files).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publisher", "homepage_url"],
+      "properties": {
+        "publisher": { "type": "string" },
+        "homepage_url": { "type": "string" },
+        "dataset_page_url": { "type": "string" },
+        "maintainers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/maintainer" }
+        },
+        "identifiers": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "locations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonBucketLocation" }
+        },
+        "registry_entries": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/registryEntry" }
+        },
+        "sponsorships": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sponsorship" }
+        }
+      }
+    },
+    "descriptionField": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["copy"],
+      "properties": {
+        "copy": { "$ref": "#/$defs/copy" },
+        "refs": { "type": "array", "items": { "type": "string" } },
+        "stewardship": { "$ref": "#/$defs/stewardship" }
+      }
+    },
+    "tags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "domains": { "type": "array", "items": { "type": "string" } },
+        "formats": { "type": "array", "items": { "type": "string" } },
+        "storage_patterns": { "type": "array", "items": { "type": "string" } },
+        "access_patterns": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "display": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "canonical_path": { "type": "string" },
+        "aliases": { "type": "array", "items": { "type": "string" } },
+        "no_endorsement_text": { "type": "string" },
+        "report_issue_prefill": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "extent": {
+      "description": "Geographic and temporal extent of the collection or prefix. Registry-supplied enrichment for what the engine cannot derive. No CRS field — extents are always WGS-84 bounding boxes.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "description": "Bounding box [west, south, east, north] in WGS-84 decimal degrees, or an array of bounding boxes for non-contiguous regions.",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": { "type": "number" },
+              "minItems": 4,
+              "maxItems": 4
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "temporal": {
+          "description": "Temporal extent as [start|null, end|null] RFC 3339 date or datetime strings.",
+          "type": "array",
+          "items": { "type": ["string", "null"] },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "fact": {
+      "description": "A source-backed editorial annotation. Subject is determined by nesting position (top-level facts[] = collection-scoped; source.locations[].facts[] = non-bucket location-scoped). No applies_to or level fields.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intent", "topic", "copy", "refs"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+([.-][a-z0-9]+)*$"
+        },
+        "intent": { "type": "string" },
+        "topic": { "type": "string" },
+        "severity": { "type": "string" },
+        "scope": {
+          "type": "string",
+          "description": "Propagation scope. 'inherited' cascades to descendant prefixes; 'exact' renders only at this subject; 'related' renders at related pages."
+        },
+        "copy": { "$ref": "#/$defs/copy" },
+        "refs": { "type": "array", "items": { "type": "string" } },
+        "coverage": { "enum": ["full", "manifest", "sampled", "partial"] },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "relationship": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "target", "direction"],
+          "properties": {
+            "type": { "type": "string" },
+            "target": { "type": "string" },
+            "direction": { "type": "string" }
+          }
+        },
+        "note": { "type": "string" },
+        "also": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Additional same-file prefixes this fact attaches to (each behaves as if the fact were authored there)."
+        },
+        "stewardship": { "$ref": "#/$defs/stewardship" }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_version",
+    "slug",
+    "title",
+    "status",
+    "sensitivity_class",
+    "publication_scope",
+    "terms",
+    "sample_policy",
+    "source"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.4" },
+    "record_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "reviewed", "published", "withdrawn"] },
+    "sensitivity_class": { "enum": ["unrestricted", "sensitive_pii_risk", "restricted"] },
+    "publication_scope": { "enum": ["full", "structure_only", "minimal_listing", "withheld"] },
+    "refs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ref" },
+      "description": "Canonical shared reference pool for this collection. Cited by id from any file in the collection directory."
+    },
+    "terms": { "$ref": "#/$defs/terms" },
+    "sample_policy": { "$ref": "#/$defs/samplePolicy" },
+    "stewardship": {
+      "$ref": "#/$defs/stewardship",
+      "description": "Optional record-level stewardship default. Annotations without their own stewardship block inherit this."
+    },
+    "summary": {
+      "$ref": "#/$defs/descriptionField",
+      "description": "Canonical one-paragraph summary of the collection."
+    },
+    "source_description": {
+      "$ref": "#/$defs/descriptionField",
+      "description": "The publisher's own description, shown verbatim and attributed."
+    },
+    "source": { "$ref": "#/$defs/source" },
+    "tags": { "$ref": "#/$defs/tags" },
+    "display": { "$ref": "#/$defs/display" },
+    "review_guidance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "facts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fact" },
+      "description": "Collection-scoped facts. Facts here apply to the collection as a whole (use scope: inherited to propagate collection-wide to every bucket and prefix)."
+    },
+    "extent": {
+      "$ref": "#/$defs/extent",
+      "description": "Geographic and temporal extent for the collection as a whole."
+    }
+  }
+}

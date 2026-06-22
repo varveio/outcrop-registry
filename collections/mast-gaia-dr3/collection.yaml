@@ -1,0 +1,111 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: mast-gaia-dr3
+title: Gaia DR3 (HATS, MAST AWS Mirror)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: aws-registry-mast-gaia-dr3
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/mast-gaia-dr3/
+  label: AWS Open Data Registry — Gaia DR3 (STScI), provider catalog metadata
+  excerpt: 'Gaia DR3 HATS-Formatted Files. ARN: arn:aws:s3:::stpubdata/gaia. Region: us-east-1. Type:
+    S3 Bucket. RequesterPays: False. ManagedBy: Space Telescope Science Institute. License: Attribution
+    required.'
+  retrieved_at: '2026-06-22'
+
+- id: gaia-esa-credits
+  kind: publisher_doc
+  url: https://www.cosmos.esa.int/web/gaia-users/credits
+  label: ESA Cosmos — Gaia data credits and acknowledgements
+  excerpt: Gaia data credits and acknowledgements. When using Gaia data, please acknowledge the people
+    and institutes that were involved in making the data available to you. Each Data Release comes with
+    its own acknowledgements and its own credit and citation instructions.
+  retrieved_at: '2026-06-22'
+
+- id: gaia-esa-license
+  kind: publisher_doc
+  url: https://www.cosmos.esa.int/web/gaia-users/license
+  label: ESA Cosmos — Gaia Data License (CC BY-NC 3.0 IGO)
+  excerpt: GAIA DATA LICENSE. Gaia data are distributed under the CC BY-NC 3.0 IGO license. For details
+    and guidelines concerning commercial use of the Gaia data, please see the Terms and Conditions for
+    the use of data in the ESA space science archives.
+  retrieved_at: '2026-06-22'
+
+- id: gaia-esa-overview
+  kind: publisher_doc
+  url: https://www.cosmos.esa.int/web/gaia/dr3
+  label: ESA Cosmos — Gaia Data Release 3 (Gaia DR3) overview
+  excerpt: Gaia Data Release 3 (Gaia DR3) has been released on 13 June 2022. The full astrometric solution
+    — positions on the sky, parallax, and proper motion — covers around 1.46 billion sources.
+  retrieved_at: '2026-06-22'
+
+- id: hats-format
+  kind: web_research
+  url: https://hats.readthedocs.io/en/stable/
+  label: HATS documentation — Hierarchical Adaptive Tiling Scheme
+  excerpt: HATS is a directory structure and metadata for spatially arranging large catalog survey data.
+    We use parquet as the underlying storage format. Each partition will have roughly the same number
+    of objects, instead of dividing into equal area.
+  retrieved_at: '2026-06-22'
+
+- id: lsdb-margin-cache
+  kind: web_research
+  url: https://docs.lsdb.io/en/latest/tutorials/margins.html
+  label: LSDB documentation — Margin cache for boundary-accurate cross-matching
+  excerpt: For each partition, we create a file that contains the points in the catalog within a certain
+    distance to the pixel's boundary. A margin cache is needed because, at the boundaries of each divided
+    section, some data points are going to be missed.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-NC-3.0-IGO
+  status: verified
+  name: CC-BY-NC-3.0-IGO
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Gaia DR3 source catalog in HATS-partitioned Parquet
+    lede: A cloud-native HATS mirror of ESA's Gaia Data Release 3, the ~1.8-billion-source astrometric
+      and photometric survey, hosted by STScI on AWS for spatial cross-matching at scale.
+    text: 'Gaia Data Release 3 (Gaia DR3) is ESA''s third release from the Gaia mission, processed by
+      the Gaia Data Processing and Analysis Consortium (DPAC) and published on 13 June 2022. It catalogs
+      roughly 1.8 billion celestial sources, with full astrometry (positions, parallaxes, proper motions)
+      for around 1.46 billion of them, multi-band G/GBP/GRP photometry, radial velocities for tens of
+      millions of stars, astrophysical parameters, variable-star and quasar/galaxy classifications, and
+      solar-system and binary-star data.
+
+
+      This collection is the Space Telescope Science Institute (MAST) mirror of Gaia DR3 reformatted into
+      HATS (Hierarchical Adaptive Tiling Scheme), produced by the LSST Interdisciplinary Network for Collaboration
+      and Computing. HATS arranges the catalog into HEALPix-tiled Parquet partitions sized to hold a roughly
+      constant object count each, so the data can be queried and cross-matched in parallel with the LSDB
+      library — by cone search or by cross-match against other HATS-format catalogs. Alongside the main
+      source catalog it ships 10-arcsecond and 300-arcsecond margin-cache neighbor catalogs that make
+      boundary-accurate cross-matching possible, plus a source_id index for direct lookups.'
+  refs:
+  - gaia-esa-overview
+  - aws-registry-mast-gaia-dr3
+  - hats-format
+
+source:
+  publisher: Space Telescope Science Institute (MAST)
+  homepage_url: http://www.stsci.edu/
+
+display:
+  canonical_path: /mast-gaia-dr3/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

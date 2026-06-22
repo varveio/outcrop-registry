@@ -1,0 +1,79 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: cropland-partitioining
+title: IWMI DIWASA Rainfed and Irrigated Cropland Map for Africa
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: cropland-registry-yaml
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/cropland_partitioining.yaml
+  label: AWS Open Data registry metadata — IWMI DIWASA Rainfed and Irrigated Cropland Map for Africa
+  excerpt: 'License: There are no restrictions on the use of this data. ManagedBy: "[IWMI](https://www.iwmi.org/)".
+    ARN: arn:aws:s3:::iwmi-datasets/Cropland_partition/. Region: af-south-1. aws s3 ls --region af-south-1
+    --no-sign-request s3://iwmi-datasets/Cropland_partition/'
+  retrieved_at: '2026-06-22'
+
+- id: iwmi-homepage
+  kind: publisher_homepage
+  url: https://www.iwmi.org/
+  label: International Water Management Institute homepage
+  excerpt: International Water Management Institute (IWMI)
+  retrieved_at: '2026-06-22'
+
+- id: iwmi-odr-docs
+  kind: publisher_doc
+  url: https://github.com/iwmiwaplus/ODR/tree/master/Partitioned%20Croplands
+  label: IWMI Water Accounting Plus — Partitioned Croplands documentation
+  excerpt: A scalable approach to partition croplands into irrigated and rainfed classes. International
+    Water Management Institute (IWMI), Accra, Ghana. Part of the Digital Innovation for Water Secure Africa
+    (DIWASA) project.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Continental-scale rainfed vs. irrigated cropland classification for Africa
+    lede: The IWMI DIWASA Rainfed and Irrigated Cropland Map disaggregates African cropland into rainfed
+      and irrigated classes using a Budyko water-balance framework, published by the International Water
+      Management Institute.
+    text: 'This product partitions cropland across continental Africa into rainfed and irrigated classes
+      by applying a Budyko-model water balance over eight remote-sensing land-cover products and a high-confidence
+      cropland map (HCCM), all translated to the LUWA (Land Use for Water Accounting) classification system.
+      It was developed under IWMI''s Digital Innovation for Water Secure Africa (DIWASA) initiative to
+      support agricultural water-accounting and water-use studies where existing crop masks disagree.
+
+
+      The data is organized around the HCCM and per-class probability layers, and validation against an
+      independent reference set reported 73% overall accuracy with high precision and specificity for
+      identifying irrigated areas. The method and validation are documented in Owusu et al., "A framework
+      for disaggregating remote-sensing cropland into rainfed and irrigated classes at continental scale."'
+  refs:
+  - cropland-registry-yaml
+  - iwmi-odr-docs
+
+source:
+  publisher: International Water Management Institute (IWMI)
+  homepage_url: https://www.iwmi.org/
+
+display:
+  canonical_path: /cropland-partitioining/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

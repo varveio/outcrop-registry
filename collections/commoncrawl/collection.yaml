@@ -1,0 +1,385 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: commoncrawl
+title: Common Crawl
+status: reviewed
+sensitivity_class: sensitive_pii_risk
+publication_scope: full
+
+refs:
+- id: arc-format-early-crawls
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/web-archiving-file-formats-explained
+  label: Common Crawl — Web Archiving File Formats Explained (ARC vs WARC)
+  excerpt: Common Crawl has used WARC since the crawl of Summer 2013 (CC-MAIN-2013-20).
+  retrieved_at: '2026-06-17'
+
+- id: c4corpus-github
+  kind: web_research
+  url: https://github.com/dkpro/dkpro-c4corpus
+  label: DKPro C4CorpusTools repository (TU Darmstadt UKP)
+  excerpt: DKPro C4CorpusTools is a collection of tools for processing CommonCrawl corpus, including Creative
+    Commons license detection, boilerplate removal, language detection, and near-duplicate removal.
+  retrieved_at: '2026-06-17'
+
+- id: c4corpus-lrec
+  kind: web_research
+  url: https://aclanthology.org/L16-1146/
+  label: C4Corpus paper (LREC 2016)
+  excerpt: 'C4Corpus: Multilingual Web-size Corpus with Free License.'
+  retrieved_at: '2026-06-17'
+
+- id: cc-cdxj-index
+  kind: publisher_doc
+  url: https://commoncrawl.org/cdxj-index
+  label: Common Crawl — CDXJ Index
+  excerpt: an index to the WARC files and URLs in the Common Crawl corpus in the CDXJ file format. They
+    are sorted, plain-text files where each line contains information about a single capture in Common
+    Crawl's corpus.
+  retrieved_at: '2026-06-19'
+
+- id: cc-columnar-index
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/index-to-warc-files-and-urls-in-columnar-format
+  label: Common Crawl — Index to WARC Files and URLs in Columnar Format
+  excerpt: the index data is stored using Apache Parquet at s3://commoncrawl/cc-index/table/cc-main/warc/,
+    which allows to efficiently query or process the index and saves time and computing resources.
+  retrieved_at: '2026-06-19'
+
+- id: cc-contrib-index
+  kind: publisher_file
+  url: https://data.commoncrawl.org/contrib/index.html
+  label: Common Crawl — Community-Contributed Datasets index
+  excerpt: Projects and datasets created by the community using Common Crawl data.
+  retrieved_at: '2026-06-19'
+
+- id: cc-crawl-statistics
+  kind: publisher_doc
+  url: https://github.com/commoncrawl/cc-crawl-statistics
+  label: Common Crawl cc-crawl-statistics (GitHub)
+  excerpt: size of the monthly crawls, number of fetched pages, unique URLs, unique documents (by content
+    digest), number of different hosts, domains, top-level domains ... distribution of pages/URLs on hosts,
+    domains, top-level domains ... mime types, protocols / schemes (http vs. https), content languages
+  retrieved_at: '2026-06-19'
+
+- id: cc-getstarted-crawldata
+  kind: publisher_doc
+  url: https://commoncrawl.org/get-started
+  label: Common Crawl — Get Started (crawl archive, WARC/WAT/WET)
+  excerpt: WARC files which store the raw crawl data, WAT files which store computed metadata for the
+    data stored in the WARC, WET files which store extracted plaintext from the data stored in the WARC.
+  retrieved_at: '2026-06-19'
+
+- id: cc-host-index
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/introducing-the-host-index
+  label: Introducing the Host Index (Common Crawl blog)
+  excerpt: The new Host Index has one row for every web host we know about, in each individual crawl.
+    ... It contains summary information from the crawl, indexes, the web graph, and our raw crawler logs.
+  retrieved_at: '2026-06-19'
+
+- id: cc-hyperlinkgraph-release-blog
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/host--and-domain-level-web-graphs-october-november-december-2025
+  label: Common Crawl web graph release blog post
+  excerpt: We are pleased to announce a new release of host-level and domain-level web graphs based on
+    the crawls of October, November, and December 2025.
+
+- id: cc-hyperlinkgraph-webgraphs
+  kind: publisher_doc
+  url: https://commoncrawl.org/web-graphs
+  label: Common Crawl Web Graphs project page
+  excerpt: Common Crawl regularly releases host- and domain-level graphs, for visualising the crawl data.
+
+- id: cc-moz-negative
+  kind: web_research
+  url: https://commoncrawl.org/blog
+  label: Search cache — 2013 CC-MOZ device crawl experiments not described in current publisher docs
+  excerpt: No current publisher documentation describes the CC-MOZ-* (2013 Mozilla device user-agent)
+    crawl experiments.
+  retrieved_at: '2026-06-17'
+
+- id: cc-news
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/news-dataset-available
+  label: Common Crawl — News Dataset Available (CC-NEWS)
+  excerpt: By decoupling the news from the main dataset, as a smaller sub-dataset, it is feasible to publish
+    the WARC files shortly after they are written.
+  retrieved_at: '2026-06-17'
+
+- id: cc-news-dataset
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/news-dataset-available
+  label: Common Crawl — News Dataset Available (CC-NEWS)
+  excerpt: The news dataset includes articles from news sites all over the world. The data is available
+    on AWS S3 in the commoncrawl bucket at crawl-data/CC-NEWS/.
+  retrieved_at: '2026-06-19'
+
+- id: cc-pyspark
+  kind: web_research
+  url: https://github.com/commoncrawl/cc-pyspark
+  label: Common Crawl cc-pyspark repository
+  excerpt: Process Common Crawl data with Python and Spark ... select WARC records by SQL query, parse
+    HTML, extract text, count words ... using boto3 to access WARC, WAT or WET files on s3://commoncrawl/.
+  retrieved_at: '2026-06-17'
+
+- id: cc-web-graphs
+  kind: publisher_doc
+  url: https://commoncrawl.org/web-graphs
+  label: Common Crawl Web Graphs
+  excerpt: Common Crawl regularly releases host- and domain-level graphs, for visualising the crawl data.
+  retrieved_at: '2026-06-19'
+
+- id: cc-webgraphs
+  kind: web_research
+  url: https://commoncrawl.org/web-graphs
+  label: Common Crawl Web Graphs overview
+  excerpt: Common Crawl regularly releases host- and domain-level web graphs ... the host-level graph
+    consisting of 628.7 million nodes and 6.9 billion edges, and the domain-level graph consisting of
+    184.6 million nodes and 5.4 billion edges.
+  retrieved_at: '2026-06-17'
+
+- id: ccsupp
+  kind: web_research
+  url: https://commoncrawl.org/blog/index-to-warc-files-and-urls-in-columnar-format
+  label: Common Crawl columnar index (Athena/Parquet)
+  excerpt: An index to WARC files and URLs in a columnar format using Apache Parquet, queryable via AWS
+    Athena.
+  retrieved_at: '2026-06-17'
+
+- id: cdxj-index
+  kind: publisher_doc
+  url: https://commoncrawl.org/cdxj-index
+  label: Common Crawl — CDXJ Index documentation
+  excerpt: It is an index to the WARC files and URLs in the Common Crawl corpus in the CDXJ file format.
+    This format of the index is optimised for querying individual page captures in the crawl.
+  retrieved_at: '2026-06-17'
+
+- id: columnar-index
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/index-to-warc-files-and-urls-in-columnar-format
+  label: Common Crawl — Columnar (URL) Index in Apache Parquet
+  excerpt: The columnar format (we use Apache Parquet) allows to efficiently query or process the index
+    and saves time and computing resources.
+  retrieved_at: '2026-06-17'
+
+- id: commoncrawl-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/commoncrawl/
+  label: AWS Open Data Registry — Common Crawl
+  excerpt: A corpus of web crawl data composed of over 300 billion web pages.
+  retrieved_at: '2026-06-17'
+
+- id: commoncrawl-get-started
+  kind: publisher_doc
+  url: https://commoncrawl.org/get-started
+  label: Common Crawl — Get Started (bucket layout, WARC/WAT/WET, endpoints)
+  excerpt: s3://commoncrawl/[path] ... https://data.commoncrawl.org/[path]
+  retrieved_at: '2026-06-17'
+
+- id: commoncrawl-homepage
+  kind: publisher_homepage
+  url: https://commoncrawl.org/
+  label: Common Crawl Foundation homepage
+  excerpt: Common Crawl is a 501(c)(3) non-profit founded in 2007. We make wholesale extraction, transformation
+    and analysis of open web data accessible to researchers.
+  retrieved_at: '2026-06-17'
+
+- id: commoncrawl-terms
+  kind: publisher_doc
+  url: https://commoncrawl.org/terms-of-use
+  label: Common Crawl Terms of Use
+  excerpt: CC grants you a limited, non-assignable, non-transferable, non-sublicensable, non-exclusive,
+    limited license to access and use the Service subject to the terms and conditions of these ToU.
+  retrieved_at: '2026-06-17'
+
+- id: crawl-statistics
+  kind: publisher_doc
+  url: https://github.com/commoncrawl/cc-crawl-statistics
+  label: Common Crawl — cc-crawl-statistics (per-crawl statistics)
+  excerpt: s3://commoncrawl/crawl-analysis/$crawl/stats/part-00000.gz
+  retrieved_at: '2026-06-17'
+
+- id: dbpedia-negative
+  kind: web_research
+  url: https://commoncrawl.org/blog
+  label: Search cache — wikipedia/dbpedia/ deposit not described in current publisher docs
+  excerpt: No current Common Crawl publisher documentation describes the wikipedia/dbpedia/ deposit.
+  retrieved_at: '2026-06-17'
+
+- id: dclm-arxiv
+  kind: web_research
+  url: https://arxiv.org/abs/2406.11794
+  label: DataComp-LM paper (arXiv 2406.11794)
+  excerpt: a standardized corpus of 240T tokens extracted from Common Crawl, effective pretraining recipes
+    based on the OpenLM framework, and a broad suite of 53 downstream evaluations
+  retrieved_at: '2026-06-19'
+
+- id: dclm-baseline-license
+  kind: registry_entry
+  url: https://huggingface.co/datasets/mlfoundations/dclm-baseline-1.0
+  label: 'DCLM-baseline-1.0 Hugging Face dataset card (license: cc-by-4.0)'
+  excerpt: 'License: cc-by-4.0'
+  retrieved_at: '2026-06-17'
+
+- id: dclm-variants
+  kind: web_research
+  url: https://github.com/mlfoundations/dclm/blob/main/README.md
+  label: DCLM project README (mlfoundations/dclm)
+  excerpt: DCLM-Pool consists of unfiltered Common Crawl data that has only undergone text extraction.
+    DCLM-Baseline is a large-scale, meticulously curated web-pretraining corpus. DCLM-RefinedWeb applies
+    all processing steps from DCLM-Baseline to DCLM-Pool with the exception of the OH2.5 + ELI5 fastText
+    filter.
+  retrieved_at: '2026-06-19'
+
+- id: depcc-arxiv
+  kind: web_research
+  url: https://arxiv.org/abs/1710.01779
+  label: DepCC paper (arXiv:1710.01779, LREC 2018)
+  excerpt: Building a Web-Scale Dependency-Parsed Corpus from CommonCrawl.
+  retrieved_at: '2026-06-17'
+
+- id: depcc-hamburg
+  kind: web_research
+  url: https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/depcc.html
+  label: DepCC resource page (University of Hamburg, LT Group)
+  excerpt: DepCC ... 365 million documents ... 252 billion tokens ... 7.5 billion named entity occurrences
+    ... 14.3 billion sentences. Data is encoded in CoNLL-U format, delivered as gzip archives.
+  retrieved_at: '2026-06-17'
+
+- id: gneissweb-annotations
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/announcing-gneissweb-annotations
+  label: Announcing GneissWeb Annotations (Common Crawl blog)
+  excerpt: hosts where more than half of the GneissWeb high-quality pages are categorized as medical ...
+    hosts with a high search-engine style rank but low GneissWeb score, and vice versa
+  retrieved_at: '2026-06-19'
+
+- id: gneissweb-blog
+  kind: web_research
+  url: https://commoncrawl.org/blog/announcing-gneissweb-annotations
+  label: 'Common Crawl blog: Announcing GneissWeb Annotations'
+  excerpt: GneissWeb annotations are quality and category labels added to Common Crawl's web dataset ...
+    allowing users to pick out a subset of documents that passes GneissWeb's quality standard.
+  retrieved_at: '2026-06-17'
+
+- id: headers
+  kind: web_research
+  url: https://commoncrawl.org/
+  label: Common Crawl homepage (headers-testing context)
+  excerpt: Common Crawl maintains a free, open repository of web crawl data.
+  retrieved_at: '2026-06-17'
+
+- id: hive-analysis-negative
+  kind: web_research
+  url: https://commoncrawl.org/blog
+  label: Search cache — hive_analysis/ series not described in current publisher docs
+  excerpt: No current publisher documentation describes the hive_analysis/ per-crawl series.
+  retrieved_at: '2026-06-17'
+
+- id: hostindex-blog
+  kind: web_research
+  url: https://commoncrawl.org/blog/introducing-the-host-index
+  label: 'Common Crawl blog: Introducing the Host Index'
+  excerpt: The Host Index ... a new dataset with one row per web host per crawl, combining crawl stats,
+    status codes, languages, and bot defence data.
+  retrieved_at: '2026-06-17'
+
+- id: legacy-hadoop-negative
+  kind: web_research
+  url: https://commoncrawl.org/blog
+  label: Search cache — legacy Hadoop pipeline artifacts not described in current publisher docs
+  excerpt: No current publisher documentation describes mapred-temp/, parse-output/, parse-output-test/,
+    or stats-output/.
+  retrieved_at: '2026-06-17'
+
+- id: meanpath-negative
+  kind: web_research
+  url: https://commoncrawl.org/blog
+  label: Search cache — meanpath/ deposit not described in current publisher docs
+  excerpt: No current publisher documentation describes the meanpath/ deposit.
+  retrieved_at: '2026-06-17'
+
+- id: mozilla1m
+  kind: web_research
+  url: https://commoncrawl.org/blog/common-crawl-move-to-nutch
+  label: Common Crawl move to Apache Nutch (2013)
+  excerpt: Common Crawl transitioned to Apache Nutch in 2013.
+  retrieved_at: '2026-06-17'
+
+- id: nemotron-arxiv
+  kind: web_research
+  url: https://arxiv.org/abs/2412.02595
+  label: Nemotron-CC paper (arXiv:2412.02595)
+  excerpt: 'Nemotron-CC: Transforming Common Crawl into a Refined Long-Horizon Pretraining Dataset.'
+  retrieved_at: '2026-06-17'
+
+- id: nemotron-index
+  kind: publisher_file
+  url: https://data.commoncrawl.org/contrib/Nemotron/Nemotron-CC/index.html
+  label: Nemotron-CC in-bucket dataset page (Common Crawl)
+  excerpt: Nemotron-CC is a 6.3 trillion token pretraining dataset derived from Common Crawl, combining
+    4.4T deduplicated original tokens with 1.9T synthetically generated tokens, spanning CC-MAIN-2013-20
+    through CC-MAIN-2024-30.
+  retrieved_at: '2026-06-17'
+
+- id: original-index-2015
+  kind: publisher_doc
+  url: https://commoncrawl.org/blog/announcing-the-common-crawl-index
+  label: Common Crawl — Announcing the Common Crawl Index (original URL index)
+  excerpt: 'The raw index data is available, per crawl, at: s3://commoncrawl/cc-index/collections/CC-MAIN-YYYY-WW/indexes/'
+  retrieved_at: '2026-06-17'
+
+- id: wdc
+  kind: web_research
+  url: https://webdatacommons.org/
+  label: Web Data Commons project homepage
+  excerpt: The Web Data Commons project extracts structured data from the Common Crawl, the largest web
+    corpus available to the public, and provides the extracted data for public download in order to support
+    researchers and companies in exploiting the wealth of information that is available on the Web.
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: Common Crawl Terms of Use
+  url: https://commoncrawl.org/terms-of-use
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open, petabyte-scale repository of web crawl data
+    lede: Common Crawl is the largest free and open repository of web crawl data, published by the nonprofit
+      Common Crawl Foundation and hosted on Amazon S3.
+    text: 'Common Crawl has crawled the web and freely released its archives since 2008, run by a 501(c)(3)
+      nonprofit whose mission is to democratise access to web information. The petabyte-scale corpus lives
+      in the public s3://commoncrawl bucket (us-east-1) under the AWS Open Data Sponsorship Program, so
+      it can be read anonymously without an AWS account and without requester-pays charges from within
+      the region; it is also reachable over CloudFront and an HTTPS gateway at data.commoncrawl.org. A
+      new main crawl is released roughly monthly, and the corpus is used widely across academia and industry,
+      including as a primary source of training data for large language models. The data is governed by
+      Common Crawl''s own Terms of Use rather than a standard open-content licence: because the corpus
+      is crawled third-party web content, the terms disclaim ownership of that content and require users
+      to respect the copyrights and rights of the original publishers.'
+  refs:
+  - commoncrawl-homepage
+  - commoncrawl-get-started
+  - commoncrawl-terms
+
+source:
+  publisher: Common Crawl Foundation
+  homepage_url: https://commoncrawl.org/
+
+display:
+  canonical_path: /commoncrawl/
+
+stewardship:
+  last_reviewed_at: '2026-06-19'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

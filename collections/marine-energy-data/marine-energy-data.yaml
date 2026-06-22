@@ -1,0 +1,128 @@
+schema_version: '0.4'
+bucket: marine-energy-data
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: mois/
+  copy:
+    headline: MOIS instrumentation data from the Azura WETS deployment
+    lede: NREL Modular Ocean Instrumentation System (MOIS) measurements from the NWEI Azura grid-connected
+      deployment at the U.S. Navy's Wave Energy Test Site in Kaneohe Bay, Hawaii.
+    text: MOIS is NREL's measurement platform for collecting oceanographic and device-performance data
+      during wave-energy-converter testing. These files come from the Azura grid-connected deployment
+      at the 30-meter berth of the U.S. Navy's Wave Energy Test Site (WETS 30m Site), at Kaneohe Marine
+      Corps Base Hawaii on the windward coast of Oahu. The record spans 2015, 2016, and 2018, organized
+      by year and month and broken out per sensor stream, including compass, motion (dms), GPS, analog,
+      loadcell, and system data. Submitted by NREL under Creative Commons Attribution 4.0.
+  refs:
+  - med-mois
+
+- prefix: pacwave/
+  copy:
+    headline: METocean buoy observations from the PacWave test site
+    lede: PacWave Site Observations are raw and near-real-time meteorological and oceanic measurements
+      from instrumentation at Oregon State University's PacWave wave-energy test site off Newport, Oregon.
+    text: 'PacWave is an open-ocean testing facility operated by Oregon State University off the coast
+      of Newport, Oregon, split into PacWave North (PWN), an off-grid site 2 nm offshore in 45-55 m of
+      water, and PacWave South (PWS), a grid-connected site 6 nm offshore in 65-78 m. Several METocean
+      platforms have been deployed at both sites: FLOATr (Fixed Location Ocean and Atmosphere Tracking)
+      buoys carrying meteorological sensors and an onboard CTD, Sofar Spotter and CDIP WaveRider wave
+      buoys, Nexsens meteorological buoys, a Nortek Signature250 bottom lander, and the CRAB passive-acoustic
+      monitoring system. Processed data are provided in netCDF4 following Integrated Ocean Observing System
+      (IOOS) standards, with raw data preserved in native formats (CSV, JSON, .ad2cp, .dat). Deployments
+      are named with a 3-digit chronological number, and only minimal quality control has been applied.
+      Submitted by Oregon State University under Creative Commons Attribution 4.0.'
+  refs:
+  - med-pacwave
+
+- prefix: primre/
+  copy:
+    headline: Tidal current velocity and turbulence at Sequim Bay Inlet
+    lede: Nortek Signature1000 acoustic-Doppler measurements characterizing tidal current velocity and
+      turbulence at the entrance to Sequim Bay, Washington, a marine-energy testing and monitoring site.
+    text: These measurements come from a Nortek Signature1000 deployed on a lander for 14 days in August
+      2020 at the entrance to Sequim Bay, Washington. Raw data were processed with the DOLfYN Python package
+      and standardized with the ME Data Pipeline (tsdat 0.2.12), then partitioned into 24-hour increments
+      and saved as netCDF. A companion resource, Water Velocity and Turbulence Data from Sequim Bay 2016-2025,
+      holds the reprocessed and extended deployment record. Available under Creative Commons Attribution
+      4.0.
+  refs:
+  - med-sequim
+
+- prefix: swan/
+  copy:
+    headline: Raw SWAN wave hindcast output for the East Coast and Gulf of Mexico
+    lede: Native unstructured-grid SWAN model outputs from the long-term US Wave hindcast, covering the
+      U.S. East Coast and Gulf of Mexico, funded by DOE's Water Power Technologies Office.
+    text: The US Wave hindcast was funded by DOE's Water Power Technologies Office to improve understanding
+      of the U.S. wave-energy resource and inform wave-energy project development and converter design.
+      The hindcasts were generated with unstructured-grid Simulating WAves Nearshore (SWAN) models at
+      roughly 200 m nearshore resolution, driven by global WAVEWATCH III outputs, and run over a 42-year
+      period from 1979 to 2020 toward full coverage of the U.S. Exclusive Economic Zone. This contains
+      the raw SWAN model outputs for the East Coast and Gulf of Mexico regions, downloadable without login
+      credentials through the Open Energy Data Initiative (OEDI) data viewer. Available under Creative
+      Commons Attribution 4.0.
+  refs:
+  - med-swan
+
+- prefix: umsli/
+  copy:
+    headline: UMSLI underwater LiDAR imaging of marine life at PNNL-Sequim
+    lede: Field-deployment data from the Unobtrusive Multi-static Serial LiDAR Imager (UMSLI), a low-power
+      red-laser system imaging marine life around MHK sites, recorded at PNNL-Sequim in 2017.
+    text: UMSLI uses a lower-power 638 nm red laser that is invisible to marine animals; its purpose is
+      to monitor MHK sites and alert managers to potential encounters between energy-generation equipment
+      and protected marine life. During the 2017 field deployment at the PNNL-Sequim test site, the system
+      scanned manmade barracuda and turtle models plus technical targets across 6 LiDAR transmitter/receiver
+      pairs, and captured live encounters including several Harbor Seals, recording about 5 TB of data
+      in total. Raw data are organized chronologically by mission date (for example 01_2017 and 10_2017,
+      with per-day folders such as 102317), spanning artificial-animal target runs, long-term recordings,
+      and pre-mission lab and test-tank runs, alongside experiment video recordings. UMSLI is developed
+      at Harbor Branch Oceanographic Institute, Florida Atlantic University, under DOE funding. Available
+      under Creative Commons Attribution 4.0.
+  refs:
+  - med-umsli
+
+- prefix: us-tidal/
+  copy:
+    headline: High Resolution Tidal Hindcast (US Tidal) FVCOM datasets
+    lede: Standardized one-year FVCOM tidal-energy hindcasts for five U.S. coastal locations with significant
+      tidal-energy potential, developed by PNNL and NREL for DOE's WPTO.
+    text: 'The WPTO High Resolution Tidal Hindcast (US Tidal) dataset provides standardized tidal-energy
+      data for five strategically selected U.S. coastal locations, developed collaboratively by Pacific
+      Northwest National Laboratory (PNNL) and the National Laboratory of the Rockies. Each location was
+      modeled with FVCOM 4.3.1 (Finite Volume Community Ocean Model) across 10 uniform sigma layers, producing
+      one year of eastward and northward sea-water velocities, surface elevation, calculated speed, flow
+      direction, and power density. The data follow CF-1.10, ACDD-1.3, and ME Data Pipeline conventions
+      and meet IEC 62600-201 Stage 1 tidal-resource standards in most areas. The five locations are the
+      Aleutian Islands and Cook Inlet (Alaska), the Piscataqua River (New Hampshire), Puget Sound (Washington),
+      and Western Passage (Maine), at temporal resolutions from half-hourly to hourly. Per location, the
+      data are staged by pipeline step: 00_raw native FVCOM output, b1 value-added-product time series
+      partitioned by grid point and compressed daily, and b4/b5 summary parquet for resource and atlas
+      tables, with a manifest tree indexing the files. Available under Creative Commons Attribution 4.0.'
+  refs:
+  - med-ustidal
+
+- prefix: uw-passive-acoustics/
+  copy:
+    headline: Passive-acoustic radiated-noise measurements at a UW tidal turbine
+    lede: TEAMER underwater-acoustics data measuring the sound radiated by the University of Washington's
+      pilot-scale cross-flow tidal turbine in Sequim Bay (2023-2024), from three sensor packages.
+    text: 'These environmental-monitoring data were collected during the deployment of the Turbine Lander,
+      a small-scale vertical-axis, cross-flow turbine (1.19 m by 0.85 m), in the inlet to Sequim Bay,
+      Washington, for 141 days between October 2023 and March 2024. Quantifying the underwater sound a
+      tidal turbine radiates is essential both to understand its potential environmental impact and to
+      assess how that sound might interfere with the turbine''s intended application. The associated TEAMER
+      effort measured radiated sound with three sensor packages, organized here by operator: a vector
+      sensor array from Integral Consulting, a commercial-off-the-shelf vector sensor from PNNL, and drifting
+      hydrophones from the University of Washington. Available under Creative Commons Attribution 4.0.'
+  refs:
+  - med-uwacoustics
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

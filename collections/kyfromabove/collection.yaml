@@ -1,0 +1,106 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: kyfromabove
+title: KyFromAbove
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: kyfromabove-aws-docs-readme
+  kind: publisher_doc
+  url: https://github.com/awslabs/open-data-docs/blob/main/docs/kyfromabove/README.md
+  label: KyFromAbove on AWS — publisher documentation (open-data-docs README)
+  excerpt: The KyFromAbove S3 buckets can be accessed by anyone on the internet (Publicly Accessible).
+  retrieved_at: '2026-06-20'
+
+- id: kyfromabove-dcat
+  kind: catalog_metadata
+  url: https://kyfromabove.ky.gov/api/feed/dcat-us/1.1.json
+  label: KyFromAbove DCAT-US 1.1 data catalog (Kentucky DGI)
+  excerpt: '"accessLevel": "public" — recorded for every KyFromAbove dataset (KyTopo, KYAPED Phase 3 imagery,
+    Kentucky LiDAR Point Cloud, Kentucky Elevation Data DEM, Phase 2/3 ortho imagery, contours, spot elevations)
+    in the publisher''s federal Project Open Data v1.1 catalog feed.'
+  retrieved_at: '2026-06-20'
+
+- id: kyfromabove-dcat-terms-20260620
+  kind: catalog_metadata
+  url: https://kyfromabove.ky.gov/api/feed/dcat-us/1.1.json
+  label: KyFromAbove DCAT-US 1.1 catalog feed (kyfromabove.ky.gov) — per-dataset use terms & accessLevel
+  excerpt: 'LIMITATION OF LIABILITY:  The Division of Geographic Information has no reason to believe
+    that there are any inaccuracies or defects in information incorporated in this work and make no representations
+    of any kind, including, but not limited to, the warranties of merchantability or fitness for a particular
+    use, nor any such warranties to be implied, with respect to the information or data furnished herein.'
+  retrieved_at: '2026-06-20'
+
+- id: kyfromabove-homepage
+  kind: publisher_homepage
+  url: https://kyfromabove.ky.gov/
+  label: KyFromAbove program homepage (Kentucky Division of Geographic Information)
+  excerpt: KyFromAbove - Kentucky's Aerial Photography & Elevation Data Program
+  retrieved_at: '2026-06-20'
+
+- id: kyfromabove-kygeonet-terms-20260620
+  kind: publisher_doc
+  url: https://kygeonet.ky.gov/#info
+  label: Kentucky Geography Network (KyGeoNet) terms / information page — KyFromAbove data use terms
+  excerpt: 'LIMITATION OF LIABILITY: The Kentucky Division of Geographic Information (DGI) has no indication
+    or reason to believe that there are any inaccuracies or defects of information incorporated in this
+    work and make no representations of any kind, including, but not limited to, the warranties of merchantability
+    or fitness for a particular use, nor are any such warranties to be implied, with respect to the information
+    or data, furnished herein.'
+  retrieved_at: '2026-06-20'
+
+- id: kyfromabove-public-domain-terms
+  kind: publisher_doc
+  url: https://kyfromabove.ky.gov/
+  label: KyFromAbove data policy — public-domain basemap statement (Kentucky DGI)
+  excerpt: All basemap data acquired through this effort is owned by the Commonwealth of Kentucky and
+    is freely distributed in the public domain. The state will own the imagery, but it will not be licensed;
+    images will be in the public domain and available to anyone.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: Kentucky Geography Network (KyGeoNet) terms / information page — KyFromAbove data use terms
+  url: https://kygeonet.ky.gov/#info
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Kentucky statewide aerial imagery and LiDAR elevation basemap
+    lede: KyFromAbove is the Kentucky Aerial Photography & Elevation Data (KYAPED) program, publishing
+      statewide leaf-off orthoimagery, oblique imagery, and LiDAR-derived elevation products as open public-domain
+      geospatial data.
+    text: 'KyFromAbove is the public face of the Kentucky Aerial Photography & Elevation Data (KYAPED)
+      program, administered by the Commonwealth Office of Technology, Office of Architecture and Governance,
+      Division of Geographic Information. It maintains a current statewide basemap of Kentucky from high-resolution
+      color leaf-off aerial imagery and LiDAR elevation data. The data divides into two families: imagery
+      (natural-color nadir orthoimagery and four-direction oblique imagery as Cloud Optimized GeoTIFFs
+      on a 5000x5000 foot grid) and elevation (LiDAR-derived bare-earth DEMs, point clouds, contours,
+      spot elevations, and the KyTopo map series). Acquisition runs in successive project phases, with
+      Phase 1 at coarser resolution and Phases 2 and 3 at finer resolution. All basemap data is owned
+      by the Commonwealth and dedicated to the public domain, freely available to government, the private
+      sector, and the public, with attribution to the Commonwealth requested.'
+  refs:
+  - kyfromabove-aws-docs-readme
+  - kyfromabove-public-domain-terms
+
+source:
+  publisher: Kentucky Division of Geographic Information
+  homepage_url: https://kyfromabove.ky.gov/
+
+display:
+  canonical_path: /kyfromabove/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

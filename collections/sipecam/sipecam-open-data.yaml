@@ -1,0 +1,210 @@
+schema_version: '0.4'
+bucket: sipecam-open-data
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: alf_data/
+  copy:
+    headline: Storage reserved for Alfresco
+    lede: Storage that the project's S3 documentation reserves for Alfresco use, separate from the easy-access
+      data/ path.
+    text: Marked in the project's S3 documentation as reserved for Alfresco use. Unlike the easy-access
+      monitoring media, it is not laid out by the cumulo, node, device and extraction-date nomenclature
+      that organizes that data.
+  refs:
+  - sipecam-s3info
+
+- prefix: data/
+  copy:
+    headline: Easy-access monitoring media by cumulo, node, device and date
+    lede: SiPeCaM's easy-access subset of monitoring media, organized by monitoring cumulo, then node,
+      capture device, extraction date and data type.
+    text: 'Per the project''s S3 documentation, this is the easy-access path into SiPeCaM''s monitoring
+      media. Records nest from a cumulo (a cluster of monitoring sites), then a node nomenclature, then
+      the capture-device serial number, then the extraction date (YYYY-MM-DD), and finally a type-of-data
+      folder.
+
+
+      The type-of-data folders separate images_videos — camera-trap .JPG photographs and .mp4 / .AVI video
+      — from audio, which is further split into ultrasonic and audible recordings.'
+  refs:
+  - sipecam-s3info
+
+- prefix: products/
+  copy:
+    text: products/ holds derived/processed outputs generated from the raw monitoring media (e.g. images
+      extracted from video, videos rendered from audio spectrograms). No publisher source documents this
+      prefix in detail; recorded as a derived-products area with low confidence pending CONABIO documentation.
+    headline: products/ holds derived/processed outputs generated from the raw…
+    lede: products/ holds derived/processed outputs generated from the raw monitoring media (e.g.
+
+- prefix: raw-land-data/
+  copy:
+    headline: Raw, as-delivered field data from the monitoring sites
+    lede: Raw field data brought back from SiPeCaM's monitoring sites, captured before it is organized
+      into the publisher's easy-access tree.
+    text: As-delivered media from SiPeCaM's field collection, distinct from the cleaned-up data/ path
+      the project documents for easy access. It carries the project's field-collected data types — camera-trap
+      visual data used to identify taxa to class, family, genus or species, and sound recordings including
+      bat calls captured in the field across the permanent monitoring sites.
+  refs:
+  - sipecam-readme
+
+- prefix: simex_executions/
+  copy:
+    text: Internal SiMEX pipeline execution outputs produced while generating the monitoring datasets.
+    headline: Internal SiMEX pipeline execution outputs produced while generating…
+
+- prefix: snmb/
+  copy:
+    text: Processed data associated with the Sistema Nacional de Monitoreo de la Biodiversidad (SNMB),
+      the CONABIO-coordinated national biodiversity monitoring effort that SiPeCaM calibrates and complements.
+      The SNMB is a coordinated effort of the Mexican federal government — through CONABIO together with
+      CONAFOR and CONANP — to generate and improve biodiversity information, with data delivered to CONABIO
+      to be stored, systematized and processed. The processed_data subfolder contains the processed outputs
+      of that program, published alongside the SiPeCaM permanent-sites data with which it shares CONABIO's
+      biodiversity-monitoring lineage.
+    headline: Processed data associated with the Sistema Nacional de Monitoreo de…
+    lede: Processed data associated with the Sistema Nacional de Monitoreo de la Biodiversidad (SNMB),
+      the CONABIO-coordinated national biodiversity monitoring effort that SiPeCaM calibrates and complements.
+  refs:
+  - snmb-context
+
+- prefix: data/13/3_13_0_1399/HLPXGM09048448/
+  copy:
+    text: A single file, a leaf of its parent monitoring delivery, not a standalone data unit.
+    headline: A single file, a leaf of its parent monitoring delivery, not a…
+
+- prefix: data/22/1_22_1_821/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_0_1278/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_0_1280/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_0_1281/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_0_1282/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_1_1283/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_1_1284/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_1_1285/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_1_1286/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/32/4_32_1_1287/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/92/3_92_0_1339/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/92/3_92_0_1341/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/92/3_92_0_1343/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/92/3_92_1_1334/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/92/3_92_1_1338/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/95/1_95_0_1344/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/95/1_95_0_1348/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+- prefix: data/95/1_95_1_1350/
+  copy:
+    text: Each sub-directory is one camera or audio recorder's device serial number (16-character hex
+      card ids and HLPXGM recorder ids) at a single monitoring node; together they are one node's field
+      data, not separate datasets.
+    headline: Each sub-directory is one camera or audio recorder's device serial…
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

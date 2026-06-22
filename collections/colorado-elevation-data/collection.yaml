@@ -1,0 +1,85 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: colorado-elevation-data
+title: State of Colorado Elevation Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: co-elev-guide-main
+  kind: publisher_doc
+  url: https://docs.google.com/document/d/1HMO-d4cCrBvFa2F6-N3lhP6rkezlvBmSUFA5S8t_ekQ/edit
+  label: State of Colorado Elevation Data — AWS Open Data Guide (OIT GIS)
+  excerpt: The purpose of this guide is to outline the background, data available, and instructions for
+    the State of Colorado Elevation data in the AWS Open Data program. The goal of this initiative is
+    to provide access to historical elevation data around Colorado.
+  retrieved_at: '2026-06-22'
+
+- id: co-elev-homepage
+  kind: publisher_homepage
+  url: https://geodata.colorado.gov/
+  label: Colorado Geospatial Portal (OIT GIS homepage)
+  excerpt: Colorado's GIS hub, a reliable source for geographic data and resources, with data from state
+    agencies and partners and assistance from OIT-GIS.
+  retrieved_at: '2026-06-22'
+
+- id: co-elev-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/colorado-elevation-data.yaml
+  label: State of Colorado Elevation Data — AWS Open Data registry metadata (provider-maintained)
+  excerpt: 'ManagedBy: State of Colorado Governors Office of Information Technology OIT GIS team. License:
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode. AccessExample: aws s3 ls s3://colorado-public-elevation-data
+    --no-sign-request --region us-west-2'
+  retrieved_at: '2026-06-22'
+
+- id: co-elevation-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/colorado-elevation-data/
+  label: registry.opendata.aws — colorado elevation data
+  excerpt: The State of Colorado has gathered public historical elevation data. Managed by the State of
+    Colorado Governors Office of Information Technology OIT GIS team.
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Statewide Colorado lidar and digital elevation models
+    lede: State of Colorado Elevation Data is the Governor's Office of Information Technology GIS team's
+      open archive of historical and current lidar-derived elevation models for Colorado, released under
+      CC0 on AWS Open Data.
+    text: 'Compiled by the Colorado Governor''s Office of Information Technology (OIT) GIS team, this
+      collection brings together public elevation data — primarily lidar-derived bare-earth and surface
+      digital elevation models (DEMs) — gathered across Colorado over multiple acquisition years. Content
+      is organized by project year and area: county and watershed lidar projects from 2015 through 2019
+      (many flown for the Colorado Water Conservation Board), a 2025 USDOT corridor lidar collection covering
+      Front Range and interstate corridors, USGS-derived one-meter DEMs, and a tiled statewide DEM service.
+      The data is dedicated to the public domain under Creative Commons CC0 1.0 and the bucket is readable
+      anonymously, so it is freely usable for hazard mapping, hydrology, terrain analysis, and general
+      GIS work.'
+  refs:
+  - co-elev-guide-main
+  - co-elev-registry
+
+source:
+  publisher: State of Colorado Governor's Office of Information Technology (OIT) GIS Team
+  homepage_url: https://geodata.colorado.gov/
+
+display:
+  canonical_path: /colorado-elevation-data/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

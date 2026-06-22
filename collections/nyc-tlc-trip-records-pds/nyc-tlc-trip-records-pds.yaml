@@ -1,0 +1,60 @@
+schema_version: '0.4'
+bucket: nyc-tlc-trip-records-pds
+backend: s3
+role: primary
+
+prefixes:
+- prefix: csv/
+  copy:
+    headline: Original bzip2 CSV taxi trips, partitioned by year/month/color
+    lede: The same 2009–2015 yellow and green taxi trips in their original CSV form, bzip2-compressed
+      and partitioned by year, month and taxi color.
+    text: 'The raw, source form of the same yellow and green (boro) taxi trips held as Parquet alongside
+      it: bzip2-compressed CSV organized as year=/month=/color=/<color>_tripdata_YYYY-MM.csv.bz2. Like
+      the Parquet, these original files retain the pickup and drop-off GPS coordinates that the TLC''s
+      later reprocessing replaced with taxi-zone IDs.'
+  refs:
+  - tlc-trip-record-page
+
+- prefix: logs/j-234JKY9S2O731/containers/
+  copy:
+    text: YARN application container logs (application_*/.../*.gz) emitted by the 2016 EMR conversion
+      job — operational build output, not trip data.
+    headline: YARN application container logs
+
+- prefix: logs/j-234JKY9S2O731/em/agg/
+  copy:
+    text: EMR instance aggregate metric blobs (i-*_agg.bin) from the 2016 conversion job — operational
+      telemetry, not trip data.
+    headline: EMR instance aggregate metric blobs
+
+- prefix: logs/j-234JKY9S2O731/em/raw/
+  copy:
+    text: EMR instance raw metric blobs (i-*_raw.bin) from the 2016 conversion job — operational telemetry,
+      not trip data.
+    headline: EMR instance raw metric blobs
+
+- prefix: logs/j-234JKY9S2O731/node/
+  copy:
+    text: EMR node daemon logs (hadoop-hdfs, hadoop-mapreduce, presto, instance-state) from the 2016 conversion
+      job — operational logs, not trip data.
+    headline: EMR node daemon logs
+
+- prefix: par/
+  copy:
+    headline: Hive-partitioned Parquet taxi trips with original coordinates
+    lede: Yellow and green (boro) taxi trip records in Parquet, partitioned by year, month and taxi color,
+      retaining the original pickup and drop-off GPS coordinates.
+    text: Yellow and green (boro) taxi trip records — pickup/drop-off times and locations, distances,
+      itemized fares, rate and payment types, passenger counts — in columnar Parquet. Files are organized
+      as year={2009..2015}/month={01..12}/color={yellow,green}/, one Parquet object per partition (the
+      objects carry no file extension). Unlike the current TLC Parquet, this snapshot keeps the original
+      pickup_longitude/latitude and dropoff_longitude/latitude columns rather than taxi-zone IDs.
+  refs:
+  - tlc-trip-record-page
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

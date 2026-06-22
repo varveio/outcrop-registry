@@ -1,0 +1,27 @@
+schema_version: '0.4'
+bucket: cellxgene-census-public-us-west-2
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: cell-census/
+  copy:
+    headline: Dated Census builds — TileDB-SOMA collections with source H5AD files
+    lede: cell-census/ organizes the published Census builds, each a tagged release pairing a Census-wide
+      TileDB-SOMA collection with the individual source H5AD datasets behind it.
+    text: Each Census build is a TileDB-SOMA collection and its corresponding source H5AD files, named
+      by a unique tag, normally the build date such as 2023-07-25, identifying a Long-Term Supported (LTS)
+      or Weekly release. A build partitions into soma/, the Census-wide TileDB-SOMA collection queried
+      through the cellxgene_census Python and R APIs, and h5ads/, the individual source H5AD datasets.
+      The builds are publicly hosted in AWS S3 (us-west-2) and can be bulk-downloaded anonymously with
+      the AWS CLI using --no-sign-request, which confirms credential-free public access at no cost, or
+      queried in place through the Census API. The data is available for re-use under CC-BY-4.0.
+  refs:
+  - cellxgene-census-aws-access
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,46 @@
+schema_version: '0.4'
+bucket: allthebacteria-lexicmap
+backend: s3
+role: secondary
+region: eu-west-2
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+prefixes:
+- prefix: 202408/genomes/
+  copy:
+    headline: LexicMap genome index data (2024-08 snapshot)
+    lede: The genome-index component of the prebuilt LexicMap index for the AllTheBacteria 2024-08 snapshot,
+      mapping query hits back to source genomes.
+    text: This is the genomes component of the LexicMap index for the 202408 snapshot — the packed genome
+      data and index that lets a LexicMap query resolve seed matches back to the originating AllTheBacteria
+      assemblies. It is one of the two large parts of the ~5.24 TiB index (the genomes data is about 2.37
+      TiB; the seeds k-mer chunks make up the rest). It is consumed together with the seeds component
+      as a single mounted or downloaded index, served public-read on AWS Open Data in eu-west-2 and accessible
+      anonymously with --no-sign-request.
+  refs:
+  - atb-access-lexicmap-doc
+
+- prefix: 202408/seeds/
+  copy:
+    headline: LexicMap seed k-mer index chunks (2024-08 snapshot)
+    lede: The seed k-mer component of the prebuilt LexicMap index for the AllTheBacteria 2024-08 snapshot,
+      organized as numbered chunk files.
+    text: This is the seeds component of the LexicMap index for the 202408 snapshot — the seed k-mer data
+      that LexicMap probes to find candidate matches across millions of genomes, stored as numbered chunk
+      files with their indexes. It is the largest part of the ~5.24 TiB index at roughly 2.87 TiB, and
+      is used together with the genomes component as a single mounted or downloaded index. The chunks
+      are public-read on AWS Open Data in eu-west-2, accessible anonymously with --no-sign-request.
+  refs:
+  - atb-access-lexicmap-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,49 @@
+schema_version: '0.4'
+bucket: multiconer
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: multiconer2022/*/
+  copy:
+    headline: MultiCoNER 1 (SemEval-2022) per-language NER subsets
+    lede: 'The 2022 MultiCoNER release: 11 monolingual subsets plus multilingual and code-mixed subsets
+      for complex named entity recognition, in CoNLL format.'
+    text: 'The first MultiCoNER release covers 11 languages — English, Spanish, Dutch, Russian, Turkish,
+      Korean, Farsi, German, Chinese, Hindi, and Bangla — alongside a combined multilingual subset and
+      a code-mixed subset, for 13 subsets in all. Annotations use a coarse six-class taxonomy (person,
+      location, group, corporation, product, creative work) and follow the contemporary-NER design goals
+      of the collection: short, low-context text where entities are hard to disambiguate.
+
+
+      Each language subset is organized into train, development, and test splits provided as plain-text
+      CoNLL files with BIO tagging; the code-mixed subset ships development and test splits. This release
+      backed the SemEval-2022 Task 11 shared task.'
+  refs:
+  - multiconer-readme
+
+- prefix: multiconer2023/*/
+  copy:
+    headline: MultiCoNER 2 (SemEval-2023) fine-grained per-language NER subsets
+    lede: 'The 2023 MultiCoNER release: 12-language fine-grained NER with a 36-class taxonomy and noise-injected
+      test data, in CoNLL format.'
+    text: 'The second MultiCoNER release covers 12 languages — Bangla, Chinese, English, Farsi, French,
+      German, Hindi, Italian, Portuguese, Spanish, Swedish, and Ukrainian — and moves from a coarse scheme
+      to a fine-grained taxonomy of 36 entity classes, where context (not just surface form) distinguishes
+      types such as Scientist versus Athlete. The test data additionally includes noisy instances, with
+      character-level typing errors applied to both context and entity tokens based on each language''s
+      keyboard layout.
+
+
+      Each language subset provides train, development, and test splits as plain-text CoNLL files with
+      BIO tagging. This release backed the SemEval-2023 Task 2 shared task across its 12 monolingual and
+      multilingual tracks.'
+  refs:
+  - multiconer-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,50 @@
+schema_version: '0.4'
+bucket: loc-sanborn-maps
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: maps-by-state/*/
+  copy:
+    headline: Sanborn map images partitioned by state and territory
+    lede: The per-state partition of the Sanborn package, splitting the 440,048 map JPEGs across 59 U.S.
+      states and territories so each can be retrieved without pulling the whole collection.
+    text: Because the image collection is so large, the digitized Sanborn map sheets are organized by
+      state or region rather than as one flat set. Each state or territory holds that jurisdiction's map
+      JPEGs, organized by state and then city, together with per-item JSON metadata and a manifest listing
+      the file and item identifiers, MD5 hashes, file sizes, and URLs; per-state .zip bundles are also
+      provided for bulk download. The maps are large-scale fire-insurance plans showing building footprints,
+      materials, and addresses for the towns and cities of that state.
+  refs:
+  - loc-sanborn-labs
+
+- prefix: sample-data/
+  copy:
+    headline: Sample subset of the Sanborn map-data layout
+    lede: A small sample of the full package — 100 randomly selected items and their 828 images — mirroring
+      the map-data layout for testing before downloading at scale.
+    text: 'This sample reproduces the structure of the full collection on a manageable subset: 100 randomly
+      chosen items drawn from the 50,600-item set, their 828 corresponding map JPEGs, the matching metadata
+      in JSON, JSONL, and CSV, and a manifest. It lets a user validate parsing and tooling against the
+      real metadata and image layout before fetching the full per-state data.'
+  refs:
+  - loc-sanborn-labs
+
+- prefix: summary/
+  copy:
+    headline: Holdings summaries — distribution CSVs and charts
+    lede: 'Aggregate views of the Sanborn metadata: CSV tables and PNG charts summarizing how the records
+      distribute across date, country, and U.S. state.'
+    text: Pre-computed summaries of the metadata records, useful for understanding the shape of the holdings
+      before downloading them. The CSV files report field-population statistics and the distribution of
+      records by date, by country, and by U.S. state, paired with distribution PNG charts that visualize
+      those same breakdowns.
+  refs:
+  - loc-sanborn-labs
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

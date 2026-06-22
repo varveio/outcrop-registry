@@ -1,0 +1,103 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: pgc-arcticdem
+title: ArcticDEM
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: pgc-arcticdem-homepage
+  kind: publisher_homepage
+  url: https://www.pgc.umn.edu/data/arcticdem/
+  label: ArcticDEM project page — Polar Geospatial Center
+  excerpt: ArcticDEM is an NGA-NSF public-private initiative to automatically produce a high-resolution,
+    high-quality digital surface model (DSM) of the Arctic using optical stereo imagery, high-performance
+    computing, and open-source photogrammetry software.
+  retrieved_at: '2026-06-20'
+
+- id: pgc-dem-products-data-description
+  kind: publisher_doc
+  url: https://www.pgc.umn.edu/guides/stereo-derived-elevation-models/pgc-dem-products-arcticdem-rema-and-earthdem/
+  label: PGC DEM Products Guide — Data Description (strips and mosaics)
+  excerpt: 1) DEM strip files that are output directly from SETSM that preserve the original source material's
+    temporal resolution and 2) mosaic files compiled from multiple strips that have been synthesized to
+    make seamless elevation models.
+  retrieved_at: '2026-06-20'
+
+- id: pgc-dem-products-guide
+  kind: publisher_doc
+  url: https://www.pgc.umn.edu/guides/stereo-derived-elevation-models/pgc-dem-products-arcticdem-rema-and-earthdem/
+  label: PGC DEM Products Guide — ArcticDEM, REMA, and EarthDEM (License and Usage)
+  excerpt: ArcticDEM and REMA data are published under the Creative Commons Attribution 4.0 International
+    Public License (CC-BY-4.0) and may be used, distributed, and modified without permission. Alaska data
+    June 2022-present is not publicly available due to EOCL restrictions.
+  retrieved_at: '2026-06-20'
+
+- id: pgc-dem-products-guide-access-20260620
+  kind: publisher_doc
+  url: https://www.pgc.umn.edu/guides/stereo-derived-elevation-models/pgc-dem-products-arcticdem-rema-and-earthdem/
+  label: PGC DEM Products Guide — Search, Discovery and Download (public AWS bucket)
+  excerpt: The Polar Geospatial Center makes ArcticDEM and REMA data available for discovery and download
+    as tar archives on our servers. The data are also available in a STAC catalog and housed in a public
+    AWS bucket. ... All publicly-available DEM data from our projects are also hosted in an open AWS bucket
+    and indexed with a STAC catalog. DEM data assets can be identified using the DEM STAC items and downloaded
+    or used directly in the cloud.
+  retrieved_at: '2026-06-20'
+
+- id: pgc-dem-products-guide-license-20260620
+  kind: publisher_doc
+  url: https://www.pgc.umn.edu/guides/stereo-derived-elevation-models/pgc-dem-products-arcticdem-rema-and-earthdem/
+  label: PGC DEM Products Guide — License and Usage (CC-BY-4.0)
+  excerpt: ArcticDEM and REMA data are published under the Creative Commons Attribution 4.0 International
+    Public License (CC-BY-4.0) and may be used, distributed, and modified without permission.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: High-resolution digital surface model of the Arctic
+    lede: ArcticDEM is a 2-meter digital surface model of the Arctic, produced by the Polar Geospatial
+      Center at the University of Minnesota under an NGA-NSF initiative.
+    text: 'ArcticDEM is an NGA-NSF public-private initiative that automatically produces a high-resolution
+      digital surface model of the Arctic from optical stereo imagery, high-performance computing, and
+      open-source photogrammetry software. The Polar Geospatial Center (PGC) at the University of Minnesota
+      produces it under NSF-OPP awards, drawing on Vantor''s historical archive of WorldView-1, WorldView-2,
+      and WorldView-3 imagery.
+
+
+      The data comes in two product types: time-dependent DEM strips at their native temporal resolution,
+      and seamless terrain mosaics synthesized from the full stack of overlapping strips. The polar datasets
+      together span over 20 trillion 2-by-2 meter elevation cells across 20 million square kilometers.
+
+
+      ArcticDEM is published under CC-BY-4.0 and may be used, distributed, and modified without permission,
+      with one exception: Alaska data from June 2022 onward is withheld under EOCL restrictions.'
+  refs:
+  - pgc-arcticdem-homepage
+  - pgc-dem-products-guide
+  - pgc-dem-products-data-description
+
+source:
+  publisher: Polar Geospatial Center (PGC), University of Minnesota
+  homepage_url: https://www.pgc.umn.edu/data/arcticdem/
+
+display:
+  canonical_path: /pgc-arcticdem/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

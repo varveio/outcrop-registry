@@ -1,0 +1,145 @@
+schema_version: '0.4'
+bucket: camelyon-dataset
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: CAMELYON16/
+  copy:
+    headline: CAMELYON16 release — slide-level metastasis detection
+    lede: 'The CAMELYON16 challenge release: 399 sentinel lymph-node whole-slide images from Radboud UMC
+      and UMC Utrecht, framed as slide-level detection of breast-cancer metastases.'
+    text: 'CAMELYON16 is the first of the two grand-challenge releases, drawn from two independent collections
+      at Radboud University Medical Center (Nijmegen) and the University Medical Center Utrecht. It poses
+      metastasis detection at the slide level: a training set of normal and metastasis-bearing whole-slide
+      images, plus a held-out test set. Ground truth for metastasis slides comes in two forms — XML contour
+      annotations marking the vertices of annotated regions, and whole-slide binary tumour masks. The
+      release groups its images, tumour masks, contour annotations, per-slide tissue masks, and evaluation
+      files (evaluate.py plus example/reference CSVs) as sibling folders.'
+  refs:
+  - camelyon16-data-page
+
+- prefix: CAMELYON16/annotations/
+  copy:
+    headline: CAMELYON16 lesion contour annotations (XML)
+    lede: XML annotation files giving the vertices of expert-drawn contours around metastatic regions
+      in the CAMELYON16 metastasis slides.
+    text: 'The vector form of the CAMELYON16 ground truth: XML files containing the vertices of the annotated
+      contours that delineate metastatic regions in each metastasis-bearing slide. They pair with the
+      binary masks as the two provided ground-truth formats and can be overlaid on the whole-slide images
+      in ASAP.'
+  refs:
+  - camelyon16-data-page
+
+- prefix: CAMELYON16/background_tissue/
+  copy:
+    headline: CAMELYON16 per-slide tissue masks
+    lede: One tissue mask per CAMELYON16 whole-slide image, named {slide}_tissue.tif, marking the tissue
+      region against the slide background.
+    text: 'Per-slide tissue masks for the CAMELYON16 whole-slide images: 399 files named {slide}_tissue.tif
+      (one each for the normal_*, tumor_*, and test_* slides) that mark where tissue sits on the slide
+      as opposed to the empty glass background. These are foreground/tissue masks, not tumour masks —
+      the metastasis ground truth lives in the masks/ and annotations/ folders; tissue masks are a standard
+      preprocessing aid that lets pipelines restrict patch sampling to the tissue area.'
+
+- prefix: CAMELYON16/evaluation/
+  copy:
+    headline: CAMELYON16 evaluation files (evaluate.py + example/reference CSV)
+    lede: 'The CAMELYON16 evaluation folder: a Python scoring script (evaluate.py) with an example submission
+      CSV and a reference CSV.'
+    text: 'The evaluation material for CAMELYON16: evaluate.py alongside example.csv and reference.csv.
+      The script scores a submission''s CSV against the reference, and example.csv shows the expected
+      submission format. These let participants run the challenge''s slide-level scoring locally on their
+      own predictions.'
+
+- prefix: CAMELYON16/images/
+  copy:
+    headline: CAMELYON16 whole-slide images (H&E TIFF pyramids)
+    lede: The full set of CAMELYON16 hematoxylin-and-eosin sentinel lymph-node whole-slide images, stored
+      as multi-resolution TIFF pyramids.
+    text: 'These are the CAMELYON16 source whole-slide images: H&E-stained sentinel lymph-node sections
+      from Radboud UMC and UMC Utrecht, spanning normal and metastasis-bearing training slides and the
+      held-out test slides. Each image is a multi-resolution TIFF pyramid carrying multiple downsampled
+      versions of the original, readable with OpenSlide or the ASAP multiresolutionimageinterface library.'
+  refs:
+  - camelyon16-data-page
+
+- prefix: CAMELYON16/masks/
+  copy:
+    headline: CAMELYON16 whole-slide binary tumour masks
+    lede: Per-slide binary tumour masks giving the pixel-level ground truth of metastatic regions for
+      the CAMELYON16 metastasis slides.
+    text: 'One of the two CAMELYON16 ground-truth formats: whole-slide binary masks that mark the metastatic
+      tissue in each metastasis-bearing slide, paired one-to-one with the source images. The masks render
+      the same annotated regions as the XML contours in raster form, suitable for training and evaluating
+      pixel-level tumour-segmentation models.'
+  refs:
+  - camelyon16-data-page
+
+- prefix: CAMELYON17/
+  copy:
+    headline: CAMELYON17 release — patient-level pN-stage prediction
+    lede: 'The CAMELYON17 challenge release: 1,000 whole-slide images across 100 patients from five Dutch
+      medical centres, framed as patient-level pN-stage prediction.'
+    text: 'CAMELYON17 extends the task from slides to patients: it releases 1,000 slides at five slides
+      per patient, with 100 patients for training and 100 for testing, collected across five medical centres
+      in the Netherlands to span real staining and scanning variation. Ground truth is provided at two
+      levels — lesion-level XML annotations of metastases in the slides, and a patient-level pN-stage
+      label per patient — all prepared under expert-pathologist supervision, with cytokeratin immunohistochemistry
+      used during slide revision. The release groups its images, tumour masks, lesion annotations, and
+      evaluation files (evaluate.py plus an example CSV) as sibling folders.'
+  refs:
+  - camelyon17-data-page
+
+- prefix: CAMELYON17/annotations/
+  copy:
+    headline: CAMELYON17 lesion-level annotations (XML)
+    lede: XML files giving expert lesion-level annotations of metastases within the annotated CAMELYON17
+      whole-slide images.
+    text: 'The lesion-level ground truth for CAMELYON17: XML annotation files marking metastases within
+      the slides that carry detailed contours, prepared under expert-pathologist supervision. They complement
+      the patient-level pN-stage labels by giving the fine-grained, in-slide localisation of metastatic
+      regions for the annotated subset.'
+  refs:
+  - camelyon17-data-page
+
+- prefix: CAMELYON17/evaluation/
+  copy:
+    headline: CAMELYON17 evaluation files (evaluate.py + example CSV)
+    lede: 'The CAMELYON17 evaluation folder: a Python scoring script (evaluate.py) with an example submission
+      CSV.'
+    text: 'The evaluation material for CAMELYON17: evaluate.py alongside example.csv. The script computes
+      the challenge''s patient-level pN-stage scoring, and example.csv shows the expected submission format.
+      Together they let participants run the CAMELYON17 scoring locally on their own patient-level predictions.'
+
+- prefix: CAMELYON17/images/
+  copy:
+    headline: CAMELYON17 whole-slide images (H&E TIFF pyramids)
+    lede: 'The CAMELYON17 whole-slide images: 1,000 H&E lymph-node slides at five per patient across 100
+      training and 100 test patients from five Dutch centres.'
+    text: These are the CAMELYON17 source whole-slide images, organized as five slides per patient across
+      100 training and 100 test patients drawn from five medical centres in the Netherlands. Each slide
+      is a multi-resolution TIFF pyramid of an H&E-stained sentinel lymph-node section, readable with
+      OpenSlide or the ASAP library; the multi-centre sourcing is deliberate, capturing real variation
+      in staining and scanning.
+  refs:
+  - camelyon17-data-page
+
+- prefix: CAMELYON17/masks/
+  copy:
+    headline: CAMELYON17 tumour masks for lesion-annotated slides
+    lede: Tumour masks giving pixel-level ground truth for the subset of CAMELYON17 slides carrying detailed
+      lesion-level metastasis annotations.
+    text: Tumour masks for CAMELYON17, derived from the lesion-level annotations that mark metastases
+      within the whole-slide images. They cover the annotated subset of slides — fewer than the full image
+      set, since only part of CAMELYON17 carries exhaustive lesion contours — and provide the raster ground
+      truth for tumour-segmentation models, complementing the patient-level pN-stage labels.
+  refs:
+  - camelyon17-data-page
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

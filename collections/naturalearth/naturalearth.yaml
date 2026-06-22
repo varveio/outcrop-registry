@@ -1,0 +1,106 @@
+schema_version: '0.4'
+bucket: naturalearth
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: '*/'
+  copy:
+    headline: Latest unversioned Natural Earth theme data (Cultural, Physical, Raster)
+    lede: The current release of Natural Earth's per-theme, per-scale shapefile and raster sets, mirrored
+      outside any version directory for direct access to the newest data.
+    text: The unversioned root mirrors the most recent Natural Earth release as the same per-theme, per-scale
+      product served from the versioned directories. Cultural layers carry countries, states and provinces,
+      populated places, roads, railroads, airports, and administrative boundaries; Physical layers carry
+      coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated areas, reefs,
+      and bathymetry; Raster layers carry shaded relief, cross-blended hypsometric tints, and gray-earth
+      basemaps. Each theme is offered at 1:10m, 1:50m, and 1:110m scales (raster at 1:10m and 1:50m only).
+      All of it is public domain.
+  refs:
+  - naturalearth-about
+
+- prefix: 4.1.1/*/
+  copy:
+    headline: Natural Earth 4.1.1 theme data (Cultural, Physical, Raster)
+    lede: Release 4.1.1 of Natural Earth's per-theme, per-scale basemap sets at 1:10m, 1:50m, and 1:110m.
+    text: 'Version 4.1.1 packages the full Natural Earth product line for this release: Cultural layers
+      (countries, states and provinces, populated places, roads, railroads, airports, administrative boundaries),
+      Physical layers (coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated
+      areas, reefs, bathymetry), and Raster layers (shaded relief, hypsometric tints, gray-earth basemaps).
+      Each theme is provided at 1:10m, 1:50m, and 1:110m scales (raster at the coarser scales only). The
+      product line is identical in shape across releases; the version pins this particular snapshot of
+      the data.'
+  refs:
+  - naturalearth-about
+
+- prefix: 5.0.0/*/
+  copy:
+    headline: Natural Earth 5.0.0 theme data (Cultural, Physical, Raster)
+    lede: Release 5.0.0 of Natural Earth's per-theme, per-scale basemap sets at 1:10m, 1:50m, and 1:110m.
+    text: 'Version 5.0.0 packages the full Natural Earth product line for this release: Cultural layers
+      (countries, states and provinces, populated places, roads, railroads, airports, administrative boundaries),
+      Physical layers (coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated
+      areas, reefs, bathymetry), and Raster layers (shaded relief, hypsometric tints, gray-earth basemaps),
+      each at 1:10m, 1:50m, and 1:110m scales. The product line is identical in shape across releases;
+      the version pins this particular snapshot of the data.'
+  refs:
+  - naturalearth-about
+
+- prefix: 5.0.1/*/
+  copy:
+    headline: Natural Earth 5.0.1 theme data (Cultural, Physical, Raster)
+    lede: Release 5.0.1 of Natural Earth's per-theme, per-scale basemap sets at 1:10m, 1:50m, and 1:110m.
+    text: 'Version 5.0.1 packages the full Natural Earth product line for this release: Cultural layers
+      (countries, states and provinces, populated places, roads, railroads, airports, administrative boundaries),
+      Physical layers (coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated
+      areas, reefs, bathymetry), and Raster layers (shaded relief, hypsometric tints, gray-earth basemaps),
+      each at 1:10m, 1:50m, and 1:110m scales. The product line is identical in shape across releases;
+      the version pins this particular snapshot of the data.'
+  refs:
+  - naturalearth-about
+
+- prefix: 5.1.0/*/
+  copy:
+    headline: Natural Earth 5.1.0 theme data (Cultural, Physical, Raster)
+    lede: Release 5.1.0 of Natural Earth's per-theme, per-scale basemap sets at 1:10m, 1:50m, and 1:110m.
+    text: 'Version 5.1.0 packages the full Natural Earth product line for this release: Cultural layers
+      (countries, states and provinces, populated places, roads, railroads, airports, administrative boundaries),
+      Physical layers (coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated
+      areas, reefs, bathymetry), and Raster layers (shaded relief, hypsometric tints, gray-earth basemaps),
+      each at 1:10m, 1:50m, and 1:110m scales. The product line is identical in shape across releases;
+      the version pins this particular snapshot of the data.'
+  refs:
+  - naturalearth-about
+
+- prefix: 5.1.1/*/
+  copy:
+    headline: Natural Earth 5.1.1 theme data (Cultural, Physical, Raster)
+    lede: Release 5.1.1 of Natural Earth's per-theme, per-scale basemap sets at 1:10m, 1:50m, and 1:110m.
+    text: 'Version 5.1.1 packages the full Natural Earth product line for this release: Cultural layers
+      (countries, states and provinces, populated places, roads, railroads, airports, administrative boundaries),
+      Physical layers (coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated
+      areas, reefs, bathymetry), and Raster layers (shaded relief, hypsometric tints, gray-earth basemaps),
+      each at 1:10m, 1:50m, and 1:110m scales. The product line is identical in shape across releases;
+      the version pins this particular snapshot of the data.'
+  refs:
+  - naturalearth-about
+
+- prefix: 5.1.2/*/
+  copy:
+    headline: Natural Earth 5.1.2 theme data (Cultural, Physical, Raster)
+    lede: Release 5.1.2 of Natural Earth's per-theme, per-scale basemap sets at 1:10m, 1:50m, and 1:110m.
+    text: 'Version 5.1.2 packages the full Natural Earth product line for this release: Cultural layers
+      (countries, states and provinces, populated places, roads, railroads, airports, administrative boundaries),
+      Physical layers (coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated
+      areas, reefs, bathymetry), and Raster layers (shaded relief, hypsometric tints, gray-earth basemaps),
+      each at 1:10m, 1:50m, and 1:110m scales. The product line is identical in shape across releases;
+      the version pins this particular snapshot of the data.'
+  refs:
+  - naturalearth-about
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

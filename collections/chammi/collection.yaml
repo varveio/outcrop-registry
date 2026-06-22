@@ -1,0 +1,99 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: chammi
+title: CHAMMI-75
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: chammi-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/chammi/
+  label: CHAMMI-75 — AWS Open Data Registry entry (CC BY 4.0; chammi-data; --no-sign-request)
+  excerpt: 'License: "CC BY 4.0 License". ManagedBy: Morgridge Institute for Research. ARN: arn:aws:s3:::chammi-data,
+    Region: us-west-2. aws s3 ls --no-sign-request s3://chammi-data/'
+  retrieved_at: '2026-06-22'
+
+- id: chammi-bench-paper
+  kind: web_research
+  url: https://arxiv.org/abs/2310.19224
+  label: 'CHAMMI: A benchmark for channel-adaptive models in microscopy imaging (arXiv 2310.19224, NeurIPS
+    2023)'
+  excerpt: 'CHAMMI consists of a dataset of varied-channel single-cell images and a biologically relevant
+    evaluation framework. The dataset comprises varying-channel images from three sources: WTC-11 hiPSC
+    (3 channels), Human Protein Atlas (HPA, 4 channels), and Cell Painting (CP, 5 channels).'
+  retrieved_at: '2026-06-22'
+
+- id: chammi-homepage
+  kind: publisher_homepage
+  url: https://morgridge.org/
+  label: Morgridge Institute for Research — homepage
+  excerpt: Morgridge Institute for Research.
+  retrieved_at: '2026-06-22'
+
+- id: chammi-morgridge
+  kind: publisher_doc
+  url: https://morgridge.org/research/labs/caicedo/chammi-75/
+  label: CHAMMI-75 — Morgridge Institute (Caicedo Lab) project page
+  excerpt: CHAMMI-75 is a large and highly diverse curated dataset of multi-channel microscopy images
+    designed to advance foundation models for cellular biology. With 2.8 million images from 75 studies.
+    97% of contributing datasets have Creative Commons licenses, 65% CC BY 4.0.
+  retrieved_at: '2026-06-22'
+
+- id: chammi75-paper
+  kind: web_research
+  url: https://arxiv.org/abs/2512.20833
+  label: 'CHAMMI-75: Pre-training multi-channel models with heterogeneous microscopy images (arXiv 2512.20833)'
+  excerpt: 'The pre-training set contains 2,792,462 fields-of-view sampled from 74 publicly available
+    microscopy imaging studies, sourced from 18 hosting platforms including IDR and Zenodo. Evaluation
+    uses six benchmarks: CHAMMI, HPAv23, JUMP-CP, IDR0017, CellPHIE, and RBC-MC. 97% of datasets in our
+    collection have a Creative Commons license (60% CC BY 4.0, 12% CC0 1.0).'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Channel-adaptive microscopy benchmark across heterogeneous-channel cell imaging
+    lede: CHAMMI-75 is a 2.8-million-image collection of multi-channel single-cell microscopy curated
+      from 75 public biological studies by the Morgridge Institute, built to train and evaluate channel-adaptive
+      models that generalize across imaging modalities.
+    text: CHAMMI grew from the NeurIPS 2023 "Channel-Adaptive Models in Microscopy Imaging" benchmark
+      into CHAMMI-75, a large-scale resource for representation learning on images whose channel count
+      and assay type vary from study to study. The pre-training set spans roughly 2.79 million fields-of-view
+      drawn from 74 publicly available studies across 18 hosting platforms (including the Image Data Resource
+      and Zenodo), so a single model can be trained on three-, four-, five- and higher-channel images
+      at once. A held-out evaluation set pairs that training corpus with six benchmark domains that probe
+      generalization to novel channel combinations and tasks, from protein localization to red-blood-cell
+      morphology and compound screening. The collection is curated and distributed by the Caicedo Lab
+      at the Morgridge Institute for Research; 97% of the contributing studies carry Creative Commons
+      licenses and the aggregate release is published under CC BY 4.0.
+  refs:
+  - chammi-aws-registry
+  - chammi-morgridge
+  - chammi75-paper
+  - chammi-bench-paper
+
+source:
+  publisher: Morgridge Institute for Research
+  homepage_url: https://morgridge.org/research/labs/caicedo/chammi-75/
+
+display:
+  canonical_path: /chammi/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

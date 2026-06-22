@@ -1,0 +1,95 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nsw-herbarium
+title: National Herbarium of New South Wales
+status: reviewed
+sensitivity_class: sensitive_pii_risk
+publication_scope: full
+
+refs:
+- id: nsw-herbarium-collection-open
+  kind: publisher_doc
+  url: https://www.botanicgardens.org.au/our-science/our-collections/herbarium-collection
+  label: Botanic Gardens of Sydney — Herbarium collection (Digital collection / AWS public data set)
+  excerpt: Our collection is digitised and high-resolution images of plant specimens are available through
+    our public data set on Amazon Web Services (AWS).
+  retrieved_at: '2026-06-20'
+
+- id: nsw-herbarium-digitisation-doc
+  kind: publisher_doc
+  url: https://www.botanicgardens.org.au/our-science/our-collections/herbarium-collection/herbarium-digitisation-project
+  label: Botanic Gardens of Sydney — Herbarium digitisation project
+  excerpt: 'The digital collection of our Herbarium specimens is now available through our public data
+    set: Herbarium NSW on Amazon Web Services (AWS). Learn more about how to access the collection on
+    our Herbarium collection page.'
+  retrieved_at: '2026-06-20'
+
+- id: nsw-herbarium-homepage
+  kind: publisher_homepage
+  url: https://www.botanicgardens.org.au/our-science/our-collections/herbarium-collection
+  label: Royal Botanic Garden Sydney / Botanic Gardens of Sydney homepage
+  retrieved_at: '2026-06-20'
+
+- id: nsw-herbarium-plantnet-copyright
+  kind: publisher_doc
+  url: https://plantnet.rbgsyd.nsw.gov.au/copyright.html
+  label: PlantNET (National Herbarium of NSW) — Copyright & conditions of use
+  excerpt: Copyright in the text and graphics which appear on this website is, subject to the Copyright
+    Act 1968, vested in the Crown in the right of the State of New South Wales. Users may reproduce material
+    from this website for personal, in-house or non-commercial use without formal permission or charge.
+    ... Permission must be obtained for reproducing material for purposes other than personal, in-house
+    or non-commercial uses.
+  retrieved_at: '2026-06-20'
+
+- id: nsw-herbarium-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/nsw-herbarium/
+  label: AWS Open Data Registry — National Herbarium of NSW
+  excerpt: 'License: https://creativecommons.org/licenses/by/4.0/legalcode  Resources: arn:aws:s3:::herbariumnsw-pds
+    (ap-southeast-2). AWS CLI Access (No AWS account required): aws s3 ls --no-sign-request s3://herbariumnsw-pds/'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: PlantNET (National Herbarium of NSW) — Copyright & conditions of use
+  url: https://plantnet.rbgsyd.nsw.gov.au/copyright.html
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Digitised specimen images of the National Herbarium of NSW
+    lede: The National Herbarium of New South Wales is a 1.43-million-specimen botanical collection whose
+      sheets, captured as high-resolution images with their biodiversity metadata, are published openly
+      on AWS by the Royal Botanic Gardens and Domain Trust.
+    text: 'The National Herbarium of New South Wales is curated by the Australian Institute of Botanical
+      Science and managed by the Royal Botanic Gardens and Domain Trust. Its 1.43 million preserved plant
+      specimens, dating from 1770 to today, were captured as high-resolution images with the associated
+      biodiversity metadata recorded in digital form.
+
+
+      The imaging ran from 2019 to 2022, when the Institute worked with Picturae, International Conservation
+      Services, and Alembo to complete the first mass herbarium imaging project in the Southern Hemisphere,
+      using Picturae''s ''herbarium digistreet'' conveyor system installed at the Royal Botanic Garden
+      Sydney. The result is published as the public dataset Herbarium NSW on Amazon Web Services.'
+  refs:
+  - nsw-herbarium-digitisation-doc
+  - nsw-herbarium-registry
+
+source:
+  publisher: Botanic Gardens of Sydney (Royal Botanic Garden Sydney)
+  homepage_url: https://www.rbgsyd.nsw.gov.au/
+
+display:
+  canonical_path: /nsw-herbarium/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

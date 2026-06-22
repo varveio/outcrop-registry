@@ -1,0 +1,60 @@
+schema_version: '0.4'
+bucket: pd12m
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: images/
+  copy:
+    headline: Rehosted public-domain source images
+    lede: The raw image files of PD12M — public-domain and CC0 pictures rehosted by Spawning on dedicated
+      storage and keyed by image identifier.
+    text: 'These are the underlying image bytes for every PD12M pair: public-domain and CC0 images gathered
+      from cultural-heritage institutions and open repositories, then rehosted here separately from their
+      original hosts so the dataset remains stable and does not place load on the source services. Files
+      are stored flat as individual JPEGs named by image identifier, and the metadata parquet files map
+      each record''s URL to its file here.'
+  refs:
+  - pd12m-hf-readme
+
+- prefix: mds/
+  copy:
+    headline: Packaged image-text dataset as MosaicML streaming shards
+    lede: The full PD12M image-text corpus packaged as MosaicML StreamingDataset (MDS) shards for high-throughput
+      training.
+    text: This is PD12M's image-caption corpus serialized into MosaicML StreamingDataset format — sequentially
+      numbered `.mds` shards under per-shard prefixes with an `index.json` manifest — the form a training
+      pipeline streams directly rather than resolving individual files. It packages the same public-domain
+      and CC0 image-text pairs described by the dataset's parquet metadata into a layout optimized for
+      sequential reads during text-to-image model training.
+  refs:
+  - pd12m-hf-readme
+
+- prefix: megalith/mds/
+  copy:
+    headline: Megalith-sourced images as streaming shards
+    lede: MosaicML StreamingDataset shards built from the Megalith public-domain image source within the
+      PD12M project.
+    text: A streaming-format build drawn from the Megalith public-domain image source, serialized into
+      the same MosaicML StreamingDataset layout as the main corpus — numbered `.mds` shards with an `index.json`
+      manifest. It supplies an additional pool of public-domain image-text pairs in the form a training
+      pipeline streams directly.
+  refs:
+  - pd12m-hf-readme
+
+- prefix: pd4m-ugly/mds/
+  copy:
+    headline: PD4M variant as streaming shards
+    lede: MosaicML StreamingDataset shards of a PD4M variant within the PD12M project.
+    text: A streaming-format build of a PD4M variant, serialized into the same MosaicML StreamingDataset
+      layout as the main corpus — numbered `.mds` shards with an `index.json` manifest. It packages a
+      smaller public-domain image-text subset in the form a training pipeline streams directly.
+  refs:
+  - pd12m-hf-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

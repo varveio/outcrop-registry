@@ -1,0 +1,158 @@
+schema_version: '0.4'
+bucket: noaa-oar-mlwp-data
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: AURO_v100_GFS/
+  copy:
+    headline: Aurora model reforecasts, GFS-initialized
+    lede: Reforecast output from the Aurora AI weather model, run from GFS initial conditions, following
+      the AIWP archive's standard per-model layout.
+    text: 'Aurora reforecasts initialized from analysis (code AURO, version 100, GFS), following the archive''s
+      standard layout: NetCDF files partitioned by year and date under AURO_v100_GFS/YYYY/mmdd/, as the
+      GFS-initialized counterpart to AURO_v100_IFS.'
+  refs:
+  - aiwp-readme
+
+- prefix: AURO_v100_IFS/
+  copy:
+    headline: Aurora model reforecasts, IFS-initialized
+    lede: Reforecast output from the Aurora AI weather model, run from IFS initial conditions, following
+      the AIWP archive's standard per-model layout.
+    text: Aurora reforecasts initialized from analysis (code AURO, version 100, IFS), mirroring AURO_v100_GFS
+      but starting each run from IFS rather than GFS conditions, partitioned by year and date as NetCDF
+      under AURO_v100_IFS/YYYY/mmdd/.
+  refs:
+  - aiwp-readme
+
+- prefix: Derived/
+  copy:
+    headline: Derived severe-weather parameters
+    lede: Calculated severe-weather parameters derived from the AIWP models' forecast output, rather than
+      raw model fields.
+    text: Calculated severe-weather parameters computed from the archive's AI-model forecasts, separate
+      from the raw per-model reforecast output. The README records this folder being added in the June
+      2024 update.
+  refs:
+  - aiwp-readme
+
+- prefix: FOUR_v100_GFS/
+  copy:
+    headline: FourCastNet v1 reforecasts, GFS-initialized
+    lede: FourCastNet v1 reforecast output initialized from GFS conditions, part of the AIWP archive's
+      twice-daily global 10-day forecast set.
+    text: FourCastNet v1 reforecasts (code FOUR, version 100), initialized from GFS analysis. Each NetCDF
+      file is a twice-daily global 10-day forecast, partitioned by year and date under FOUR_v100_GFS/YYYY/mmdd/.
+      The model's code and reference are at https://github.com/NVlabs/FourCastNet and https://arxiv.org/abs/2202.11214.
+  refs:
+  - aiwp-readme
+
+- prefix: FOUR_v200_GFS/
+  copy:
+    headline: FourCastNet v2-small reforecasts, GFS-initialized
+    lede: FourCastNet v2-small reforecast output initialized from GFS conditions, part of the AIWP archive's
+      twice-daily global 10-day forecast set.
+    text: FourCastNet v2-small reforecasts (code FOUR, version 200), initialized from GFS analysis, output
+      as twice-daily global 10-day NetCDF forecasts partitioned by year and date under FOUR_v200_GFS/YYYY/mmdd/.
+      The model reference is https://arxiv.org/abs/2306.03838.
+  refs:
+  - aiwp-readme
+
+- prefix: FOUR_v200_IFS/
+  copy:
+    headline: FourCastNet v2-small reforecasts, IFS-initialized
+    lede: FourCastNet v2-small reforecast output initialized from IFS conditions, the cross-initialization
+      counterpart to the GFS-initialized version.
+    text: FourCastNet v2-small reforecasts (code FOUR, version 200), initialized from IFS analysis. This
+      mirrors FOUR_v200_GFS but starts each run from IFS rather than GFS conditions, output as twice-daily
+      global 10-day NetCDF partitioned by year and date under FOUR_v200_IFS/YYYY/mmdd/. IFS-initialized
+      versions began being added to the archive in January 2025.
+  refs:
+  - aiwp-readme
+
+- prefix: GRAP_v100_GFS/
+  copy:
+    headline: GraphCast Operational reforecasts, GFS-initialized
+    lede: GraphCast Operational reforecast output initialized from GFS conditions, part of the AIWP archive's
+      twice-daily global 10-day forecast set.
+    text: GraphCast Operational reforecasts (code GRAP, version 100), initialized from GFS analysis, output
+      as twice-daily global 10-day NetCDF partitioned by year and date under GRAP_v100_GFS/YYYY/mmdd/.
+      Its variables include 6-hour accumulated precipitation. The model's code and reference are at https://github.com/google-deepmind/graphcast
+      and https://www.science.org/doi/10.1126/science.adi2336.
+  refs:
+  - aiwp-readme
+
+- prefix: GRAP_v100_IFS/
+  copy:
+    headline: GraphCast Operational reforecasts, IFS-initialized
+    lede: GraphCast Operational reforecast output initialized from IFS conditions, the cross-initialization
+      counterpart to the GFS-initialized version.
+    text: GraphCast Operational reforecasts (code GRAP, version 100), initialized from IFS analysis. This
+      mirrors GRAP_v100_GFS but starts each run from IFS rather than GFS conditions, output as twice-daily
+      global 10-day NetCDF partitioned by year and date under GRAP_v100_IFS/YYYY/mmdd/. IFS-initialized
+      versions began being added to the archive in January 2025.
+  refs:
+  - aiwp-readme
+
+- prefix: PANG_v100_GFS/
+  copy:
+    headline: Pangu-Weather reforecasts, GFS-initialized
+    lede: Pangu-Weather reforecast output initialized from GFS conditions, part of the AIWP archive's
+      twice-daily global 10-day forecast set.
+    text: Pangu-Weather reforecasts (code PANG, version 100), initialized from GFS analysis, output as
+      twice-daily global 10-day NetCDF partitioned by year and date under PANG_v100_GFS/YYYY/mmdd/. The
+      model's code and reference are at https://github.com/198808xc/Pangu-Weather and https://www.nature.com/articles/s41586-023-06185-3.
+  refs:
+  - aiwp-readme
+
+- prefix: PANG_v100_IFS/
+  copy:
+    headline: Pangu-Weather reforecasts, IFS-initialized
+    lede: Pangu-Weather reforecast output initialized from IFS conditions, the cross-initialization counterpart
+      to the GFS-initialized version.
+    text: Pangu-Weather reforecasts (code PANG, version 100), initialized from IFS analysis. This mirrors
+      PANG_v100_GFS but starts each run from IFS rather than GFS conditions, output as twice-daily global
+      10-day NetCDF partitioned by year and date under PANG_v100_IFS/YYYY/mmdd/. IFS-initialized versions
+      began being added to the archive in January 2025.
+  refs:
+  - aiwp-readme
+
+- prefix: colab_resources/
+  kind: other
+  copy:
+    text: Supporting model artifacts and configuration files the AIWP example notebooks use to generate
+      the reforecasts.
+    headline: Supporting model artifacts and configuration files the AIWP example…
+
+- prefix: parquet/FOUR_v200_GFS_combined_all.parq/
+  copy:
+    text: The sub-folders (t, t2, u10, v10, msl, sp, tcwv, z and similar) are individual weather-variable
+      columns inside one combined parquet table for the FourCastNet v2 GFS reforecast, not separate datasets.
+    headline: The sub-folders
+
+- prefix: parquet/GRAP_v100_GFS_combined_all.parq/
+  copy:
+    text: The sub-folders (apcp, t, t2, u, u10, v, v10, w, msl, q, z) are individual weather-variable
+      columns inside one combined parquet table for the GraphCast GFS reforecast, not separate datasets.
+    headline: The sub-folders
+
+- prefix: parquet/GRAP_v100_IFS_combined_all.parq/
+  copy:
+    text: The sub-folders (apcp, t, t2, u, u10, v, v10, w, msl, q, z) are individual weather-variable
+      columns inside one combined parquet table for the GraphCast IFS-initialized reforecast, not separate
+      datasets.
+    headline: The sub-folders
+
+- prefix: parquet/PANG_v100_GFS_combined_all.parq/
+  copy:
+    text: The sub-folders (t, t2, u, u10, v, v10, msl, q, z) are individual weather-variable columns inside
+      one combined parquet table for the Pangu-Weather GFS reforecast, not separate datasets.
+    headline: The sub-folders
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

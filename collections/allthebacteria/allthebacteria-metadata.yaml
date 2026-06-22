@@ -1,0 +1,26 @@
+schema_version: '0.4'
+bucket: allthebacteria-metadata
+backend: s3
+role: primary
+region: eu-west-2
+
+prefixes:
+- prefix: allthebacteria-assemblies/assemblies-list/
+  copy:
+    headline: Weekly lists of available assembly files
+    lede: Regularly regenerated manifests enumerating which AllTheBacteria assembly objects are currently
+      available on AWS, so users can drive bulk downloads without a slow bucket listing.
+    text: Every Monday a fresh list of the assembly files currently present on AWS is generated and published
+      here as date-partitioned CSV manifests (with accompanying manifest and symlink pointers). Each list
+      names the available per-sample assemblies so consumers can fetch the latest manifest and resolve
+      it to the corresponding s3://allthebacteria-assemblies/<SAMPLE_ID>.fa.gz objects, instead of running
+      an expensive ls over the assemblies bucket. The files are public-read on AWS Open Data in eu-west-2,
+      retrievable anonymously with --no-sign-request.
+  refs:
+  - atb-access-assemblies-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

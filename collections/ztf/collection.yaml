@@ -1,0 +1,101 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: ztf
+title: Zwicky Transient Facility (ZTF)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: ztf-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/ztf/
+  label: AWS Open Data Registry — Zwicky Transient Facility (ZTF)
+  excerpt: 'The Zwicky Transient Facility (ZTF) is a time-domain astronomy survey... Objects Table: arn:aws:s3:::ipac-irsa-ztf/ztf/enhanced/dr24/objects/hats.
+    aws s3 ls --no-sign-request s3://ipac-irsa-ztf/ztf/enhanced/dr24/objects/hats/'
+  retrieved_at: '2026-06-22'
+
+- id: ztf-cloud-access
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/cloud_access/
+  label: IRSA Cloud Data Access (AWS S3, no credentials)
+  excerpt: The files are hosted through the AWS Open Data Sponsorship Program, allowing them to be downloaded
+    or accessed directly without credentials or egress charges. aws s3 ls --no-sign-request "s3://${bucket_name}/${prefix}/".
+    The data are freely available and no special permissions or credentials are required.
+  retrieved_at: '2026-06-22'
+
+- id: ztf-data-use-terms
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/data_use_terms.html
+  label: IRSA Terms of Use of Data Hosted by IRSA
+  excerpt: Most data served by IRSA is public, with no usage restrictions. It is best practice for users
+    of data hosted at IRSA to include the appropriate acknowledgements and citations in any publications.
+  retrieved_at: '2026-06-22'
+
+- id: ztf-hats-docs
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/docs/parquet_catalogs/
+  label: IRSA — Parquet Catalogs and HATS Collections
+  excerpt: 'A HATS Collection comprises a HATS Catalog plus ancillary datasets that support its use. Catalog:
+    Main data product. Holds all catalog data. Index: Maps values in the column being indexed... to the
+    Catalog partitions. Margin Cache: Holds catalog data that is located in a margin (typically 5-10 arcseconds
+    wide) around each Catalog partition.'
+  retrieved_at: '2026-06-22'
+
+- id: ztf-irsa-homepage
+  kind: publisher_homepage
+  url: https://irsa.ipac.caltech.edu/Missions/ztf.html
+  label: IRSA — Zwicky Transient Facility (ZTF) mission page
+  excerpt: ZTF is a fully-automated, wide-field survey aimed at a systematic exploration of the optical
+    transient sky. The survey covers approximately 25,000 to 30,000 square degrees, the Northern sky visible
+    from Palomar Observatory, observing through filters ZTF_g, ZTF_r, ZTF_i.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: IRSA Terms of Use of Data Hosted by IRSA
+  url: https://irsa.ipac.caltech.edu/data_use_terms.html
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Zwicky Transient Facility time-domain optical sky survey
+    lede: The Zwicky Transient Facility (ZTF) is a fully-automated wide-field optical survey of the northern
+      sky from Palomar, hosted on AWS by NASA/IPAC's Infrared Science Archive as cloud-optimized Parquet
+      catalogs.
+    text: 'The Zwicky Transient Facility is a time-domain astronomy survey that images the night sky with
+      the Samuel Oschin 48-inch Schmidt Telescope at Palomar Observatory and a custom wide-field camera
+      in three photometric filters (g, r, i), systematically exploring the optical transient sky since
+      March 2018 across roughly 25,000–30,000 square degrees of the northern hemisphere.
+
+
+      This AWS Open Data copy, published by NASA/IPAC''s Infrared Science Archive (IRSA), holds two ZTF
+      public data releases as HATS (Hierarchical Adaptive Tiling Scheme) Parquet catalogs: an Objects
+      Table of PSF-fit photometry detections from co-added reference images, and Lightcurves built from
+      single-exposure detections at those object locations. DR24 (the enhanced release, observations through
+      October 2025) catalogs on the order of a trillion source detections and several billion light curves;
+      the contributed DR23 release covers the prior epoch. Each release is organized as a HATS Collection
+      — a main sky-partitioned catalog accompanied by an index table and a margin cache.'
+  refs:
+  - ztf-irsa-homepage
+  - ztf-aws-registry
+  - ztf-hats-docs
+
+source:
+  publisher: NASA/IPAC Infrared Science Archive (IRSA)
+  homepage_url: https://irsa.ipac.caltech.edu/Missions/ztf.html
+
+display:
+  canonical_path: /ztf/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

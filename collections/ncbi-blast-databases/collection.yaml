@@ -1,0 +1,79 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: ncbi-blast-databases
+title: NCBI BLAST Databases
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: blast-docs-readme
+  kind: publisher_doc
+  url: https://github.com/ncbi/blast_plus_docs
+  label: NCBI BLAST+ documentation (blast_plus_docs) — cloud databases & AWS access
+  excerpt: On AWS and GCP, the file is in a date dependent subdirectory with the databases. To find the
+    latest valid subdirectory, first read s3://ncbi-blast-databases/latest-dir (on AWS). latest-dir is
+    a text file with a date stamp specifying the most recent directory.
+  retrieved_at: '2026-06-22'
+
+- id: blast-homepage
+  kind: publisher_homepage
+  url: https://blast.ncbi.nlm.nih.gov/
+  label: NCBI BLAST homepage
+  excerpt: BLAST (Basic Local Alignment Search Tool) finds regions of similarity between biological sequences.
+    The program compares nucleotide or protein sequences to sequence databases and calculates the statistical
+    significance.
+  retrieved_at: '2026-06-22'
+
+- id: ncbi-policies
+  kind: publisher_doc
+  url: https://www.ncbi.nlm.nih.gov/home/about/policies/
+  label: NCBI Website and Data Usage Policies and Disclaimers (public domain / copyright status)
+  excerpt: Information that is created by or for the US government on this site is within the public domain.
+    Public domain information on the National Library of Medicine (NLM) Web pages may be freely distributed
+    and copied. However, it is requested that in any subsequent use of this work, NLM be given appropriate
+    acknowledgment.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: NCBI pre-formatted BLAST sequence databases
+    lede: The NCBI BLAST databases are the pre-formatted nucleotide and protein reference databases that
+      power BLAST sequence-similarity search, published by the National Center for Biotechnology Information
+      at NLM/NIH.
+    text: This is NCBI's centralized repository of pre-formatted BLAST databases — the same indexed nucleotide
+      and protein collections served from the NCBI BLAST web service and FTP site, mirrored to AWS so
+      that searches run next to the data. Nucleotide databases range from the comprehensive nt collection
+      through curated references such as 16S/18S/28S ribosomal RNA, ITS and RefSeq representative genomes;
+      protein databases include the non-redundant nr set, SwissProt, RefSeq proteins and the Conserved
+      Domain Database. Each release is published as a date-stamped snapshot containing the BLAST index
+      volumes for every database plus a taxonomy database and a per-database metadata JSON; the pointer
+      file latest-dir names the most recent snapshot. The databases are derived from GenBank, RefSeq and
+      related NCBI resources and are refreshed periodically.
+  refs:
+  - blast-docs-readme
+
+source:
+  publisher: National Center for Biotechnology Information (NCBI), U.S. National Library of Medicine
+  homepage_url: https://blast.ncbi.nlm.nih.gov/
+
+display:
+  canonical_path: /ncbi-blast-databases/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

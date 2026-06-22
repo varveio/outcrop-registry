@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/varveio/outcrop-registry/schema/bucket.schema.json",
+  "title": "Outcrop bucket file (v0.4)",
+  "description": "v0.4 bucket-file schema. Describes one storage bucket within a collection directory: its backend, role, posture (terms/sensitivity/publication defaults from collection.yaml, only-tighten allowed), prefixes[], bucket-scoped facts[], and mirrors[] (bucket-scoped replicas/alternate access paths). The filename stem must equal the bucket field. additionalProperties:false throughout. Cross-field rules enforced by scripts/validate_registry.py.",
+  "$defs": {
+    "copy": {
+      "description": "Length-tier copy block with required text field. Populate only tiers with genuinely distinct hand-authored content; never repeat a value across label/headline/lede/text tiers. The validator warns on redundant tiers. Renderer fallback chains: label→[label,headline,text]; headline→[headline,lede,text]; lede→[lede,text,headline]; text→[text,lede]. locale is dropped (en-only).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text"],
+      "properties": {
+        "label": { "type": "string" },
+        "headline": { "type": "string" },
+        "lede": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    "prefixCopy": {
+      "description": "Copy block on a prefix item. text is not required — a label-only entry is valid. Populate only tiers with genuinely distinct hand-authored content; never repeat a value across label/headline/lede/text. The validator warns on redundant tiers.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "headline": { "type": "string" },
+        "lede": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "url", "label"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string" },
+        "url": { "type": "string" },
+        "label": { "type": "string" },
+        "excerpt": { "type": "string" },
+        "retrieved_at": { "type": "string" }
+      }
+    },
+    "terms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "name"],
+      "properties": {
+        "license": {
+          "type": ["string", "null"],
+          "description": "Primary license identity as an SPDX expression (e.g. 'MIT', 'CC-BY-4.0', 'ODbL-1.0') or an SPDX sentinel ('NOASSERTION' when terms are unverified/mixed, 'NONE' when no license applies). Set to NOASSERTION when the precise license cannot be confirmed from sources. Preferred over license_spdx_id for new records."
+        },
+        "status": { "type": "string" },
+        "name": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "license_spdx_id": {
+          "type": ["string", "null"],
+          "description": "Deprecated alias for license. Use the license field for new records; this field is kept for compatibility with existing records."
+        },
+        "required_attribution": { "type": ["string", "null"] },
+        "no_endorsement_required": { "type": "boolean" },
+        "display_policy": { "type": "string" },
+        "reviewed_at": { "type": ["string", "null"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "samplePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_object_samples", "path_templates", "schema_samples"],
+      "properties": {
+        "raw_object_samples": { "type": "string" },
+        "path_templates": { "type": "string" },
+        "schema_samples": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "stewardship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generated_by", "verification_status"],
+      "properties": {
+        "last_reviewed_at": { "type": ["string", "null"] },
+        "last_reviewed_by": { "type": ["string", "null"] },
+        "generated_by": { "type": "string" },
+        "verification_status": { "type": "string" },
+        "generated_by_model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider", "model_id", "generated_at"],
+          "properties": {
+            "provider": { "type": "string" },
+            "model_id": { "type": "string" },
+            "generated_at": { "type": "string" }
+          }
+        },
+        "stale_after": { "type": "string" }
+      }
+    },
+    "expectedCount": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "counted_at", "source_ref"],
+      "properties": {
+        "value": { "type": "number" },
+        "counted_at": { "type": "string" },
+        "source_ref": { "type": "string" }
+      }
+    },
+    "drift": {
+      "description": "Drift policy for an expected_count. Use warn_above_pct for percentage-based drift.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["warn_above_pct"],
+      "properties": { "warn_above_pct": { "type": "number" } }
+    },
+    "extent": {
+      "description": "Geographic and temporal extent of the dataset or prefix. Registry-supplied enrichment for what the engine cannot derive. No CRS field — extents are always WGS-84 bounding boxes.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "description": "Bounding box [west, south, east, north] in WGS-84 decimal degrees, or an array of bounding boxes for non-contiguous regions.",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": { "type": "number" },
+              "minItems": 4,
+              "maxItems": 4
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "temporal": {
+          "description": "Temporal extent as [start|null, end|null] RFC 3339 date or datetime strings.",
+          "type": "array",
+          "items": { "type": ["string", "null"] },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "fact": {
+      "description": "A source-backed editorial annotation. Subject is determined by nesting position (top-level facts[] = bucket-scoped; prefixes[].facts[] = prefix-scoped). No applies_to or level fields.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intent", "topic", "copy", "refs"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+([.-][a-z0-9]+)*$"
+        },
+        "intent": { "type": "string" },
+        "topic": { "type": "string" },
+        "severity": { "type": "string" },
+        "scope": {
+          "type": "string",
+          "description": "Propagation scope. 'inherited' cascades to descendant prefixes; 'exact' renders only at this subject; 'related' renders at related pages."
+        },
+        "copy": { "$ref": "#/$defs/copy" },
+        "refs": { "type": "array", "items": { "type": "string" } },
+        "coverage": { "enum": ["full", "manifest", "sampled", "partial"] },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "relationship": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "target", "direction"],
+          "properties": {
+            "type": { "type": "string" },
+            "target": { "type": "string" },
+            "direction": { "type": "string" }
+          }
+        },
+        "note": { "type": "string" },
+        "also": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Additional same-file prefixes this fact attaches to."
+        },
+        "stewardship": { "$ref": "#/$defs/stewardship" }
+      }
+    },
+    "prefix": {
+      "description": "A per-prefix annotation item. prefix is a relative path (no leading slash, trailing slash required, no s3://bucket/ prefix). Relative to this bucket file's bucket.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prefix"],
+      "properties": {
+        "prefix": {
+          "type": "string",
+          "description": "Relative prefix path: no leading slash, trailing slash required (e.g. 'events/', 'crawl-data/CC-MAIN-*/'). Wildcard grammar: * one segment, ** zero-or-more segments, {a,b,c} alternation, key=* Hive partition."
+        },
+        "kind": {
+          "enum": ["crawl", "release", "chain", "table", "named_dataset", "partitioned_table", "stac_collection", "other"],
+          "description": "Optional editorial kind — descriptive only, no structural authority. Omit on leaf tables — engine classifies them; author kind only on containers."
+        },
+        "copy": { "$ref": "#/$defs/prefixCopy" },
+        "refs": { "type": "array", "items": { "type": "string" } },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "inherit": { "type": "boolean", "description": "When true, this entry's SUBTREE-METADATA (refs, terms, declared_by, coverage, confidence, tags) cascades to descendant prefixes as a fallback. `description` (copy) is NOT cascaded — it stays local to the prefix that declares it." },
+        "expected_count": { "$ref": "#/$defs/expectedCount" },
+        "drift": { "$ref": "#/$defs/drift" },
+        "terms": { "$ref": "#/$defs/terms" },
+        "boundary": {
+          "enum": ["pin", "exclude"],
+          "description": "pin = engine missed a boundary here; exclude = engine wrongly emitted one. Absent = trust the engine."
+        },
+        "note": { "type": "string" },
+        "declared_by": {
+          "enum": ["publisher_catalog", "external_catalog", "publisher_doc"]
+        },
+        "coverage": {
+          "enum": ["full", "manifest", "sampled", "partial"]
+        },
+        "confidence": {
+          "enum": ["high", "medium", "low"]
+        },
+        "stewardship": { "$ref": "#/$defs/stewardship" },
+        "facts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/fact" }
+        },
+        "extent": { "$ref": "#/$defs/extent" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+([.-][a-z0-9]+)*$"
+        }
+      }
+    },
+    "mirror": {
+      "description": "A bucket-scoped replica, mirror, or alternate access path for the content of this specific bucket. Shape reuses the non-bucket-location fields: id, backend, role, and access details. Facts nested here are scoped to this mirror entry. Placement rule: a mirror/replica of THIS bucket's content goes here; an access path spanning multiple buckets or a publisher portal/DOI not tied to one bucket goes in collection.yaml source.locations[].",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "backend", "role"],
+      "properties": {
+        "id": { "type": "string" },
+        "backend": { "type": "string" },
+        "role": { "type": "string" },
+        "base_url": { "type": "string" },
+        "repo": { "type": "string" },
+        "record_id": { "type": "string" },
+        "bucket": { "type": "string" },
+        "region": { "type": "string" },
+        "anonymous": { "type": "boolean" },
+        "frozen": { "type": "boolean" },
+        "superseded_by": {
+          "type": "string",
+          "description": "ID of the location/mirror that supersedes this mirror entry."
+        },
+        "terms": { "$ref": "#/$defs/terms" },
+        "sensitivity_class": { "enum": ["unrestricted", "sensitive_pii_risk", "restricted"] },
+        "publication_scope": { "enum": ["full", "structure_only", "minimal_listing", "withheld"] },
+        "sample_policy": { "$ref": "#/$defs/samplePolicy" },
+        "facts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/fact" },
+          "description": "Facts whose subject is this specific mirror entry. The mirror's page_facts (e.g. 'start here for live data') nest here."
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bucket",
+    "backend",
+    "role"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.4" },
+    "bucket": {
+      "type": "string",
+      "description": "Bucket name. Must equal the filename stem (e.g. file gdelt-open-data.yaml → bucket: gdelt-open-data)."
+    },
+    "outcrop_bucket": {
+      "type": "string",
+      "description": "Optional. The Outcrop/engine bucket identity (the ingested DB bucket slug) for this location, used when it differs from the real S3 `bucket` name — e.g. multiple products packed by prefix into one shared S3 bucket, each ingested as a distinct Outcrop bucket. When absent, the Outcrop bucket name defaults to `bucket`."
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional per-bucket display title. When present, overrides the collection title on this bucket's page (e.g. 'OpenAlex — MAG format' for a secondary bucket that holds a distinct format). Falls back to the collection title when absent."
+    },
+    "backend": {
+      "type": "string",
+      "enum": ["s3", "gcs", "azure_blob"]
+    },
+    "role": { "type": "string" },
+    "region": { "type": "string" },
+    "prefix": {
+      "type": "string",
+      "description": "Optional bucket-internal prefix this product was ingested FROM (re-ingestion provenance; bucket: holds the real S3 bucket). Row keys/prefixes[] are full bucket-relative paths and are NOT relative to it — it is not prepended."
+    },
+    "requester_pays": { "type": "boolean" },
+    "account_required": { "type": "boolean" },
+    "frozen": { "type": "boolean" },
+    "superseded_by": {
+      "type": "string",
+      "description": "ID of the location that supersedes this bucket."
+    },
+    "terms": { "$ref": "#/$defs/terms" },
+    "declared_by": {
+      "enum": ["publisher_catalog", "external_catalog", "publisher_doc"],
+      "description": "Bucket-wide default declared_by value. Inherited by prefix items that do not carry their own declared_by. Set this when all (or most) prefixes in the bucket share the same provenance."
+    },
+    "sample_policy": { "$ref": "#/$defs/samplePolicy" },
+    "sensitivity_class": { "enum": ["unrestricted", "sensitive_pii_risk", "restricted"] },
+    "publication_scope": { "enum": ["full", "structure_only", "minimal_listing", "withheld"] },
+    "stewardship": { "$ref": "#/$defs/stewardship" },
+    "refs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ref" },
+      "description": "Bucket-local refs that supplement the collection-level refs pool. A ref id must not duplicate any id already declared in the collection's collection.yaml refs."
+    },
+    "facts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fact" },
+      "description": "Bucket-scoped facts. Facts here apply to this bucket (use scope: inherited for bucket-wide propagation to all prefixes)."
+    },
+    "mirrors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/mirror" },
+      "description": "Bucket-scoped mirrors, replicas, or alternate access paths for this bucket's content (HTTP mirrors, FTP, BigQuery representations, differently-named replica buckets, etc.). Placement rule: if the access path serves THIS bucket's content specifically, place it here. If it spans multiple buckets or is a publisher portal/DOI not tied to one bucket, place it in collection.yaml source.locations[]."
+    },
+    "prefixes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/prefix" },
+      "description": "Per-prefix annotations with relative paths (relative to this bucket)."
+    }
+  }
+}

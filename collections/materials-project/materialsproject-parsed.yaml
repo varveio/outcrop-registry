@@ -1,0 +1,184 @@
+schema_version: '0.4'
+bucket: materialsproject-parsed
+backend: s3
+role: secondary
+region: us-east-1
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+prefixes:
+- prefix: aeccar0s/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: aeccar1s/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: aeccar2s/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: bandstructures/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: chgcars/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: core/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: defects/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: dos/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: elfcars/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: locpots/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: mp-volumetric-chgcars/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: ph-bandstructures/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: ph-dos/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: tasks-legacy/tasks/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+- prefix: tasks_atomate2/
+  copy:
+    text: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON. The available source does not
+      separately describe this prefix's contents.
+    headline: A prefix within the parsed bucket, which contains serialized pymatgen…
+    lede: A prefix within the parsed bucket, which contains serialized pymatgen and emmet objects generated
+      by parsing VASP output files, stored mostly as gzip-compressed JSON.
+  refs:
+  - mp-docs-overview
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

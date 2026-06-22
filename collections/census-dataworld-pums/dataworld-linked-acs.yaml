@@ -1,0 +1,63 @@
+schema_version: '0.4'
+bucket: dataworld-linked-acs
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: EnhancedData/
+  copy:
+    headline: Enhanced ACS person and housing records for SPARQL tabulation
+    lede: The query-ready linked-data representation of ACS Person and Housing records, partitioned by
+      record type, year, and state.
+    text: An enhanced, query-optimized rendering of the ACS microdata as acs:Person and acs:Housing records,
+      distributed as gzip-compressed Turtle (.ttl). The files are split the same way as the raw data —
+      by record type (Census Person or Housing records), by year, and by state — and carry the primary
+      and replicate weights needed to compute estimates and standard errors. This is the representation
+      the sample tabulation queries run against.
+  refs:
+  - dataworld-uscensus-docs
+
+- prefix: Ontology/
+  copy:
+    headline: ACS ontology and geographic crosswalk schema
+    lede: 'The schema underpinning the Linked ACS: the ACS ontology (acs_schema.ttl) plus PUMA and ZCTA
+      geographic crosswalk files.'
+    text: The American Community Survey ontology and supporting geographic metadata. acs_schema.ttl is
+      the ACS ontology, storing metadata for all classes and properties used across the data. PUMA.ttl
+      holds metadata for and linkages between Public Use Microdata Area Codes (PUMAs) and other geographic
+      entities in the ACS release, while ZCTA.ttl and 2014PUMAToZCTAAllocFactors.ttl crosswalk estimate
+      tabulations to ZIP Code Tabulation Areas. Together these define the vocabulary and geographic joins
+      that make the person and housing records interpretable and linkable.
+  refs:
+  - dataworld-uscensus-docs
+
+- prefix: RawData/
+  copy:
+    headline: Raw ACS PUMS transliterated from Census CSVs to Turtle
+    lede: Direct conversions of the original U.S. Census PUMS input CSVs into RDF/Turtle, preserving the
+      source records one-for-one before any enhancement.
+    text: Raw, transliterated files converted directly from the U.S. Census PUMS input CSVs to Turtle
+      (.ttl), distributed gzip-compressed. This is the faithful one-to-one rendering of the source microdata,
+      organized by record type and partitioned by state and year, and serves as the unmodified basis from
+      which the enhanced, query-optimized representation is derived.
+  refs:
+  - dataworld-uscensus-docs
+
+- prefix: TabulationQueries/
+  copy:
+    headline: Sample SPARQL tabulation queries with reference estimates
+    lede: Ready-to-run SPARQL queries (.rq) that tabulate the enhanced ACS data, alongside reference PUMS
+      estimate CSVs for verification.
+    text: Worked SPARQL queries (.rq) that perform tabulations over the enhanced ACS person and housing
+      records, demonstrating how to compute weighted estimates from the linked data. Accompanying pums_estimates
+      CSV files provide reference figures so results can be checked against expected PUMS tabulations.
+      These serve as both examples and a verification harness for working with the dataset.
+  refs:
+  - dataworld-uscensus-docs
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

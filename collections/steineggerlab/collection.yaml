@@ -1,0 +1,137 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: steineggerlab
+title: Steinegger Lab Datasets
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: afesm-paper-context
+  kind: web_research
+  url: https://www.biorxiv.org/content/10.1101/2025.04.23.650224v1.full
+  label: AFESM — combined AFDB + ESM Atlas structure clusters (Yeo et al., 2025)
+  excerpt: AFESM combines the AlphaFold Protein Structure Database (AFDB) and the ESM Metagenomic Atlas,
+    an 821-million-entry dataset clustered into 5.12 million non-singleton structural clusters. Data available
+    at afesm.foldseek.com.
+  retrieved_at: '2026-06-22'
+
+- id: colabfold-downloads-license
+  kind: publisher_doc
+  url: https://colabfold.mmseqs.com/
+  label: ColabFold Downloads — database list and CC BY 4.0 license (Steinegger Lab)
+  excerpt: All files are available under a Creative Commons Attribution 4.0 International (CC BY 4.0)
+    License.
+  retrieved_at: '2026-06-22'
+
+- id: colabfold-setup-databases
+  kind: publisher_doc
+  url: https://raw.githubusercontent.com/sokrypton/ColabFold/main/setup_databases.sh
+  label: ColabFold setup_databases.sh — downloads UniRef30 + envdb from opendata.mmseqs.org
+  excerpt: downloadFile "https://opendata.mmseqs.org/colabfold/${UNIREF30DB}.db.tar.gz" ; downloadFile
+    "https://opendata.mmseqs.org/colabfold/${CFDB}.db.tar.gz"
+  retrieved_at: '2026-06-22'
+
+- id: foldcomp-databases-doc
+  kind: publisher_doc
+  url: https://github.com/steineggerlab/foldcomp
+  label: Foldcomp README — compressed structure databases (AFDB, ESMAtlas)
+  excerpt: Foldcomp compresses protein structures using torsion angles, achieving 13 bytes per residue.
+    foldcomp.setup('afdb_uniprot_v4'); foldcomp.setup('esmatlas')
+  retrieved_at: '2026-06-22'
+
+- id: folddisco-databases-doc
+  kind: publisher_doc
+  url: https://github.com/steineggerlab/folddisco
+  label: FoldDisco README — discontinuous-motif index databases
+  excerpt: FoldDisco is a tool for searching discontinuous motifs in protein structures, enabling the
+    detection of structural motifs across thousands of proteomes or millions of structures.
+  retrieved_at: '2026-06-22'
+
+- id: foldseek-databases-doc
+  kind: publisher_doc
+  url: https://github.com/steineggerlab/foldseek
+  label: Foldseek README — structure-search databases (AlphaFoldDB, PDB, ESMAtlas)
+  excerpt: Foldseek enables fast and sensitive comparisons of large protein structure sets, supporting
+    monomer and multimer searches, as well as clustering. The databases command downloads pre-generated
+    databases like PDB or AlphaFoldDB.
+  retrieved_at: '2026-06-22'
+
+- id: metabuli-databases-doc
+  kind: publisher_doc
+  url: https://github.com/steineggerlab/Metabuli
+  label: Metabuli README — taxonomic classification databases (GTDB, RefSeq)
+  excerpt: 'Metabuli classifies metagenomic reads by comparing them to reference genomes, combining DNA
+    and amino acid sequence analysis. Prebuilt databases: GTDB, RefSeq prokaryote and virus, RefSeq virus.'
+  retrieved_at: '2026-06-22'
+
+- id: steineggerlab-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/steineggerlab/
+  label: Steinegger Lab Datasets — Registry of Open Data on AWS (anonymous S3 access)
+  excerpt: 'Amazon Resource Name (ARN) arn:aws:s3:::steineggerlab. AWS Region us-east-1. AWS CLI Access
+    (No AWS account required): aws s3 ls --no-sign-request s3://steineggerlab/'
+  retrieved_at: '2026-06-22'
+
+- id: steineggerlab-homepage
+  kind: publisher_homepage
+  url: https://steineggerlab.com/en/
+  label: Steinegger Lab homepage (Seoul National University)
+  excerpt: Steinegger Lab. Fast Scalable Open Software. Development of methods to analyze massive genomics
+    and proteomic datasets.
+  retrieved_at: '2026-06-22'
+
+- id: uniref30-hhsuite-context
+  kind: web_research
+  url: https://uniclust.mmseqs.com/
+  label: Uniclust / UniRef30 — clustered UniProtKB profile databases (HH-suite)
+  excerpt: Uniclust30 clusters UniProtKB sequences at 30% pairwise sequence identity; the UniRef30 hhsuite
+    databases are HMM profile databases for HH-suite. Uniclust is updated with each new UniProt release.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Reference databases and search indexes for the Steinegger Lab's bioinformatics tools
+    lede: Published by the Steinegger Lab at Seoul National University, this collection bundles the precomputed
+      sequence and structure databases that drive ColabFold, Foldseek, Foldcomp, Metabuli, FoldDisco,
+      MMseqs2/HH-suite, and AFESM.
+    text: 'The Steinegger Lab, led by Martin Steinegger, develops fast, scalable open software for analyzing
+      massive genomic and proteomic datasets. This collection is the data side of that work: the ready-to-use
+      reference databases and indexes its tools download, organized one top-level prefix per tool. It
+      includes the ColabFold MSA databases (UniRef30 and the ColabFold environmental database) for AlphaFold2/RoseTTAFold
+      structure prediction, Foldseek''s preprocessed structure-search databases (AlphaFold DB, PDB, Swiss-Prot),
+      Foldcomp''s compressed structure collections, FoldDisco''s discontinuous-motif indexes, Metabuli''s
+      GTDB/RefSeq taxonomic classification databases, the UniRef30 HH-suite profile databases, and the
+      combined AFDB + ESM Atlas structure clusters (AFESM). The data are served openly from the public
+      s3://steineggerlab bucket (also fronted over HTTP at opendata.mmseqs.org) as part of the AWS Open
+      Data Sponsorship Program. The individual databases are large reference resources derived from upstream
+      sources (AlphaFold DB, ESM Atlas, UniProt/UniRef, GTDB, RefSeq, PDB), each carrying its own upstream
+      terms.'
+  refs:
+  - steineggerlab-homepage
+  - steineggerlab-aws-registry
+
+source:
+  publisher: Steinegger Lab, Seoul National University
+  homepage_url: https://steineggerlab.com/en/
+
+display:
+  canonical_path: /steineggerlab/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,33 @@
+schema_version: '0.4'
+bucket: daylight-map-distribution
+backend: s3
+role: secondary
+region: us-west-1
+
+terms:
+  license: ODbL-1.0
+  status: verified
+  name: Open Data Commons Open Database License v1.0
+  url: https://opendatacommons.org/licenses/odbl/1-0/
+  display_policy: include
+
+prefixes:
+- prefix: release/
+  copy:
+    headline: Versioned Daylight planet releases
+    lede: Numbered, validated snapshots of the OpenStreetMap planet plus optional admin, building, coastline,
+      and ML-road layers, downloadable per version.
+    text: Each Daylight release is a tested, reproducible snapshot of the global OpenStreetMap planet,
+      published under a version number (e.g. v1.26) so users can pin a stable map. A release bundles the
+      complete planet in OSM PBF together with optional derived layers — administrative boundaries, building
+      footprints, coastlines, and ML-detected roads — plus translation tables and a curated major-features
+      library. Daylight planet files are composed of 100% OSM data, released under the terms of the Open
+      Database License.
+  refs:
+  - daylight-release-odbl
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

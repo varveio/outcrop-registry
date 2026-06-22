@@ -1,0 +1,11 @@
+schema_version: '0.4'
+bucket: cse-cic-ids2018
+backend: s3
+role: primary
+region: ca-central-1
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

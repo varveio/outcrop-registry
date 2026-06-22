@@ -1,0 +1,52 @@
+schema_version: '0.4'
+bucket: stpubdata
+outcrop_bucket: mast-k2
+backend: s3
+role: primary
+region: us-east-1
+prefix: k2/
+
+prefixes:
+- prefix: k2/public/ffi/
+  copy:
+    headline: K2 full-frame images (raw, calibrated, uncertainty)
+    lede: Full-frame images from the K2 mission — full readouts of the Kepler focal plane, provided as
+      raw, calibrated, and uncertainty FITS products.
+    text: Full-frame images capture the entire Kepler photometer field of view rather than the small target
+      apertures used for routine photometry. For K2 these are taken sparingly — typically only a couple
+      per campaign — and are used to verify pointing, calibration, and the placement of target apertures.
+      The archive provides raw, calibrated, and uncertainty versions as FITS, including the c00 commissioning-campaign
+      images and engineering and driftscan exposures from the mission's setup.
+  refs:
+  - mast-k2-page
+
+- prefix: k2/public/lightcurves/
+  copy:
+    headline: K2 extracted light curves, by campaign
+    lede: Calibrated K2 light curves — extracted per-target brightness time series at short or long cadence,
+      the science-ready photometry for transit and variability studies.
+    text: Light curves are the pipeline-extracted, calibrated brightness time series for each observed
+      K2 target, the product most users start from for detecting transiting exoplanets and characterizing
+      stellar variability. They are available at short and long cadence as FITS and are organized by campaign
+      and target, mirroring how K2 stepped through its 20 ecliptic pointings.
+  refs:
+  - mast-k2-page
+
+- prefix: k2/public/target_pixel_files/
+  copy:
+    headline: K2 target pixel files, by campaign
+    lede: Target pixel files from K2 — the per-target pixel cutouts and their time series, the rawest
+      target-specific product behind every K2 light curve.
+    text: Target pixel files preserve the calibrated pixel stamp around each K2 target across the campaign,
+      retaining the spatial detail that the extracted light curves collapse into a single flux value.
+      They let users redo or refine aperture photometry, correct for the systematic motion peculiar to
+      the two-wheel K2 pointing, and inspect contamination. Provided as gzipped FITS at short or long
+      cadence, organized by campaign and target.
+  refs:
+  - mast-k2-page
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

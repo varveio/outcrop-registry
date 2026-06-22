@@ -1,0 +1,93 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: sentinel-2
+title: Sentinel-2 (Copernicus Optical MSI)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: s2-aws-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/sentinel-2.yaml
+  label: AWS Open Data Registry — Sentinel-2 (catalog metadata)
+  excerpt: 'Access to Sentinel data is free, full and open for the broad Regional, National, European
+    and International user community. S3 Inventory files for L1C (ORC and CSV): ARN arn:aws:s3:::sentinel-inventory/sentinel-s2-l1c,
+    Region eu-central-1, Type S3 Bucket. Level 1C scenes and metadata, in Requester Pays S3 bucket: ARN
+    arn:aws:s3:::sentinel-s2-l1c.'
+  retrieved_at: '2026-06-22'
+
+- id: s2-copernicus-legal-notice
+  kind: publisher_doc
+  url: https://dataspace.copernicus.eu/terms-and-conditions
+  label: Legal notice on the use of Copernicus Sentinel Data and Service Information
+  excerpt: The access and use of Copernicus Sentinel data is available on a free, full and open basis.
+    When distributing or communicating Sentinel data, the user shall inform the recipients of the source
+    by using the notice "Copernicus Sentinel data [Year]" and, where adapted or modified, "Contains modified
+    Copernicus Sentinel data [Year]".
+  retrieved_at: '2026-06-22'
+
+- id: s2-esa-homepage
+  kind: publisher_homepage
+  url: https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2
+  label: ESA — Copernicus Sentinel-2 mission overview
+  excerpt: The Copernicus Sentinel-2 mission is based on a constellation of two identical satellites in
+    the same orbit. Each satellite carries an innovative wide swath high-resolution multispectral imager
+    with 13 spectral bands for a new perspective of our land and vegetation.
+  retrieved_at: '2026-06-22'
+
+- id: s2-sentiwiki-mission
+  kind: publisher_doc
+  url: https://sentiwiki.copernicus.eu/web/s2-mission
+  label: SentiWiki — Sentinel-2 mission (Copernicus)
+  excerpt: 'Sentinel-2 is a European wide-swath, high-resolution, multi-spectral imaging mission. The
+    optical Multi-Spectral Instrument (MSI) samples 13 spectral bands: four bands at 10 m, six bands at
+    20 m and three bands at 60 m spatial resolution, with a 290 km Field Of View and a 5-day revisit at
+    the Equator.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: Legal notice on the use of Copernicus Sentinel Data and Service Information
+  url: https://dataspace.copernicus.eu/terms-and-conditions
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Copernicus Sentinel-2 optical land-imaging mission
+    lede: Sentinel-2 is the Copernicus high-resolution multispectral optical mission, operated by ESA
+      and the European Commission for global land and vegetation monitoring.
+    text: 'Sentinel-2 is a wide-swath, high-resolution optical Earth-observation mission within the European
+      Union''s Copernicus programme, operated by the European Space Agency. Its constellation of identical
+      satellites (Sentinel-2A, -2B and -2C) each carries the MultiSpectral Instrument (MSI), a push-broom
+      sensor sampling 13 spectral bands from the visible through the shortwave infrared at 10, 20 and
+      60 m resolution across a 290 km swath, delivering global land coverage on a 5-day revisit.
+
+
+      The imagery underpins agriculture, forestry, land-cover mapping, water-quality and disaster-response
+      applications, and is published on AWS by Element 84 (with Sinergise) as the Level-1C and Level-2A
+      archives. This collection''s currently indexed objects are the S3 Inventory of the Level-1C archive
+      — the daily manifest of that bucket — rather than the scene imagery itself.'
+  refs:
+  - s2-esa-homepage
+  - s2-sentiwiki-mission
+  - s2-aws-registry
+
+source:
+  publisher: European Space Agency (ESA) / Copernicus
+  homepage_url: https://sentinel.esa.int/web/sentinel/missions/sentinel-2
+
+display:
+  canonical_path: /sentinel-2/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

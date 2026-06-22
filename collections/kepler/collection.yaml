@@ -1,0 +1,84 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: kepler
+title: Kepler Mission Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: kepler-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/mast-kepler/
+  label: Kepler Mission Data — AWS Open Data dataset catalog (usage example)
+  excerpt: 'aws s3 ls --no-sign-request s3://stpubdata/kepler/ — License: Public domain. Attribution required
+    for refereed scientific papers.'
+  retrieved_at: '2026-06-22'
+
+- id: kepler-data-use
+  kind: publisher_doc
+  url: https://archive.stsci.edu/publishing/data-use
+  label: MAST Data Use policy (STScI)
+  excerpt: 'Most data hosted at MAST are in the public domain (see: open data), and therefore do not have
+    restrictions on use. There are, however, expectations (or in some cases, requirements) that researchers
+    acknowledge the originating mission and (usually) STScI in all scholarly publications.'
+  retrieved_at: '2026-06-22'
+
+- id: kepler-missions-data
+  kind: publisher_doc
+  url: https://archive.stsci.edu/missions-and-data/kepler
+  label: Kepler mission and data products (MAST)
+  excerpt: 'Kepler data products are available in three categories: target pixel files (TPFs), light-curve
+    files (LCFs), and full-frame images (FFIs). The mission produced a flux time series for each star
+    and searched these light curves for the presence of a transiting exoplanet. The observations are divided
+    into 90-day quarters.'
+  retrieved_at: '2026-06-22'
+
+- id: kepler-stsci-homepage
+  kind: publisher_homepage
+  url: https://archive.stsci.edu/
+  label: Mikulski Archive for Space Telescopes (MAST) homepage
+  excerpt: The Mikulski Archive for Space Telescopes (MAST) is a NASA-funded project to support and provide
+    to the astronomical community a variety of astronomical data archives.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: NASA Kepler primary-mission photometry archive
+    lede: 'The Kepler mission''s archival data at MAST: four years of high-precision photometry for roughly
+      200,000 stars, observed to detect transiting exoplanets.'
+    text: NASA's Kepler space telescope monitored about 200,000 stars in a fixed field near the constellation
+      Cygnus, producing a calibrated flux time series for each star and searching those light curves for
+      the periodic dimming caused by transiting exoplanets. Observations are organized into 90-day quarters,
+      reflecting the spacecraft's quarterly 90-degree rolls to keep its solar panels Sun-facing, and were
+      taken at long (30-minute) or short (1-minute) cadence. The archive, hosted by the Mikulski Archive
+      for Space Telescopes (MAST) at the Space Telescope Science Institute, organizes the science data
+      into three product families — light-curve files, target pixel files, and full-frame images — delivered
+      as FITS products and keyed by Kepler Input Catalog (KIC) target identifier.
+  refs:
+  - kepler-missions-data
+
+source:
+  publisher: Space Telescope Science Institute (STScI) / Mikulski Archive for Space Telescopes (MAST)
+  homepage_url: https://archive.stsci.edu/
+
+display:
+  canonical_path: /kepler/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

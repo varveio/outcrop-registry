@@ -1,0 +1,79 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: pd12m
+title: PD12M — Public Domain 12M
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: pd12m-aws-catalog
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/pd12m/
+  label: PD12M — Registry of Open Data on AWS (catalog metadata, --no-sign-request usage)
+  excerpt: 'PD12M is a collection of 12.4 million CC0/PD image-caption pairs for the purpose of training
+    generative image models. License: https://cdla.dev/permissive-2-0/ . Resources: arn:aws:s3:::pd12m,
+    Region us-west-2. aws s3 ls --no-sign-request s3://pd12m/'
+  retrieved_at: '2026-06-22'
+
+- id: pd12m-hf-readme
+  kind: publisher_doc
+  url: https://huggingface.co/datasets/Spawning/PD12M
+  label: Spawning/PD12M dataset card (Hugging Face) — license, overview, license CDLA-Permissive-2.0
+  excerpt: At 12.4 million image-caption pairs, PD12M is the largest public domain image-text dataset
+    to date, with sufficient size to train foundation models while minimizing copyright concerns. PD12M
+    consists of entirely public domain and CC0 licensed images, with automated recaptioning of image data,
+    and quality and safety filtering. The image files are all hosted in the AWS S3 bucket `pd12m`. The
+    dataset is licensed under the CDLA-Permissive-2.0.
+  retrieved_at: '2026-06-22'
+
+- id: pd12m-homepage
+  kind: publisher_homepage
+  url: https://spawning.ai/
+  label: Spawning homepage
+  excerpt: Spawning builds tools for the ethical development of AI, including consent layers and curated
+    training datasets such as Public Domain 12M (PD12M).
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CDLA-Permissive-2.0
+  status: verified
+  name: CDLA-Permissive-2.0
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Public-domain and CC0 image-text dataset for generative model training
+    lede: PD12M (Public Domain 12M) is a 12.4-million-pair dataset of public-domain and CC0 images with
+      synthetic captions, curated by Spawning for training text-to-image foundation models.
+    text: PD12M is the largest public-domain image-text dataset assembled to date, built and curated with
+      the Source.Plus platform to address quality problems endemic to web-scraped training data — copyrighted
+      material, low-quality images and captions, NSFW content, PII, and link rot. Every pair draws exclusively
+      from public-domain and CC0-licensed imagery, recaptioned automatically and passed through quality
+      and safety filtering. Images are rehosted on dedicated cloud storage, separate from their originating
+      institutions, so the corpus stays intact and does not burden the source hosts. The collection pairs
+      parquet metadata (URLs, captions, dimensions, MIME type, MD5 hash, per-image license, and source
+      organization) and CLIP ViT-L/14 embeddings with the raw image files, and is also packaged as MosaicML
+      StreamingDataset (MDS) shards. The dataset is released under CDLA-Permissive-2.0, with community-driven
+      governance mechanisms that remove infringing items and improve provenance over time.
+  refs:
+  - pd12m-hf-readme
+
+source:
+  publisher: Spawning
+  homepage_url: https://spawning.ai/
+
+display:
+  canonical_path: /pd12m/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

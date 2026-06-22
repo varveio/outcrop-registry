@@ -1,0 +1,101 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: eot-web-archive
+title: End of Term Web Archive
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: eot-about
+  kind: publisher_doc
+  url: https://eotarchive.org/about/
+  label: End of Term Web Archive — Background
+  excerpt: The End of Term Web Archive collaboration began in the summer of 2008, when the project partners...
+    agreed to join forces to collaboratively archive the U.S. Government web at the end of the Bush administration.
+    The archive includes Federal Government websites in the Legislative, Executive, and Judicial branches
+    of government.
+  retrieved_at: '2026-06-22'
+
+- id: eot-aws-registry-yaml
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/eot-web-archive.yaml
+  label: AWS Open Data Registry — eot-web-archive.yaml (License, ARN, Region)
+  excerpt: 'License: There are no restrictions on the use, access, and/or download of data from the End
+    of Term Web Archive Dataset.  We request that you cite the End of Term Web Archive project when using
+    the data provided from this dataset.  Creative Commons Zero. ARN: arn:aws:s3:::eotarchive  Region:
+    us-east-1  Type: S3 Bucket'
+  retrieved_at: '2026-06-22'
+
+- id: eot-data-2024
+  kind: publisher_doc
+  url: https://eotarchive.org/data/data-2024/
+  label: End of Term 2024 Dataset — Archive Location, Files, and License
+  excerpt: The 2024 End of Term archive is located on the eotarchive bucket at EOT-2024. By adding either
+    s3://eotarchive/ or https://eotarchive.s3.amazonaws.com/ to each line, you end up with the s3 and
+    HTTP paths respectively.
+  retrieved_at: '2026-06-22'
+
+- id: eot-data-index
+  kind: publisher_doc
+  url: https://eotarchive.org/data/
+  label: End of Term Web Archive — Datasets
+  excerpt: The End of Term project is working with the Amazon Web Services' Open Data Sponsorship Program
+    to host a copy of the 2004, 2008, 2012, 2016, 2020 and 2024 End of Term Datasets.
+  retrieved_at: '2026-06-22'
+
+- id: eot-homepage
+  kind: publisher_homepage
+  url: https://eotarchive.org/
+  label: End of Term Web Archive homepage
+  excerpt: The End of Term Web Archive is a collaborative initiative that collects, preserves, and makes
+    accessible United States Government websites at the end of presidential administrations.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: U.S. Government web preserved at presidential transitions
+    lede: The End of Term Web Archive is a collaborative initiative that crawls and preserves U.S. federal
+      government websites at the end of each presidential administration, with cycles from 2004 through
+      2024.
+    text: The End of Term Web Archive captures the federal government web — Legislative, Executive, and
+      Judicial branch sites across .gov, .mil, and related domains — in the final months of each administration
+      and again after the transition, documenting how the government's online presence changes. Begun
+      in 2008 by partners in the International Internet Preservation Consortium and NDIIPP, it is collected
+      and stewarded by the Internet Archive, the Library of Congress, and the University of North Texas
+      Libraries, with Stanford, George Washington University, the U.S. Government Publishing Office, the
+      California Digital Library, and (in 2024) ArchiveTeam, the Common Crawl Foundation, the Library
+      Innovation Lab at Harvard, and Webrecorder among the contributors. The AWS-hosted copy, produced
+      under the AWS Open Data Sponsorship Program, packages each cycle (2004, 2008, 2012, 2016, 2020,
+      2024) as web-crawl captures in WARC format alongside CDX and columnar URL indexes for computational
+      use, ranging from the 6.42 TB 2004 set to the 2.29 PB 2024 crawl.
+  refs:
+  - eot-homepage
+  - eot-about
+  - eot-data-index
+  - eot-aws-registry-yaml
+
+source:
+  publisher: End of Term Web Archive
+  homepage_url: https://eotarchive.org/
+
+display:
+  canonical_path: /eot-web-archive/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

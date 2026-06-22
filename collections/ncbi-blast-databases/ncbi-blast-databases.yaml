@@ -1,0 +1,35 @@
+schema_version: '0.4'
+bucket: ncbi-blast-databases
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: .testing-strides/
+  kind: other
+  copy:
+    text: Internal test/staging area for the STRIDES build pipeline (hidden dot-prefixed path); not a
+      published BLAST database release.
+    headline: Internal test/staging area for the STRIDES build pipeline
+
+- prefix: 2026-*/
+  copy:
+    headline: Date-stamped BLAST database release snapshots
+    lede: Each timestamped directory (e.g. 2026-05-21-01-05-02) is a complete release of the pre-formatted
+      BLAST databases as they stood on that date, the unit update_blastdb.pl pulls from.
+    text: Every periodic refresh of the BLAST databases is published as its own date-stamped snapshot
+      holding the full set of databases for that release. A snapshot contains the BLAST index volumes
+      for each nucleotide and protein database (index files such as .nsq/.nin/.nhr and the taxonomy database)
+      together with a per-database <name>-<type>-metadata.json recording the database version, type, sequence
+      and letter counts, last-updated time and the list of constituent files. The bucket-root latest-dir
+      pointer names the most recent snapshot to use; older snapshots remain for reproducibility. Successive
+      snapshots share the same database layout and differ only in content currency, so a single description
+      covers the series.
+  refs:
+  - blast-docs-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

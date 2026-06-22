@@ -1,0 +1,52 @@
+schema_version: '0.4'
+bucket: eotarchive
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: crawl-data/
+  copy:
+    headline: Raw web-crawl captures (WARC) with per-segment indexes
+    lede: The raw End of Term web-crawl captures, stored as WARC files organized into crawl cycles and
+      segments, with CDX indexes and per-WARC statistics generated alongside them.
+    text: 'These are the primary preservation objects of the archive: the harvested HTTP responses from
+      each End of Term crawl, written as gzip-compressed WARC files and partitioned by crawl cycle and
+      then into numbered segments. Each segment carries its own CDX index derived from the WARCs (cdx-from-warc)
+      and per-capture statistics, so a consumer can locate and replay individual captures without reading
+      every WARC. The 2024 cycle alone spans 128 segments and over 1.2 million WARC files (2.29 PB compressed),
+      making this by far the largest part of the dataset.'
+  refs:
+  - eot-data-2024
+
+- prefix: eot-index/collections/
+  copy:
+    headline: Collection-level URL indexes for replay and lookup
+    lede: Per-collection URL indexes over the End of Term crawls, in chunked CDXJ form with cluster summaries
+      and metadata, supporting replay and URL lookup across the captures.
+    text: This part of the dataset provides consolidated index access to the crawls organized by collection.
+      Each collection carries CDXJ index files together with a cluster summary and a metadata description,
+      the layout used by pywb and OutbackCDX to serve a binary-searchable, randomly accessible index over
+      a large WARC corpus. It lets a user resolve a URL and timestamp to the WARC capture that holds it,
+      without scanning the raw web-crawl data directly.
+  refs:
+  - eot-data-2024
+
+- prefix: eot-index/table/eot-main/
+  copy:
+    headline: Columnar (Parquet) CDX index table partitioned by crawl
+    lede: A columnar URL index of the End of Term captures, written as Parquet and partitioned by crawl
+      cycle for analytical querying of the archive's CDX records.
+    text: 'This is the analytical view of the archive''s URL index: the same CDX capture records expressed
+      as Parquet files and partitioned by crawl, so the index can be queried at scale with columnar engines
+      rather than read line-by-line. It complements the CDXJ collection indexes — those drive interactive
+      replay, while this table supports SQL-style analysis over which URLs were captured, when, and where
+      they live in the WARC corpus.'
+  refs:
+  - eot-data-2024
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

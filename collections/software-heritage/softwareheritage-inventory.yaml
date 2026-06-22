@@ -1,0 +1,41 @@
+schema_version: '0.4'
+bucket: softwareheritage-inventory
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: inventory_export/
+  copy:
+    headline: S3 Inventory of the Software Heritage archive bucket
+    lede: A scheduled Amazon S3 Inventory of the public s3://softwareheritage archive bucket, published
+      by Software Heritage as machine-readable object listings.
+    text: This is the Amazon S3 Inventory export for the Software Heritage archive bucket (arn:aws:s3:::softwareheritage).
+      S3 Inventory emits scheduled, machine-readable listings of the objects in a source bucket, letting
+      consumers enumerate and plan large-scale access without listing the bucket object by object. The
+      AWS Open Data Registry documents the softwareheritage-inventory bucket only as 'S3 Inventory files',
+      supporting bulk access to the Software Heritage Graph Dataset rather than serving as a curated dataset
+      in its own right.
+  refs:
+  - swh-license-terms
+
+- prefix: softwareheritage/softwareheritage-inventory/hive/
+  copy:
+    headline: Hive-partitioned S3 Inventory output for the archive bucket
+    lede: The Hive-format partition tree of the Amazon S3 Inventory configured for the softwareheritage
+      archive bucket, written for query engines.
+    text: This is the Hive-partitioned output of the Amazon S3 Inventory configured for the softwareheritage
+      archive bucket, following the standard AWS layout (source-bucket/inventory-config-id/hive/). When
+      S3 Inventory is configured for Hive-compatible output, AWS writes date-partitioned manifest entries
+      here so engines such as Amazon Athena can register the inventory as a partitioned table and query
+      the archive's object listing directly. It contains the inventory's manifests and partitions rather
+      than archive data, exposed under the same 'S3 Inventory files' role the AWS Open Data Registry documents
+      for this bucket.
+  refs:
+  - swh-license-terms
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,91 @@
+schema_version: '0.4'
+bucket: daylight-openstreetmap
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: earth/
+  copy:
+    headline: Daylight Earth Table — OSM tags in a theme/class/subclass ontology
+    lede: The Daylight Earth Table reclassifies nearly a billion OpenStreetMap features into a three-level
+      theme/class/subclass schema, distributed as Parquet for Athena.
+    text: The Earth Table is the result of running Daylight's earth-table classification over the latest
+      planet release, organizing OSM features into a 3-level ontology of theme, class, and subclass —
+      a small fishpond lands in the water theme, pond class, fishpond subclass; a kindergarten in the
+      building theme, education class, kindergarten subclass. The schema spans ten themes (building, infrastructure,
+      land, landuse, placename, POI, road, transit, water, building_detail) across hundreds of classes
+      and subclasses, giving cartographers a normalized vocabulary over raw OSM tags.
+  refs:
+  - daylight-earth
+
+- prefix: label_centerlines/
+  copy:
+    headline: Curved label centerlines for dynamic cartographic labeling
+    lede: Curved centerlines derived from polygonal OSM geometries so map labels follow the shape and
+      orientation of the feature they name.
+    text: 'This layer provides cartographic label centerlines: curved guide-lines derived from polygonal
+      OSM water geometries so labels can be placed dynamically along a feature rather than as a static
+      point, adding directionality, shape, and orientation. The centerlines are computed by buffering
+      and simplifying each polygon, building a Voronoi diagram, taking the longest interior route, and
+      smoothing it into a best-fit curve — yielding a ''hand-drawn'' label effect across lakes, reservoirs,
+      lagoons, and ponds.'
+  refs:
+  - daylight-labels
+
+- prefix: landcover/
+  copy:
+    headline: Vectorized global landcover from ESA WorldCover
+    lede: A vectorized landcover layer derived from ESA's 2020 WorldCover 10m rasters, reduced to eight
+      land classes for global mapping.
+    text: 'This layer offers vectorized landcover features derived from the European Space Agency''s 2020
+      WorldCover (10m) rasters, suitable for maps up to roughly 1:1 million scale. The original eleven
+      ESA classes are distilled into eight: Snow, Forest, Urban, Grass, Crop, Barren, Water, and Shrub.
+      Production starts from 2,651 Cloud-Optimized GeoTIFFs that are de-noised and smoothed (dilation/erosion),
+      vectorized, and post-processed into vector-tiling-ready geometry.'
+  refs:
+  - daylight-landcover
+
+- prefix: parquet/osm_elements/
+  copy:
+    headline: Full OSM element model as Parquet (all 7B nodes + relations)
+    lede: The complete OpenStreetMap element model — all seven billion nodes and geometry-less relations
+      — as Parquet for Athena.
+    text: 'The osm_elements table preserves the full OpenStreetMap element model rather than only renderable
+      shapes: all seven billion nodes (including untagged ones) and relations that carry no geometry,
+      such as turn restrictions. It is the analytical counterpart to osm_features, retaining the raw element
+      graph for queries that need the complete OSM data model in Amazon Athena.'
+  refs:
+  - daylight-features-elements
+
+- prefix: parquet/osm_features/
+  copy:
+    headline: Renderable OSM features as Parquet (~1B points/lines/polygons)
+    lede: Nearly a billion renderable OpenStreetMap features with normalized geometries and precomputed
+      attributes, as Parquet for Athena.
+    text: The osm_features table converts all OSM geometries into common types — points, lines, and (multi)polygons
+      — and carries roughly one billion renderable features. Each row adds precomputed attributes such
+      as bounding boxes, lengths, and areas across a 14-column schema (id, version, changeset, timestamps,
+      tags, WKT geometry, and spatial measures), making it the analysis-ready, query-friendly form of
+      OpenStreetMap for Amazon Athena.
+  refs:
+  - daylight-features-elements
+
+- prefix: urban/
+  copy:
+    headline: Global urban-areas polygons from ESA WorldCover
+    lede: A vectorized global urban-areas layer of ~37,000 polygons derived from ESA's 2020 WorldCover
+      rasters, for highlighting urban concentration.
+    text: This layer provides vectorized urban-area features derived from ESA's 2020 WorldCover (10m)
+      rasters using the same pipeline as the landcover layer, with extra generalization and simplification
+      for cartographic use up to roughly 1:100k (zoom 12). The full-resolution set contains about 37,000
+      polygonal urban areas worldwide, with a lighter 1,000-largest variant for smaller scales; Meta's
+      Display Maps team uses it to highlight areas of urban concentration across its apps.
+  refs:
+  - daylight-urban
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

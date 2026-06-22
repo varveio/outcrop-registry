@@ -1,0 +1,143 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nara-1950-census
+title: NARA 1950 Census
+status: reviewed
+sensitivity_class: sensitive_pii_risk
+publication_scope: full
+
+refs:
+- id: measured-nara-1950-census
+  kind: measured_structure
+  url: s3://nara-1950-census/
+  label: Measured bucket structure
+  excerpt: 'Engine path-namespace snapshot: 3969 prefixes, 13537906 objects.'
+
+- id: nara-1950-archives-gov-maps
+  kind: publisher_doc
+  url: https://www.archives.gov/developer/1950-census
+  label: www.archives.gov — 1950 census
+  excerpt: The collection contains approximately 9,600 digitized images of the 1950 Census Enumeration
+    District Maps. Maps are organized hierarchically by state abbreviation, accessible via paths like
+    s3://nara-1950-census/1950census-maps/Alaska/. The documentation provides metadata summaries and JSON
+    files for all 50 states plus territories.
+  retrieved_at: '2026-06-18'
+
+- id: nara-1950-aws-registry-maps
+  kind: catalog_metadata
+  url: https://raw.githubusercontent.com/awslabs/open-data-registry/main/datasets/nara-1950-census.yaml
+  label: raw.githubusercontent.com — nara 1950 census
+  excerpt: The 1950 Census enumeration district maps contain maps of counties, cities, and other minor
+    civil divisions that show enumeration districts, census tracts, and related boundaries and numbers
+    used for each census. The coverage is nation wide and includes territorial areas.
+  retrieved_at: '2026-06-18'
+
+- id: nara1950-72yr
+  kind: web_research
+  url: https://www.census.gov/about/history/census-records-family-history/census-records/72-year-rule.html
+  label: U.S. Census Bureau — The 72-Year Rule
+  excerpt: The U.S. government will not release personally identifiable information about an individual
+    to any other individual or agency until 72 years after it was collected for the decennial census.
+  retrieved_at: '2026-06-17'
+
+- id: nara1950-devdoc
+  kind: publisher_doc
+  url: https://www.archives.gov/developer/1950-census
+  label: NARA developer documentation — 1950 Census Dataset on the AWS Registry of Open Data
+  excerpt: 'The National Archives and Records Administration (NARA) publishes the 1950 Census dataset
+    on the AWS Registry of Open Data. ... The 1950 Census dataset - over 165 terabytes of data - includes
+    the metadata index, the population schedule and other forms, the enumeration district maps, and the
+    enumeration district descriptions for the 1950 Census records. ... The full dataset can be accessed
+    with the following ARN: arn:aws:s3:::nara-1950-census'
+  retrieved_at: '2026-06-17'
+
+- id: nara1950-devdoc-portions
+  kind: publisher_doc
+  url: https://www.archives.gov/developer/1950-census
+  label: NARA 1950 Census documentation — dataset portions and S3 prefixes
+  excerpt: 'Population Schedules: Digitized images of the forms (population schedules) used by Census
+    enumerators to enumerate U.S. citizens. Images are both tiff and JPG. ... Maps: Digitized images of
+    annotated maps of counties, cities, and other minor civil divisions that show enumeration districts,
+    census tract, and related boundaries and numbers used for each census. Images are JPG.'
+  retrieved_at: '2026-06-17'
+
+- id: nara1950-homepage
+  kind: publisher_homepage
+  url: https://www.archives.gov/
+  label: U.S. National Archives (archives.gov) homepage
+  excerpt: The U.S. National Archives Home
+  retrieved_at: '2026-06-17'
+
+- id: nara1950-imagedetails
+  kind: publisher_doc
+  url: https://www.archives.gov/developer/1950-census
+  label: NARA 1950 Census documentation — image format and forms
+  excerpt: Approximately 6.5 million digital TIFF images and corresponding JPEG derivative images of the
+    microfilmed P1 “1950 Census of Population and Housing” forms and a scattering of Individual Census
+    Reports and other forms for U.S. states and territories.
+  retrieved_at: '2026-06-17'
+
+- id: nara1950-metadata-index
+  kind: publisher_doc
+  url: https://www.archives.gov/developer/1950-census
+  label: NARA 1950 Census documentation — Metadata Index Details
+  excerpt: Metadata for the dataset will be provided in JSON format and will include the fields listed
+    below. ... State; County (City information provided when available); Enumeration district number;
+    Enumeration district description; Microfilm roll number; Folder and image file names; Native American
+    Reservation Name from “Indian Reservation Schedule” if applicable.
+  retrieved_at: '2026-06-17'
+
+- id: nara1950-useterms
+  kind: publisher_doc
+  url: https://www.archives.gov/global-pages/privacy.html
+  label: NARA Privacy and Use Policies — Copyright, Restrictions, and Permissions Notice
+  excerpt: Generally, materials produced by Federal agencies are in the public domain and may be reproduced
+    without permission. Works of the U.S. Government that have been produced by the National Archives
+    and Records Administration are in the public domain and may be copied and distributed without permission.
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: The 1950 U.S. Census, digitized by the National Archives
+    lede: NARA's complete digitization of the seventeenth U.S. decennial census, released to the public
+      on April 1, 2022 under the 72-Year Rule.
+    text: The National Archives and Records Administration's digitization of the U.S. decennial census,
+      which the Bureau of the Census conducted to enumerate every person living in the United States as
+      of April 1, 1950. At over 165 terabytes, it includes a metadata index, the population schedules
+      and other forms, the enumeration district maps, and the enumeration district descriptions. The schedules
+      are about 6.5 million scanned TIFF images, with corresponding JPEG derivatives, of the microfilmed
+      P1 'Census of Population and Housing' forms together with a scattering of Individual Census Reports
+      and other special forms (Crews of Vessels, Overseas, Indian Reservation, American Samoa, and Alaska
+      schedules). Because the schedules name and describe individual residents — recording personal details
+      such as names, ages, race, place of birth, occupation, and income — the records were withheld for
+      72 years under the 72-Year Rule (Public Law 95-416) and released publicly on April 1, 2022. NARA
+      published the digitized dataset on the AWS Registry of Open Data.
+  refs:
+  - nara1950-devdoc
+  - nara1950-imagedetails
+  - nara1950-72yr
+
+source:
+  publisher: U.S. National Archives and Records Administration
+  homepage_url: https://www.archives.gov/
+
+display:
+  canonical_path: /nara-1950-census/
+
+stewardship:
+  last_reviewed_at: unset
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

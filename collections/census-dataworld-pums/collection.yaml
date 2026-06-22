@@ -1,0 +1,89 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: census-dataworld-pums
+title: U.S. Census ACS PUMS (data.world)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: aws-registry-yaml
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/census-dataworld-pums.yaml
+  label: AWS Open Data Registry — U.S. Census ACS PUMS catalog metadata (CC BY 4.0, dataworld-linked-acs)
+  excerpt: 'License: "[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)"
+    ManagedBy: Data.world Resources: ARN: arn:aws:s3:::dataworld-linked-acs Region: us-east-1 Type: S3
+    Bucket'
+  retrieved_at: '2026-06-22'
+
+- id: census-public-domain
+  kind: publisher_doc
+  url: https://www.census.gov/about/policies/citation.html
+  label: U.S. Census Bureau — Citation guidance (data are government works not subject to copyright)
+  excerpt: Census Bureau data are government works not subject to copyright restrictions and are free
+    to reproduce.
+  retrieved_at: '2026-06-22'
+
+- id: dataworld-homepage
+  kind: publisher_homepage
+  url: https://data.world/
+  label: data.world homepage
+  excerpt: data.world is the enterprise data catalog for the modern data stack.
+  retrieved_at: '2026-06-22'
+
+- id: dataworld-uscensus-docs
+  kind: publisher_doc
+  url: https://docs.data.world/uscensus/
+  label: Linked ACS — American Community Survey Linked Open Data (data.world documentation)
+  excerpt: The main classes in the data are of rdf:type acs:Housing and rdf:type acs:Person, which are
+    described by a multitude of properties. Chief among these properities is acs:hasPrimaryWeight, the
+    value of which specifies the statistical weighting associated with the record.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: American Community Survey PUMS as queryable RDF linked data
+    lede: The Linked ACS publishes the U.S. Census Bureau's American Community Survey Public Use Microdata
+      Sample as RDF/Turtle linked data, built by data.world in partnership with the Census Bureau.
+    text: 'The Linked ACS represents the U.S. Census Bureau''s American Community Survey (ACS) Public
+      Use Microdata Sample (PUMS) — de-identified public-use records of people and housing units — using
+      the Resource Description Framework (RDF), serialized as gzip-compressed Turtle (.ttl). Recasting
+      the microdata as a graph assigns each element a URI, so records are queryable with SPARQL and can
+      be joined or merged with any other linked dataset.
+
+
+      The data is built around two core entity types, acs:Person and acs:Housing, each carrying a primary
+      statistical weight (acs:hasPrimaryWeight) plus replicate weights for standard-error estimation.
+      It is organized into raw transliterations of the Census CSVs, an enhanced/queryable representation
+      split by record type, year, and state, the ACS ontology and geographic crosswalk files, and sample
+      tabulation queries. The underlying Census PUMS data are a public-domain U.S. Government work; the
+      linked-data layer published here is licensed CC BY 4.0 and updated yearly as new ACS 1-year PUMS
+      releases.'
+  refs:
+  - dataworld-uscensus-docs
+  - aws-registry-yaml
+
+source:
+  publisher: data.world
+  homepage_url: https://data.world/
+
+display:
+  canonical_path: /census-dataworld-pums/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

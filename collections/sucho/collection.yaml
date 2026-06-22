@@ -1,0 +1,119 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: sucho
+title: SUCHO Ukrainian Cultural Heritage Web Archive
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: sucho-browsertrix
+  kind: publisher_doc
+  url: https://www.sucho.org/browsertrix
+  label: SUCHO — Running Browsertrix Crawler locally (crawls output)
+  excerpt: Browsertrix Crawler is the tool SUCHO is using to crawl entire sites and copy all their contents
+    for the purposes of emulation and replay. ... By the end of a crawl, you will have generated a zipped
+    file of a series of Web ARChive (WARC) files. This final zipped file produced by Browsertrix Crawler
+    is known as a .wacz file (short for Web Archive Collection Zipped).
+  retrieved_at: '2026-06-20'
+
+- id: sucho-data-upload
+  kind: publisher_doc
+  url: https://www.sucho.org/data-upload
+  label: SUCHO — Where do I upload the data? (data ingestion workflow)
+  excerpt: You'll also end up with a WACZ file if you're using Browsertrix to crawl sites. If you have
+    a WACZ file, go to the WACZ upload form. ... If you have more complicated data, such as the results
+    of a custom scrape or a failed crawl, you will need to request AWS access credentials to receive access
+    to your own AWS upload folder.
+  retrieved_at: '2026-06-20'
+
+- id: sucho-homepage
+  kind: publisher_homepage
+  url: https://www.sucho.org/
+  label: SUCHO homepage (Saving Ukrainian Cultural Heritage Online)
+  excerpt: SUCHO is an initiative of over 1,500 international volunteers who are collaborating online
+    to digitize and preserve Ukrainian cultural heritage.
+  retrieved_at: '2026-06-20'
+
+- id: sucho-mirroring
+  kind: publisher_doc
+  url: https://www.sucho.org/mirroring
+  label: SUCHO — Mirroring the SUCHO web archives (data access)
+  excerpt: Since the SUCHO Open Data bucket is publicly accessible, you do not need access credentials
+    to access it. Use the CLI flag --no-sign-request to access the bucket fully anonymously. The AWS region
+    is eu-central-1.
+  retrieved_at: '2026-06-20'
+
+- id: sucho-registry
+  kind: registry_entry
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/sucho.yaml
+  label: AWS Open Data Registry — SUCHO Ukrainian Cultural Heritage Web Archives (sucho.yaml)
+  excerpt: The dataset contains web archives of Open Access collections of digitised cultural heritage
+    from more than 3,000+ websites of Ukrainian cultural institutions, such as museums, libraries or archives.
+    The web archives were created using the tools of the Webrecorder Open Source project in the open WACZ
+    format.
+  retrieved_at: '2026-06-20'
+
+- id: sucho-sensitivity-open
+  kind: publisher_doc
+  url: https://www.sucho.org/mirroring
+  label: SUCHO — Mirroring the SUCHO web archives (data access)
+  excerpt: Since the SUCHO Open Data bucket is publicly accessible, you do not need access credentials
+    to access it. Use the CLI flag --no-sign-request to access the bucket fully anonymously. The AWS region
+    is eu-central-1.
+  retrieved_at: '2026-06-20'
+
+- id: sucho-workflow
+  kind: publisher_doc
+  url: https://www.sucho.org/workflow
+  label: SUCHO — Workflow (Browsertrix automated crawling)
+  excerpt: 'Browsertrix: Newly submitted links go to the Browsertrix tab of our working spreadsheet (along
+    with InternetArchive). Browsertrix is an automated web crawl ... While many of our sites can be captured
+    by the automated system called Browsertrix, some of them (and some special features such as virtual
+    tours within a site) need a human being to navigate the site while recording it.'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Web archives of Ukrainian cultural-heritage websites
+    lede: SUCHO (Saving Ukrainian Cultural Heritage Online) is a volunteer initiative that web-archived
+      Open Access digitized collections from 3,000+ Ukrainian museum, library, and archive websites during
+      the 2022 invasion.
+    text: 'Saving Ukrainian Cultural Heritage Online (SUCHO) is an initiative of more than 1,500 international
+      volunteers — librarians, archivists, researchers, and programmers — who organized after the 2022
+      invasion of Ukraine to capture at-risk digital cultural heritage before the servers hosting it could
+      be destroyed, damaged, or taken offline.
+
+
+      The collection contains web archives of Open Access digitized collections from over 3,000 Ukrainian
+      cultural institutions, produced with Webrecorder''s open-source tooling in the WACZ format — zipped
+      containers of WARC (Web ARChive) files enriched with metadata, each able to bundle several crawls.
+      Individual files range from a few megabytes to several terabytes, and the corpus is updated periodically.'
+  refs:
+  - sucho-homepage
+  - sucho-registry
+
+source:
+  publisher: Saving Ukrainian Cultural Heritage Online (SUCHO)
+  homepage_url: https://www.sucho.org/
+
+display:
+  canonical_path: /sucho/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

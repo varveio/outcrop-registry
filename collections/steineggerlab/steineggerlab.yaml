@@ -1,0 +1,162 @@
+schema_version: '0.4'
+bucket: steineggerlab
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: afesm/
+  copy:
+    headline: AFESM — combined AlphaFold + ESM Atlas structural clusters
+    lede: AFESM merges the AlphaFold Protein Structure Database and the ESM Metagenomic Atlas into an
+      821-million-entry set clustered into 5.12 million non-singleton structural clusters.
+    text: AFESM is the data behind the Steinegger Lab's metagenomic-scale survey of the predicted protein
+      structure universe. It concatenates AlphaFold DB (over 214 million AlphaFold2 models) with the ESM
+      Metagenomic Atlas (over 600 million ESMFold models of MGnify metagenomic proteins), then clusters
+      by sequence and structure using Foldseek into 5.12 million non-singleton clusters, with representatives
+      chosen by predicted quality (pLDDT). The released sequence set (afesm.fasta.gz) gives the combined
+      non-redundant sequences; the broader project adds taxonomy, MGnify biome, and CATH fold assignments,
+      explorable at afesm.foldseek.com. The constituent structures derive from AlphaFold DB and the ESM
+      Atlas, each under its own upstream terms.
+  refs:
+  - afesm-paper-context
+  terms:
+    license: NOASSERTION
+    status: unverified
+    name: No license asserted
+    url: null
+    display_policy: withhold
+    notes: No publisher-owned, subject-local terms page asserts an SPDX redistribution license for the
+      combined AFESM release (afesm.fasta.gz). The constituent structures derive from AlphaFold DB (CC-BY-4.0)
+      and the ESM Metagenomic Atlas, which carry their own upstream terms; fenced NOASSERTION pending
+      a subject-local license.
+
+- prefix: colabfold/
+  copy:
+    headline: ColabFold MSA databases (UniRef30 + environmental database)
+    lede: The precomputed sequence databases ColabFold searches to build multiple sequence alignments
+      for AlphaFold2/RoseTTAFold structure prediction.
+    text: 'ColabFold makes AlphaFold2/RoseTTAFold structure prediction fast and accessible by replacing
+      the slow MSA step with an MMseqs2 search against precomputed databases. This prefix distributes
+      those databases: UniRef30 (a clustered UniProtKB profile database, e.g. uniref30_2302) and the ColabFold
+      environmental database (colabfold_envdb_202108), which extends BFD/MGnify with additional metagenomic
+      protein catalogs. Both are provided as MMseqs2-format archives plus prebuilt GPU/CPU index variants
+      (the full set is roughly 940 GB on disk). ColabFold''s setup_databases.sh downloads them over plain
+      HTTP from opendata.mmseqs.org/colabfold with no authentication. All files here are published under
+      CC BY 4.0.'
+  refs:
+  - colabfold-downloads-license
+
+- prefix: foldcomp/
+  copy:
+    headline: Foldcomp compressed structure databases (AFDB, ESM Atlas)
+    lede: Whole structure collections stored in Foldcomp's compact ~13-bytes-per-residue format, an order
+      of magnitude smaller than raw coordinate files.
+    text: 'Foldcomp is a compression format and library that encodes a protein structure from its torsion
+      angles in about 13 bytes per residue, shrinking large structure collections by roughly an order
+      of magnitude versus storing 3D coordinates. This prefix distributes prebuilt Foldcomp databases
+      retrievable with foldcomp.setup(...): AlphaFold DB UniProt (afdb_uniprot_v4) and Swiss-Prot (afdb_swissprot_v4),
+      AFDB model-organism and cluster-representative sets, and the ESM Metagenomic Atlas (full and high-quality
+      clustered builds). Each database ships the Foldcomp data file with its companion .index, .lookup,
+      and .dbtype files. The Foldcomp software is MIT-licensed; the compressed structures derive from
+      AlphaFold DB and the ESM Atlas, which carry their own upstream terms.'
+  refs:
+  - foldcomp-databases-doc
+  terms:
+    license: NOASSERTION
+    status: verified
+    name: No license asserted
+    url: null
+    display_policy: include
+
+- prefix: folddisco/
+  copy:
+    headline: FoldDisco discontinuous-motif indexes
+    lede: Prebuilt FoldDisco indexes for searching discontinuous structural motifs across whole proteomes
+      and large structure collections.
+    text: FoldDisco searches for discontinuous (non-contiguous) structural motifs — residues that are
+      close in 3D space but scattered along the sequence — and is built to scale across thousands of proteomes
+      or millions of structures. This prefix distributes its prebuilt indexes (version 2.0, in .tar.lz4
+      / .tar.gz form), including the AFDB proteome of 16 model organisms (afdb_proteome_v4_folddisco),
+      plus per-target indexes such as Swiss-Prot, AFDB50, ESM30, and PDB. The indexes are served from
+      opendata.mmseqs.org/folddisco and built over AlphaFold DB, ESM Atlas, and PDB structures, which
+      carry their own upstream terms.
+  refs:
+  - folddisco-databases-doc
+  terms:
+    license: NOASSERTION
+    status: verified
+    name: No license asserted
+    url: null
+    display_policy: include
+
+- prefix: foldseek/
+  copy:
+    headline: Foldseek structure-search databases (AlphaFold DB, PDB, Swiss-Prot)
+    lede: Preprocessed, search-ready structure databases that Foldseek queries for fast, sensitive protein
+      structure comparison.
+    text: 'Foldseek compares protein structures hundreds of thousands of times faster than conventional
+      structural aligners by encoding 3D structure as a sequence alphabet. This prefix distributes the
+      search-ready databases its `foldseek databases` command downloads, so users skip the expensive preprocessing:
+      AlphaFold DB builds (Alphafold/UniProt, UniProt50, Proteome, Swiss-Prot), the ESM Atlas (ESMAtlas30),
+      and the RCSB PDB. Each database ships as a versioned archive (the full Alphafold/UniProt build is
+      ~214M entries / ~700 GB), with archived prior versions retained under archive/. The structures themselves
+      derive from AlphaFold DB, the ESM Atlas, and the PDB, each under its own upstream terms.'
+  refs:
+  - foldseek-databases-doc
+  terms:
+    license: NOASSERTION
+    status: verified
+    name: No license asserted
+    url: null
+    display_policy: include
+
+- prefix: metabuli/
+  copy:
+    headline: Metabuli taxonomic classification databases (GTDB, RefSeq)
+    lede: Prebuilt reference databases that Metabuli uses to assign taxonomy to metagenomic reads from
+      joint DNA and amino-acid comparison.
+    text: 'Metabuli classifies metagenomic reads by comparing them to reference genomes using both DNA
+      and amino-acid signals, improving sensitivity and specificity over single-mode classifiers. This
+      prefix distributes its prebuilt reference databases, archived under archive/: a GTDB build (GTDB
+      214.1 high-quality genomes), RefSeq prokaryote-and-virus and RefSeq-virus builds, larger full RefSeq-release
+      builds, a combined GTDB+virus+human build, and a newer gtdb226 build. Each bundle also includes
+      the human genome (T2T-CHM13v2.0) for host filtering. The reference content derives from GTDB, NCBI
+      RefSeq, and T2T-CHM13, each under its own upstream terms.'
+  refs:
+  - metabuli-databases-doc
+  terms:
+    license: NOASSERTION
+    status: verified
+    name: No license asserted
+    url: null
+    display_policy: include
+
+- prefix: mmseqs/hhsuite/
+  copy:
+    headline: UniRef30 HH-suite profile databases
+    lede: Clustered UniProtKB profile databases packaged as HMM profiles for sensitive HH-suite homology
+      searches.
+    text: These are the UniRef30 (Uniclust30) profile databases used by HH-suite for sensitive HMM-HMM
+      protein homology detection. UniProtKB sequences are clustered to roughly 30% identity and turned
+      into HMM profiles, released as dated builds (UniRef30_<date>_hhsuite.tar.gz) and refreshed alongside
+      UniProt releases, with a uniref_mapping.tsv.gz identifier map. The underlying UniProtKB data is
+      distributed by UniProt under CC BY 4.0; these derived HH-suite profile databases are mirrored here
+      for download with HH-suite and MMseqs2 workflows.
+  refs:
+  - uniref30-hhsuite-context
+  terms:
+    license: NOASSERTION
+    status: unverified
+    name: No license asserted
+    url: null
+    display_policy: withhold
+    notes: The UniRef30/Uniclust30 HH-suite profile databases derive from UniProtKB (distributed by UniProt
+      under CC BY 4.0). No publisher-owned, subject-local terms page asserts an SPDX redistribution license
+      for these specific redistributed hhsuite tarballs, so fenced NOASSERTION pending subject-local terms.
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

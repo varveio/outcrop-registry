@@ -1,0 +1,78 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: ncar-cesm-lens
+title: Community Earth System Model Large Ensemble (CESM LENS) on AWS
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: cesmlens-aws-docs
+  kind: publisher_doc
+  url: https://ncar.github.io/cesm-lens-aws/
+  label: NCAR CESM LENS on AWS — official dataset documentation
+  excerpt: 'Data are freely available and reusable under the terms of the CC-BY-4.0 license. See Terms
+    of Use. If you use these data, we request that you provide attribution in any derived products. S3
+    bucket name: ncar-cesm-lens; Region: us-west-2 region; Bucket contents list: https://ncar-cesm-lens.s3.amazonaws.com/'
+  retrieved_at: '2026-06-20'
+
+- id: cesmlens-homepage
+  kind: publisher_homepage
+  url: https://www.cesm.ucar.edu/community-projects/lens
+  label: CESM Large Ensemble (LENS) project page (NCAR/CESM)
+  excerpt: The CESM Large Ensemble (LENS) is a publicly available set of climate model simulations designed
+    to advance understanding of internal climate variability and climate change.
+  retrieved_at: '2026-06-20'
+
+- id: ncar-cesm-lens-anchor-fence
+  kind: publisher_doc
+  url: https://ncar.github.io/cesm-lens-aws/
+  label: NCAR CESM LENS on AWS — official dataset documentation
+  excerpt: 'Data are freely available and reusable under the terms of the CC-BY-4.0 license. See Terms
+    of Use. If you use these data, we request that you provide attribution in any derived products. S3
+    bucket name: ncar-cesm-lens; Region: us-west-2 region; Bucket contents list: https://ncar-cesm-lens.s3.amazonaws.com/'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Community Earth System Model Large Ensemble on AWS
+    lede: CESM LENS is NCAR's 40-member ensemble of Community Earth System Model climate simulations for
+      1920–2100, with a cloud-optimized subset published on AWS S3 as Zarr stores under CC-BY-4.0.
+    text: 'The CESM Large Ensemble lets researchers separate forced climate change from internal variability
+      by running many simulations of the same period under identical forcing. All 40 members follow one
+      radiative-forcing scenario — historical through 2005, then RCP8.5 — and span 1920 to 2100, covering
+      both surface (2D) and volumetric (3D) variables across the atmosphere, ocean, land, and ice domains.
+
+
+      The complete LENS dataset is roughly 500 TB. NCAR publishes a smaller subset of the most-used variables
+      (currently ~70 TB compressed) on AWS S3 through the AWS Public Dataset Program, in the us-west-2
+      bucket ncar-cesm-lens. The data are written in the Zarr format as independent stores split by component,
+      output frequency, and experiment, with intake-esm catalogs for automated discovery. The AWS subset
+      carries its own DOI, distinct from the original full dataset.'
+  refs:
+  - cesmlens-aws-docs
+
+source:
+  publisher: NCAR (National Center for Atmospheric Research)
+  homepage_url: https://www.cesm.ucar.edu/community-projects/lens
+
+display:
+  canonical_path: /ncar-cesm-lens/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

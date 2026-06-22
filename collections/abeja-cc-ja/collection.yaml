@@ -1,0 +1,94 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: abeja-cc-ja
+title: ABEJA CommonCrawl Japanese
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: abeja-about-data-doc
+  kind: publisher_doc
+  url: https://github.com/abeja-inc/Megatron-LM/blob/main/docs/dataset/about_data.md
+  label: ABEJA — About the ABEJA CC JA dataset (format, file layout, ppi_filtered)
+  excerpt: The dataset is saved in jsonl format. In jsonl file, there are two keys. url — The URL is the
+    source site of the text data found on Common Crawl. content — The Content column contains the relevant
+    text... the text has been preprocessed. All data is divided into 19 files, from common_crawl_0.jsonl
+    to common_crawl_19.jsonl. Under the ppi_filtered/ directory, there is additional data with enhanced
+    filtering for sensitive personal information.
+  retrieved_at: '2026-06-22'
+
+- id: abeja-homepage
+  kind: publisher_homepage
+  url: https://www.abejainc.com/
+  label: ABEJA, Inc. corporate homepage
+  excerpt: ABEJA, Inc. (株式会社ABEJA)
+  retrieved_at: '2026-06-22'
+
+- id: abeja-registry-access
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/abeja-cc-ja/
+  label: AWS Open Data Registry — ABEJA CC JA usage example (anonymous S3 access)
+  excerpt: aws s3 ls --no-sign-request s3://abeja-cc-ja/
+  retrieved_at: '2026-06-22'
+
+- id: abeja-registry-catalog
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/abeja-cc-ja.yaml
+  label: AWS Open Data Registry catalog entry — ABEJA CC JA (open-data-registry/datasets/abeja-cc-ja.yaml)
+  excerpt: 'Name: ABEJA CC JA. Description: A large Japanese language corpus created through preprocessing
+    Common Crawl data. ManagedBy: [ABEJA inc.](https://www.abejainc.com/). License: "This data is available
+    for anyone to use under the [Common Crawl Terms of Use](https://commoncrawl.org/terms-of-use/)". Resources:
+    ARN: arn:aws:s3:::abeja-cc-ja; Region: ap-northeast-1; Type: S3 Bucket.'
+  retrieved_at: '2026-06-22'
+
+- id: commoncrawl-tou
+  kind: publisher_doc
+  url: https://commoncrawl.org/terms-of-use/
+  label: Common Crawl Terms of Use
+  excerpt: CC grants you a limited, non-assignable, non-transferable, non-sublicensable, non-exclusive,
+    limited license to access and use the Service subject to the terms and conditions of these ToU. BY
+    USING THE CRAWLED CONTENT, YOU AGREE TO RESPECT THE COPYRIGHTS AND OTHER APPLICABLE RIGHTS OF THIRD
+    PARTIES IN AND TO THE MATERIAL CONTAINED THEREIN.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: Common Crawl Terms of Use
+  url: https://commoncrawl.org/terms-of-use/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Large-scale Japanese web-text corpus preprocessed from Common Crawl
+    lede: ABEJA CC JA is a large Japanese-language training corpus that ABEJA, Inc. extracted and cleaned
+      from Common Crawl, distributed as JSONL on AWS Open Data.
+    text: ABEJA CC JA is a Japanese-language corpus built by ABEJA, Inc. from Common Crawl web archives
+      for large-language-model pretraining, developed under a NEDO-funded LLM project. Each record pairs
+      a source url with preprocessed Japanese content, stored as JSON-Lines. The pipeline screens for
+      Japanese, extracts page text, applies language and quality filtering, deduplicates with MinHash,
+      and removes advertisements, boilerplate, and harmful or personal-information-bearing lines. The
+      public release is hosted in the ap-northeast-1 S3 bucket and made available for anyone to use under
+      the Common Crawl Terms of Use.
+  refs:
+  - abeja-registry-catalog
+  - abeja-about-data-doc
+
+source:
+  publisher: ABEJA, Inc.
+  homepage_url: https://www.abejainc.com/
+
+display:
+  canonical_path: /abeja-cc-ja/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

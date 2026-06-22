@@ -1,0 +1,166 @@
+schema_version: '0.4'
+bucket: ipac-irsa-ztf
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: contributed/dr23/lc/hats/ztf_dr23_lc-hats/dataset/
+  copy:
+    headline: ZTF DR23 Lightcurves — HATS catalog
+    lede: The main HATS catalog of the ZTF Data Release 23 Lightcurves, the contributed predecessor of
+      the DR24 light-curve catalog built from single-exposure photometry.
+    text: This is the primary data product of the DR23 Lightcurves release — light curves assembled from
+      single-exposure PSF-fit photometry at the positions of Objects Table detections, for the data release
+      spanning observations through October 2024. Delivered under the bucket's contributed area, it is
+      the main HATS catalog, partitioned by adaptive HEALPix tile (Norder/Dir/Npix) for position-based
+      queries, accompanied by index and margin-cache siblings in the same collection.
+  refs:
+  - ztf-aws-registry
+
+- prefix: contributed/dr23/lc/hats/ztf_dr23_lc-hats_index_objectid/dataset/index/
+  copy:
+    headline: ZTF DR23 Lightcurves index by object ID
+    lede: The HATS index table for the DR23 Lightcurves catalog, mapping each ZTF object ID to its sky
+      partition for lookup by ID rather than coordinates.
+    text: This index table maps the ZTF object identifier to the partitions of the DR23 Lightcurves HATS
+      catalog, so a specific object's light curve can be retrieved by ID instead of by sky position. It
+      is an ancillary dataset of the contributed DR23 Lightcurves HATS Collection, paired with the main
+      catalog and the margin cache.
+  refs:
+  - ztf-hats-docs
+
+- prefix: contributed/dr23/lc/hats/ztf_dr23_lc-hats_margin_10arcsec/dataset/
+  copy:
+    headline: ZTF DR23 Lightcurves margin cache (10 arcsec)
+    lede: The HATS margin cache for the DR23 Lightcurves catalog, holding rows in a 10-arcsecond border
+      around each sky partition for boundary-safe operations.
+    text: This margin cache holds the light-curve rows within a ~10-arcsecond margin around each partition
+      of the DR23 Lightcurves HATS catalog, supplying the padding needed so neighborhood operations and
+      cross-matches don't drop sources just across a HEALPix tile boundary. It is an ancillary dataset
+      of the contributed DR23 Lightcurves HATS Collection.
+  refs:
+  - ztf-hats-docs
+
+- prefix: contributed/dr23/objects/hats/ztf_dr23_objects-hats/dataset/
+  copy:
+    headline: ZTF DR23 Objects Table — HATS catalog
+    lede: The main HATS catalog of the ZTF Data Release 23 Objects Table, the contributed predecessor
+      of the DR24 Objects catalog of PSF-fit photometry detections.
+    text: This is the primary data product of the DR23 Objects Table — PSF-fit photometry detections extracted
+      from ZTF reference images, for the data release spanning observations through October 2024. Delivered
+      under the bucket's contributed area (the precursor to the DR24 enhanced release), it is the main
+      HATS catalog, partitioned by adaptive HEALPix tile (Norder/Dir/Npix) for position-based queries,
+      with sibling index and margin-cache datasets in the same collection.
+  refs:
+  - ztf-aws-registry
+
+- prefix: contributed/dr23/objects/hats/ztf_dr23_objects-hats_index_oid/dataset/index/
+  copy:
+    headline: ZTF DR23 Objects index by object ID (oid)
+    lede: The HATS index table for the DR23 Objects catalog, mapping each ZTF object ID to its sky partition
+      for lookup by ID rather than coordinates.
+    text: This index table maps the ZTF object identifier (oid) to the partitions of the DR23 Objects
+      HATS catalog, letting workflows fetch a specific object by ID instead of resolving its sky position.
+      It is an ancillary dataset of the contributed DR23 Objects HATS Collection, paired with the main
+      catalog and the margin cache.
+  refs:
+  - ztf-hats-docs
+
+- prefix: contributed/dr23/objects/hats/ztf_dr23_objects-hats_margin_10arcsec/dataset/
+  copy:
+    headline: ZTF DR23 Objects margin cache (10 arcsec)
+    lede: The HATS margin cache for the DR23 Objects catalog, holding rows in a 10-arcsecond border around
+      each sky partition for boundary-safe operations.
+    text: This margin cache holds the catalog rows within a ~10-arcsecond margin around each partition
+      of the DR23 Objects HATS catalog, supplying the padding needed so cross-matching and other neighborhood
+      operations don't miss sources just across a HEALPix tile boundary. It is an ancillary dataset of
+      the contributed DR23 Objects HATS Collection.
+  refs:
+  - ztf-hats-docs
+
+- prefix: ztf/enhanced/dr24/lc/hats/ztf_dr24_lc-hats/dataset/
+  copy:
+    headline: ZTF DR24 Lightcurves — HATS catalog
+    lede: 'The main HATS catalog of the ZTF Data Release 24 Lightcurves: time series of single-exposure
+      photometry built at the locations of Objects Table detections.'
+    text: This is the primary data product of the DR24 enhanced Lightcurves release — PSF-fit photometry
+      detections from single-exposure images, assembled into light curves at the positions of Objects
+      Table objects, with epoch-dependent zeropoints applied. DR24 spans observations from March 2018
+      through October 2025. As the main HATS catalog it is partitioned by adaptive HEALPix tile (Norder/Dir/Npix)
+      for position-based queries; the collection's index and margin-cache siblings add ID lookup and boundary-aware
+      joins.
+  refs:
+  - ztf-aws-registry
+
+- prefix: ztf/enhanced/dr24/lc/hats/ztf_dr24_lc-hats_index_objectid/dataset/index/
+  copy:
+    headline: ZTF DR24 Lightcurves index by object ID
+    lede: The HATS index table for the DR24 Lightcurves catalog, mapping each ZTF object ID to its sky
+      partition for lookup by ID rather than coordinates.
+    text: This index table maps the ZTF object identifier to the partitions of the DR24 Lightcurves HATS
+      catalog, so a workflow can retrieve a specific object's light curve by ID instead of resolving its
+      sky position first. It is an ancillary dataset of the Lightcurves HATS Collection, paired with the
+      main catalog and the margin cache.
+  refs:
+  - ztf-hats-docs
+
+- prefix: ztf/enhanced/dr24/lc/hats/ztf_dr24_lc-hats_margin_10arcsec/dataset/
+  copy:
+    headline: ZTF DR24 Lightcurves margin cache (10 arcsec)
+    lede: The HATS margin cache for the DR24 Lightcurves catalog, holding rows in a 10-arcsecond border
+      around each sky partition for boundary-safe operations.
+    text: This margin cache holds the light-curve rows that fall within a ~10-arcsecond margin around
+      each partition of the DR24 Lightcurves HATS catalog. Loading it alongside a partition supplies the
+      padding needed so cross-matches and other neighborhood operations don't drop sources that sit just
+      across a HEALPix tile boundary. It is an ancillary dataset of the Lightcurves HATS Collection.
+  refs:
+  - ztf-hats-docs
+
+- prefix: ztf/enhanced/dr24/objects/hats/ztf_dr24_objects-hats/dataset/
+  copy:
+    headline: ZTF DR24 Objects Table — HATS catalog
+    lede: 'The main HATS catalog of the ZTF Data Release 24 Objects Table: PSF-fit photometry detections
+      from co-added reference images, sky-partitioned for parallel astronomical queries.'
+    text: 'This is the primary data product of the DR24 enhanced Objects Table — PSF-fit photometry detections
+      extracted from ZTF reference images across roughly 25,000 square degrees of the northern hemisphere.
+      It is the main HATS (Hierarchical Adaptive Tiling Scheme) catalog: every object row is stored once,
+      partitioned by HEALPix tile (Norder/Dir/Npix), with the HEALPix order adapting to the on-sky density
+      of sources so dense regions split into finer tiles. Use it as the catalog you query by sky position;
+      the sibling index and margin-cache datasets in this collection support ID lookups and boundary-aware
+      spatial joins.'
+  refs:
+  - ztf-aws-registry
+
+- prefix: ztf/enhanced/dr24/objects/hats/ztf_dr24_objects-hats_index_oid/dataset/index/
+  copy:
+    headline: ZTF DR24 Objects index by object ID (oid)
+    lede: The HATS index table for the DR24 Objects catalog, mapping each ZTF object ID to its sky partition
+      so rows can be found by ID instead of coordinates.
+    text: This index table maps the ZTF object identifier (oid) to the partitions of the DR24 Objects
+      HATS catalog. Without it, the catalog can only be queried by sky position; the index lets a workflow
+      look up a specific object by its mission-assigned ID and jump straight to the partition holding
+      it. It is an ancillary dataset of the Objects HATS Collection, paired with the main catalog and
+      the margin cache.
+  refs:
+  - ztf-hats-docs
+
+- prefix: ztf/enhanced/dr24/objects/hats/ztf_dr24_objects-hats_margin_10arcsec/dataset/
+  copy:
+    headline: ZTF DR24 Objects margin cache (10 arcsec)
+    lede: The HATS margin cache for the DR24 Objects catalog, holding rows in a 10-arcsecond border around
+      each sky partition so boundary objects aren't missed.
+    text: This margin cache holds the catalog rows that fall within a ~10-arcsecond margin around each
+      partition of the DR24 Objects HATS catalog. Because the main catalog splits the sky into HEALPix
+      tiles, a naive per-partition operation can miss neighbors that sit just across a tile boundary;
+      loading the margin cache alongside a partition supplies that extra padding, which is essential for
+      correct cross-matching and other neighborhood-sensitive analyses run in parallel. It is an ancillary
+      dataset of the Objects HATS Collection.
+  refs:
+  - ztf-hats-docs
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

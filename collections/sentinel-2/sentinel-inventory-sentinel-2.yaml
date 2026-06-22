@@ -1,0 +1,42 @@
+schema_version: '0.4'
+bucket: sentinel-inventory
+outcrop_bucket: sentinel-inventory-sentinel-2
+backend: s3
+role: primary
+region: eu-central-1
+prefix: sentinel-s2-l1c/
+
+prefixes:
+- prefix: sentinel-s2-l1c/inventory-orc/
+  copy:
+    headline: ORC-format S3 Inventory reports for Sentinel-2 L1C
+    lede: Apache ORC daily inventory reports enumerating the Sentinel-2 Level-1C archive, with per-run
+      manifests and checksums.
+    text: The ORC variant of the Amazon S3 Inventory for the Sentinel-2 Level-1C bucket. Each scheduled
+      run lands a dated set of columnar .orc data files alongside a manifest.json and manifest.checksum
+      that index the run, plus dt=-partitioned symlink pointers to the current report. The ORC encoding
+      lets query engines (Athena, Spark, Presto) scan the full object listing of the L1C archive efficiently.
+      This is the machine-readable counterpart to the CSV inventory under the same bucket; both describe
+      the same source objects, which are served from the requester-pays L1C imagery bucket.
+  refs:
+  - s2-aws-registry
+
+- prefix: sentinel-s2-l1c/sentinel-s2-l1c-inventory/
+  copy:
+    headline: CSV-format S3 Inventory reports for Sentinel-2 L1C
+    lede: Gzipped-CSV daily inventory reports enumerating the Sentinel-2 Level-1C archive, with per-run
+      manifests and symlink pointers.
+    text: The CSV variant of the Amazon S3 Inventory for the Sentinel-2 Level-1C bucket. Each scheduled
+      run writes dated .csv.gz data files plus a manifest that ties the report together, with dt=-partitioned
+      symlink pointers to the current listing. The gzipped-CSV form is the portable, tooling-agnostic
+      complement to the ORC inventory under the same bucket — the same enumeration of L1C objects and
+      their metadata, readable without a columnar query engine. The objects it lists are served from the
+      requester-pays L1C imagery bucket; this inventory itself is public.
+  refs:
+  - s2-aws-registry
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

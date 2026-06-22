@@ -1,0 +1,88 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: tgs-opendata-poseidon
+title: Poseidon 3D Seismic, Australia
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: mdio-format-doc
+  kind: publisher_doc
+  url: https://mdio.dev/
+  label: MDIO — Multi Dimensional Input Output (TGS open-source format)
+  excerpt: Built on top of Zarr, MDIO is an essential enabler in the energy data space for quickly accessing
+    and disseminating data on the cloud. This new fully open-source format ... has been specifically designed
+    to support the storage and manipulation of multidimensional datasets, including seismic and wind modeling
+    data.
+  retrieved_at: '2026-06-22'
+
+- id: mdio-zarr-format
+  kind: publisher_doc
+  url: https://mdio.dev/
+  label: mdio.dev
+  excerpt: MDIO is a cloud-native format for energy data built on Zarr; a single MDIO dataset is one container
+    that holds multiple internal arrays (e.g. the seismic amplitude data plus coordinate and trace-header
+    arrays such as cdp-x, cdp-y, inline, crossline and headers) under one volume.
+
+- id: poseidon-registry-record
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/tgs-opendata-poseidon.yaml
+  label: TGS Poseidon 3D Seismic — AWS Open Data dataset record (license, access, attribution)
+  excerpt: 'License: CC BY 4.0. ARN: arn:aws:s3:::tgs-opendata-poseidon. Region: us-west-2. Type: S3 Bucket.
+    aws s3 ls --no-sign-request s3://tgs-opendata-poseidon/ . The datasets are available courtesy of ConocoPhillips
+    and Geoscience Australia.'
+  retrieved_at: '2026-06-22'
+
+- id: tgs-homepage
+  kind: publisher_homepage
+  url: https://www.tgs.com
+  label: TGS homepage
+  excerpt: TGS | Energy Data & Intelligence
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Poseidon 3D marine seismic survey, Browse Basin, in MDIO format
+    lede: The Poseidon 3D Seismic dataset is the imaged offshore Browse Basin survey (~2,900 km2, GDA94
+      / MGA Zone 51), released openly by TGS in the cloud-native MDIO v1 format under CC BY 4.0.
+    text: 'The Poseidon survey covers roughly 2,900 km2 of the Browse Basin offshore northwest Australia
+      and is published as a set of imaged 3D seismic angle stacks: near, mid, far, and a full stack with
+      automatic gain control applied, alongside a decimated stacking-velocity field. The data is supplied
+      courtesy of ConocoPhillips and Geoscience Australia and is widely used in oil-and-gas exploration
+      and as a public benchmark for seismic interpretation and machine learning.
+
+
+      Each volume is distributed in MDIO v1, TGS''s open-source, Zarr-based format that stores the seismic
+      amplitudes, trace headers, and coordinate arrays as chunked, compressed arrays in a single self-describing
+      object tree — optimized for cloud-native random access and AI/ML workflows. The original SEG-Y files
+      (licensed CC BY 3.0 AU) were obtained via the SEG Open Data Wiki; the MDIO conversion is released
+      here under CC BY 4.0. The bucket is public-read with no AWS account required.'
+  refs:
+  - poseidon-registry-record
+  - mdio-format-doc
+
+source:
+  publisher: TGS
+  homepage_url: https://www.tgs.com
+
+display:
+  canonical_path: /tgs-opendata-poseidon/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

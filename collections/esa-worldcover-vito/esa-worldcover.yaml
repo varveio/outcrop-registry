@@ -1,0 +1,41 @@
+schema_version: '0.4'
+bucket: esa-worldcover
+backend: s3
+role: primary
+region: eu-central-1
+
+prefixes:
+- prefix: v100/
+  copy:
+    headline: WorldCover 2020 map (v100)
+    lede: The ESA WorldCover 2020 map (version v100) is the first global 10 m land-cover product, released
+      in October 2021 from Sentinel-1 and Sentinel-2 data.
+    text: The 2020 release covers the global land surface with 11 land-cover classes at roughly 10 m resolution,
+      delivered as per-tile Cloud-Optimized GeoTIFFs named ESA_WorldCover_10m_2020_v100_<tile>_Map.tif
+      on a 1° × 1° grid, alongside an AWS.vrt mosaic index and a colour-legend document. Produced with
+      the first-generation (v100) algorithm, it reported an overall accuracy of about 74%. Because v100
+      and the later v200 use different algorithms, year-to-year comparison with the 2021 map should account
+      for algorithmic as well as real land-cover differences.
+  refs:
+  - esa-worldcover-data-access
+
+- prefix: v200/
+  copy:
+    headline: WorldCover 2021 map (v200)
+    lede: The ESA WorldCover 2021 map (version v200) is the improved-algorithm global 10 m land-cover
+      product, released in October 2022 from Sentinel-1 and Sentinel-2 data.
+    text: The 2021 release maps the global land surface into 11 land-cover classes at roughly 10 m resolution
+      using the second-generation (v200) algorithm, reporting an overall accuracy of about 77%. It is
+      delivered as per-tile Cloud-Optimized GeoTIFFs named ESA_WorldCover_10m_2021_v200_<tile>_Map.tif
+      on a 1° × 1° grid, together with aggregated macrotile ZIP packages and the product documentation
+      — the Product User Manual (PUM) and Product Validation Report (PVR) PDFs. As v200 changed the algorithm
+      relative to the 2020 v100 map, differences between the two years combine genuine land-cover change
+      with methodological change.
+  refs:
+  - esa-worldcover-data-access
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

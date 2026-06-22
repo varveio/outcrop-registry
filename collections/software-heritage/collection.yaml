@@ -1,0 +1,108 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: software-heritage
+title: Software Heritage Graph Dataset
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: sh-access-dataset-docs-20260620
+  kind: publisher_doc
+  url: https://docs.softwareheritage.org/devel/swh-export/graph/dataset.html
+  label: Software Heritage Graph Dataset — Downloading the datasets (docs.softwareheritage.org)
+  excerpt: 'Downloading the datasets. All datasets below are available publicly and with no login required,
+    subject to the terms of use above. After installing awscli, datasets hosted on Amazon S3 can be downloaded
+    with this command: aws s3 cp s3://softwareheritage/graph/... ./target/path/ --recursive --no-sign-request'
+  retrieved_at: '2026-06-20'
+
+- id: sh-graphdataset-docs-20260620
+  kind: publisher_doc
+  url: https://docs.softwareheritage.org/devel/swh-export/graph/
+  label: Software Heritage Graph Dataset — overview (docs.softwareheritage.org)
+  excerpt: The Software Heritage Graph Dataset is a fully-deduplicated Merkle DAG representation of the
+    Software Heritage archive. By accessing the dataset, you agree with the Software Heritage Ethical
+    Charter for using the archive data, and the terms of use for bulk access.
+  retrieved_at: '2026-06-20'
+
+- id: sh-license-graph-dataset-20260620
+  kind: publisher_doc
+  url: https://zenodo.org/records/2583978
+  label: The Software Heritage Graph Dataset — license (CC-BY-4.0), publisher record on Zenodo
+  excerpt: 'Rights. License: Creative Commons Attribution 4.0 International. The Creative Commons Attribution
+    license allows re-distribution and re-use of a licensed work on the condition that the creator is
+    appropriately credited.'
+  retrieved_at: '2026-06-20'
+
+- id: swh-homepage
+  kind: publisher_homepage
+  url: https://www.softwareheritage.org/
+  label: Software Heritage homepage
+  excerpt: Software Heritage is the largest existing public archive of software source code and accompanying
+    development history.
+  retrieved_at: '2026-06-20'
+
+- id: swh-license-terms
+  kind: registry_entry
+  url: https://registry.opendata.aws/software-heritage/
+  label: Software Heritage Graph Dataset — AWS Open Data Registry (license + bucket layout)
+  excerpt: The term "Software Heritage Graph Dataset" designates the internal structure of the Software
+    Heritage archive, and explicitly excludes the file contents. The "Software Heritage Graph Dataset"
+    is distributed under the Creative Commons Attribution 4.0 International license.
+  retrieved_at: '2026-06-20'
+
+- id: swh-zenodo-record
+  kind: publisher_doc
+  url: https://zenodo.org/records/2583978
+  label: The Software Heritage Graph Dataset — Zenodo record (CC-BY-4.0)
+  excerpt: 'This is the Software Heritage graph dataset: a fully-deduplicated Merkle DAG representation
+    of the Software Heritage archive. The dataset links together file content identifiers, source code
+    directories, Version Control System (VCS) commits tracking evolution over time, up to the full states
+    of VCS repositories as observed by Software Heritage during periodic crawls.'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Merkle DAG of the world's public source-code archive
+    lede: The Software Heritage Graph Dataset is a fully-deduplicated Merkle DAG of Software Heritage,
+      the largest public archive of software source code, published under CC-BY-4.0.
+    text: Software Heritage is the largest existing public archive of software source code and its development
+      history, spanning more than five billion unique source files and one billion unique commits from
+      over 80 million projects crawled from development forges like GitHub and GitLab, FOSS distributions
+      such as Debian, and language-specific package managers such as PyPI. The Graph Dataset is the fully-deduplicated
+      Merkle DAG representation of that archive, linking file content identifiers, source-code directories,
+      version-control commits tracking evolution over time, and the full states of VCS repositories observed
+      during periodic crawls, together with crawling timestamps recording when and where each artifact
+      was seen in the wild. It designates the internal structure of the archive and explicitly excludes
+      the file contents themselves, with author and committer information anonymized. The dataset is offered
+      as downloadable CSV dumps and Apache Parquet files for local use and as a public Amazon Athena instance
+      for interactive analysis, distributed under the Creative Commons Attribution 4.0 International license.
+      Use is also governed by the Software Heritage Ethical Charter and the terms of use for bulk access.
+  refs:
+  - swh-zenodo-record
+  - swh-license-terms
+
+source:
+  publisher: Software Heritage
+  homepage_url: https://www.softwareheritage.org/
+
+display:
+  canonical_path: /software-heritage/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

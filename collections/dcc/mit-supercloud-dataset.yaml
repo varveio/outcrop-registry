@@ -1,0 +1,42 @@
+schema_version: '0.4'
+bucket: mit-supercloud-dataset
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: 2022-hpca/
+  copy:
+    headline: GPU-job characterization data for the 2022 HPCA study
+    lede: The data accompanying the 2022 IEEE HPCA paper on AI-enabling workloads, characterizing GPU
+      jobs on a production GPU-accelerated HPC system.
+    text: 'This release backs the 2022 IEEE HPCA paper ''AI-Enabling Workloads on Large-Scale GPU-Accelerated
+      System: Characterization, Opportunities, and Implications.'' It centers on GPU monitoring captured
+      two ways: dcgm.csv records GPU utilization for each GPU assigned to each job — including power consumption
+      and resource usage — via NVIDIA DCGM, while nvidia_smi.csv holds high-frequency nvidia-smi time
+      series (sampled roughly every 100ms) for about 2,000 jobs. The data underpins findings that early
+      phases of modern AI workflows consume substantial GPU allocation while underutilizing it. The release
+      ships with its own LICENSE and README.md.'
+  refs:
+  - dcc-hpca-repo
+
+- prefix: datacenter-challenge/
+  copy:
+    headline: Per-job CPU and GPU monitoring time series
+    lede: 'The main MIT Supercloud telemetry release: per-job CPU and GPU monitoring time series paired
+      with Slurm scheduler logs.'
+    text: This is the core of the dataset — a large body of per-job time-series telemetry from the MIT
+      Supercloud system. Each run carries CPU and GPU monitoring CSVs capturing utilization, memory, disk
+      I/O, and environmental parameters such as power drawn and temperature, organized into per-run CPU
+      and GPU subfolders. Alongside the time series sit high-level scheduler records (node-data, Slurm
+      logs, labelled job IDs and statistics, TRES mapping) describing nodes requested, CPU/GPU/memory
+      requests, exit codes, and run time, plus per-release LICENSE and README.md files. The release lives
+      under the 202201 snapshot, totals roughly 2.6 TB, and is refreshed annually.
+  refs:
+  - dcc-datacenter-challenge-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

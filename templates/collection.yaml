@@ -1,0 +1,72 @@
+# Outcrop Registry — blank collection record.
+# Copy to collections/<slug>/collection.yaml and fill conservatively.
+# Pair it with one templates/bucket.yaml per bucket (collections/<slug>/<bucket>.yaml).
+# See docs/record-format.md for the full field reference.
+#
+# Key rules:
+#   - Field names and enum values: snake_case
+#   - ref ids: kebab-case, unique within the file
+#   - Every non-obvious claim cites at least one ref from a refs[] pool
+#   - No model_id, prompt, or confidence_score outside stewardship.generated_by_model
+
+schema_version: "0.4"                    # (required) always "0.4"
+record_version: 0.4.0                    # (required) major.minor tracks the format; patch bumps on revisions
+slug: example-collection                 # (required) kebab-case; matches the directory name
+title: Example Collection                # (required) display title
+status: draft                            # (required) draft | reviewed | published | withdrawn
+sensitivity_class: unrestricted          # (required) unrestricted | sensitive_pii_risk | restricted
+publication_scope: full                  # (required) full | structure_only | minimal_listing | withheld
+
+# Shared evidence pool — bucket files cite these ids too (and may add their own).
+refs:                                    # source evidence for claims in this record
+  - id: aws-registry                     # (required, ≥1) kebab-case, unique within file
+    kind: registry_entry                 # registry_entry | catalog_metadata | publisher_doc |
+                                         #   publisher_homepage | manifest
+    url: https://registry.opendata.aws/example/
+    label: AWS Open Data Registry entry for Example
+    # excerpt: "Short verbatim passage ≤500 chars (optional)"
+    # retrieved_at: "2026-06-22"
+  - id: homepage
+    kind: publisher_homepage
+    url: https://example.org/
+    label: Example Publisher homepage
+
+terms:                                   # (required) license and attribution
+  license: NOASSERTION                   # SPDX id (e.g. CC-BY-4.0, Apache-2.0) or NOASSERTION
+  status: linked                         # verified | linked | unknown | excluded (include requires verified)
+  name: Example Open License
+  url: https://example.org/license       # or null
+  display_policy: structure_only         # include | structure_only | exclude
+  # required_attribution: "Example Publisher"
+  # no_endorsement_required: true
+
+sample_policy:                           # (required)
+  raw_object_samples: disallow_by_default   # allow | disallow_by_default | disallow
+  path_templates: allow
+  schema_samples: allow_if_non_sensitive    # allow | allow_if_non_sensitive | disallow
+
+summary:                                 # collection-level editorial copy (sourced)
+  copy:
+    headline: One-line title of what this collection is
+    lede: A one- or two-sentence orientation to the dataset.
+    text: >-
+      A short, factual paragraph describing what the collection holds, who publishes it,
+      and how it is organized. Grounded in the cited refs.
+  refs: [aws-registry]
+
+source:                                  # (required)
+  publisher: Example Publisher
+  homepage_url: https://example.org/
+
+display:
+  canonical_path: /example-collection/
+
+# tags:                                  # optional discovery facets
+#   domains: []
+#   formats: []
+
+stewardship:                             # provenance default for this record
+  last_reviewed_at: "2026-06-22"
+  last_reviewed_by: "system:source-verification"   # or a human reviewer id
+  generated_by: agent:web_research       # human | agent:web_research | source:publisher_doc | …
+  verification_status: unverified        # unverified | verified_by_source | verified_by_review

@@ -1,0 +1,218 @@
+schema_version: '0.4'
+bucket: ibl-brain-wide-map-public
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: aggregates/
+  copy:
+    headline: Cross-session aggregate datasets
+    lede: Datasets aggregated across many sessions rather than stored per session.
+    text: Aggregate datasets consolidate information across many recording sessions rather than being
+      stored within an individual session folder.
+  refs:
+  - ibl-bwm-release-doc
+
+- prefix: atlas/
+  copy:
+    headline: Brain-atlas reference resources for the iblatlas package
+    lede: Reference atlas volumes and lookups the iblatlas package downloads on demand to place recordings
+      in anatomical space.
+    text: 'The iblatlas package works with Allen genomics and streamline references downloaded from this
+      prefix. Under agea/ are the Allen Gene Expression Atlas volumes: 4,345 gene-expression volumes registered
+      and formatted into a float-16 binary file (gene-expression.bin), with a parquet file describing
+      the genes (gene-expression.pqt) and image.npy. Under depths/ are the cortical-depth streamlines,
+      the paths connecting the isocortex surface to the white-matter surface, generated at 10, 25 and
+      50 um resolution for xyz-to-depth lookups and projection onto a flattened dorsal-cortex flatmap.
+      The package also loads MERFISH spatially registered cell types from the Allen Brain Cell Atlas.
+      These references are downloaded on demand rather than browsed by hand.'
+  refs:
+  - ibl-atlas-genomics
+
+- prefix: data/
+  copy:
+    headline: Per-session experiment data, organized by lab and subject
+    lede: 'Per-session experiment data laid out in the standard IBL structure: lab name, then a Subjects
+      folder, then per-subject, per-date, per-session subfolders.'
+    text: 'Each session folder gathers the data for a single experiment, named by lab, a Subjects folder,
+      the subject (mouse nickname), the date, and the session number (for example mainenlab/Subjects/ZFM-01576/2020-12-01/001).
+      One lab can host multiple subjects and a subject can run multiple sessions in a day. Within a session,
+      processed data lives in alf/ (Analysis-ready Files: spike-sorting output under alf/probeXX/pykilosort,
+      trials objects, pose estimates), while raw data lives in raw_ephys_data/ (AP and LFP binaries from
+      Neuropixels probes, one folder per probe) and raw_video_data/ (behavioural camera recordings).'
+  refs:
+  - ibl-data-structure
+
+- prefix: data/registration/
+  copy:
+    text: No publisher source documents the data/registration/ prefix by name; in IBL terminology 'registration'
+      refers to histology-to-Allen-CCF probe-track registration, but this could not be confirmed for this
+      exact prefix. Left undescribed rather than speculatively captioned.
+    headline: No publisher source documents the data/registration/ prefix by name
+    lede: No publisher source documents the data/registration/ prefix by name; in IBL terminology 'registration'
+      refers to histology-to-Allen-CCF probe-track registration, but this could not be confirmed for this
+      exact prefix.
+
+- prefix: data/resources/
+  copy:
+    headline: Two-photon mesoscope imaging and raw-ephys benchmark snippets
+    lede: Supporting pipeline artifacts staged outside the per-session tree, chiefly two-photon mesoscope
+      output and short raw-ephys snippets.
+    text: 'The mesoscope pipeline records cellular activity with a two-photon mesoscope and produces two-photon
+      calcium-imaging movies as raw binary frames plus suite2p cell-detection output. These resources
+      are staged here: suite2p output under 2023-12-01_suite2p/, raw mesoscope binaries under mesoscope/bin_files/,
+      and short raw-ephys snippets used for pipeline benchmarking under benchmark_raw_snippets/. The raw
+      suite2p output is loadable through the ONE-api for use in the suite2p GUI.'
+  refs:
+  - ibl-mesoscope
+
+- prefix: paper_reproducible_ephys/
+  copy:
+    headline: Companion data for the IBL reproducible-electrophysiology paper
+    lede: Data backing the IBL study assessing whether Neuropixels measurements reproduce across laboratories.
+    text: This area supports the IBL study assessing the reproducibility of electrophysiology measurements
+      across ten laboratories, each recording Neuropixels probes targeting the same brain regions in mice
+      performing the same decision-making task.
+  refs:
+  - ibl-repro-ephys
+
+- prefix: phys-coverage-2023/
+  copy:
+    text: No publisher source documents the phys-coverage-2023/ prefix by name; plausibly a 2023 snapshot
+      of physiological brain-area / probe-insertion coverage, but unconfirmed. Left undescribed rather
+      than speculatively captioned.
+    headline: No publisher source documents the phys-coverage-2023/ prefix by name
+    lede: No publisher source documents the phys-coverage-2023/ prefix by name; plausibly a 2023 snapshot
+      of physiological brain-area / probe-insertion coverage, but unconfirmed.
+
+- prefix: resources/
+  copy:
+    headline: Model weights and test data for the video pose pipelines
+    lede: Pose-estimation model weights and test data for IBL's iblvideo pipeline.
+    text: The iblvideo pipeline uses Lightning Pose for markerless tracking of animal parts in behavioural
+      video, returning per-frame x,y coordinates and a likelihood for each tracked point. Lightning Pose
+      model weights and test data are staged under lightning_pose/ (networks and lp_test_data archives),
+      while DeepLabCut model weights remain under dlc/. The README also documents Lightning Action for
+      action segmentation.
+  refs:
+  - ibl-iblvideo
+
+- prefix: resources/lightning_pose/
+  copy:
+    headline: Lightning Pose model weights and test data
+    lede: Network weights and test fixtures for Lightning Pose, the markerless pose-estimation tool used
+      on IBL behavioural video.
+    text: Lightning Pose performs markerless tracking of animal parts in IBL behavioural videos, returning
+      per-frame x,y coordinates and a likelihood for each tracked point. This prefix stages the versioned
+      model weights (networks_vX.Y.zip) and test data (lp_test_data_vX.Y.zip) uploaded for the iblvideo
+      pipeline.
+  refs:
+  - ibl-iblvideo
+
+- prefix: sample_data/
+  copy:
+    headline: Curated sample sessions for the Neuromatch Academy workshop
+    lede: Small pre-staged subsets of IBL data prepared for the Neuromatch Academy workshop on IBL data-pipeline
+      access.
+    text: The Neuromatch Academy workshop materials teach participants to navigate, query and download
+      IBL behavioural and neural data through the data pipeline. A curated subset of IBL session data
+      is staged under Neuromatch/ so workshop participants can load example data quickly during the course
+      without running full downloads.
+  refs:
+  - ibl-nma
+
+- prefix: sample_data/Neuromatch/
+  copy:
+    headline: Neuromatch Academy sample sessions
+    lede: Pre-staged IBL example data for the Neuromatch Academy workshop tutorials.
+    text: A curated subset of IBL session data prepared for the Neuromatch Academy workshop on IBL data-pipeline
+      access. The companion nma-ibl tutorial notebooks walk participants through navigating, querying
+      and downloading IBL behavioural and neural data through the data pipeline, using the example data
+      staged here.
+  refs:
+  - ibl-nma
+
+- prefix: spikesorting/
+  copy:
+    headline: Spike-sorting benchmark datasets
+    lede: Complete Neuropixels recordings released to foster the development and evaluation of spike-sorting
+      algorithms.
+    text: 'Applying spike sorting across widespread anatomical regions, IBL found that current methods
+      have a limited range of applicability: no one algorithm is well tailored to every region or electrode
+      type, and there were very limited means to conclude on an algorithm''s performance. To foster the
+      development and evaluation of spike-sorting algorithms, IBL released a set of complete Neuropixels
+      recordings spanning a range of brain regions and electrode types as benchmark datasets.'
+  refs:
+  - ibl-ssbench
+
+- prefix: spikesorting/benchmark/
+  copy:
+    headline: Reference recordings for benchmarking spike sorters
+    lede: Complete Neuropixels recordings released as benchmark datasets to evaluate spike-sorting algorithms.
+    text: These are the complete Neuropixels recordings IBL released as benchmark datasets, chosen to
+      span a range of brain regions and electrode types. They exist because IBL found no one-size-fits-all
+      spike sorter and very limited means to evaluate algorithm performance, so the recordings serve as
+      shared reference material for developing and comparing sorting algorithms.
+  refs:
+  - ibl-ssbench
+
+- prefix: aggregates/Subjects/
+  copy:
+    text: Each sub-directory is one contributing lab's per-subject aggregate files, mechanical partitions
+      of one aggregated product rather than separate datasets.
+    headline: Each sub-directory is one contributing lab's per-subject aggregate…
+
+- prefix: aggregates/Subjects/danlab/
+  copy:
+    text: Each sub-directory is one mouse's per-subject aggregate files within a single lab's contribution,
+      mechanical partitions of one aggregated product rather than separate datasets.
+    headline: Each sub-directory is one mouse's per-subject aggregate files within…
+
+- prefix: data/angelakilab/Subjects/
+  copy:
+    text: Each sub-directory is one mouse's recording sessions from a single lab's contribution to the
+      one Brain Wide Map electrophysiology dataset, not a separately published dataset.
+    headline: Each sub-directory is one mouse's recording sessions from a single…
+
+- prefix: data/danlab/Subjects/
+  copy:
+    text: Each sub-directory is one mouse's recording sessions from a single lab's contribution to the
+      one Brain Wide Map electrophysiology dataset, not a separately published dataset.
+    headline: Each sub-directory is one mouse's recording sessions from a single…
+
+- prefix: data/hausserlab/Subjects/
+  copy:
+    text: Each sub-directory is one mouse's recording sessions from a single lab's contribution to the
+      one Brain Wide Map electrophysiology dataset, not a separately published dataset.
+    headline: Each sub-directory is one mouse's recording sessions from a single…
+
+- prefix: data/hoferlab/Subjects/
+  copy:
+    text: Each sub-directory is one mouse's recording sessions from a single lab's contribution to the
+      one Brain Wide Map electrophysiology dataset, not a separately published dataset.
+    headline: Each sub-directory is one mouse's recording sessions from a single…
+
+- prefix: data/resources/SP060/
+  copy:
+    text: This is a single per-subject sub-directory holding one resource file, a slice of the shared
+      resources area rather than a dataset in its own right.
+    headline: This is a single per-subject sub-directory holding one resource file…
+
+- prefix: data/steinmetzlab/Subjects/
+  copy:
+    text: Each sub-directory is one mouse's recording sessions from a single lab's contribution to the
+      one Brain Wide Map electrophysiology dataset, not a separately published dataset.
+    headline: Each sub-directory is one mouse's recording sessions from a single…
+
+- prefix: sample_data/mainenlab/Subjects/
+  copy:
+    text: A single example subject file, one slice of the sample-data area rather than a separately published
+      dataset.
+    headline: A single example subject file, one slice of the sample-data area…
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

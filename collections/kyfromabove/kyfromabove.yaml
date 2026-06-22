@@ -1,0 +1,140 @@
+schema_version: '0.4'
+bucket: kyfromabove
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: elevation/Contours/
+  copy:
+    headline: LiDAR-derived topographic contours
+    lede: Cartographic contour lines generated from the KyFromAbove Phase 1 DEM, distributed in geopackage
+      and Esri file geodatabase format.
+    text: 'Topographic contours generated from the KyFromAbove Phase 1 LiDAR-derived digital elevation
+      model, in geopackage and Esri file geodatabase format. They are published at several intervals:
+      10-foot, 20-foot, and 40-foot by region, and 5-foot statewide. The publisher''s data catalog lists
+      the contour layers as public.'
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/DEM/
+  copy:
+    headline: LiDAR-derived bare-earth digital elevation models
+    lede: Bare-earth DEMs for Kentucky, derived from KyFromAbove LiDAR and organized on a 5000x5000 foot
+      grid as Cloud Optimized GeoTIFFs.
+    text: 'LiDAR-derived bare-earth digital elevation models covering Kentucky, organized on a 5000x5000
+      foot grid as Cloud Optimized GeoTIFFs. Resolution follows the acquisition phase: Phase 1 at 5-foot,
+      and Phases 2 and 3 at 2-foot. Phase 2 and Phase 3 had not achieved statewide coverage at the time
+      of documentation, so the highest-resolution DEMs are available only for the areas those phases have
+      flown.'
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/KyTopoMapSeries/
+  copy:
+    headline: KyTopo modern topographic quadrangle map series
+    lede: The KyTopo quadrangle map series, distributed as georeferenced COGs, printable PNGs, and an
+      accompanying tile grid.
+    text: 'The KyTopo Map Series of Kentucky topographic quadrangle maps. It is published in three forms:
+      georeferenced quadrangle maps as Cloud Optimized GeoTIFFs (COGs), non-georeferenced PNG versions
+      sized for ARCH-D printing (PNGs), and an accompanying quadrangle tile grid.'
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/KyTopoMapSeries/COGs/
+  copy:
+    headline: Georeferenced KyTopo quadrangle maps (COG)
+    lede: The KyTopo quadrangle maps as georeferenced Cloud Optimized GeoTIFFs for use in GIS.
+    text: The KyTopo Map Series quadrangles as georeferenced Cloud Optimized GeoTIFFs (COG), suitable
+      for display and analysis in GIS software.
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/KyTopoMapSeries/PNGs/
+  copy:
+    headline: Print-ready KyTopo quadrangle maps (PNG)
+    lede: Non-georeferenced PNG versions of the KyTopo quadrangles, sized for printing on a standard ARCH-D
+      sheet.
+    text: Non-georeferenced PNG renderings of the KyTopo Map Series quadrangles, sized for printing on
+      a standard ARCH-D sheet — the print-ready counterparts to the georeferenced COG versions.
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/PointCloud/
+  copy:
+    headline: Statewide LiDAR point cloud, organized by acquisition phase
+    lede: The raw KyFromAbove LiDAR point cloud in LAS/LAZ format — the source data behind Kentucky's
+      DEMs — partitioned into Phase 1, Phase 2, and Phase 3 acquisitions.
+    text: The KyFromAbove LiDAR point cloud in LAS/LAZ format — the source measurements from which the
+      bare-earth DEMs, contours, and spot elevations are derived. It is partitioned by acquisition phase
+      (Phase1, Phase2, Phase3). Phase 2 acquisitions meet USGS Quality Level 2, and roughly 40% of Phase
+      1 meets Quality Level 3.
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/PointCloud/Phase1/
+  copy:
+    headline: Phase 1 LiDAR point cloud
+    lede: The Phase 1 KyFromAbove LiDAR point cloud, source of the statewide 5-foot DEM and the Phase
+      1 contours and spot elevations.
+    text: The Phase 1 KyFromAbove LiDAR point cloud in LAS/LAZ format, covering Kentucky. This is the
+      source data behind the statewide 5-foot DEM, the Phase 1 derived contours, and the Phase 1 spot
+      elevations. Roughly 40% of Phase 1 meets USGS Quality Level 3.
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/PointCloud/Phase2/
+  copy:
+    headline: Phase 2 LiDAR point cloud (USGS QL2)
+    lede: The Phase 2 KyFromAbove LiDAR point cloud at USGS Quality Level 2, source of the 2-foot DEM
+      where flown.
+    text: The Phase 2 KyFromAbove LiDAR point cloud in LAS/LAZ format, covering Kentucky. Phase 2 acquisitions
+      meet USGS Quality Level 2 and feed the higher-resolution 2-foot DEM in the areas Phase 2 has flown;
+      statewide coverage had not been completed at the time of documentation.
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/PointCloud/Phase3/
+  copy:
+    headline: Phase 3 LiDAR point cloud
+    lede: The Phase 3 KyFromAbove LiDAR point cloud, supporting the 2-foot DEM where flown.
+    text: The Phase 3 KyFromAbove LiDAR point cloud in LAS/LAZ format, covering Kentucky. Phase 3 supports
+      2-foot DEM production in the areas it has flown; like Phase 2, it had not reached statewide coverage
+      at the time of documentation.
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: imagery/obliques/
+  copy:
+    headline: Four-direction oblique aerial imagery (Phase 3)
+    lede: Oblique aerial views — four directions per nadir image — from the Phase 3 acquisition, organized
+      by year and season, in RGB Cloud Optimized GeoTIFF.
+    text: 'KyFromAbove oblique aerial imagery: four oblique views associated with each nadir image, as
+      3-band RGB Cloud Optimized GeoTIFFs. Obliques are a Phase 3 product only — there are no oblique
+      images for Phase 1 or Phase 2 — and are organized by year and season (Spring/Fall).'
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: imagery/orthos/
+  copy:
+    headline: Statewide natural-color nadir orthoimagery
+    lede: KyFromAbove nadir orthoimagery for Kentucky, as Cloud Optimized GeoTIFFs on a 5000x5000 foot
+      grid, at resolutions from 1-foot to 3-inch across acquisition phases.
+    text: KyFromAbove natural-color nadir orthoimagery covering Kentucky, organized on a 5000x5000 foot
+      grid as Cloud Optimized GeoTIFFs. Ground resolution ranges from 1-foot down to 3-inch depending
+      on the acquisition phase, spanning Phases 1, 2, and 3. This is the program's primary basemap imagery
+      layer.
+  refs:
+  - kyfromabove-aws-docs-readme
+
+- prefix: elevation/KyTopoMapSeries/ImageCatalogs/
+  copy:
+    text: A single image-catalog index file for the Kentucky topographic map series tiles, not a separate
+      dataset, so it belongs with the rest of that one map product.
+    headline: A single image-catalog index file for the Kentucky topographic map…
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

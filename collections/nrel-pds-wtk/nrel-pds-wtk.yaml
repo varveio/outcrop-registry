@@ -1,0 +1,448 @@
+schema_version: '0.4'
+bucket: nrel-pds-wtk
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: Great_Lakes/
+  copy:
+    headline: Great Lakes offshore wind resource (NOW-23)
+    lede: Modeled offshore wind resource for the U.S. Great Lakes, part of NOW-23, the 2023 National Offshore
+      Wind data set that supersedes the WIND Toolkit's offshore component.
+    text: Offshore wind resource for the U.S. Great Lakes, produced for the 2023 National Offshore Wind
+      data set (NOW-23) with WRF v4.2.1 at 2-km horizontal resolution. Outputs run from January 2000 through
+      December 2020 as HDF5 at both 5-minute and hourly resolution, covering wind speed and direction
+      and meteorology to heights up to roughly 500 m.
+  refs:
+  - now23-oedi
+
+- prefix: Hawaii/
+  copy:
+    headline: Hawaii offshore wind resource (NOW-23)
+    lede: Modeled offshore wind resource around Hawaii, part of NOW-23, the 2023 National Offshore Wind
+      data set that supersedes the WIND Toolkit's offshore component.
+    text: Offshore wind resource for the waters around Hawaii, produced for the 2023 National Offshore
+      Wind data set (NOW-23) with WRF v4.2.1 at 2-km horizontal resolution. Outputs run from January 2000
+      through 2019 as HDF5 at both 5-minute and hourly resolution, covering wind speed and direction and
+      meteorology to heights up to roughly 500 m.
+  refs:
+  - now23-oedi
+
+- prefix: Mid_Atlantic/
+  copy:
+    headline: Mid-Atlantic offshore wind resource (NOW-23)
+    lede: Modeled offshore wind resource for the U.S. Mid-Atlantic coast, part of NOW-23, the 2023 National
+      Offshore Wind data set that supersedes the WIND Toolkit's offshore component.
+    text: Offshore wind resource for the U.S. Mid-Atlantic coast, produced for the 2023 National Offshore
+      Wind data set (NOW-23) with WRF v4.2.1 at 2-km horizontal resolution. Outputs run from January 2000
+      through December 2020 as HDF5 at both 5-minute and hourly resolution, covering wind speed and direction
+      and meteorology to heights up to roughly 500 m.
+  refs:
+  - now23-oedi
+
+- prefix: NOW-WAKES_Mid_Atlantic/
+  copy:
+    headline: Mid-Atlantic offshore wind resource with modeled wakes
+    lede: The NOW-23 Mid-Atlantic offshore wind resource extended to include modeled wind-plant wake effects.
+    text: A variant of the NOW-23 Mid-Atlantic offshore wind resource that incorporates modeled wind-plant
+      wakes, capturing how upstream turbines reduce downstream wind speeds. It shares the NOW-23 modeling
+      lineage and covers the same Mid-Atlantic offshore domain.
+  refs:
+  - wtk-aws-registry
+
+- prefix: NW_Pacific/
+  copy:
+    headline: Northwest Pacific offshore wind resource (NOW-23)
+    lede: Modeled offshore wind resource for the U.S. North/Northwest Pacific coast, part of NOW-23, the
+      2023 National Offshore Wind data set that supersedes the WIND Toolkit's offshore component.
+    text: Offshore wind resource for the U.S. North/Northwest Pacific coast, produced for the 2023 National
+      Offshore Wind data set (NOW-23) with WRF v4.2.1 at 2-km horizontal resolution. Outputs run from
+      January 2000 through 2019 as HDF5 at both 5-minute and hourly resolution, covering wind speed and
+      direction and meteorology to heights up to roughly 500 m.
+  refs:
+  - now23-oedi
+
+- prefix: Offshore_CA/
+  copy:
+    headline: California offshore wind resource (NOW-23)
+    lede: Modeled offshore wind resource for the U.S. California coast, part of NOW-23, the 2023 National
+      Offshore Wind data set that supersedes the WIND Toolkit's offshore component.
+    text: Offshore wind resource for the U.S. California coast, produced for the 2023 National Offshore
+      Wind data set (NOW-23) with WRF v4.2.1 at 2-km horizontal resolution. Outputs begin January 2000
+      as HDF5 at both 5-minute and hourly resolution, covering wind speed and direction and meteorology
+      to heights up to roughly 500 m. A companion California release is published under now23_california/.
+  refs:
+  - now23-oedi
+
+- prefix: bangladesh/
+  copy:
+    headline: Bangladesh wind resource and measurement campaign
+    lede: Modeled wind resource for Bangladesh together with ground measurement-station observations.
+    text: Bangladesh wind resource from the WIND Toolkit's international datasets (covering roughly 2014-2017),
+      produced through a WRF-based measurement-and-modeling campaign. Alongside the modeled fields (wrffields/)
+      and soil-moisture/SOM outputs (soms/), the observations/ contents carry ground measurement-station
+      records from sites across Bangladesh (e.g. Chandpur, Mirzapur, Mongla, Mymensingh, Rajshahi, Sitakunda)
+      at one-minute, ten-minute, and hourly aggregations. It is stored as HDF5 and tabular data.
+  refs:
+  - wtk-aws-registry
+
+- prefix: bangladesh/soms/
+  copy:
+    headline: Bangladesh SOM / model field outputs
+    lede: Gridded model-field outputs for the Bangladesh wind resource campaign.
+    text: Gridded model-field outputs (SOMs) for the Bangladesh wind resource campaign, carrying the WRF-derived
+      atmospheric fields that complement the ground observations in observations/. It is stored as HDF5.
+  refs:
+  - wtk-aws-registry
+
+- prefix: bchrrr/
+  copy:
+    headline: Bias Corrected NOAA HRRR wind resource (BC-HRRR)
+    lede: BC-HRRR is NREL's bias-corrected, interpolated NOAA HRRR wind data for grid-integration modeling.
+    text: Bias Corrected NOAA HRRR (BC-HRRR) wind resource data for grid-integration applications, covering
+      weather years 2015-2023. NREL processed native NOAA High-Resolution Rapid Refresh (HRRR) output
+      and bias-corrected it through quantile mapping against the WIND Toolkit baseline, yielding very
+      low residual bias against ground stations. It targets capacity-expansion, production-cost, and resource-adequacy
+      modeling, used on its own or alongside the legacy WIND Toolkit, and is stored as HDF5.
+  refs:
+  - bchrrr-oedi
+
+- prefix: canada/
+  copy:
+    headline: Canada wind resource (WTK-LED national data)
+    lede: Canadian wind resource from the WIND Toolkit Long-Term Ensemble Dataset's North American climate
+      ensemble.
+    text: Wind resource covering Canada from the WIND Toolkit Long-Term Ensemble Dataset (WTK-LED), part
+      of its North American 4-km hourly climate ensemble (2001-2020) alongside higher-resolution releases.
+      Releases are organized by version — v1.0.0/, a bias-corrected v1.0.0bc/, and v1.1.0/ — and stored
+      as HDF5 with wind speed, direction, and meteorology at multiple hub heights.
+  refs:
+  - wtk-led-oedi
+
+- prefix: conus/
+  copy:
+    headline: CONUS wind resource (WTK-LED national data)
+    lede: Contiguous-U.S. wind resource from the WIND Toolkit Long-Term Ensemble Dataset, in versioned
+      and 5-minute releases.
+    text: Contiguous-U.S. (CONUS) wind resource produced for the WIND Toolkit Long-Term Ensemble Dataset
+      (WTK-LED) with the WRF model. Releases are organized by version, with conus_5min/ carrying the 2-km,
+      5-minute high-resolution product (2018-2020) and v1.0.0/ and v1.1.0/ carrying the versioned national
+      releases. Wind speed, direction, and meteorology are provided at multiple hub heights in HDF5, with
+      per-grid-point model-uncertainty estimates.
+  refs:
+  - wtk-led-oedi
+
+- prefix: eastern_wind/
+  copy:
+    headline: Eastern Wind Integration Study data (legacy)
+    lede: The legacy Eastern Wind Integration Data Set that the WIND Toolkit was built to update and expand.
+    text: Legacy Eastern Wind Integration Data Set, one of the two predecessor studies the WIND Toolkit
+      was built to update and expand. A small archival set of modeled eastern-U.S. wind data, retained
+      alongside the modern WIND Toolkit products.
+  refs:
+  - wtk-aws-registry
+
+- prefix: guam/
+  copy:
+    headline: Guam offshore wind resource (NOW-23)
+    lede: A 24-year modeled wind resource dataset for Guam and surrounding waters, part of the NOW-23
+      offshore family.
+    text: Wind resource for Guam and its surrounding waters, drawn from the NOW-23 offshore family. The
+      24-year record was produced with the WRF numerical weather prediction model at 2-km horizontal resolution
+      and 5-minute time resolution, and is provided as HDF5.
+  refs:
+  - now23-oedi
+
+- prefix: gulf_of_mexico/
+  copy:
+    headline: Gulf of Mexico offshore wind resource (NOW-23)
+    lede: Modeled offshore wind resource for the U.S. Gulf of Mexico, part of NOW-23, the 2023 National
+      Offshore Wind data set that supersedes the WIND Toolkit's offshore component.
+    text: Offshore wind resource for the U.S. Gulf of Mexico, produced for the 2023 National Offshore
+      Wind data set (NOW-23) with WRF v4.2.1 at 2-km horizontal resolution. Outputs run from January 2000
+      through December 2020 as HDF5 at both 5-minute and hourly resolution, covering wind speed and direction
+      and meteorology to heights up to roughly 500 m.
+  refs:
+  - now23-oedi
+
+- prefix: hrrr_met_toolkit/
+  copy:
+    headline: HRRR-based meteorological toolkit
+    lede: A NOAA HRRR-derived meteorological toolkit product within the WIND Toolkit family.
+    text: A meteorological toolkit product derived from NOAA's High-Resolution Rapid Refresh (HRRR) model,
+      packaging HRRR-based wind and meteorological fields in the WIND Toolkit's HDF5 conventions for use
+      alongside the bias-corrected BC-HRRR (bchrrr/) and other WIND Toolkit products.
+  refs:
+  - wtk-aws-registry
+
+- prefix: indonesia/
+  copy:
+    headline: Indonesia wind resource (bias-corrected)
+    lede: Bias-corrected modeled wind resource for Indonesia, from the WIND Toolkit's international datasets.
+    text: Bias-corrected modeled wind resource covering Indonesia, part of the WIND Toolkit's international
+      datasets. WRF-derived wind speed and direction and meteorology at multiple hub heights are provided
+      as HDF5 to support wind-energy resource assessment in Indonesia.
+  refs:
+  - wtk-aws-registry
+
+- prefix: kazakhstan/
+  copy:
+    headline: Kazakhstan / Central Asia wind resource
+    lede: Modeled wind resource over Kazakhstan and surrounding Central Asia for 2015.
+    text: Modeled wind resource over Kazakhstan and the surrounding Central Asia region for the year 2015,
+      produced with WRF v3.7 at a 15-minute model time step and roughly 3-km resolution over Kazakhstan
+      (9-km over surrounding areas). It provides wind speed, temperature, and direction at 80/100/120
+      m and surface/100/200 m pressure, stored as HDF5.
+  refs:
+  - wtk-aws-registry
+
+- prefix: maine/
+  copy:
+    headline: Maine wind resource
+    lede: Modeled wind resource for the Maine region, with yearly hourly outputs.
+    text: Modeled wind resource for the Maine region within the WIND Toolkit family, covering roughly
+      2000-2020. Yearly hourly-resolution HDF5 outputs (yearly_hr/) carry wind speed and direction and
+      meteorology at multiple hub heights, supporting regional wind-energy assessment in the Gulf of Maine
+      area.
+  refs:
+  - wtk-aws-registry
+
+- prefix: met_toolkit/
+  copy:
+    headline: Meteorological toolkit — Hawaii
+    lede: A meteorological-toolkit product covering the Hawaii region.
+    text: A meteorological-toolkit product within the WIND Toolkit family covering the Hawaii region (hawaii/),
+      packaging WRF/HRRR-derived wind and meteorological fields in the WIND Toolkit's HDF5 conventions
+      for Hawaii wind-resource and met applications.
+  refs:
+  - wtk-aws-registry
+
+- prefix: mexico/
+  copy:
+    headline: Mexico wind resource (WTK-LED national data)
+    lede: Mexican wind resource from the WIND Toolkit Long-Term Ensemble Dataset's North American climate
+      ensemble.
+    text: Wind resource covering Mexico from the WIND Toolkit Long-Term Ensemble Dataset (WTK-LED), part
+      of its North American 4-km hourly climate ensemble (2001-2020) alongside higher-resolution releases.
+      Releases are organized by version (v1.0.0/, v1.1.0/) and stored as HDF5 with wind speed, direction,
+      and meteorology at multiple hub heights.
+  refs:
+  - wtk-led-oedi
+
+- prefix: mid_atlantic_3d_pbl/
+  copy:
+    headline: Mid-Atlantic 3D planetary boundary layer dataset
+    lede: Three-dimensional atmospheric boundary-layer fields over the Mid-Atlantic offshore domain.
+    text: Three-dimensional planetary-boundary-layer (3D PBL) fields over the Mid-Atlantic offshore domain,
+      extending the NOW-23 modeling to full 3D atmospheric output. Variables are organized by quantity
+      — wind speed and direction (WSPD, WDIR), vertical velocity (W), turbulence kinetic energy and its
+      budget terms (TKE, TKE_BUOY, TKE_DISS, TKE_SHEAR, TKE_VERT), pressure (PRES, PSFC), potential temperature
+      (TPOT, TPOTV), boundary-layer height (PBLH), surface fluxes and roughness (HFX, UST, ZNT, TSK, SST),
+      precipitation and humidity (PRECIP, RH) — plus coordinate arrays (height, lat, lon, time). It is
+      stored as HDF5 across many per-timestep objects.
+  refs:
+  - wtk-aws-registry
+  - wtk-mid-atlantic-3d-pbl
+  boundary: pin
+
+- prefix: now23_california/
+  copy:
+    headline: NOW-23 California offshore wind resource release
+    lede: California offshore wind resource packaged under the NOW-23 naming, from the 2023 National Offshore
+      Wind data set.
+    text: California offshore wind resource published under the NOW-23 naming, part of the 2023 National
+      Offshore Wind data set (NOW-23). Produced with WRF v4.2.1 at 2-km horizontal resolution, with 5-minute
+      and hourly HDF5 outputs beginning January 2000. A companion to the California release under Offshore_CA/
+      within the same NOW-23 family.
+  refs:
+  - now23-oedi
+
+- prefix: philippines_tmy/
+  copy:
+    headline: Philippines typical meteorological year (TMY) wind data
+    lede: Typical-meteorological-year wind resource summaries for the Philippines.
+    text: 'Typical Meteorological Year (TMY) wind resource for the Philippines: representative single-year
+      wind speed and direction and meteorology assembled from the multi-year Philippines wind resource
+      record, supporting wind-energy resource and performance estimates. It is provided as HDF5.'
+  refs:
+  - wtk-aws-registry
+
+- prefix: pr100/
+  copy:
+    headline: PR100 Puerto Rico wind resource assessment
+    lede: Land-based and offshore wind resource for Puerto Rico from the PR100 100%-renewable study.
+    text: Wind resource assessment for Puerto Rico developed for the PR100 study (Puerto Rico Grid Resilience
+      and Transition to 100% Renewable Energy). It provides twenty years (2001-2020) of WRF-modeled land-based
+      and offshore wind resource at 2-km resolution, supplied at both 5-minute (5min/) and hourly (hourly/)
+      time resolution in HDF5.
+  refs:
+  - pr100-oedi
+
+- prefix: seasiawind/
+  copy:
+    headline: Southeast Asia wind resource (v1)
+    lede: First-version modeled wind resource for Southeast Asia.
+    text: First version of NREL's modeled Southeast Asia wind resource dataset, covering roughly 2017-2021.
+      WRF-derived wind speed and direction and meteorology at multiple hub heights span the Southeast
+      Asia region, provided as HDF5. Superseded by seasiawind_v2/ and seasiawind_v3/.
+  refs:
+  - wtk-aws-registry
+
+- prefix: seasiawind_v2/
+  copy:
+    headline: Southeast Asia wind resource (v2)
+    lede: Second-version modeled wind resource for Southeast Asia, extending the time span.
+    text: Second version of NREL's modeled Southeast Asia wind resource dataset, extending coverage to
+      roughly 2007-2021. WRF-derived wind speed and direction and meteorology at multiple hub heights
+      span the Southeast Asia region, provided as HDF5. It refines seasiawind/ (v1); see also seasiawind_v3/.
+  refs:
+  - wtk-aws-registry
+
+- prefix: seasiawind_v3/
+  copy:
+    headline: Southeast Asia wind resource (v3)
+    lede: Latest-version modeled wind resource for Southeast Asia.
+    text: Third and latest version of NREL's modeled Southeast Asia wind resource dataset, covering roughly
+      2007-2021. WRF-derived wind speed and direction and meteorology at multiple hub heights span the
+      Southeast Asia region, provided as HDF5. It succeeds seasiawind/ (v1) and seasiawind_v2/ (v2).
+  refs:
+  - wtk-aws-registry
+
+- prefix: south_atlantic/
+  copy:
+    headline: South Atlantic offshore wind resource (NOW-23)
+    lede: Modeled offshore wind resource for the U.S. South Atlantic coast, part of NOW-23, the 2023 National
+      Offshore Wind data set that supersedes the WIND Toolkit's offshore component.
+    text: Offshore wind resource for the U.S. South Atlantic coast, produced for the 2023 National Offshore
+      Wind data set (NOW-23) with WRF v4.2.1 at 2-km horizontal resolution. Outputs run from January 2000
+      through December 2020 as HDF5 at both 5-minute and hourly resolution, covering wind speed and direction
+      and meteorology to heights up to roughly 500 m.
+  refs:
+  - now23-oedi
+
+- prefix: sup3rwind/
+  copy:
+    headline: 'Sup3rWind: machine-learning super-resolution wind from reanalysis'
+    lede: Sup3rWind is NREL's generative-ML approach that downscales coarse ERA5 reanalysis to 2-km, 5-minute
+      wind resource data, together with its models and inputs.
+    text: Sup3rWind (Super-Resolution for Renewable Energy Resource Data with Wind from Reanalysis) is
+      NREL's generative machine-learning approach that downscales coarse ERA5 reanalysis (~30 km hourly)
+      into high-resolution (2-km, 5-minute) wind resource data, trained against the WIND Toolkit. The
+      layout separates regional outputs (south_america/, ukraine/ — covering Ukraine, Moldova, and parts
+      of Romania for 2000-2023), the trained generative models (models/), the model training inputs (training_data/),
+      and bias-correction inputs (bias_correction/). It is built with NREL's open-source rex and sup3r
+      packages.
+  refs:
+  - sup3rwind-oedi
+
+- prefix: sup3rwind/models/
+  copy:
+    headline: Sup3rWind trained models
+    lede: The trained generative-ML model artifacts that produce the Sup3rWind super-resolution outputs.
+    text: Trained Sup3rWind generative machine-learning model artifacts, built with NREL's sup3r package,
+      that downscale ERA5 reanalysis into high-resolution wind resource data. This is a small set of model
+      files that reproduce the regional Sup3rWind outputs.
+  refs:
+  - sup3rwind-oedi
+
+- prefix: sup3rwind/south_america/
+  copy:
+    headline: Sup3rWind South America output
+    lede: Super-resolution wind resource for South America generated by the Sup3rWind models.
+    text: High-resolution (2-km, 5-minute) wind resource data for South America, produced by Sup3rWind
+      downscaling ERA5 reanalysis with NREL's sup3r generative-ML models. It is stored as HDF5 and is
+      the largest of the Sup3rWind regional outputs in the bucket.
+  refs:
+  - sup3rwind-oedi
+
+- prefix: sup3rwind/training_data/
+  copy:
+    headline: Sup3rWind model training data
+    lede: Paired coarse/fine training inputs used to train the Sup3rWind super-resolution models.
+    text: 'Training inputs for the Sup3rWind super-resolution models: paired ERA5 reanalysis and WIND
+      Toolkit (WTK) data used to learn the downscaling from coarse reanalysis to high-resolution wind
+      fields. It is provided as HDF5 for model development and reproduction.'
+  refs:
+  - sup3rwind-oedi
+
+- prefix: sup3rwind/ukraine/
+  copy:
+    headline: Sup3rWind Ukraine output
+    lede: Super-resolution wind resource over Ukraine and its neighbors, motivated by decentralized grid
+      rebuilding.
+    text: High-resolution (2-km, 5-minute) wind resource over Ukraine, Moldova, and parts of Romania and
+      the Black Sea for 2000-2023, produced by Sup3rWind downscaling ERA5 reanalysis with NREL's sup3r
+      models. The Ukraine focus supports energy planning for a more decentralized rebuild of the Ukrainian
+      power grid. It is stored as HDF5.
+  refs:
+  - sup3rwind-oedi
+
+- prefix: vietnam/
+  copy:
+    headline: Vietnam wind resource
+    lede: Modeled wind resource for Vietnam, covering roughly 2016-2018.
+    text: Modeled wind resource covering Vietnam, part of the WIND Toolkit's international datasets and
+      spanning roughly 2016-2018. WRF-derived wind speed and direction and meteorology at multiple hub
+      heights are provided as HDF5 to support wind-energy resource assessment in Vietnam.
+  refs:
+  - wtk-aws-registry
+
+- prefix: western_wind/
+  copy:
+    headline: Western Wind Integration Study data (legacy)
+    lede: The legacy Western Wind Integration Data Set that the WIND Toolkit was built to update and expand.
+    text: Legacy Western Wind Integration Data Set, the second predecessor study the WIND Toolkit was
+      built to update and expand. A small archival set of modeled western-U.S. wind data, retained alongside
+      the modern WIND Toolkit products.
+  refs:
+  - wtk-aws-registry
+
+- prefix: wtk-led/
+  copy:
+    headline: WIND Toolkit Long-Term Ensemble Dataset (WTK-LED)
+    lede: WTK-LED is NREL's high-resolution wind time series with model-uncertainty estimates, the modern
+      successor to the original WIND Toolkit.
+    text: The WIND Toolkit Long-Term Ensemble Dataset provides high-resolution wind speed and meteorological
+      time series along with interannual variability and per-grid-point model-uncertainty estimates. It
+      combines a 2-km, 5-minute WRF product over CONUS and Alaska for 2018-2020 with a 4-km, hourly climate
+      ensemble (Argonne National Laboratory simulations) spanning 2001-2020 across North America — CONUS,
+      Alaska, Canada, most of Mexico, and the Caribbean. The vertical grid resolves many boundary-layer
+      levels across the turbine rotor zone, and the data is stored as HDF5.
+  refs:
+  - wtk-led-oedi
+
+- prefix: wtk-techno-economic/
+  copy:
+    headline: WIND Toolkit techno-economic subset
+    lede: A techno-economic subset of the WIND Toolkit supporting cost and siting analysis, with pyWTK
+      data assets.
+    text: A techno-economic subset of the WIND Toolkit used for wind cost and siting analysis. Its pywtk-data/
+      contents are the per-site data assets consumed by the pyWTK access library — site time series and
+      metadata indexed by site identifier, spread across many small objects — and are provided in netCDF/HDF5.
+  refs:
+  - wtk-aws-registry
+
+- prefix: wtk-us/
+  copy:
+    headline: WTK-US gridded continental wind data (legacy)
+    lede: The original gridded continental-U.S. WIND Toolkit data product.
+    text: Legacy gridded continental-U.S. WIND Toolkit data (WTK-US), the original 2-km WRF-modeled wind
+      resource covering roughly 2007-2013 with wind speed and direction and meteorology at 10-200 m hub
+      heights. Stored as HDF5, it is the foundational national dataset that the later WTK-LED and regional
+      releases build on.
+  refs:
+  - wtk-aws-registry
+
+- prefix: bangladesh/observations/
+  copy:
+    text: Each sub-directory is one named ground monitoring site (Chandpur, Mongla, Rajshahi, Sitakunda,
+      ...) and its measurement-cadence variant within a single Bangladesh wind-resource observation campaign,
+      not a separately published dataset.
+    headline: Each sub-directory is one named ground monitoring site
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

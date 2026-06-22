@@ -1,0 +1,91 @@
+schema_version: '0.4'
+bucket: openalex
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: data/authors/
+  copy:
+    headline: Authors — disambiguated people who create works
+    lede: OpenAlex Authors are disambiguated profiles of the people who write works, linked to their institutions
+      and outputs.
+    text: The Authors entity contains tens of millions of disambiguated author profiles — the people who
+      create works. Each profile aggregates the works a person has written, links to their affiliated
+      Institutions, and may carry external identifiers such as ORCID. OpenAlex runs author-name disambiguation
+      so that records with similar names are resolved into distinct people, and merges duplicates discovered
+      later, recording the merges in the merged_ids logs. Authors join to Works, Institutions, Sources,
+      Topics, and Funders/Awards through shared OpenAlex IDs. In the standard-format snapshot the entity
+      is published as gzip-compressed JSON Lines under data/authors/, partitioned by updated_date.
+  refs:
+  - openalex-authors-entity
+
+- prefix: data/awards/
+  copy:
+    headline: Awards — grants linking funders to the works they fund
+    lede: OpenAlex Awards are research grants and funding awards, a first-class entity connecting funders
+      to the works they supported.
+    text: 'The Awards entity represents research grants and funding awards, linking Funders — organizations
+      that fund research — to the Works they have funded. Awards became a first-class OpenAlex entity
+      in Q4 2025: rather than living only as fragmentary grant strings attached to individual works, grants
+      are now structured nodes with their own entity type and API endpoint. Each Award record carries
+      funder identity (organization identifiers and names), funding amount and currency, award start and
+      end years, investigator details, and links to funded outputs, while Works in turn carry dehydrated
+      Award objects (replacing the older grants property). Award metadata is ingested from Crossref and
+      DataCite award DOIs plus direct funder submissions, so awards can appear shortly after a funder
+      registers its grant DOIs. The funders-to-awards-to-works chain is the backbone of OpenAlex''s funding
+      intelligence, drawing on roughly 32,000 funder records sourced from Crossref and supplemented from
+      Wikidata and ROR. In the standard-format snapshot the entity is published as gzip-compressed JSON
+      Lines under data/awards/, partitioned by updated_date.'
+  refs:
+  - openalex-awards-entity
+
+- prefix: data/works/
+  copy:
+    headline: Works — the scholarly documents at the center of OpenAlex
+    lede: OpenAlex Works are scholarly documents — journal articles, books, datasets, and theses — the
+      largest and most interlinked entity in the catalog.
+    text: Works are the central entity of the OpenAlex graph and by far the largest by volume — scholarly
+      documents such as journal articles, books, datasets, and theses, numbering in the hundreds of millions.
+      Each Work record carries bibliographic metadata (title, publication year, DOI and other external
+      IDs), authorship linking to Author entities, the Source it was published in, host and open-access
+      location information, referenced and citing works, assigned Topics and Concepts, and — following
+      the Q4 2025 funding work — a list of dehydrated Award objects representing associated grants. Because
+      every other entity joins back to works through shared OpenAlex IDs, the works table is the hub of
+      the scholarly graph. In the standard-format snapshot it is published as gzip-compressed JSON Lines
+      under data/works/, partitioned by updated_date.
+  refs:
+  - openalex-works-entity
+
+- prefix: legacy-data/authors/
+  copy:
+    headline: Legacy Authors dumps — older-format author records
+    lede: Older-format Authors dumps retained under legacy-data, superseded by the current data/authors/
+      snapshot.
+    text: OpenAlex Authors records in an older dump layout, retained after the current standard-format
+      snapshot moved to data/authors/. The author entity itself is unchanged — disambiguated profiles
+      of the people who create works, each aggregating that person's works, linking to affiliated Institutions,
+      and carrying external identifiers such as ORCID where available — but these are the prior-format
+      files kept for consumers still reading the historical layout. Author-name disambiguation and the
+      merging of later-discovered duplicates (recorded in the merged_ids logs) apply to the entity throughout.
+  refs:
+  - openalex-authors-entity
+
+- prefix: legacy-data/works/
+  copy:
+    headline: Legacy Works dumps — older-format work records
+    lede: Older-format Works dumps retained under legacy-data, superseded by the current data/works/ snapshot.
+    text: OpenAlex Works records in an older dump layout, retained after the current standard-format snapshot
+      moved to data/works/. The works entity itself is unchanged — scholarly documents such as journal
+      articles, books, datasets, and theses, each carrying bibliographic metadata and external IDs and
+      joinable to the rest of the graph through shared OpenAlex IDs — but these are the prior-format files
+      kept for consumers still reading the historical layout. As the hub entity, works link to authors,
+      sources, topics, references, and citations just as in the current snapshot.
+  refs:
+  - openalex-works-entity
+
+stewardship:
+  last_reviewed_at: '2026-06-19'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,23 @@
+schema_version: '0.4'
+bucket: safecastdata-us-west-2
+backend: s3
+role: primary
+
+prefixes:
+- prefix: ingest/prd/
+  copy:
+    headline: Production ingest of Safecast measurement payloads
+    lede: The production-environment ingest tree carrying the bulk archive of Safecast crowdsourced radiation
+      and air-quality measurement payloads, released under CC0.
+    text: Contains the production ingest of Safecast's volunteer-collected radiation and air-quality measurements
+      — the main bulk archive of device payloads as they enter the project's pipeline. As with all Safecast
+      data, the readings are dedicated to the public domain under CC0 and can be used, copied, and redistributed
+      without restriction.
+  refs:
+  - safecast-license-page
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

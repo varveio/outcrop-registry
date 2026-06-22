@@ -1,0 +1,53 @@
+schema_version: '0.4'
+bucket: askap-odp
+backend: s3
+role: primary
+region: ap-southeast-2
+
+prefixes:
+- prefix: racs-low1/
+  copy:
+    headline: RACS-low1 Data Release 1 — low-band continuum survey
+    lede: RACS-low1 DR1 is the first epoch of the Rapid ASKAP Continuum Survey in the low band, observed
+      at 887.5 MHz with 288 MHz of bandwidth across the southern sky.
+    text: 'The first RACS data release covers the southern sky to +41 degrees declination at a central
+      frequency of 887.5 MHz. It groups the two products distributed here: the Stokes I source and Gaussian-component
+      catalogues, and the 799 mosaicked tile images convolved to a common 25-arcsec resolution with their
+      associated RMS maps. The catalogues are split into a version excluding the Galactic Plane and a
+      version covering the Galactic region. Data is also obtainable from CSIRO''s CASDA archive under
+      project AS110 and from the CSIRO Data Access Portal.'
+  refs:
+  - askap-dr1-data-page
+
+- prefix: racs-low1/catalogues/
+  copy:
+    headline: RACS-low1 Stokes I source and Gaussian catalogues
+    lede: The all-sky Stokes I source and Gaussian-component catalogues for RACS-low1 DR1, cataloguing
+      roughly 2.1 million radio sources at 887.5 MHz.
+    text: 'Source lists derived by running the PyBDSF source finder over the 799 convolved mosaic images
+      and their RMS maps. Two catalogue families are provided as XML VOTable products: a Gaussian-component
+      catalogue recording the Gaussian models fitted to the radio emission, and a source/island catalogue
+      grouping those components into discrete sources. Each is published in a Galactic-cut version (excluding
+      the Galactic Plane, |b| < 5 deg) and a Galactic-region version (including it), and the contents
+      are described in Hale et al. 2021 (RACS Paper II).'
+  refs:
+  - askap-catalogue-page
+
+- prefix: racs-low1/image-cubes/
+  copy:
+    headline: RACS-low1 continuum tile images and RMS maps
+    lede: The 799 mosaicked total-intensity (Stokes I) continuum images for RACS-low1 DR1 at 887.5 MHz,
+      each paired with an RMS noise map.
+    text: Total-intensity radio continuum images covering the southern sky, convolved to a common 25-arcsec
+      resolution and mosaicked with neighbouring tiles, distributed as FITS files alongside an RMS (noise)
+      map for each tile. The release derives from 903 tile observations in the low band; point-spread-function
+      sizes and noise vary by field. These images are the basis for the source and Gaussian catalogues
+      released in the same data release.
+  refs:
+  - askap-imagecubes-page
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

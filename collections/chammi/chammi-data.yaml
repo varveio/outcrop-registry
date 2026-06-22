@@ -1,0 +1,100 @@
+schema_version: '0.4'
+bucket: chammi-data
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: CHAMMI-75/CHAMMI-75_test/CHAMMI/
+  copy:
+    headline: 'CHAMMI held-out benchmark: WTC-11, HPA and Cell Painting subsets'
+    lede: The original CHAMMI benchmark as a held-out test domain — about 220K varied-channel single-cell
+      crops spanning WTC-11 stem cells, Human Protein Atlas, and Cell Painting assays.
+    text: 'This domain reproduces the NeurIPS 2023 CHAMMI benchmark for evaluation: roughly 220,000 multi-channel
+      images in three subsets with different channel counts. The WTC-11 subset (Allen Institute human
+      iPSC, three channels) supports cell-cycle classification; the Human Protein Atlas subset (four channels)
+      supports protein-localization; and the Cell Painting subset (five channels) supports treatment retrieval,
+      with crops organized by upstream Cell Painting source — LINCS, CDRP and BBBC022. Together the three
+      subsets probe whether a model generalizes across distinct channel configurations and biological
+      tasks.'
+  refs:
+  - chammi-bench-paper
+
+- prefix: CHAMMI-75/CHAMMI-75_test/HPAv23/
+  copy:
+    headline: Human Protein Atlas v23 single-cell protein-localization benchmark
+    lede: Single-cell images from Human Protein Atlas version 23 for protein-localization classification
+      — about 1.1 million cells annotated across 19 or 31 localization categories.
+    text: This held-out domain draws on the Human Protein Atlas (v23) to test protein-subcellular-localization
+      prediction. It comprises roughly 1.1 million single-cell images rendered at 256x256, each annotated
+      for protein localization across either a 19- or a 31-class scheme. As one of the six CHAMMI-75 evaluation
+      benchmarks, it measures how well a channel-adaptive model transfers to the multi-channel immunofluorescence
+      imaging used in the Human Protein Atlas.
+  refs:
+  - chammi75-paper
+
+- prefix: CHAMMI-75/CHAMMI-75_test/Jump-CP/
+  copy:
+    headline: JUMP Cell Painting compound-perturbation benchmark
+    lede: Five-channel Cell Painting images from the JUMP-CP consortium — U2OS cells perturbed with hundreds
+      of compounds, used to rank phenotypic activity and consistency.
+    text: This domain is built from the JUMP-Cell Painting (JUMP-CP) consortium imaging. The compound
+      benchmark contains roughly 24,000 five-channel images of U2OS cells perturbed with 306 chemicals,
+      with ranking tasks for phenotypic activity and consistency. PNG crops are organized by plate and
+      well, accompanied by per-cell metadata, and the domain evaluates how well a model captures compound-induced
+      morphological phenotypes in a large industrial Cell Painting screen.
+  refs:
+  - chammi75-paper
+
+- prefix: CHAMMI-75/CHAMMI-75_test/idr0017/
+  copy:
+    headline: IDR idr0017 chemical-genetic interaction screen benchmark
+    lede: Two-channel microscopy from the Image Data Resource study idr0017 — 12 cell lines treated with
+      1,280 compounds, used for hit identification.
+    text: This held-out domain is derived from idr0017, a chemical-genetic interaction study in the Image
+      Data Resource. It contains 122,880 two-channel images of 12 cell lines treated with 1,280 compounds,
+      framed as a ranking task to identify hits among the combinatorial drug-by-cell-line experiments.
+      PNG crops are accompanied by per-study metadata and segmentation tensors, testing transfer to a
+      lower-channel, large-scale compound screen.
+  refs:
+  - chammi75-paper
+
+- prefix: CHAMMI-75/CHAMMI-75_test/rbc-mc/
+  copy:
+    headline: Red blood cell morphology classification benchmark (Swiss + Canadian cohorts)
+    lede: Bright-field single-cell images of red blood cells from Swiss and Canadian blood banks, labelled
+      by morphology class to test cross-domain generalization.
+    text: This domain — red-blood-cell morphology classification (RBC-MC) — comprises 130,560 single-channel
+      bright-field cell images (48x48 pixels) acquired by imaging flow cytometry from Swiss and Canadian
+      blood-bank donor cohorts. Each crop is labelled with a red-blood-cell morphology class, and the
+      benchmark stresses cross-domain generalization to a single-channel, very different imaging modality
+      far from the multi-channel fluorescence that dominates the rest of the collection.
+  note: The red-blood-cell morphology assay (rbc-mc) is a single labelled image dataset the engine over-split
+    along its internal folder hierarchy — by acquisition lab (Canadian/Swiss), donor (CE47/CE49/CE50/CE52),
+    day (D2/D14/D42), well-plate position, and morphology class (CrenatedDisc, SmoothSphere, Side, Undecidable,
+    ...). None of those per-class/per-donor folders is an independently published dataset; they are partitions
+    of one channel-adaptive-microscopy benchmark task, so the whole rbc-mc subtree collapses to a single
+    boundary.
+  refs:
+  - chammi75-paper
+
+- prefix: CHAMMI-75/CHAMMI-75_train/
+  copy:
+    headline: CHAMMI-75 pre-training corpus across 74 microscopy studies
+    lede: The training split holds the full CHAMMI-75 pre-training corpus — about 2.79 million multi-channel
+      single-cell fields-of-view sampled from 74 public biological studies.
+    text: 'This split is the resource''s pre-training payload: roughly 2,792,462 fields-of-view curated
+      from 74 publicly available microscopy studies drawn across 18 hosting platforms, including the Image
+      Data Resource and Zenodo. The images deliberately mix channel counts and assay types so a single
+      channel-adaptive model can learn from three-, four-, five- and higher-channel inputs together, and
+      are accompanied by training metadata and guidance files. Imaging sources span the studies that also
+      seed the held-out evaluation domains — including JUMP Cell Painting and IDR studies — rendered as
+      per-study PNG crops.'
+  refs:
+  - chammi75-paper
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

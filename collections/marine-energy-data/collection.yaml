@@ -1,0 +1,151 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: marine-energy-data
+title: DOE Marine Energy Data Lake
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: marine-energy-data-anchor-fence
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/submissions/596
+  label: MHKDR — PacWave Site Observations (Publicly accessible / CC-BY 4.0)
+  excerpt: The PacWave Site Observations submission contains raw and near-real-time meteorological and
+    oceanic measurements at the PacWave wave energy test site. PacWave is an open-ocean testing facility
+    operated by Oregon State University, located off the coast of Newport, Oregon.
+  retrieved_at: '2026-06-20'
+
+- id: med-about
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/about
+  label: About the DOE Marine and Hydrokinetic Data Repository (MHKDR)
+  excerpt: The MHKDR is powered by OpenEI, an open energy information portal sponsored by the U.S. Department
+    of Energy and developed by the National Laboratory of the Rockies. Content is available under Creative
+    Commons Attribution 4.0 unless otherwise noted.
+  retrieved_at: '2026-06-20'
+
+- id: med-homepage
+  kind: publisher_homepage
+  url: https://mhkdr.openei.org/
+  label: Marine and Hydrokinetic Data Repository (MHKDR) homepage
+  excerpt: Marine and Hydrokinetic Data Repository (MHKDR)
+  retrieved_at: '2026-06-20'
+
+- id: med-mois
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/submissions/96
+  label: MHKDR — NREL MOIS Data for NWEI Azura (Publicly accessible / CC-BY 4.0)
+  excerpt: NREL Modular Ocean Instrumentation System (MOIS) data files for the Azura grid-connected deployment
+    at the 30-meter berth of the US Navy's Wave Energy Test Site (WETS 30m Site) at the Kaneohe Marine
+    Corps Base Hawaii (MCBH) on the windward (northeast) coast of the island of Oahu, HI.
+  retrieved_at: '2026-06-20'
+
+- id: med-pacwave
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/submissions/596
+  label: MHKDR — PacWave Site Observations (Publicly accessible / CC-BY 4.0)
+  excerpt: The PacWave Site Observations submission contains raw and near-real-time meteorological and
+    oceanic measurements at the PacWave wave energy test site. PacWave is an open-ocean testing facility
+    operated by Oregon State University, located off the coast of Newport, Oregon.
+  retrieved_at: '2026-06-20'
+
+- id: med-sequim
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/submissions/395
+  label: MHKDR — Tidal Resource Data from Sequim Bay Inlet, WA (Publicly accessible / CC-BY 4.0)
+  excerpt: Data from a Nortek Signature1000 deployed on a lander for 14 days in Aug 2020 in the entrance
+    to Sequim Bay, WA. Raw data were processed using the DOLfYN python package and standardized using
+    the ME Data Pipeline python package, tsdat version 0.2.12. Processed data were partitioned into 24
+    hour increments and saved in the NETCDF file format.
+  retrieved_at: '2026-06-20'
+
+- id: med-swan
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/submissions/326
+  label: MHKDR — High Resolution Ocean Surface Wave Hindcast (US Wave) Data (Publicly accessible / CC-BY
+    4.0)
+  excerpt: This high resolution publicly available long-term wave hindcast dataset will - when complete
+    - cover the entire U.S. Exclusive Economic Zone (EEZ). Available data includes the Hawaiian Islands,
+    West and Atlantic coasts, Atlantic coasts, and Gulf of Mexico/Puerto Rico.
+  retrieved_at: '2026-06-20'
+
+- id: med-umsli
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/submissions/507
+  label: MHKDR — Unobtrusive Multi-static Serial LiDAR Imager (UMSLI) Dataset (Publicly accessible / CC-BY
+    4.0)
+  excerpt: The dataset contains the data from the field deployment of the Unobtrusive Multi-static Serial
+    LiDAR Imager (UMSLI) system at PNNL-Sequim test site in 2017. The dataset contains scanning of manmade
+    models of baracuda and turtles as well as technical target placed in the field of view of 6 sets of
+    LiDAR transmitter and receiver pairs.
+  retrieved_at: '2026-06-20'
+
+- id: med-ustidal
+  kind: publisher_doc
+  url: https://data.openei.org/submissions/8579
+  label: OEDI — High Resolution Tidal Hindcast (US Tidal) Dataset (Publicly accessible / CC-BY 4.0)
+  excerpt: This Water Power Technologies Office (WPTO) High Resolution Tidal Hindcast dataset (us-tidal)
+    provides standardized tidal energy data for five strategically selected U.S. coastal locations with
+    significant tidal energy potential. Generated using FVCOM 4.3.1 (Finite Volume Community Ocean Model),
+    each locations' dataset contains one year of high-resolution tidal energy data.
+  retrieved_at: '2026-06-20'
+
+- id: med-uwacoustics
+  kind: publisher_doc
+  url: https://mhkdr.openei.org/submissions/599
+  label: MHKDR — Turbine Lander, Sequim Bay (2023-2024) / TEAMER UW Tidal Turbine (Publicly accessible
+    / CC-BY 4.0)
+  excerpt: This dataset contains environmental monitoring data collected during the deployment of the
+    Turbine Lander, a small-scale vertical-axis, cross-flow turbine (1.19 m x 0.85 m) in the inlet to
+    Sequim Bay, Washington. The turbine was deployed for 141 days between October 2023 and March 2024.
+  retrieved_at: '2026-06-20'
+
+- id: pacwave-site-observations-mhkdr
+  kind: catalog_metadata
+  url: https://mhkdr.openei.org/submissions/596
+  label: PacWave Site Observations — instrumentation list
+  excerpt: Several METocean instrumentation platforms have been deployed at both sites including FLOATr
+    buoys, Sofar Spotter wave buoys, CDIP WaveRider buoys, Nexsens meteorological buoys, Nortek Signature250
+    bottom lander, and CRAB passive acoustic monitoring system.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: DOE marine and hydrokinetic energy data lake
+    lede: Marine Energy Data Lake is a cloud-hosted collection of large, complex marine and hydrokinetic
+      datasets from the DOE Marine and Hydrokinetic Data Repository (MHKDR), published under CC-BY 4.0.
+    text: The Marine and Hydrokinetic Data Repository (MHKDR) gives free access to data generated by projects
+      funded by the U.S. Department of Energy's Water Power Technologies Office. It is powered by OpenEI,
+      the DOE-sponsored open energy information portal, and developed by the National Laboratory of the
+      Rockies (NREL). Especially large or complex datasets are published as Marine Energy Data Lakes,
+      curated collections that provide centralized, cloud-based access to big data files on Amazon S3.
+      Content is standardized to the FAIR and FARR principles and available under Creative Commons Attribution
+      4.0 unless otherwise noted.
+  refs:
+  - med-about
+
+source:
+  publisher: DOE Marine and Hydrokinetic Data Repository (MHKDR), via PRIMRE / NREL
+  homepage_url: https://mhkdr.openei.org/
+
+display:
+  canonical_path: /marine-energy-data/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

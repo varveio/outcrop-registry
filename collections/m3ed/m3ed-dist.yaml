@@ -1,0 +1,63 @@
+schema_version: '0.4'
+bucket: m3ed-dist
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: input/InternImage/
+  kind: other
+  copy:
+    text: Internal build assets for the InternImage semantic-segmentation model that the M3ED pipeline
+      uses to generate per-sequence semantic labels; not a standalone released dataset.
+    headline: Internal build assets for the InternImage semantic-segmentation model…
+
+- prefix: input/lidar_calibrations/
+  copy:
+    headline: Per-recording LiDAR-to-camera extrinsic calibrations (.npz)
+    lede: Manually tuned LiDAR-camera calibration files, one .npz per recording, provided for transparency
+      and reprocessing.
+    text: Manually tuned LiDAR calibration files stored as NumPy .npz archives, one per recording (for
+      example car_urban_day_city_hall.npz), with multiple bags able to share a single calibration. These
+      hold the raw LiDAR-to-camera extrinsics used during processing and are not needed to use the released
+      recordings, since a processed version of the calibration is already embedded in each data.h5. They
+      are published for transparency and to support reprocessing of the raw bags.
+  refs:
+  - m3ed-input
+
+- prefix: input/raw_bags/
+  copy:
+    headline: Raw per-recording ROS bag sensor captures
+    lede: Unprocessed sensor-tower recordings, one ROS bag per sequence, that the build system consumes
+      to generate the processed HDF5 files.
+    text: These are the raw inputs the M3ED build system reads to produce the processed sequences. Each
+      recording is an unprocessed ROS bag straight from the sensor tower, with events stored in binary
+      form and timestamps not yet time-corrected. Files are named per recording (for example car_urban_day_city_hall.bag,
+      plus calibration bags such as car_urban_camera_calib_1.bag and tower_imu_calib_1.bag). Use the processed
+      data.h5 files for analysis; the raw bags are provided for reproducibility and reprocessing.
+  refs:
+  - m3ed-input
+
+- prefix: processed/*/
+  copy:
+    headline: Per-sequence processed recordings (HDF5 + ground truth + calibration)
+    lede: Each M3ED recording sequence is delivered as a self-contained folder of synchronized HDF5 data,
+      depth/pose ground truth, semantics, calibration, and preview videos.
+    text: Every recording sequence is processed individually into its own folder named by platform, environment,
+      and run (for example car_urban_day_city_hall, falcon_indoor_flight, car_urban_night). The core data.h5
+      carries time-synchronized, event-decoded data from the stereo Prophesee event cameras, the OVC grayscale
+      and RGB imagers, the Ouster OS1-64 LiDAR, and the VN100T IMU. Alongside it sit FasterLIO ground
+      truth as depth_gt.h5 and pose_gt.h5, InternImage semantics.h5, an integrated global .pcd point cloud
+      with per-frame local_scans, and preview videos for events, RGB, depth (depth_gt_events.mp4/.avi),
+      and semantics. Camera-calibration sequences additionally provide a Kalibr camchain.yaml; a processed
+      copy of the calibration is also embedded in each data file. Sequences are split into train and test
+      sets and span car, spot, and falcon platforms across forest, urban, indoor and outdoor scenes, day
+      and night.
+  refs:
+  - m3ed-folders
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

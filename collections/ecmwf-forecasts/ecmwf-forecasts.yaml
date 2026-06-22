@@ -1,0 +1,45 @@
+schema_version: '0.4'
+bucket: ecmwf-forecasts
+backend: s3
+role: primary
+region: eu-central-1
+
+prefixes:
+- prefix: 202*/
+  copy:
+    headline: Real-time open forecast runs, partitioned by run date
+    lede: Each dated partition groups one period of ECMWF's real-time open forecasts — a continuous release
+      series of the same IFS and AIFS product rather than independent datasets.
+    text: 'These date partitions form a continuous release series of ECMWF''s real-time open forecasts:
+      successive runs of the same IFS and AIFS product, drawn from the medium-range (high-resolution and
+      ensemble) and seasonal forecast models, rather than a set of independent datasets. Fields are GRIB2
+      at 0.25-degree resolution and have used CCSDS compression since July 2023; IFS data appear at the
+      end of the real-time dissemination schedule and AIFS data as soon as they are produced. As of IFS
+      Cycle 50r1 (May 2026) the scda and scwv streams were discontinued, with 06z/18z atmospheric and
+      wave data now served under stream=oper and stream=wave.'
+  refs:
+  - ecmwf-opendata-terms
+
+- prefix: 49r1_testdata/
+  kind: other
+  copy:
+    text: Pre-release test and sample output for the ECMWF IFS cycle 49r1 open-data stream.
+    headline: Pre-release test and sample output for the ECMWF IFS cycle 49r1…
+
+- prefix: aifs-ens_testdata/
+  kind: other
+  copy:
+    text: Pre-release test and sample output for the ECMWF AIFS ensemble (AIFS-ENS) open-data stream.
+    headline: Pre-release test and sample output for the ECMWF AIFS ensemble
+
+- prefix: testdata/
+  kind: other
+  copy:
+    text: Test and sample forecast files validating the ECMWF open-data delivery format.
+    headline: Test and sample forecast files validating the ECMWF open-data…
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

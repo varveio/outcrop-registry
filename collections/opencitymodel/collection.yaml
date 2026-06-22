@@ -1,0 +1,80 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: opencitymodel
+title: Open City Model (OCM)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: ocm-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/opencitymodel/
+  label: Open City Model (OCM) — Registry of Open Data on AWS (usage example)
+  excerpt: aws s3 ls --no-sign-request s3://opencitymodel/
+  retrieved_at: '2026-06-22'
+
+- id: ocm-homepage
+  kind: publisher_homepage
+  url: https://github.com/opencitymodel/opencitymodel
+  label: Open City Model project homepage (GitHub)
+  excerpt: Open City Model is an initiative to provide open cityGML data for all the buildings in the
+    United States.
+  retrieved_at: '2026-06-22'
+
+- id: ocm-readme
+  kind: publisher_file
+  url: https://raw.githubusercontent.com/opencitymodel/opencitymodel/master/README.md
+  label: Open City Model README (data description, access, ODbL license)
+  excerpt: 'This data is licensed by BuildZero.Org under the Open Data Commons Open Database License (ODbL).
+    The data is provided via AWS S3 in the bucket `opencitymodel`. We include three data formats: `gml`
+    (CityGML), `json` (CityJSON), and `parquet` which are identical in content and purely vary in their
+    structure. All of the files are available on S3 in the bucket `opencitymodel` so you can list the
+    contents of that bucket using any s3 client to get the files that way if you wish.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: ODbL-1.0
+  status: verified
+  name: Open Data Commons Open Database License v1.0
+  url: https://opendatacommons.org/licenses/odbl/1-0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: 3D CityGML building models for the entire United States
+    lede: Open City Model is an open dataset of roughly 125 million US building geometries published by
+      the non-profit BuildZero.Org under the ODbL.
+    text: 'Open City Model (OCM) assembles open building-footprint sources — chiefly Microsoft''s USBuildingFootprints,
+      plus OpenStreetMap and regional datasets — into a single unified set of 3D building geometries covering
+      the United States, around 125 million buildings in all. Each building is rendered as an LOD1 solid
+      in the international CityGML urban-data standard, with footprint area, modeled height, US state
+      and county FIPS codes, source attribution, and a Universal Building ID (UBID) carried as attributes;
+      coordinates use EPSG:4979 (WGS84 lat/lon in degrees, height in meters).
+
+
+      The data is published on AWS S3 in three content-identical encodings — CityGML (gml, zip-compressed),
+      CityJSON (json), and Parquet — organized first by data-version release, then by format, then by
+      US state, then partitioned by county into files of about 40,000 buildings. OCM was created by BuildZero.Org,
+      a 501(c)(3) non-profit building open digital infrastructure for climate-action applications, to
+      accelerate the use of 3D urban models.'
+  refs:
+  - ocm-readme
+
+source:
+  publisher: BuildZero.Org
+  homepage_url: https://github.com/opencitymodel/opencitymodel
+
+display:
+  canonical_path: /opencitymodel/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

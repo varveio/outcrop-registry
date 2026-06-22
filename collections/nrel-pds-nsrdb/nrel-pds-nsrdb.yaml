@@ -1,0 +1,175 @@
+schema_version: '0.4'
+bucket: nrel-pds-nsrdb
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: GOES/aggregated/
+  copy:
+    text: The GOES aggregated product (PSM v4) provides NSRDB solar-resource and meteorological data derived
+      from the GOES East and West geostationary satellites for the Americas from 1998 onward, downsampled
+      to a nominal 4 km grid at 30-minute intervals. It offers a temporally and spatially consistent long
+      record, useful where a uniform multi-decadal baseline matters more than the highest native resolution
+      of the newer GOES products. Files are annual HDF5.
+    headline: The GOES aggregated product
+    lede: The GOES aggregated product (PSM v4) provides NSRDB solar-resource and meteorological data derived
+      from the GOES East and West geostationary satellites for the Americas from 1998 onward, downsampled
+      to a nominal 4 km grid at 30-minute intervals.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: GOES/conus/
+  copy:
+    text: The GOES CONUS product provides NSRDB global horizontal, direct normal, and diffuse horizontal
+      irradiance plus meteorology for the contiguous United States at a 2 km grid and 5-minute temporal
+      resolution, starting in 2018. It is generated from the next-generation GOES-16/17 satellites, which
+      enable substantially higher spatial and temporal fidelity than the legacy 4 km / 30-minute archive
+      — the highest-resolution NSRDB product over the U.S. Files are annual HDF5.
+    headline: The GOES CONUS product provides NSRDB global horizontal, direct…
+    lede: The GOES CONUS product provides NSRDB global horizontal, direct normal, and diffuse horizontal
+      irradiance plus meteorology for the contiguous United States at a 2 km grid and 5-minute temporal
+      resolution, starting in 2018.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: GOES/full_disc/
+  copy:
+    text: The GOES full_disc product provides NSRDB solar-resource and meteorological data across the
+      full GOES disc — all of the Western Hemisphere, including North, Central, and South America — at
+      a 2 km grid and 10-minute temporal resolution, starting in 2018. It is the broadest-coverage of
+      the next-generation GOES products, trading the 5-minute CONUS cadence for hemisphere-wide reach,
+      and the largest single product in the bucket. Files are annual HDF5.
+    headline: The GOES full_disc product provides NSRDB solar-resource and…
+    lede: The GOES full_disc product provides NSRDB solar-resource and meteorological data across the
+      full GOES disc — all of the Western Hemisphere, including North, Central, and South America — at
+      a 2 km grid and 10-minute temporal resolution, starting in 2018.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: GOES/tmy/
+  copy:
+    text: 'The GOES tmy product contains NSRDB typical-year datasets for the GOES coverage region: Typical
+      Meteorological Year (TMY), Typical Direct Year (TDY), and Typical Global Year (TGY). Each is a synthetic
+      single year assembled from representative months across the multi-year record so that the resulting
+      time series reflects long-term typical conditions for a site — the standard input for solar-plant
+      performance modeling and feasibility analysis where a full multi-year run is unnecessary. Files
+      are HDF5.'
+    headline: The GOES tmy product contains NSRDB typical-year datasets for the…
+    lede: 'The GOES tmy product contains NSRDB typical-year datasets for the GOES coverage region: Typical
+      Meteorological Year (TMY), Typical Direct Year (TDY), and Typical Global Year (TGY).'
+  refs:
+  - nsrdb-dev-api
+
+- prefix: himawari/
+  copy:
+    text: The himawari product extends the NSRDB to Asia, Australia, and the wider Pacific using imagery
+      from the Japan Meteorological Agency's Himawari satellites, starting in 2015. Early years (Himawari-7)
+      are nominally 4 km / 30-minute; later years (Himawari-8) reach 2 km and 10-minute resolution. It
+      carries the same GHI/DNI/DHI and meteorological variables as the GOES products, applying NREL's
+      Physical Solar Model to the Himawari sensor. Files are annual HDF5.
+    headline: The himawari product extends the NSRDB to Asia, Australia, and the…
+    lede: The himawari product extends the NSRDB to Asia, Australia, and the wider Pacific using imagery
+      from the Japan Meteorological Agency's Himawari satellites, starting in 2015.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: india/
+  copy:
+    text: The india product provides NSRDB solar-resource and meteorological data for India and surrounding
+      regions for 2000-2014, generated with the SUNY (State University of New York) satellite-based irradiance
+      model rather than the later PSM pipeline. It supplies GHI/DNI/DHI for solar-resource assessment
+      across the Indian subcontinent. At roughly half a terabyte it is one of the smaller regional products.
+      Files are HDF5.
+    headline: The india product provides NSRDB solar-resource and meteorological…
+    lede: The india product provides NSRDB solar-resource and meteorological data for India and surrounding
+      regions for 2000-2014, generated with the SUNY (State University of New York) satellite-based irradiance
+      model rather than the later PSM pipeline.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: meteosat/
+  copy:
+    text: The meteosat product provides NSRDB solar-resource and meteorological data derived from EUMETSAT's
+      Meteosat satellite positioned over the Indian Ocean (IODC), covering India and surrounding regions
+      at a 4 km grid and 15-minute temporal resolution from 2017 onward. It complements the SUNY-model
+      india product with a more recent, higher-cadence record built from the PSM pipeline. Files are annual
+      HDF5.
+    headline: The meteosat product provides NSRDB solar-resource and meteorological…
+    lede: The meteosat product provides NSRDB solar-resource and meteorological data derived from EUMETSAT's
+      Meteosat satellite positioned over the Indian Ocean (IODC), covering India and surrounding regions
+      at a 4 km grid and 15-minute temporal resolution from 2017 onward.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: msg/
+  copy:
+    text: The msg product provides NSRDB solar-resource and meteorological data derived from the EUMETSAT
+      Meteosat Second Generation (MSG) satellite positioned over the prime meridian (Meteosat Prime Meridian
+      / 0 degrees), covering Europe, Africa, and adjacent regions at a 4 km grid and 15-minute temporal
+      resolution, with typical-year (TGY) outputs also available. It applies NREL's Physical Solar Model
+      (PSM v4) to the MSG sensor to deliver GHI/DNI/DHI across the EMEA region. Files are HDF5.
+    headline: The msg product provides NSRDB solar-resource and meteorological data…
+    lede: The msg product provides NSRDB solar-resource and meteorological data derived from the EUMETSAT
+      Meteosat Second Generation (MSG) satellite positioned over the prime meridian (Meteosat Prime Meridian
+      / 0 degrees), covering Europe, Africa, and adjacent regions at a 4 km grid and 15-minute temporal
+      resolution, with typical-year (TGY) outputs also available.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: mts1/
+  copy:
+    text: The mts1 product contains the historical NSRDB Meteorological-Statistical (METSTAT-model) series
+      for 1961-1990 — the pre-satellite NSRDB record built from ground-based observations and statistical
+      modeling rather than geostationary imagery. It preserves the legacy long-term climatology used in
+      earlier NSRDB releases. It is a small product (two HDF5 files).
+    headline: The mts1 product contains the historical NSRDB…
+    lede: The mts1 product contains the historical NSRDB Meteorological-Statistical (METSTAT-model) series
+      for 1961-1990 — the pre-satellite NSRDB record built from ground-based observations and statistical
+      modeling rather than geostationary imagery.
+  refs:
+  - nsrdb-registry
+
+- prefix: mts2/
+  copy:
+    text: The mts2 product contains the historical NSRDB Meteorological-Statistical (METSTAT-model) series
+      for 1991-2005, continuing the pre/early-satellite NSRDB climatology that the mts1 archive begins.
+      Like mts1 it is a legacy long-term reference record rather than a current satellite product. It
+      is a small product (two HDF5 files).
+    headline: The mts2 product contains the historical NSRDB…
+    lede: The mts2 product contains the historical NSRDB Meteorological-Statistical (METSTAT-model) series
+      for 1991-2005, continuing the pre/early-satellite NSRDB climatology that the mts1 archive begins.
+  refs:
+  - nsrdb-registry
+
+- prefix: polar/
+  copy:
+    text: The polar product extends the NSRDB to high northern latitudes, covering the exclusive economic
+      zone above 60 degrees north — Arctic and sub-Arctic regions beyond the reach of the standard geostationary
+      products — from 2013 onward at a nominal 4 km grid. It includes typical-meteorological-year outputs
+      and supports solar-resource assessment in polar regions where extreme solar geometry and persistent
+      cloud make standard satellite retrieval difficult. Files are HDF5.
+    headline: The polar product extends the NSRDB to high northern latitudes…
+    lede: The polar product extends the NSRDB to high northern latitudes, covering the exclusive economic
+      zone above 60 degrees north — Arctic and sub-Arctic regions beyond the reach of the standard geostationary
+      products — from 2013 onward at a nominal 4 km grid.
+  refs:
+  - nsrdb-dev-api
+
+- prefix: puerto_rico/
+  copy:
+    text: The puerto_rico product provides NSRDB solar-resource and meteorological data for Puerto Rico,
+      synthetically downscaled to a 2 km grid at 5-minute temporal resolution for 1998-2017. The high-resolution
+      downscaling supports detailed solar-resource and grid-integration analysis on the island. Files
+      are annual HDF5.
+    headline: The puerto_rico product provides NSRDB solar-resource and…
+    lede: The puerto_rico product provides NSRDB solar-resource and meteorological data for Puerto Rico,
+      synthetically downscaled to a 2 km grid at 5-minute temporal resolution for 1998-2017.
+  refs:
+  - nsrdb-dev-api
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

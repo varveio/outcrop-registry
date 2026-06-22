@@ -1,0 +1,79 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: esa-worldcover-vito
+title: ESA WorldCover
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: esa-worldcover-aws-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/esa-worldcover-vito.yaml
+  label: AWS Open Data Registry — ESA WorldCover (esa-worldcover-vito.yaml)
+  excerpt: 'ARN: arn:aws:s3:::esa-worldcover  Region: eu-central-1  Type: S3 Bucket  RequesterPays: False  License:
+    "CC-BY 4.0"'
+  retrieved_at: '2026-06-22'
+
+- id: esa-worldcover-data-access
+  kind: publisher_doc
+  url: https://esa-worldcover.org/en/data-access
+  label: ESA WorldCover — Data Access (license, attribution, AWS S3 access)
+  excerpt: The ESA WorldCover product is provided free of charge, without restriction of use. For the
+    full license information see the Creative Commons Attribution 4.0 International License. The products
+    are available free of charge for all users on Terrascope and the AWS Open Data Registry. ... aws s3
+    sync s3://esa-worldcover/v200/2021/map /local/path --no-sign-request ... © ESA WorldCover project
+    [year] / Contains modified Copernicus Sentinel data ([year]) processed by ESA WorldCover consortium
+  retrieved_at: '2026-06-22'
+
+- id: esa-worldcover-homepage
+  kind: publisher_homepage
+  url: https://esa-worldcover.org/en
+  label: ESA WorldCover homepage
+  excerpt: WorldCover provides the first global land cover products for 2020 and 2021 at 10 m resolution,
+    developed and validated in near-real time based on Sentinel-1 and Sentinel-2 data.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Global 10 m land-cover maps for 2020 and 2021
+    lede: ESA WorldCover is the first global land-cover product at 10 m resolution, produced by a VITO-led
+      consortium for the European Space Agency from Copernicus Sentinel-1 and Sentinel-2 data.
+    text: 'ESA WorldCover maps the entire land surface into 11 land-cover classes at approximately 10
+      m resolution, derived from Sentinel-1 radar and Sentinel-2 optical imagery. It was generated within
+      the ESA WorldCover project under the 5th Earth Observation Envelope Programme (EOEP-5), by a consortium
+      led by VITO with Brockmann Consult, CS, Wageningen University & Research, GAMMA Remote Sensing and
+      IIASA. Two annual releases are published as Cloud-Optimized GeoTIFFs tiled in a 1° × 1° grid: the
+      2020 map (v100, released October 2021) and the improved 2021 map (v200, released October 2022).
+      Because the two years were produced with different algorithm versions, differences between them
+      reflect a mix of real land-cover change and algorithmic change and should be compared with caution.
+      The maps are distributed free of charge under CC-BY-4.0 via Terrascope and the AWS Open Data Registry.'
+  refs:
+  - esa-worldcover-homepage
+  - esa-worldcover-aws-registry
+  - esa-worldcover-data-access
+
+source:
+  publisher: VITO (ESA WorldCover consortium)
+  homepage_url: https://esa-worldcover.org/en
+
+display:
+  canonical_path: /esa-worldcover-vito/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,107 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: paracrawl
+title: ParaCrawl
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: paracrawl-aws-access
+  kind: registry_entry
+  url: https://registry.opendata.aws/paracrawl/
+  label: AWS Open Data Registry — ParaCrawl access (no-sign-request)
+  excerpt: aws s3 ls --no-sign-request s3://web-language-models/
+  retrieved_at: '2026-06-17'
+
+- id: paracrawl-aws-registry
+  kind: registry_entry
+  url: https://raw.githubusercontent.com/awslabs/open-data-registry/main/datasets/paracrawl.yaml
+  label: AWS Open Data Registry entry for ParaCrawl (paracrawl.yaml)
+  excerpt: 'License: Creative Commons CC0 license ("no rights reserved"). ARN: arn:aws:s3:::web-language-models.
+    Region: us-east-1. Type: S3 Bucket. ManagedBy: [ParaCrawl](https://paracrawl.eu)'
+  retrieved_at: '2026-06-17'
+
+- id: paracrawl-cc0-doc
+  kind: publisher_doc
+  url: https://paracrawl.eu/releases
+  label: ParaCrawl CC0 license
+  excerpt: 'These data are released under this licensing scheme:
+
+
+    We do not own any of the text from which these data has been extracted.
+
+    We license the actual packaging of these parallel data under the Creative Commons CC0 license ("no
+    rights reserved").'
+  retrieved_at: '2026-06-17'
+
+- id: paracrawl-cc0-terms
+  kind: publisher_homepage
+  url: https://paracrawl.eu/
+  label: ParaCrawl CC0 license statement (paracrawl.eu)
+  excerpt: We license the actual packaging of these parallel data under the Creative Commons CC0 license
+    ("no rights reserved"). We do not own any of the text from which these data has been extracted.
+  retrieved_at: '2026-06-17'
+
+- id: paracrawl-homepage
+  kind: publisher_homepage
+  url: https://paracrawl.eu/
+  label: ParaCrawl project homepage (paracrawl.eu)
+  excerpt: We license the actual packaging of these parallel data under the Creative Commons CC0 license
+    ("no rights reserved"). We do not own any of the text from which these data has been extracted.
+  retrieved_at: '2026-06-17'
+
+- id: paracrawl-moredata
+  kind: publisher_doc
+  url: https://paracrawl.eu/moredata
+  label: ParaCrawl — More monolingual and parallel data
+  excerpt: This section is about additional sources of parallel or monolingual data done using parts or
+    the whole ParaCrawl pipeline or using the data to create derived corpora.
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Web-scale parallel corpora to and from English for EU languages
+    lede: ParaCrawl is a set of large parallel corpora to and from English for every official EU language,
+      harvested from multilingual websites and released under CC0.
+    text: 'ParaCrawl built parallel corpora by crawling the web for translated text, running an automated
+      pipeline (Bitextor) across the full chain from identifying multilingual sites to collecting, cleaning,
+      and delivering bitexts as training data for CEF.AT and translation memories for DG Translation.
+      It ran as a Connecting Europe Facility action coordinated by Philipp Koehn at Johns Hopkins University,
+      with partners including the University of Edinburgh, the University of Alicante, TAUS, Prompsit,
+      and Omniscien Technologies, and co-financed by the European Union.
+
+
+      Releases span v1.0 (January 2018) through v9 (September 2021, the final release for Action 3), alongside
+      bonus corpora for further and low-resource language pairs and large monolingual datasets from the
+      same pipeline. ParaCrawl dedicates the packaging of this data under Creative Commons CC0 while disclaiming
+      ownership of the underlying source text. The corpora are also mirrored on OPUS and on the AWS Registry
+      of Open Data (s3://web-language-models).'
+  refs:
+  - paracrawl-homepage
+  - paracrawl-aws-registry
+
+source:
+  publisher: ParaCrawl project
+  homepage_url: https://paracrawl.eu/
+
+display:
+  canonical_path: /paracrawl/
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,32 @@
+schema_version: '0.4'
+bucket: geoglows-v2-forecasts
+backend: s3
+role: secondary
+region: us-west-2
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+prefixes:
+- prefix: 202*/
+  copy:
+    headline: Daily 15-day streamflow forecasts, one Zarr store per run
+    lede: Daily 15-day streamflow forecasts, one Zarr store per model initialization, each holding the
+      51-member ECMWF IFS ensemble discharge.
+    text: GEOGLOWS V2 publishes daily 15-day streamflow forecasts, generated every day at midnight in
+      Zarr format. The forecasts are provided as a 51-member ECMWF Integrated Forecast System (IFS) ensemble
+      at 3-hourly average discharge. Each daily forecast is published per initialization time as a separate
+      store named <YYYYMMDDHH>.zarr, containing the Qout streamflow ensemble; a new store is added each
+      day.
+  refs:
+  - geoglows-catalog
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

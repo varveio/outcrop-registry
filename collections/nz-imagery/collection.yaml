@@ -1,0 +1,105 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nz-imagery
+title: New Zealand Imagery
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: nz-imagery-aerial-program
+  kind: publisher_doc
+  url: https://www.linz.govt.nz/products-services/data/types-linz-data/aerial-imagery
+  label: LINZ — Aerial imagery (programme overview)
+  excerpt: Imagery of New Zealand is free to download or stream as Open Data. Aerial imagery is available
+    for 95% of Aotearoa New Zealand and provides an accurate photographic representation of the Earth's
+    surface.
+  retrieved_at: '2026-06-20'
+
+- id: nz-imagery-catalog-json
+  kind: publisher_file
+  url: https://nz-imagery.s3-ap-southeast-2.amazonaws.com/catalog.json
+  label: nz-imagery top-level STAC Catalog (catalog.json)
+  excerpt: Toitū Te Whenua Land Information New Zealand makes New Zealand's publicly owned aerial and
+    satellite imagery archive freely available to use under an open licence.
+  retrieved_at: '2026-06-20'
+
+- id: nz-imagery-homepage
+  kind: publisher_homepage
+  url: https://www.linz.govt.nz/
+  label: Toitū Te Whenua Land Information New Zealand (homepage)
+  excerpt: Toitū Te Whenua Land Information New Zealand
+  retrieved_at: '2026-06-20'
+
+- id: nz-imagery-license-attribution
+  kind: publisher_doc
+  url: https://www.linz.govt.nz/products-services/data/licensing-and-using-data/attributing-elevation-or-aerial-imagery-data
+  label: LINZ — Attributing elevation or aerial imagery data (CC BY 4.0)
+  excerpt: Sourced from the LINZ Data Service and licensed by [licensor] for re-use under the Creative
+    Commons Attribution 4.0 International licence.
+  retrieved_at: '2026-06-20'
+
+- id: nz-imagery-naming
+  kind: publisher_doc
+  url: https://github.com/linz/imagery/blob/master/docs/naming.md
+  label: linz/imagery — Imagery Dataset Naming Conventions
+  excerpt: Imagery is stored according to the main region that each dataset covers. Datasets that cover
+    two or more full regions may instead be stored under new-zealand.
+  retrieved_at: '2026-06-20'
+
+- id: nz-imagery-readme
+  kind: publisher_doc
+  url: https://github.com/linz/imagery
+  label: linz/imagery — New Zealand Imagery repository README
+  excerpt: Toitū Te Whenua Land Information New Zealand owns and maintains a public bucket which is sponsored
+    and shared via the Registry of Open Data on AWS s3://nz-imagery in ap-southeast-2. Using the AWS CLI
+    anyone can access all of the imagery specified in this repository. aws s3 ls --no-sign-request s3://nz-imagery/
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: New Zealand's publicly owned aerial and satellite imagery as STAC-described COGs
+    lede: New Zealand Imagery is Toitū Te Whenua Land Information New Zealand's open archive of the country's
+      publicly owned aerial and satellite imagery, shared as Cloud Optimised GeoTIFFs via the Registry
+      of Open Data on AWS.
+    text: 'Toitū Te Whenua Land Information New Zealand (LINZ) makes New Zealand''s most up-to-date publicly
+      owned aerial imagery freely available under an open licence, working with regional councils to publish
+      it. The archive reaches roughly 95% of Aotearoa New Zealand and is also reachable through the LINZ
+      Data Service and LINZ Basemaps. It contains several imagery types captured for different purposes:
+      urban aerial photos at finer specifications over town and city extents; rural aerial photos at typically
+      20-30cm resolution with regional coverage; annual cloud-free satellite mosaics built from European
+      Space Agency Sentinel-2 imagery for full national coverage; near-infrared products published alongside
+      their RGB counterparts; historical scanned film from the Crown Aerial Film Library; and emergency-response
+      captures. Imagery is organised by the main region each dataset covers, with datasets spanning two
+      or more full regions placed under new-zealand, and within a region by survey, product and coordinate
+      reference system. Every survey carries a STAC Collection naming its licensor. The bucket sits in
+      ap-southeast-2 and is reachable without an AWS account, e.g. aws s3 ls --no-sign-request s3://nz-imagery/.'
+  refs:
+  - nz-imagery-aerial-program
+  - nz-imagery-readme
+  - nz-imagery-catalog-json
+
+source:
+  publisher: Toitū Te Whenua Land Information New Zealand (LINZ)
+  homepage_url: https://www.linz.govt.nz/
+
+display:
+  canonical_path: /nz-imagery/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

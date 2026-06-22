@@ -1,0 +1,100 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: sudachi
+title: Sudachi Japanese Language Resources
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: chitra-readme-license
+  kind: publisher_doc
+  url: https://github.com/WorksApplications/SudachiTra/blob/main/README.md
+  label: chiTra (SudachiTra) README — License section (Apache-2.0)
+  excerpt: '"chiTra" is distributed by National Institute for Japanese Language and Linguistics and Works
+    Applications Co.,Ltd. under Apache License, Version 2.0.'
+  retrieved_at: '2026-06-22'
+
+- id: chive-readme-license
+  kind: publisher_doc
+  url: https://github.com/WorksApplications/chiVe/blob/master/README_en.md
+  label: chiVe README (English) — Licence section (Apache-2.0)
+  excerpt: '"chiVe" v1.0, v1.1 and v1.2 are distributed by National Institute for Japanese Langauge and
+    Linguistics and Works Applications Co.,Ltd. under Apache License, Version 2.0.'
+  retrieved_at: '2026-06-22'
+
+- id: sudachi-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/sudachi/
+  label: AWS Open Data Registry — Sudachi Language Resources (access metadata)
+  excerpt: 'AWS CLI Access (No AWS account required)
+
+    aws s3 ls --no-sign-request s3://sudachi/'
+  retrieved_at: '2026-06-22'
+
+- id: sudachi-homepage
+  kind: publisher_homepage
+  url: https://worksapplications.github.io/Sudachi/index.en.html
+  label: WAP Tokushima NLP Resources (Sudachi project homepage)
+  excerpt: SudachiDict and chiVe, chiTra data are generously hosted by AWS with their Open Data Sponsorship
+    Program.
+  retrieved_at: '2026-06-22'
+
+- id: sudachidict-readme-license
+  kind: publisher_doc
+  url: https://github.com/WorksApplications/SudachiDict/blob/develop/README.md
+  label: SudachiDict README — Licenses section (Apache-2.0)
+  excerpt: "SudachiDict by Works Applications Co., Ltd. is licensed under the Apache License, Version2.0\n\
+    \n   Copyright (c) 2017-2023 Works Applications Co., Ltd.\n\nThis project includes UniDic and a part\
+    \ of NEologd."
+  retrieved_at: '2026-06-22'
+
+- id: synonym-readme-license
+  kind: publisher_doc
+  url: https://github.com/WorksApplications/SudachiDict/blob/develop/docs/synonyms.md
+  label: Sudachi Synonym Dictionary docs — license note (same as SudachiDict, Apache-2.0)
+  excerpt: Sudachi 辞書と同じライセンスで提供されます。
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: Apache-2.0
+  status: verified
+  name: Apache License 2.0
+  url: https://www.apache.org/licenses/LICENSE-2.0
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Japanese NLP dictionaries, word embeddings, and language models
+    lede: Sudachi Language Resources is the open data published by Works Applications' WAP Tokushima Laboratory
+      of AI and NLP — the SudachiDict tokenizer dictionary, chiVe word embeddings, and chiTra Transformer
+      models for Japanese.
+    text: Sudachi Language Resources collects the downloadable data behind the Sudachi family of Japanese
+      natural-language-processing tools built by the WAP Tokushima Laboratory of AI and NLP at Works Applications.
+      It bundles SudachiDict, the multi-granular morphological-analysis dictionary used by the Sudachi
+      tokenizer (Small, Core, and Full editions, plus its raw lexicon sources and a synonym dictionary);
+      chiVe, Japanese pretrained word embeddings trained with word2vec over large web corpora and tokenized
+      with Sudachi; and chiTra, pretrained Japanese Transformer language models with a matching tokenizer.
+      The data is hosted on Amazon S3 under the AWS Open Data Sponsorship Program and released under the
+      Apache License 2.0.
+  refs:
+  - sudachi-homepage
+  - sudachi-aws-registry
+
+source:
+  publisher: Works Applications (WAP Tokushima Laboratory of AI and NLP)
+  homepage_url: https://worksapplications.github.io/Sudachi/index.en.html
+
+display:
+  canonical_path: /sudachi/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

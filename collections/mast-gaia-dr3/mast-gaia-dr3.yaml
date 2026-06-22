@@ -1,0 +1,83 @@
+schema_version: '0.4'
+bucket: stpubdata
+outcrop_bucket: mast-gaia-dr3
+backend: s3
+role: primary
+region: us-east-1
+prefix: gaia/gaia_dr3/public/hats/
+
+prefixes:
+- prefix: gaia/gaia_dr3/public/hats/gaia/dataset/
+  copy:
+    headline: Gaia DR3 main source catalog, HATS-partitioned
+    lede: The full Gaia DR3 source catalog of ~1.8 billion objects, tiled into HEALPix Parquet partitions
+      for parallel spatial queries with LSDB.
+    text: 'This is the primary Gaia DR3 catalog: ESA''s third-release measurements for roughly 1.8 billion
+      sources — astrometry (positions, parallaxes, proper motions), G/GBP/GRP photometry, radial velocities,
+      and derived astrophysical parameters. It is laid out in HATS (Hierarchical Adaptive Tiling Scheme)
+      form, with rows assigned to HEALPix pixels and stored as Parquet under a Norder/Dir/Npix tiling
+      so that each partition carries a roughly equal number of objects.
+
+
+      The adaptive, equal-population tiling lets large-scale tools such as LSDB run cone searches and
+      cross-matches across the catalog in parallel without scanning the whole table. A small data_thumbnail.parquet
+      provides a downsampled overview of the catalog for quick inspection.'
+  refs:
+  - gaia-esa-overview
+
+- prefix: gaia/gaia_dr3/public/hats/gaia_10arcs/dataset/
+  copy:
+    headline: Gaia DR3 10-arcsecond margin-cache neighbor catalog
+    lede: A 10-arcsecond margin cache for Gaia DR3 that holds the sources just outside each partition
+      boundary, so cross-matches near tile edges stay complete.
+    text: 'This is the 10-arcsecond margin cache that accompanies the main Gaia DR3 HATS catalog. For
+      every partition it stores the catalog points lying within 10 arcseconds beyond that partition''s
+      HEALPix boundary — the neighbors that a cross-match restricted to a single tile would otherwise
+      miss.
+
+
+      LSDB loads this neighbor catalog automatically when Gaia DR3 is used on the matched side of a cross-match
+      with a small search radius, so objects sitting right at a tile edge are still paired correctly.
+      It mirrors the main catalog''s Norder/Dir/Npix Parquet tiling and is meant to be read alongside
+      it, not on its own.'
+  refs:
+  - lsdb-margin-cache
+
+- prefix: gaia/gaia_dr3/public/hats/gaia_300arcs/dataset/
+  copy:
+    headline: Gaia DR3 300-arcsecond margin-cache neighbor catalog
+    lede: A 300-arcsecond margin cache for Gaia DR3, holding boundary-neighbor sources for cross-matches
+      that use a wider search radius.
+    text: 'This is the 300-arcsecond margin cache for the Gaia DR3 HATS catalog. Like the 10-arcsecond
+      cache it stores, for each partition, the sources within a fixed distance beyond the partition''s
+      HEALPix boundary — here 300 arcseconds — but the wider radius supports cross-matches and neighbor
+      queries that reach further from each source.
+
+
+      It exists so that boundary effects do not drop matches when a larger search radius is in play, and
+      is read together with the main Gaia DR3 catalog rather than as a standalone product. It follows
+      the same Norder/Dir/Npix Parquet tiling as the catalog it supplements.'
+  refs:
+  - lsdb-margin-cache
+
+- prefix: gaia/gaia_dr3/public/hats/gaia_source_id_index/dataset/index/
+  copy:
+    headline: Gaia DR3 source_id lookup index
+    lede: An index over the Gaia DR3 HATS catalog keyed on source_id, mapping each Gaia identifier to
+      its location in the spatially tiled catalog.
+    text: 'This is a source_id index over the Gaia DR3 HATS catalog. Where the main catalog is partitioned
+      spatially by sky position, this index is organized by Gaia source_id, so a known identifier can
+      be resolved to its place in the catalog without a spatial scan.
+
+
+      It supports identifier-based lookups and joins against the Gaia DR3 source list — the complement
+      to the catalog''s HEALPix tiling, which is optimized for positional and cross-match queries. It
+      is stored as Parquet parts and is read alongside the main catalog.'
+  refs:
+  - hats-format
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,94 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: green-et
+title: IWMI DIWASA Green ET for Africa
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: green-et-aws-registry-access
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/green_et/
+  label: AWS Open Data Registry — IWMI DIWASA Green ET for Africa (anonymous S3 access example)
+  excerpt: aws s3 ls --region af-south-1 --no-sign-request s3://iwmi-datasets/Water_accounting_plus/Africa/Rainfall_ET_M/
+  retrieved_at: '2026-06-22'
+
+- id: green-et-aws-registry-yaml
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/green_et.yaml
+  label: AWS Open Data Registry catalog metadata — datasets/green_et.yaml (IWMI DIWASA Green ET)
+  excerpt: 'Name: IWMI DIWASA Green ET for Africa. License: "Creative commons open license". ManagedBy:
+    "[IWMI](https://www.iwmi.org/)". ARN: arn:aws:s3:::iwmi-datasets/Water_accounting_plus/Africa/Rainfall_ET_M/  Region:
+    af-south-1  Type: S3 Bucket'
+  retrieved_at: '2026-06-22'
+
+- id: green-et-dea-specs
+  kind: web_research
+  url: https://docs.digitalearthafrica.org/en/latest/data_specs/DIWASA_Blue_and_Green_ET_specs.html
+  label: Digital Earth Africa — IWMI Evapotranspiration Products (DIWASA Blue & Green ET) specification
+  excerpt: Green ET or rainfall ET is the portion of ET derived from green water, which includes soil
+    moisture and effective rainfall. Band ID greenet; Int16; no data -9999; scale factor 0.1; units mm;
+    resolution 0.00952 degrees; EPSG:4326; monthly; 2003-2021.
+  retrieved_at: '2026-06-22'
+
+- id: green-et-iwmi-diwasa-open
+  kind: publisher_doc
+  url: https://www.iwmi.org/news/iwmi-and-partners-map-the-state-of-water-across-africa/
+  label: IWMI news — IWMI and partners map the state of water across Africa (DIWASA)
+  excerpt: All data in the system is open source and available for use by other entities to produce their
+    own tools and products.
+  retrieved_at: '2026-06-22'
+
+- id: green-et-iwmi-homepage
+  kind: publisher_homepage
+  url: https://www.iwmi.org/
+  label: International Water Management Institute (IWMI) homepage
+  excerpt: International Water Management Institute (IWMI) — a research-for-development organization working
+    on water and land resources.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Monthly green (rainfall-sourced) evapotranspiration rasters for Africa
+    lede: IWMI DIWASA Green ET is a continental-Africa record of monthly green evapotranspiration — the
+      share of ET supplied by rainfall and soil moisture — published by the International Water Management
+      Institute.
+    text: 'Green ET (rainfall ET) is the portion of evapotranspiration derived from green water: evaporation
+      from rain-replenished soil, transpiration from rainfed crops and natural vegetation, and interception
+      losses. It is produced by IWMI''s Digital Innovations for a Water Secure Africa (DIWASA) project
+      under the Water Accounting+ (WA+) framework, computed from SSEBop evapotranspiration as total ET
+      minus blue (incremental) ET, with support from the Helmsley Charitable Trust. The collection spans
+      continental Africa as monthly Cloud-Optimized GeoTIFFs at roughly 1 km resolution (~0.0095deg, EPSG:4326)
+      covering 2003 onward, each raster paired with a STAC item describing it. It supports rainfed-agriculture
+      analysis, drought monitoring, and basin-to-national water accounting, and is distributed openly
+      on the Registry of Open Data on AWS as a companion to the DIWASA Blue (incremental) ET product.'
+  refs:
+  - green-et-aws-registry-yaml
+  - green-et-dea-specs
+  - green-et-iwmi-diwasa-open
+
+source:
+  publisher: International Water Management Institute (IWMI)
+  homepage_url: https://www.iwmi.org/
+
+display:
+  canonical_path: /green-et/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

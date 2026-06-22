@@ -1,0 +1,81 @@
+schema_version: '0.4'
+bucket: gdelt-open-data
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: events/
+  copy:
+    headline: GDELT 1.0 Event Database
+    lede: 'The GDELT 1.0 Event Database is GDELT''s original event stream: over a quarter-billion CAMEO-coded,
+      city-georeferenced records of world events drawn from English-language news from 1979 onward.'
+    text: The GDELT 1.0 Event Database is the original generation of GDELT's event stream. It records
+      over 300 categories of physical activity around the world — from riots and protests to peace appeals
+      and diplomatic exchanges — using the dyadic CAMEO event taxonomy, which captures two actors and
+      the action Actor1 performs upon Actor2. A wide array of variables breaks the raw CAMEO codes out
+      into their own fields, including geographic resolution to the city or landmark level and a numeric
+      GoldsteinScale measuring each event type's theoretical potential impact on a country's stability.
+      Coverage runs from January 1, 1979 to present, drawn from English-language sources and updated daily,
+      predating the 65 live-translated languages added in GDELT 2.0. Files are released as compressed
+      CSV; for the higher-frequency, multilingual successor with a paired Mentions table, see the v2 Event
+      stream.
+  refs:
+  - gdelt-data-page
+
+- prefix: v2/events/
+  copy:
+    headline: GDELT 2.0 Event Database
+    lede: The GDELT 2.0 Event Database extends GDELT 1.0 with events in 65 live-translated languages and
+      15-minute updates, paired with a Mentions table that tracks every article covering each event.
+    text: The GDELT 2.0 Event Database, released February 2015, is the successor to the 1.0 event stream.
+      Like the original it codes events in the dyadic CAMEO format — two actors, the action performed,
+      a GoldsteinScale impact score, and geographic resolution to the city or landmark — but GDELT 2.0
+      adds a wealth of new fields, incorporates events reported in articles published in the 65 live-translated
+      languages, and updates every 15 minutes rather than daily. Each Event record is paired with the
+      Mentions table, which records every individual article that referenced the event over time. Files
+      are released as compressed CSV on a common UTC-timestamped naming scheme shared with the other GDELT
+      2.0 streams.
+  refs:
+  - gdelt-data-page
+
+- prefix: v2/gkg/
+  copy:
+    headline: GDELT 2.0 Global Knowledge Graph (GKG 2.1)
+    lede: The GDELT Global Knowledge Graph connects the people, organizations, locations, themes, counts,
+      images, quotes, and emotions across the world's news into a single holistic network, updated every
+      15 minutes.
+    text: The Global Knowledge Graph (GKG, format version 2.1) is the next-generation evolution of GDELT's
+      knowledge graph. For every monitored news article it compiles the people, organizations, companies,
+      locations, themes, emotions, relevant images, videos, and embedded links mentioned and connects
+      them into a single massive network capturing what is happening around the world, who is involved,
+      and how the world is feeling about it. GKG 2.1 expands the original GKG with precise offset positions
+      of each mention within a document, the Global Content Analysis Measures (GCAM) drawing on more than
+      2,300 emotional and thematic dimensions, quotation extraction, named-entity name lists, and the
+      full set of live-translated languages. The format has moved out of Alpha Experimental status into
+      production, meaning it is stabilized. Files are released every 15 minutes as compressed CSV, keyed
+      by the same UTC timestamp naming used across the GDELT 2.0 streams.
+  refs:
+  - gdelt-gkg-codebook
+
+- prefix: v2/mentions/
+  copy:
+    headline: GDELT 2.0 Mentions table
+    lede: The GDELT 2.0 Mentions table records every individual news article that referenced each event
+      over time, letting analysts reconstruct the full timeline and network of media coverage.
+    text: The GDELT 2.0 Mentions table is a stream new to GDELT 2.0. Where the Event Database records
+      that an event occurred, the Mentions table records each separate news article that referred to that
+      event across the entire universe of monitored coverage — providing the article URL, the timestamp
+      of the mention, the confidence of the extraction, and the position of the mention within the source
+      document. Joined to the Event table on the event identifier, the two together let analysts reconstruct
+      not just that an event occurred but the full trajectory and network of coverage surrounding it across
+      the world's media. Files are emitted every 15 minutes as compressed CSV on the shared GDELT 2.0
+      timestamped naming scheme.
+  refs:
+  - gdelt-event-codebook
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

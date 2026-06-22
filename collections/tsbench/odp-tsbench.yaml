@@ -1,0 +1,30 @@
+schema_version: '0.4'
+bucket: odp-tsbench
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: '*/'
+  copy:
+    headline: Per-method benchmark results, one forecasting method per top-level directory
+    lede: Each top-level directory (arima, deepar, ets, mqcnn, mqrnn, and the other forecasting methods)
+      collects that one method's TSBench evaluation outputs across all 44 datasets.
+    text: 'The bucket is partitioned by forecasting method: each top-level directory corresponds to a
+      single one of TSBench''s 13 methods and gathers that method''s benchmark evaluation outputs over
+      the full 44-dataset suite. Within a method''s results sit the per-run accuracy, latency, and model-parameter
+      metrics together with the probabilistic forecasts generated for each dataset, across the evaluated
+      hyperparameter settings and random seeds.
+
+
+      The directories form one product rather than 13 independent datasets: every method is scored on
+      the same datasets and measures so results are directly comparable, which is the purpose of the benchmark.
+      The metric tables are small; the forecasts dominate the bucket''s footprint (~600 GiB overall).'
+  refs:
+  - tsbench-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

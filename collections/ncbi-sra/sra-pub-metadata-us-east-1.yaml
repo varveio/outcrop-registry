@@ -1,0 +1,43 @@
+schema_version: '0.4'
+bucket: sra-pub-metadata-us-east-1
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: sra/metadata/
+  copy:
+    headline: Columnar SRA metadata tables for Glue and Athena
+    lede: The core SRA metadata table — one row per run accession joining its experiment, sample, study,
+      and sequencing attributes — staged in the layout AWS Glue crawls into the Athena-queryable nih-sra-datastore.sra.metadata
+      table.
+    text: Contains the primary SRA metadata table that records information about each run and its biological
+      sample. Each row is keyed by run accession (acc) and carries the experiment, sample (sample_acc,
+      biosample), study (sra_study), and bioproject identifiers alongside sequencing fields — assay type,
+      platform, instrument, library layout, selection and source, and organism. Sample attributes are
+      kept in a nested array column (attributes, with name/value pairs queried via UNNEST) and mirrored
+      as a JSON string column (jattr). Loaded into AWS Glue, these files materialize as the nih-sra-datastore.sra.metadata
+      table that supports attribute-based discovery in Amazon Athena, and link to the companion taxonomy
+      and taxonomy-analysis tables by organism and accession.
+  refs:
+  - ncbi-sra-tabledef
+
+- prefix: sra/metadata_json/
+  copy:
+    headline: Dated JSON snapshots of the SRA metadata table
+    lede: Gzip-compressed JSON exports of the nih-sra-datastore SRA metadata table, captured as dated
+      snapshots of the same run/sample/study metadata served in columnar form alongside it.
+    text: Contains dated, gzip-compressed JSON exports of the SRA metadata — the JSON serialization of
+      the same nih-sra-datastore.sra.metadata records (run accession plus its experiment, sample, study,
+      sequencing attributes, and nested sample-attribute pairs) that the columnar tables expose for Athena.
+      Each file is a point-in-time snapshot named by its export date (nih-sra-datastore:sra.metadata.<date>.json.gz),
+      giving a row-oriented, self-contained form of the metadata for consumers that prefer streaming JSON
+      over the Glue/Athena table layout.
+  refs:
+  - ncbi-sra-tabledef
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

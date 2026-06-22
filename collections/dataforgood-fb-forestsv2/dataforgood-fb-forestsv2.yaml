@@ -1,0 +1,29 @@
+schema_version: '0.4'
+bucket: dataforgood-fb-data
+outcrop_bucket: dataforgood-fb-forestsv2
+backend: s3
+role: primary
+region: us-east-1
+prefix: forests/v2/
+
+prefixes:
+- prefix: forests/
+  copy:
+    headline: CHMv2 canopy-height tiles in global and regional coverage
+    lede: The Version 2 Canopy Height Maps, organized into a worldwide global mosaic plus higher-attention
+      regional cuts such as California, each pairing GeoTIFF height tiles with GeoJSON observation-date
+      metadata.
+    text: 'Contains the Version 2 High Resolution Canopy Height Maps (CHMv2) produced from the DINOv3
+      model, arranged by coverage scope: a worldwide global mosaic and selected regional extents (for
+      example, California). Within each scope, canopy-height rasters are stored as cloud-optimized GeoTIFF
+      tiles under a chm/ tree, alongside per-tile GeoJSON metadata recording the source-imagery observation
+      dates under a metadata/ tree. Heights are derived from sub-meter Maxar satellite imagery and calibrated
+      to GEDI lidar; the same tiles are mirrored on Google Earth Engine for interactive use.'
+  refs:
+  - chmv2-aws-registry
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

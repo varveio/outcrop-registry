@@ -1,0 +1,39 @@
+schema_version: '0.4'
+bucket: czb-tabula-muris
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: 10x_bam_files/
+  copy:
+    headline: 10x droplet scRNA-seq alignment BAMs
+    lede: Sequence alignments for the 10x Genomics droplet arm of Tabula Muris, as sorted BAM files with
+      companion index files.
+    text: The raw alignments for the microfluidic droplet (10x Genomics) arm of Tabula Muris, stored as
+      position-sorted genome BAM files (10X_<sample>_possorted_genome.bam) each paired with a .bai index.
+      The droplet method provides a high-throughput, 3'-end survey of thousands of cells per organ at
+      relatively low coverage. These BAMs are the unprocessed read alignments behind the droplet expression
+      matrices; reads can be recovered to FASTQ with 10x Genomics' bamtofastq tool for reprocessing.
+  refs:
+  - tabula-muris-on-aws
+
+- prefix: facs_bam_files/
+  copy:
+    headline: FACS Smart-seq2 plate-based scRNA-seq alignment BAMs
+    lede: Sequence alignments for the FACS-sorted Smart-seq2 arm of Tabula Muris, as per-cell sorted BAM
+      files with index files, organized by sorting plate.
+    text: The raw alignments for the FACS-sorted, plate-based Smart-seq2 arm of Tabula Muris, stored as
+      position-sorted BAM files (<plate>-<...>.mus.Aligned.out.sorted.bam) with companion .bai indexes.
+      FACS isolation of single cells into plates followed by full-length Smart-seq2 transcript analysis
+      yields higher per-cell sensitivity and coverage than the droplet method, at lower throughput. This
+      is the largest component of the bucket, reflecting one alignment per sorted cell across many plates;
+      reads can be recovered to FASTQ with bedtools bamtofastq for reprocessing.
+  refs:
+  - tabula-muris-on-aws
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

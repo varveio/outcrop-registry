@@ -1,0 +1,476 @@
+schema_version: '0.4'
+bucket: genomeark
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: downstream_analyses/
+  copy:
+    headline: Cross-species products derived from the reference assemblies
+    lede: downstream_analyses/ groups derived results computed across GenomeArk's reference assemblies,
+      rather than the primary per-species sequencing data.
+    text: downstream_analyses/ collects products built on top of the curated per-species assemblies instead
+      of the raw reads. Where the per-species tree under species/ holds genomic and transcriptomic data,
+      draft assemblies, and final curated references, this grouping is the analysis layer derived from
+      those genomes.
+  refs:
+  - genomeark-bucket-structure
+
+- prefix: galaxy/
+  copy:
+    headline: Assembly-workflow example data for the Galaxy platform
+    lede: galaxy/ groups example datasets tied to the genome-assembly workflow as run on the Galaxy platform.
+    text: galaxy/ contains example data associated with the genome-assembly workflow on the Galaxy platform,
+      distinct from the primary per-species releases. The species tree under species/ holds the genomic
+      and transcriptomic reads, draft assemblies, and curated references; this grouping sits alongside
+      it as workflow-oriented example material.
+  refs:
+  - genomeark-bucket-structure
+
+- prefix: species/
+  copy:
+    headline: Per-species reference genomes and their source sequencing data
+    lede: species/ is GenomeArk's core tree, one record per species keyed by binomial name and ToLID,
+      gathering the raw sequencing reads, draft assemblies, and the final curated reference for each.
+    text: 'Each record follows species/{Genus_species}/{ToLID}/, where the binomial scientific name and
+      Tree-of-Life specimen identifier name the species and specimen. A record gathers genomic_data (raw
+      sequencing reads organized by platform: PacBio HiFi, ONT, Illumina, Arima/Dovetail Hi-C, Bionano,
+      10x), transcriptomic_data (RNA-seq/Iso-seq reads organized by tissue), one or more assembly_{pipeline}_{ver}
+      draft assemblies, assembly_MT_{institution} mitochondrial assemblies, and assembly_curated, the
+      final curated reference.'
+  note: Each sub-directory is one species' reference genome within a single growing collection of vertebrate
+    assemblies.
+  refs:
+  - genomeark-bucket-structure
+  - genomeark-collection
+  boundary: pin
+
+- prefix: trainingmaterials/
+  copy:
+    headline: Example datasets for genome-assembly and curation training
+    lede: trainingmaterials/ groups the example datasets distributed for genome-assembly and curation
+      training events.
+    text: trainingmaterials/ contains the data packages used in training events on genome assembly and
+      curation, kept separate from the primary species releases. Unlike the per-species tree under species/,
+      which carries the sequencing reads, draft assemblies, and curated references for each species, this
+      grouping is instructional material.
+  refs:
+  - genomeark-bucket-structure
+
+- prefix: working/
+  kind: other
+  copy:
+    headline: Active working space for in-progress assembly and analysis
+    lede: working/ is GenomeArk's in-progress workspace for ongoing assembly and analysis, not a curated
+      release.
+    text: working/ is the active, non-release working space used while assemblies are being produced.
+      The published, citable products live under species/, where each record gathers raw genomic and transcriptomic
+      reads, draft assemblies, and the final assembly_curated reference; working/ is the upstream space
+      that feeds them.
+  refs:
+  - genomeark-bucket-structure
+
+- prefix: downstream_analyses/OrthoFinder/MOC_group_orthofinder/Orthologues/
+  copy:
+    text: Each sub-directory is one species' orthologue tables from a single ortholog-comparison run across
+      all the genomes.
+    headline: Each sub-directory is one species' orthologue tables from a single…
+
+- prefix: downstream_analyses/OrthoFinder/Results_Nov10/Orthologues/
+  copy:
+    text: Each sub-directory is one species' orthologue tables from a single ortholog-comparison run across
+      all the genomes.
+    headline: Each sub-directory is one species' orthologue tables from a single…
+
+- prefix: downstream_analyses/RNAseq_alignments/
+  copy:
+    text: Each sub-directory is one species' RNA-sequencing alignments produced by a single alignment
+      pipeline.
+    headline: Each sub-directory is one species' RNA-sequencing alignments produced…
+
+- prefix: species/Alosa_sapidissima/fAloSap1/vgp_assembly_2.0/intermediates/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Branchiostoma_lanceolatum/iBraLan1/assembly_vgp_HiC_2.0/intermediates/hap1/
+  copy:
+    text: A single intermediate file for one haplotype of one species' assembly, not a separate dataset.
+    headline: A single intermediate file for one haplotype of one species'…
+
+- prefix: species/Branchiostoma_lanceolatum/iBraLan1/assembly_vgp_HiC_2.0/intermediates/hap2/
+  copy:
+    text: A single intermediate file for one haplotype of one species' assembly, not a separate dataset.
+    headline: A single intermediate file for one haplotype of one species'…
+
+- prefix: species/Chelonia_mydas/rCheMyd1/assembly_vgp_standard_1.6/intermediates/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Coloeus_monedula/bColMon2/assembly_vgp_HiC_2.0/evaluation/hap1/gfastats/
+  copy:
+    text: A single assembly-statistics file for one haplotype of one species' assembly, not a separate
+      dataset.
+    headline: A single assembly-statistics file for one haplotype of one species'…
+
+- prefix: species/Coloeus_monedula/bColMon2/assembly_vgp_HiC_2.0/evaluation/hap2/gfastats/
+  copy:
+    text: A single assembly-statistics file for one haplotype of one species' assembly, not a separate
+      dataset.
+    headline: A single assembly-statistics file for one haplotype of one species'…
+
+- prefix: species/Cottoperca_gobio/fCotGob3/assembly_vgp_standard_1.0/intermediates/falcon_unzip/
+  copy:
+    text: Each sub-directory is one stage of the Falcon-Unzip phasing step while building a single assembly.
+    headline: Each sub-directory is one stage of the Falcon-Unzip phasing step…
+
+- prefix: species/Dermochelys_coriacea/rDerCor1/assembly_MT_rockefeller/intermediates/
+  copy:
+    text: Each sub-directory is one intermediate step from building a single mitochondrial assembly.
+    headline: Each sub-directory is one intermediate step from building a single…
+
+- prefix: species/Erythrolamprus_reginae/rEryReg1/assembly_vgp_HiC_2.0/evaluation/hap2/gfastats/
+  copy:
+    text: A single assembly-statistics file for one haplotype of one species' assembly, not a separate
+      dataset.
+    headline: A single assembly-statistics file for one haplotype of one species'…
+
+- prefix: species/Falco_peregrinus/bFalPer1/assembly_vgp_standard_2.0/intermediates/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Gallus_gallus/bGalGal4/vgp_assembly_2.0/intermediates/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Gallus_gallus/bGalGal5/vgp_assembly_2.0/intermediates/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Gavia_stellata/bGavSte3/assembly_vgp_HiC_2.0/evaluation/merqury/
+  copy:
+    text: A single assembly-quality file for one species' assembly, not a separate dataset.
+    headline: A single assembly-quality file for one species' assembly, not a…
+
+- prefix: species/Gavia_stellata/bGavSte3/assembly_vgp_HiC_2.0/intermediates/hap1/
+  copy:
+    text: A single intermediate file for one haplotype of one species' assembly, not a separate dataset.
+    headline: A single intermediate file for one haplotype of one species'…
+
+- prefix: species/Gavia_stellata/bGavSte3/assembly_vgp_HiC_2.0/intermediates/hap2/
+  copy:
+    text: A single intermediate file for one haplotype of one species' assembly, not a separate dataset.
+    headline: A single intermediate file for one haplotype of one species'…
+
+- prefix: species/Gopherus_flavomarginatus/rGopFla2/qc/
+  copy:
+    text: One species' quality-control data within its single assembly directory, not a separate dataset.
+    headline: One species' quality-control data within its single assembly…
+
+- prefix: species/Gorilla_gorilla/mGorGor1/assembly_curated/
+  copy:
+    text: Each sub-directory is one component of one curated reference assembly for a single primate genome.
+    headline: Each sub-directory is one component of one curated reference assembly…
+
+- prefix: species/Grus_americana/bGruAme1/assembly_vgp_trio_1.7/intermediates/mat/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Grus_americana/bGruAme1/assembly_vgp_trio_1.7/intermediates/pat/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Hemiscyllium_ocellatum/sHemOce1/assembly_rockefeller_trio_1.6/intermediates/bionano_mat/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Hemiscyllium_ocellatum/sHemOce1/assembly_rockefeller_trio_1.6/intermediates/bionano_pat/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Hirundo_rustica/bHirRus1/assembly_vgp_standard_1.6/intermediates/falcon_unzip/
+  copy:
+    text: Each sub-directory is one stage of the Falcon-Unzip phasing step while building a single assembly.
+    headline: Each sub-directory is one stage of the Falcon-Unzip phasing step…
+
+- prefix: species/Homo_sapiens/mHomSap3/assembly_rockefeller_trio_1.6/evaluation/asm-stats/
+  copy:
+    text: Each sub-directory is one statistics step from evaluating a single assembly.
+    headline: Each sub-directory is one statistics step from evaluating a single…
+
+- prefix: species/Lacerta_agilis/rLacAgi2/
+  copy:
+    text: A single file under one species' assembly identifier within the reference-genome collection,
+      not a separate dataset.
+    headline: A single file under one species' assembly identifier within the…
+
+- prefix: species/Ornithorhynchus_anatinus/mOrnAna1/assembly_vgp_standard_1.0/intermediates/falcon_unzip/
+  copy:
+    text: Each sub-directory is one stage of the Falcon-Unzip phasing step while building a single assembly.
+    headline: Each sub-directory is one stage of the Falcon-Unzip phasing step…
+
+- prefix: species/Pan_paniscus/mPanPan1/assembly_curated/
+  copy:
+    text: Each sub-directory is one component of one curated reference assembly for a single primate genome.
+    headline: Each sub-directory is one component of one curated reference assembly…
+
+- prefix: species/Pan_troglodytes/mPanTro3/assembly_curated/
+  copy:
+    text: Each sub-directory is one component of one curated reference assembly for a single primate genome.
+    headline: Each sub-directory is one component of one curated reference assembly…
+
+- prefix: species/Pogoniulus_pusillus/bPogPus1/assembly_vgp_standard_1.6/intermediates/bionano/
+  copy:
+    text: Each sub-directory is one optical-mapping intermediate step from building a single assembly.
+    headline: Each sub-directory is one optical-mapping intermediate step from…
+
+- prefix: species/Pongo_abelii/mPonAbe1/assembly_curated/
+  copy:
+    text: Each sub-directory is one component of one curated reference assembly for a single primate genome.
+    headline: Each sub-directory is one component of one curated reference assembly…
+
+- prefix: species/Pongo_pygmaeus/mPonPyg2/assembly_curated/
+  copy:
+    text: Each sub-directory is one component of one curated reference assembly for a single primate genome.
+    headline: Each sub-directory is one component of one curated reference assembly…
+
+- prefix: species/Porphyrio_hochstetteri/bPorHoc1/assembly_vgp_standard_2.0/intermediates/merylDB/hapmers/
+  copy:
+    text: Each sub-directory is one k-mer database shard produced while building a single assembly.
+    headline: Each sub-directory is one k-mer database shard produced while…
+
+- prefix: species/Porphyrio_hochstetteri/bPorHoc1/assembly_vgp_standard_2.0/intermediates/solve_mat/
+  copy:
+    text: Each sub-directory is one optical-map solving step for one parental haplotype of a single assembly.
+    headline: Each sub-directory is one optical-map solving step for one parental…
+
+- prefix: species/Porphyrio_hochstetteri/bPorHoc1/assembly_vgp_standard_2.0/intermediates/solve_pat/
+  copy:
+    text: Each sub-directory is one optical-map solving step for one parental haplotype of a single assembly.
+    headline: Each sub-directory is one optical-map solving step for one parental…
+
+- prefix: species/Sebastes_umbrosus/fSebUmb1/assembly_vgp_standard_1.6/intermediates/others/falcon_unzip/
+  copy:
+    text: Each sub-directory is one stage of the Falcon-Unzip phasing step while building a single assembly.
+    headline: Each sub-directory is one stage of the Falcon-Unzip phasing step…
+
+- prefix: species/Symphalangus_syndactylus/mSymSyn1/assembly_curated/
+  copy:
+    text: Each sub-directory is one component of one curated reference assembly for a single primate genome.
+    headline: Each sub-directory is one component of one curated reference assembly…
+
+- prefix: species/Taeniopygia_guttata/bTaeGut2/assembly_vgp_standard_1.0/intermediates/falcon_unzip/
+  copy:
+    text: Each sub-directory is one stage of the Falcon-Unzip phasing step while building a single assembly.
+    headline: Each sub-directory is one stage of the Falcon-Unzip phasing step…
+
+- prefix: species/Taeniopygia_guttata/bTaeGut7/assembly_verkko_0.1/asm/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single zebra-finch
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: species/Taeniopygia_guttata/bTaeGut7/assembly_verkko_0.1/asm2/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single zebra-finch
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: species/Taeniopygia_guttata/bTaeGut7/assembly_verkko_0.1/asm3/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single zebra-finch
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: species/Taeniopygia_guttata/bTaeGut7/assembly_verkko_0.1/asm5/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single zebra-finch
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: species/Taeniopygia_guttata/bTaeGut7/assembly_verkko_0.1/asm5_redo/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single zebra-finch
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: species/Taeniopygia_guttata/bTaeGut7/assembly_verkko_herro-only_0.1/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single zebra-finch
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/
+  copy:
+    text: Each sub-directory is one animal's telomere-to-telomere assembly within a single ruminant genome
+      project.
+    headline: Each sub-directory is one animal's telomere-to-telomere assembly…
+
+- prefix: working/T2T/ruminant/Alpaca/assembly/verkko2.3_ontEC_UA8_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Bison_x_Simmental/assembly/verkko2.2.1_hifi-duplex_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Bison_x_Simmental/assembly/verkko2.2.1_hifi_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Cattle_Wagyu_x_Charolais/assembly/verkko2.2_hifi_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Cattle_Wagyu_x_Charolais/assembly/verkko_2.2.1_hifi-duplex_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Cattle_Wagyu_x_Charolais/illumina_data/
+  copy:
+    text: Each sub-directory is one sample role (parent or offspring, compressed or not) of one animal's
+      sequencing data.
+    headline: Each sub-directory is one sample role
+
+- prefix: working/T2T/ruminant/Chamois/assembly/verkko2.2.1_hifi-ontEC-UA12_omniC/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Chamois/assembly/verkko2.2.1_hifi-ontEC-UA5_omniC/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Chevrotain/assembly/verkko2.2.1_hifi-duplex_UA8_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Chevrotain/assembly/verkko2.2.1_hifi18-ontEC_UA5_telo-lt18_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Chinese_Muntjac/assembly/verkko_2.2.1_hifi_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Chinese_Muntjac/assembly/verkko_2.2.1_hifi_hic_extraONT/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Chinese_Muntjac/assembly/verkko_2.3.2_ontEC_UA5_porec/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Chinese_Muntjac/assembly/verkko_2.3_hifi-duplex_UA5_porec/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Goat_Spanish_x_Boer/assembly/verkko_2.2.1_hifi-herro_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Pronghorn/assembly/verkko2.2.1_ontEC_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Red_Deer_x_Wapiti/assembly/verkko2.2.1_hifi-duplex_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Red_Deer_x_Wapiti/oxnan_data/
+  copy:
+    text: Each sub-directory is one sequencing-run identifier of raw reads for a single animal's assembly.
+    headline: Each sub-directory is one sequencing-run identifier of raw reads for…
+
+- prefix: working/T2T/ruminant/Siberian_Musk_Deer/assembly/verkko2.2.1_ontEC_UA3_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Siberian_Musk_Deer/assembly/verkko2.2.1_ontEC_UA4_hic/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Wapiti_x_Red_Deer/assembly/verkko_2.2.1_hifi-duplex_UA5_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Wapiti_x_Red_Deer/assembly/verkko_2.2.1_hifi-duplex_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Wapiti_x_Red_Deer/assembly/verkko_2.2.1_hifi_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/T2T/ruminant/Water_Buffalo/assembly/verkko2.2.1_hifi_trio/
+  copy:
+    text: Each sub-directory is one numbered stage of the genome-assembly pipeline for a single animal's
+      assembly run.
+    headline: Each sub-directory is one numbered stage of the genome-assembly…
+
+- prefix: working/release1/BUSCO/
+  copy:
+    text: Each sub-directory is one assembly's gene-completeness scores from a single release's quality
+      check.
+    headline: Each sub-directory is one assembly's gene-completeness scores from a…
+
+- prefix: working/release1/reliable_block/
+  copy:
+    text: Each sub-directory is one assembly's reliable-block results from a single release's analysis.
+    headline: Each sub-directory is one assembly's reliable-block results from a…
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

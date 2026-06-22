@@ -1,0 +1,54 @@
+schema_version: '0.4'
+bucket: ept-m3dc-pmsp
+backend: s3
+role: primary
+region: sa-east-1
+
+prefixes:
+- prefix: ept-data/
+  copy:
+    headline: Octree-indexed LAZ point-cloud tiles
+    lede: 'The point data of the EPT octree: LASzip-compressed tiles named by Depth-X-Y-Z, holding the
+      São Paulo LiDAR returns at every resolution level.'
+    text: 'This is where the actual point cloud lives. EPT arranges points like a 3D slippy-map: each
+      tile is named Depth-X-Y-Z (root 0-0-0-0) and stored as a LASzip-compressed .laz file. The scheme
+      is additive rather than replacement — coarse tiles at shallow depths give an overview, and full
+      resolution for any area is reconstructed by accumulating that node''s points with every overlapping
+      deeper-depth tile. At ~670 thousand .laz tiles (~230 GB), this component carries the bulk of the
+      dataset''s volume and all of its per-point geometry and attributes.'
+  refs:
+  - ept-format
+
+- prefix: ept-hierarchy/
+  copy:
+    headline: Octree hierarchy index (point counts per node)
+    lede: 'The EPT navigation index: JSON files keyed by Depth-X-Y-Z that record which octree nodes exist
+      and how many points each contains.'
+    text: Each file here is a JSON object mapping Depth-X-Y-Z node keys to point counts, telling a client
+      which tiles in ept-data/ exist and how dense they are before fetching any point data. The root index
+      is ept-hierarchy/0-0-0-0.json; where a subtree is too large for one file, a sentinel value of -1
+      points the reader to a continuation hierarchy file, so deep parts of the octree are split across
+      the ~2,560 JSON index files here (~16 MB total). This is what lets a viewer page in only the tiles
+      overlapping the current view at the needed resolution.
+  refs:
+  - ept-format
+
+- prefix: ept-sources/
+  copy:
+    headline: Per-source metadata for the original LiDAR tiles
+    lede: 'Provenance for the EPT build: a manifest plus per-source JSON describing each original LiDAR
+      file that was indexed into the octree.'
+    text: This component preserves where the points came from. Entwine records the input data sources
+      in a manifest (an array of per-source metadata summaries) alongside individual per-source metadata
+      JSON files, capturing each original LiDAR tile's details. Paired with the EPT OriginId dimension,
+      this lets any point in the octree be traced back to the specific source file it was ingested from
+      — useful for attribution, reprocessing, and reconciling the cloud-native build against the original
+      survey deliverables. It is a small component (57 JSON objects, ~25 MB) relative to the point data.
+  refs:
+  - ept-format
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

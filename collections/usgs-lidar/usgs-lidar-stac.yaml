@@ -1,0 +1,34 @@
+schema_version: '0.4'
+bucket: usgs-lidar-stac
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: ept/
+  copy:
+    headline: STAC catalog of per-project 3DEP EPT lidar resources
+    lede: A SpatioTemporal Asset Catalog (STAC 1.1.0) indexing the USGS 3DEP Entwine Point Tile resources,
+      with one JSON item per USGS lidar acquisition project.
+    text: The root catalog.json declares a STAC 1.1.0 catalog 'A catalog of USGS 3DEP Lidar hosted on
+      AWS s3' and links out to one item per 3DEP resource. Each per-resource JSON is named for its USGS
+      project (for example AK_BrooksCamp_2012, FL_TopobathyFLKeysNOAA_Hydroflattened_2019, NC_HurFlo_NOAA_12_2020)
+      and carries the EPT metadata — spatial extent, point count, and the pointer to the matching Entwine
+      Point Tile resource in the public s3://usgs-lidar-public bucket. This is the discovery index over
+      the 3DEP point clouds; the streamable EPT octree data itself lives in the sibling public bucket,
+      not here.
+  refs:
+  - usgs-lidar-stac-catalog
+
+- prefix: noaa/
+  copy:
+    text: Entwine Point Tile metadata JSON for NOAA coastal lidar resources, indexed alongside the 3DEP
+      catalog; the per-resource entries point at the corresponding EPT data in the public usgs-lidar-public
+      bucket.
+    headline: Entwine Point Tile metadata JSON for NOAA coastal lidar resources…
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

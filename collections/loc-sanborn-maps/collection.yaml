@@ -1,0 +1,95 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: loc-sanborn-maps
+title: Sanborn Maps Data Package (Library of Congress)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: loc-sanborn-about
+  kind: publisher_doc
+  url: https://www.loc.gov/collections/sanborn-maps/about-this-collection
+  label: www.loc.gov — about this collection
+  excerpt: The Sanborn map collection consists of a uniform series of large-scale maps, dating from 1867
+    to 1999, which depicts the commercial, industrial, and residential sections of some twelve thousand
+    cities and towns in the United States, Canada, and Mexico. The maps are arranged by state, then city.
+
+- id: loc-sanborn-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/loc-sanborn-maps/
+  label: AWS Open Data Registry — Sanborn Maps Data Package (usage example)
+  excerpt: aws s3 ls --no-sign-request s3://loc-sanborn-maps/
+  retrieved_at: '2026-06-22'
+
+- id: loc-sanborn-homepage
+  kind: publisher_homepage
+  url: https://www.loc.gov/collections/sanborn-maps/
+  label: Library of Congress — Sanborn Maps collection homepage
+  excerpt: Sanborn Maps. The Sanborn Fire Insurance Map collection at the Library of Congress.
+  retrieved_at: '2026-06-22'
+
+- id: loc-sanborn-labs
+  kind: publisher_doc
+  url: https://data.labs.loc.gov/sanborn/
+  label: LC Labs — Sanborn Maps Data Package landing page
+  excerpt: The content of the Library of Congress online Sanborn Maps Collection is in the public domain
+    and is free to use and reuse. The dataset contains 100 randomly selected items from the 50,600 item
+    set in sample-data; summary holds date, country and U.S. state distributions; maps-by-state organizes
+    images by state or region.
+  retrieved_at: '2026-06-22'
+
+- id: loc-sanborn-readme
+  kind: publisher_file
+  url: https://loc-sanborn-maps.s3.us-west-2.amazonaws.com/README.html
+  label: Sanborn Maps Data Package — bucket-root README.html
+  excerpt: The content of the Library of Congress online Sanborn Maps Collection is in the public domain
+    and is free to use and reuse. The public domain portion of the collection is digitized and freely
+    available online, including atlases published before 1923 and atlases for which copyright was not
+    renewed. In total, approximately 69% of the atlases in the collection are digitized and freely available
+    online from the Library of Congress.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Digitized Sanborn fire-insurance maps of U.S. cities
+    lede: The Library of Congress Sanborn Maps Data Package assembles metadata and JPEG images for the
+      largest extant collection of Sanborn fire-insurance maps, digitized and released as an open data
+      package.
+    text: The Sanborn Fire Insurance Maps are large-scale, detailed plans of U.S. cities and towns drawn
+      by the Sanborn Map Company to assess fire-insurance risk, recording building footprints, construction
+      materials, addresses, and land use street by street. The Library of Congress holds the largest surviving
+      collection. This data package, produced by LC Labs, packages metadata records for 50,600 maps and
+      their 440,048 corresponding JPEG images for cloud-scale use. Records are provided as metadata.json,
+      line-delimited metadata.jsonl, and a CSV transformation at the package root, alongside the images
+      themselves partitioned by state. The package also includes a small sample subset for testing and
+      CSV/PNG summaries of holdings. The digitized content is in the public domain (atlases published
+      before 1923 or whose copyright was not renewed — roughly 69% of the collection).
+  refs:
+  - loc-sanborn-labs
+  - loc-sanborn-readme
+
+source:
+  publisher: Library of Congress
+  homepage_url: https://www.loc.gov/collections/sanborn-maps/
+
+display:
+  canonical_path: /loc-sanborn-maps/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

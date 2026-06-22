@@ -1,0 +1,103 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: askap
+title: ASKAP Radio Telescope
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: askap-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/askap/
+  label: ASKAP Radio Telescope — AWS Open Data registry record (askap.yaml)
+  excerpt: 'ARN: arn:aws:s3:::askap-odp/racs-low1/ ; Region: ap-southeast-2 ; Type: S3 Bucket ; RequesterPays:
+    False . License: CC-BY-4.0. Attribution required for refereed scientific papers.'
+  retrieved_at: '2026-06-22'
+
+- id: askap-catalogue-page
+  kind: publisher_doc
+  url: https://research.csiro.au/casda/the-rapid-askap-continuum-survey-stokes-i-source-catalogue-data-release-1/
+  label: RACS Stokes I Source Catalogue DR1 — catalogue description (CASDA)
+  excerpt: Two Gaussian component catalogues (galactic cut and galactic region versions) and two source/island
+    catalogues (galactic cut and galactic region versions). Approximately 2.1 million extragalactic sources.
+  retrieved_at: '2026-06-22'
+
+- id: askap-dr1-data-page
+  kind: publisher_doc
+  url: https://research.csiro.au/racs/home/data-2/racs-low-dr1-data/
+  label: RACS-low1 DR1 data — contents and access (CSIRO RACS)
+  excerpt: An all-sky source and component catalogue. Tile images convolved to a common resolution of
+    25 arcsec and mosaicked with neighbouring tiles. An associated rms image for each tile.
+  retrieved_at: '2026-06-22'
+
+- id: askap-homepage
+  kind: publisher_homepage
+  url: https://research.csiro.au/racs/home/survey/
+  label: Rapid ASKAP Continuum Survey — survey overview (CSIRO)
+  excerpt: The Rapid ASKAP Continuum Survey (RACS) is an observatory led project that began observations
+    in April 2019. RACS will provide a unique opportunity to study the radio sky and radio populations,
+    in particular AGN and their role in galaxy evolution.
+  retrieved_at: '2026-06-22'
+
+- id: askap-imagecubes-page
+  kind: publisher_doc
+  url: https://research.csiro.au/racs/home/data-2/racs-low-dr1-raw-data/
+  label: RACS-low1 DR1 images and RMS maps — image products (CSIRO RACS)
+  excerpt: Images with the prefix 'image.i' ... are the mean total intensity maps (Stokes I). Tile images
+    convolved to a common resolution of 25 arcsec and mosaicked with neighbouring tiles. An associated
+    rms image for each tile.
+  retrieved_at: '2026-06-22'
+
+- id: askap-rda-terms
+  kind: catalog_metadata
+  url: https://researchdata.edu.au/askap-project-as110-release-1/research.csiro.au/racs/
+  label: ASKAP Project AS110 — RACS Stokes I Source Catalogue DR1, CSIRO collection record (Research Data
+    Australia)
+  excerpt: Creative Commons Attribution 4.0 International Licence https://creativecommons.org/licenses/by/4.0/
+    . Data is accessible online and may be reused in accordance with licence conditions. Publicly accessible
+    online. All Rights (including copyright) CSIRO 2021.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Rapid ASKAP Continuum Survey radio sky data
+    lede: The Rapid ASKAP Continuum Survey (RACS) is CSIRO's first large-area radio survey with the ASKAP
+      telescope, mapping the entire southern sky in continuum at 887.5 MHz.
+    text: 'RACS is an observatory-led survey on CSIRO''s Australian SKA Pathfinder (ASKAP), a 36-dish
+      radio telescope in Western Australia that uses Phased Array Feed technology to map the sky at extreme
+      survey speed. This collection holds the first data release in the low band (RACS-low1): 799 mosaicked
+      Stokes I continuum tile images at 887.5 MHz convolved to 25-arcsec resolution, their matching RMS
+      noise maps, and the all-sky source and Gaussian-component catalogues (~2.1 million extragalactic
+      sources) derived from them. It is distributed by CSIRO''s Australia Telescope National Facility
+      under CC-BY-4.0, supporting studies of radio populations and active galactic nuclei across the southern
+      sky from -80 to +30 degrees declination.'
+  refs:
+  - askap-homepage
+  - askap-rda-terms
+  - askap-dr1-data-page
+
+source:
+  publisher: Australia Telescope National Facility, CSIRO
+  homepage_url: https://research.csiro.au/racs/
+
+display:
+  canonical_path: /askap/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

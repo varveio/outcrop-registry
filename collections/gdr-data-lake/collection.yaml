@@ -1,0 +1,207 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: gdr-data-lake
+title: DOE Geothermal Data Repository (GDR) Data Lake
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: crescent-valley-1567
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1567
+  label: 'GDR: Seismic Survey 2016 Data at Crescent Valley, Nevada (WHOLESCALE)'
+  excerpt: In September 2016, 989 vertical-component seismic instruments were deployed for 75 hours at
+    the Crescent Valley greenfield geothermal play area in Nevada. Data were recorded 12/9/16 - 12/15/16.
+  retrieved_at: '2026-06-20'
+
+- id: egscollab-exp1-1368
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1368
+  label: 'GDR: EGS Collab Experiment 1 — Continuous Active-Source Seismic Monitoring (CASSM)'
+  excerpt: The CASSM system collected seismic monitoring data using 17 piezoelectric sources recorded
+    by hydrophone arrays, 18 three-component accelerometers, and 4 three-component geophones at a 24 kHz
+    sampling rate.
+  retrieved_at: '2026-06-20'
+
+- id: egscollab-exp2-active-1700
+  kind: registry_entry
+  url: https://gdr.openei.org/submissions/1700
+  label: 'GDR: EGS Collab Experiment 2 — Continuous Active Source Seismic Monitoring (CASSM)'
+  excerpt: 'EGS Collab Experiment 2: Continuous Active Source Seismic Monitoring (CASSM)'
+  retrieved_at: '2026-06-20'
+
+- id: egscollab-exp2-das-1606
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1606
+  label: 'GDR: EGS Collab Experiment 2 — Distributed Fiber Optic Acoustic Data (DAS)'
+  excerpt: 'Raw acoustic monitoring data collected using three distributed acoustic sensing (DAS) interrogator
+    units: a Silixa iDAS, a Terra15 Treble, and an Optasense ODH3.'
+  retrieved_at: '2026-06-20'
+
+- id: egscollab-exp2-passive-1607
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1607
+  label: 'GDR: EGS Collab Experiment 2 — Microseismic Monitoring'
+  excerpt: 'This dataset contains continuous seismic waveform data recorded during stimulation and thermal
+    circulation tests for the Enhanced Geothermal Systems (EGS) Collab Experiment #2, conducted from February
+    to September 2022 at the Sanford Underground Research Facility in Lead, South Dakota.'
+  retrieved_at: '2026-06-20'
+
+- id: forge-1680
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1680
+  label: 'GDR: Utah FORGE Neubrex Well 16B(78)-32 DAS Data — April 2024'
+  excerpt: Distributed Acoustic Sensing (DAS) measurements from well 16B(78)-32 at Utah FORGE, collected
+    during hydraulic fracture stimulation operations in April 2024.
+  retrieved_at: '2026-06-20'
+
+- id: gdr-aws-anon-access-sub1368
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1368
+  label: GDR submission 1368 (EGS Collab CASSM) — 'Data on AWS' anonymous S3 access (--no-sign-request)
+  excerpt: 'Publicly accessible License ... EGS Collab Experiment 1 CASSM Data on AWS ... AWS CLI Access:
+    aws s3 ls --no-sign-request s3://gdr-data-lake/egs_collab/experiment_1/EGS_CASSM/ ... View Data Lake
+    5.01 TB GDR Data Lake'
+  retrieved_at: '2026-06-20'
+
+- id: gdr-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/gdr-data-lake/
+  label: AWS Open Data Registry — GDR Data Lake (gdr-data-lake.yaml)
+  excerpt: Data released from projects funded by the Department of Energy's Geothermal Technologies Office
+    (DOE GTO) that are too large or complex to be conveniently accessed by traditional means.
+  retrieved_at: '2026-06-20'
+
+- id: gdr-data-lake-anchor-license-fence
+  kind: publisher_doc
+  url: https://gdr.openei.org/about
+  label: GDR About page — data license, free access & PII/appropriateness policy
+  excerpt: The GDR provides free access to data generated from projects funded by the U.S. Department
+    of Energy's Office of Geothermal. Content is available under Creative Commons Attribution 4.0 unless
+    otherwise noted. Data on the GDR is discoverable, free to use and access. Submissions are reviewed
+    for Appropriateness to make sure they are suitable for eventual public release and do not inadvertently
+    contain personally identifiable information (PII) or other obviously inappropriate content.
+  retrieved_at: '2026-06-20'
+
+- id: gdr-data-lakes-doc
+  kind: publisher_doc
+  url: https://gdr.openei.org/data_lakes
+  label: GDR — Data Lakes overview page
+  excerpt: Content is available under Creative Commons Attribution 4.0 unless otherwise noted.
+  retrieved_at: '2026-06-20'
+
+- id: gdr-homepage
+  kind: publisher_homepage
+  url: https://gdr.openei.org/
+  label: Geothermal Data Repository (GDR) homepage
+  excerpt: The GDR provides free access to data generated from projects funded by the U.S. Department
+    of Energy's Office of Geothermal. Content is available under Creative Commons Attribution 4.0 unless
+    otherwise noted.
+  retrieved_at: '2026-06-20'
+
+- id: gdr-terms-doc-v2
+  kind: publisher_doc
+  url: https://gdr.openei.org/about
+  label: GDR About page — data license, free access & PII/appropriateness policy
+  excerpt: The GDR provides free access to data generated from projects funded by the U.S. Department
+    of Energy's Office of Geothermal. Content is available under Creative Commons Attribution 4.0 unless
+    otherwise noted. Data on the GDR is discoverable, free to use and access. Submissions are reviewed
+    for Appropriateness to make sure they are suitable for eventual public release and do not inadvertently
+    contain personally identifiable information (PII) or other obviously inappropriate content.
+  retrieved_at: '2026-06-20'
+
+- id: imperialvalleydas-1499
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1499
+  label: 'GDR: Imperial Valley Dark Fiber Project — Continuous DAS Data'
+  excerpt: Distributed Acoustic Sensing (DAS) seismic data collected using repurposed telecommunications
+    fiber optic cables - unused 'dark fiber' from telecom networks.
+  retrieved_at: '2026-06-20'
+
+- id: newberry-1514
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1514
+  label: 'GDR: DEEPEN — Newberry Volcano MT and Gravity Data (2022-2023)'
+  excerpt: Combined full tensor broadband magnetotelluric (MT) and gravity data were acquired, processed,
+    and inverted... Data were collected with the goal of gaining an improved understanding of the South
+    Flank and the extent of the magma chamber.
+  retrieved_at: '2026-06-20'
+
+- id: san-emidio-1395
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1395
+  label: 'GDR: Seismic Survey 2016 Data at San Emidio, Nevada (WHOLESCALE)'
+  excerpt: Passive seismic data were collected as part of the DOE-funded Subsurface Technology and Engineering
+    R&D (SubTER) project to advance imaging and characterization of geothermal permeability.
+  retrieved_at: '2026-06-20'
+
+- id: san-emidio-2021-1478
+  kind: registry_entry
+  url: https://gdr.openei.org/submissions/1478
+  label: 'GDR: WHOLESCALE — Seismic Survey Data from San Emidio, Nevada 2021'
+  excerpt: 'WHOLESCALE: Seismic Survey Data from San Emidio Nevada 2021'
+  retrieved_at: '2026-06-20'
+
+- id: soda-lake-1655
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1655
+  label: 'GDR: Soda Lake Geothermal — Raw 3D and 3C Seismic-Reflection Data from 2010 Survey'
+  excerpt: This dataset contains seismic-reflection records created in 2010 around the Soda Lake geothermal
+    field near Fallon, Nevada.
+  retrieved_at: '2026-06-20'
+
+- id: wholescale-1395-1567-1478
+  kind: publisher_doc
+  url: https://gdr.openei.org/submissions/1395
+  label: 'GDR: WHOLESCALE — San Emidio & Crescent Valley Nevada seismic surveys'
+  excerpt: Passive seismic data were collected as part of the DOE-funded Subsurface Technology and Engineering
+    R&D (SubTER) project to advance imaging and characterization of geothermal permeability.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Large-scale geothermal field datasets from DOE-funded projects
+    lede: The GDR Data Lake is the alternative-storage tier of the U.S. DOE Geothermal Data Repository,
+      carrying the largest and most complex datasets from Geothermal Technologies Office projects under
+      CC BY 4.0.
+    text: 'The Geothermal Data Repository (GDR) gives free access to data generated by projects funded
+      by the U.S. Department of Energy''s Office of Geothermal, managed by the National Renewable Energy
+      Laboratory (NREL). The Data Lake is its alternative-storage model for especially large or complex
+      datasets — typically terabyte-scale or in hierarchical formats — curated for consistency before
+      release. It contains high-value geothermal field data from DOE Geothermal Technologies Office projects:
+      distributed acoustic sensing, downhole geophone and accelerometer recordings, active- and passive-source
+      seismic monitoring, and seismic-reflection surveys drawn from the EGS Collab experiments at SURF,
+      Utah FORGE, the Imperial Valley dark-fiber project, the WHOLESCALE surveys in Nevada, and the Soda
+      Lake field. Storage is covered by the AWS Open Data Sponsorship Program, and content is available
+      under CC BY 4.0 unless otherwise noted. It is a sister data lake to DOE''s Open Energy Data Initiative
+      (OEDI) Data Lake.'
+  refs:
+  - gdr-aws-registry
+  - gdr-data-lakes-doc
+  - gdr-homepage
+
+source:
+  publisher: Geothermal Data Repository (GDR), U.S. DOE / NREL
+  homepage_url: https://gdr.openei.org/
+
+display:
+  canonical_path: /gdr-data-lake/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

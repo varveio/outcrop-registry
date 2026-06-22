@@ -1,0 +1,77 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: blue-et
+title: IWMI Blue Evapotranspiration (Blue ET)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: blueet-aws-registry-access
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/blue_et/
+  label: IWMI DIWASA Blue ET for Africa — AWS Open Data dataset catalog (access example)
+  excerpt: aws s3 ls --region af-south-1 --no-sign-request s3://iwmi-datasets/Water_accounting_plus/Africa/Incremental_ET_M/
+  retrieved_at: '2026-06-22'
+
+- id: blueet-dea-specs
+  kind: catalog_metadata
+  url: https://docs.digitalearthafrica.org/en/latest/data_specs/DIWASA_Blue_and_Green_ET_specs.html
+  label: IWMI Evapotranspiration Products — DIWASA Blue & Green ET data specifications (Digital Earth
+    Africa)
+  excerpt: The Blue and Green ET data are in the public domain and are freely available for public use.
+    The IWMI data is shared under a Creative Commons open license. Users of these datasets are encouraged
+    to cite Karimi et al. (2013) and Owusu et al. (2025) papers.
+  retrieved_at: '2026-06-22'
+
+- id: blueet-iwmi-homepage
+  kind: publisher_homepage
+  url: https://www.iwmi.org/
+  label: International Water Management Institute (IWMI) homepage
+  excerpt: International Water Management Institute (IWMI) is an international, research-for-development
+    organization that works with governments, civil society and the private sector to solve water problems
+    in developing countries.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Blue (incremental) evapotranspiration for Africa from IWMI Water Accounting+
+    lede: IWMI's DIWASA Blue ET is a continent-wide, monthly map of the irrigation-driven share of evapotranspiration
+      across Africa, derived from SSEBop satellite ET within the Water Accounting+ framework.
+    text: Blue ET — the incremental evapotranspiration supplied by blue water (surface water and groundwater)
+      rather than rainfall — quantifies consumptive water use in irrigated agriculture, evaporation from
+      irrigated fields and artificial storage, and losses from rivers, lakes, and reservoirs. Produced
+      by the International Water Management Institute through the Digital Innovation for Water Secure
+      Africa (DIWASA) project, it partitions operational SSEBop ET into green and blue components using
+      the Water Accounting+ (WA+) mass-balance framework. The collection covers the entire African continent
+      on a ~1 km grid (EPSG:4326), monthly from 2003 to 2021, with values in millimetres stored as scaled
+      Int16 GeoTIFFs accompanied by STAC items. It supports water-productivity assessment and sustainable
+      management of scarce blue-water resources, and is also served via Digital Earth Africa's OGC web
+      services and Open Data Cube.
+  refs:
+  - blueet-dea-specs
+
+source:
+  publisher: International Water Management Institute (IWMI)
+  homepage_url: https://www.iwmi.org/
+
+display:
+  canonical_path: /blue-et/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,112 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: camelyon
+title: CAMELYON Grand Challenge
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: camelyon-aws-open-data-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/camelyon/
+  label: CAMELYON on the Registry of Open Data on AWS (anonymous s3://camelyon-dataset access)
+  excerpt: 'aws s3 ls --no-sign-request s3://camelyon-dataset/ — No AWS account required. ARN: arn:aws:s3:::camelyon-dataset,
+    Region: us-west-2.'
+  retrieved_at: '2026-06-22'
+
+- id: camelyon-gigascience-descriptor
+  kind: publisher_doc
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6007545/
+  label: 'GigaScience CAMELYON data descriptor (giy065, PMC6007545): CC0 over the full 1399-image collection,
+    access, ethics, de-identification'
+  excerpt: This resulted in 1399 unique WSIs and a total data size of 2.95 terabytes. The dataset is currently
+    publicly available after registration via the CAMELYON17 website. ... It has been licensed under the
+    Creative Commons CC0 license. ... Collection of the data was approved by the local ethics committee
+    of the Radboud University Medical Center (RUMC) under 2016-2761, and the need for informed consent
+    was waived. ... CAMELYON16 and CAMELYON17 datasets are open access and shared publicly via the CAMEL
+  retrieved_at: '2026-06-22'
+
+- id: camelyon-pub-homepage
+  kind: publisher_homepage
+  url: https://camelyon17.grand-challenge.org/
+  label: CAMELYON17 challenge home (DIAG / Radboudumc)
+  excerpt: The challenge is organized by the Diagnostic Image Analysis Group (DIAG) and Department of
+    Pathology of the Radboud University Medical Center (Radboudumc) in Nijmegen, The Netherlands.
+  retrieved_at: '2026-06-22'
+
+- id: camelyon16-data-page
+  kind: publisher_doc
+  url: https://camelyon16.grand-challenge.org/Data/
+  label: CAMELYON16 Data page (WSIs, annotations, masks)
+  excerpt: 'The data for this challenge contains a total of 400 whole-slide images (WSIs) of sentinel
+    lymph node from two independent datasets collected in Radboud University Medical Center (Nijmegen,
+    the Netherlands), and the University Medical Center Utrecht (Utrecht, the Netherlands). ... The ground
+    truth data for the slides containing metastases is provided in two formats: .xml files containing
+    vertices of the annotated contours [and] WSI binary Masks.'
+  retrieved_at: '2026-06-22'
+
+- id: camelyon17-data-page
+  kind: publisher_doc
+  url: https://camelyon17.grand-challenge.org/Data/
+  label: CAMELYON17 Data page (CC0; dataset contents)
+  excerpt: This work is made available under CC0. The data in this challenge contains whole-slide images
+    (WSI) of hematoxylin and eosin (H&E) stained lymph node sections. ... WSI are provided as TIFF images.
+    Lesion-level annotations are provided as XML files.
+  retrieved_at: '2026-06-22'
+
+- id: camelyon17-download-page
+  kind: publisher_doc
+  url: https://camelyon17.grand-challenge.org/Download/
+  label: CAMELYON17 Download page (access channels; footer license)
+  excerpt: CAMELYON16 and CAMELYON17 data sets are shared separately on Google Drive. ... The data sets
+    are also mirrored to Baidu Pan. Please contact us if you wish to access the data on Baidu Pan. ...
+    This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+    License.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Whole-slide lymph-node pathology for breast-cancer metastasis detection
+    lede: CAMELYON pairs the CAMELYON16 and CAMELYON17 grand-challenge releases into 1,399 H&E-stained
+      whole-slide images of sentinel lymph-node sections, with pathologist annotations for automated metastasis
+      detection.
+    text: 'CAMELYON (CAncer MEtastases in LYmph nOdes challeNge) is a digital-pathology benchmark from
+      the Diagnostic Image Analysis Group and Department of Pathology at Radboud University Medical Center.
+      It unifies the two grand-challenge releases: CAMELYON16 (399 whole-slide images from Radboud UMC
+      and UMC Utrecht, framed as slide-level metastasis detection) and CAMELYON17 (1,000 slides from 100
+      patients across five Dutch medical centres, framed as patient-level pN-stage prediction), for 1,399
+      H&E-stained sentinel lymph-node sections totalling roughly 3 TB. Images are multi-resolution TIFF
+      pyramids readable with OpenSlide or ASAP; ground truth ranges from lesion-level XML contour annotations
+      and binary tumour masks to patient-level pN-stage labels, all prepared under expert-pathologist
+      supervision. The collection is organized into two top-level releases, each carrying images, masks,
+      annotations, and evaluation material.'
+  refs:
+  - camelyon17-data-page
+  - camelyon16-data-page
+  - camelyon-gigascience-descriptor
+
+source:
+  publisher: Diagnostic Image Analysis Group (DIAG), Radboud University Medical Center
+  homepage_url: https://camelyon17.grand-challenge.org/
+
+display:
+  canonical_path: /camelyon/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

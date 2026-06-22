@@ -1,0 +1,79 @@
+schema_version: '0.4'
+bucket: opencitymodel
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: 2019-feb/
+  copy:
+    headline: February 2019 release — CityGML and CityJSON building models
+    lede: The 2019-feb release of Open City Model carries US LOD1 building geometries in zip-compressed
+      CityGML and CityJSON, organized by state and county.
+    text: This dated release of Open City Model provides 3D LOD1 building models in two content-identical
+      encodings — CityGML (gml, zip-compressed) and CityJSON (json). Within each format the data is split
+      into one folder per US state and then partitioned by county FIPS code into files of roughly 40,000
+      buildings, following the project's standard <format>/<State>/<CountyFIPS>/ layout. Each building
+      carries footprint area, modeled height, state and county codes, source attribution, and a UBID.
+  refs:
+  - ocm-readme
+
+- prefix: 2019-jan/
+  copy:
+    headline: January 2019 release — CityGML and CityJSON building models
+    lede: The 2019-jan release of Open City Model carries US LOD1 building geometries in zip-compressed
+      CityGML and CityJSON, organized by state and county.
+    text: This dated release of Open City Model provides 3D LOD1 building models in two content-identical
+      encodings — CityGML (gml, zip-compressed) and CityJSON (json). Within each format the data is split
+      into one folder per US state and then partitioned by county FIPS code into files of roughly 40,000
+      buildings, following the project's standard <format>/<State>/<CountyFIPS>/ layout. Each building
+      carries footprint area, modeled height, state and county codes, source attribution, and a UBID.
+  refs:
+  - ocm-readme
+
+- prefix: 2019-jun/gml/
+  copy:
+    headline: June 2019 release — CityGML encoding (zip-compressed)
+    lede: 'The CityGML form of Open City Model''s 2019-jun release: LOD1 US building solids in the CityGML
+      standard, zip-compressed and split by state and county.'
+    text: This is the CityGML encoding of the June 2019 release, the project's most complete drop covering
+      all US states. Buildings are modeled as LOD1 solids in the international CityGML urban-data standard
+      and delivered as zip-compressed files to minimize download size. The data is organized into one
+      folder per US state, then partitioned by county FIPS code into files of roughly 40,000 buildings.
+      Geometry uses EPSG:4979 (WGS84 degrees, height in meters), and each building carries footprint area,
+      modeled height, source attribution, and a UBID.
+  refs:
+  - ocm-readme
+
+- prefix: 2019-jun/json/
+  copy:
+    headline: June 2019 release — CityJSON encoding
+    lede: 'The CityJSON form of Open City Model''s 2019-jun release: the same LOD1 US building models
+      expressed in the JSON-based CityJSON encoding.'
+    text: This is the CityJSON encoding of the June 2019 release, content-identical to the CityGML and
+      Parquet forms but expressed in the compact JSON-based CityJSON format. Buildings are LOD1 solids
+      organized into one folder per US state, then partitioned by county FIPS code into files of roughly
+      40,000 buildings. Geometry uses EPSG:4979 (WGS84 degrees, height in meters), and each building carries
+      footprint area, modeled height, source attribution, and a UBID.
+  refs:
+  - ocm-readme
+
+- prefix: 2019-jun/parquet/
+  copy:
+    headline: June 2019 release — columnar Parquet encoding
+    lede: 'The Parquet form of Open City Model''s 2019-jun release: the same US building models in a columnar
+      layout partitioned by state and county for analytics.'
+    text: This is the Parquet encoding of the June 2019 release, content-identical to the CityGML and
+      CityJSON forms but stored in Snappy-compressed columnar Parquet partitioned by state and county
+      (state=<State>/county=<FIPS>/). This layout suits query engines such as Amazon Athena, letting users
+      filter buildings by location and attribute without parsing CityGML. Each record carries the building's
+      3D geometry plus footprint area, modeled height, state and county codes, source attribution, and
+      a UBID.
+  refs:
+  - ocm-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

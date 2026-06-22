@@ -1,0 +1,35 @@
+schema_version: '0.4'
+bucket: openalex-mag-format
+backend: s3
+role: secondary
+region: us-east-1
+
+terms:
+  license: ODC-BY-1.0
+  status: verified
+  name: ODC-BY-1.0
+  url: null
+  display_policy: include
+
+prefixes:
+- prefix: data_dump_v1/
+  copy:
+    headline: MAG-format snapshot — frozen Microsoft Academic Graph replacement
+    lede: OpenAlex's drop-in replacement for Microsoft Academic Graph dumps, reusing the original MAG
+      schema.
+    text: 'OpenAlex data in the MAG format: a drop-in replacement for the discontinued Microsoft Academic
+      Graph (MAG) dumps, built for users whose pipelines target the original MAG schema and mirroring
+      the original MAG dump layout. Because it reuses Microsoft''s schema, it inherits Microsoft''s terms:
+      the payload''s own LICENSE.txt asks anyone using the data in a product or service, or including
+      it in a redistribution, to acknowledge Microsoft Academic via the URI https://aka.ms/msracad, and
+      to cite the Microsoft Academic Service papers (Sinha et al. 2015; Wang et al. 2019) in publications.
+      It is reachable anonymously over public HTTPS S3. This snapshot is the historical sibling of the
+      live, ongoing catalog in the primary openalex bucket, which is the standard-format snapshot.'
+  refs:
+  - openalex-magfmt-license-txt
+
+stewardship:
+  last_reviewed_at: '2026-06-19'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

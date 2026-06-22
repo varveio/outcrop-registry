@@ -1,0 +1,111 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: short-peptides
+title: Conformational Space of Short Peptides
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: short-peptides-aws-catalog
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/short_peptides.yaml
+  label: AWS Open Data dataset metadata — short_peptides.yaml
+  excerpt: "License: CC-BY 4.0 See https://github.com/ToyokoLabs/SBG/blob/master/LICENSE\nResources:\n\
+    \  - ARN: arn:aws:s3:::toyokounqpeptides/tripep/\n    Region: us-west-2\n    Type: S3 Bucket\n  -\
+    \ ARN: arn:aws:s3:::toyokounqpeptides/5pep/\n    Region: us-west-2\n    Type: S3 Bucket"
+  retrieved_at: '2026-06-22'
+
+- id: short-peptides-homepage
+  kind: publisher_homepage
+  url: https://www.toyoko.io/
+  label: Toyoko homepage
+  excerpt: Toyoko
+  retrieved_at: '2026-06-22'
+
+- id: short-peptides-license
+  kind: publisher_file
+  url: https://github.com/ToyokoLabs/SBG/blob/master/LICENSE
+  label: ToyokoLabs/SBG LICENSE (CC BY 4.0)
+  excerpt: 'Attribution 4.0 International
+
+
+    Creative Commons Corporation ("Creative Commons") is not a law firm and does not provide legal services
+    or legal advice.'
+  retrieved_at: '2026-06-22'
+
+- id: short-peptides-manifest
+  kind: publisher_doc
+  url: https://github.com/ToyokoLabs/SBG/blob/master/data/manifest.md
+  label: ToyokoLabs/SBG data manifest (file descriptions)
+  excerpt: 'The dataset is composed of tar.bz2 files with the following name convention: N[1]C[2]-R[3].tar.bz2.
+    Inside each tarball, there are up to 4 files: out file (Output of Sander), traj file (Trajectory file
+    from Sander), crd file (Coordinate file from Sander), top file (Topology file from Tleap; not present
+    in R1 packages). For tripeptides, each file is stored as they were generated; for pentapeptides, each
+    run data is compressed in a tar.bz2 file.'
+  retrieved_at: '2026-06-22'
+
+- id: short-peptides-readme
+  kind: publisher_doc
+  url: https://github.com/ToyokoLabs/SBG/blob/master/README.md
+  label: ToyokoLabs/SBG README
+  excerpt: This repository has information related to Conformational Space of Short Peptides project.
+    Where we calculated the structure of all peptides up to 5 Amino Acid, using Amber.
+  retrieved_at: '2026-06-22'
+
+- id: short-peptides-tutorial
+  kind: publisher_doc
+  url: https://www.toyoko.io/pepdataset/
+  label: Intro to Conformational Space of Short Peptides (Toyoko tutorial)
+  excerpt: Intro to Conformational Space of Short Peptides, by Sebastian Bassi and Virginia Gonzalez.
+    The dataset allows us to explore the conformational space of all possible peptides using the 20 common
+    amino acids, available under the tripep and 5pep directories of the toyokounqpeptides S3 bucket.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Molecular-dynamics conformational ensembles of every short peptide
+    lede: The Conformational Space of Short Peptides is an exhaustive set of Amber molecular-dynamics
+      simulations sampling the conformations of all tripeptides and pentapeptides built from the 20 common
+      amino acids.
+    text: 'Co-managed by Toyoko and the Structural Biology Group at the Universidad Nacional de Quilmes
+      (UNQ), this collection maps the conformational space accessible to short peptides by running exhaustive
+      molecular-dynamics simulations in Amber. It samples a representative subset of the structural conformations
+      available to every possible peptide of the chosen length, built from the 20 common amino acids.
+
+
+      The data is organized into two products: tripeptide simulations (all 8,000 possible tripeptides,
+      two replicas each, kept as individual Amber output, trajectory and coordinate files) and pentapeptide
+      simulations (all 3,200,000 possible pentapeptides, packaged one run per bzip2-compressed tarball).
+      It supports work on the structural constraints of peptide binding — for instance, using a tripeptide
+      bound in the DPP-IV pocket as a docking template to screen alternative tripeptides as candidate
+      inhibitors. Released under CC BY 4.0.'
+  refs:
+  - short-peptides-tutorial
+  - short-peptides-readme
+  - short-peptides-aws-catalog
+
+source:
+  publisher: Toyoko
+  homepage_url: https://www.toyoko.io/
+
+display:
+  canonical_path: /short-peptides/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

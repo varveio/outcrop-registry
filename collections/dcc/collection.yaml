@@ -1,0 +1,104 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: dcc
+title: The MIT Supercloud Dataset
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: dcc-aws-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/dcc.yaml
+  label: AWS Open Data Registry — The MIT Supercloud Dataset (dcc.yaml)
+  excerpt: 'License: http://creativecommons.org/licenses/by-nc-nd/4.0/ ; ARN: arn:aws:s3:::mit-supercloud-dataset
+    ; Region: us-west-2 ; aws s3 ls --no-sign-request s3://mit-supercloud-dataset/'
+  retrieved_at: '2026-06-22'
+
+- id: dcc-data-access
+  kind: publisher_doc
+  url: https://dcc.mit.edu/data/
+  label: MIT Datacenter Challenge — Data access page
+  excerpt: aws s3 cp s3://mit-supercloud-dataset/datacenter-challenge datacenter-challenge --recursive
+    --no-sign-request
+  retrieved_at: '2026-06-22'
+
+- id: dcc-datacenter-challenge-doc
+  kind: publisher_doc
+  url: https://dcc.mit.edu/data/
+  label: MIT Datacenter Challenge — datacenter-challenge data contents
+  excerpt: s3://mit-supercloud-dataset/datacenter-challenge/202201/ ... CPU/GPU folders, a LICENSE file,
+    README documentation, labelled job statistics, job ID mappings, node data, SLURM logs, and TRES mapping
+    information.
+  retrieved_at: '2026-06-22'
+
+- id: dcc-homepage
+  kind: publisher_homepage
+  url: https://dcc.mit.edu/
+  label: MIT Datacenter Challenge homepage
+  excerpt: The MIT Datacenter Challenge is making publicly available an HPC cluster dataset for the research
+    and development of innovative AI/ML techniques that will facilitate the development of tools to detect,
+    explain, recover, and potentially predict outliers and ultimately mitigate system failure in complex
+    multi-sensor systems.
+  retrieved_at: '2026-06-22'
+
+- id: dcc-hpca-repo
+  kind: publisher_doc
+  url: https://github.com/boringlee24/HPCA22_SuperCloud
+  label: HPCA22_SuperCloud — data for the 2022 HPCA paper
+  excerpt: 'dcgm.csv: GPU utilization information for each GPU assigned to each job, including power consumption,
+    resource usage. nvidia_smi.csv: time-series information captured by nvidia-smi, for about 2000 jobs.
+    Data is recorded every 100ms.'
+  retrieved_at: '2026-06-22'
+
+- id: dcc-paper
+  kind: web_research
+  url: https://arxiv.org/abs/2108.02037
+  label: The MIT Supercloud Dataset (HPEC 2021 paper)
+  excerpt: detailed monitoring logs from the MIT Supercloud system, which include CPU and GPU usage by
+    jobs, memory usage, file system logs, and physical monitoring data
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-NC-ND-4.0
+  status: verified
+  name: CC-BY-NC-ND-4.0
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: HPC cluster telemetry from the MIT Supercloud system
+    lede: The MIT Supercloud Dataset is an open release of anonymized scheduler logs and CPU/GPU time-series
+      telemetry from the MIT Supercloud HPC system, published by the MIT Datacenter Challenge.
+    text: 'The MIT Supercloud Dataset captures detailed monitoring logs from the MIT Supercloud system:
+      anonymized Slurm scheduler logs alongside time-series data of CPU and GPU usage, memory usage, file-system
+      logs, and physical monitoring such as power and temperature. It is published by the MIT Datacenter
+      Challenge — part of the MIT-USAF AI Accelerator FastAI project — to support research into detecting,
+      explaining, and predicting anomalies and system failures in large multi-sensor HPC and datacenter
+      operations. The release pairs high-level job records (nodes, CPU/GPU/memory requests, exit codes,
+      run time) with low-level per-job hardware-utilization series, and is updated annually. It is distributed
+      under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 license, with attribution
+      to the IEEE HPEC 2021 paper required.'
+  refs:
+  - dcc-homepage
+  - dcc-paper
+  - dcc-aws-registry
+
+source:
+  publisher: MIT Datacenter Challenge
+  homepage_url: https://dcc.mit.edu/
+
+display:
+  canonical_path: /dcc/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

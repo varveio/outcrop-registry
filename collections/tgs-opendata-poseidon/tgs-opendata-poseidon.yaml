@@ -1,0 +1,93 @@
+schema_version: '0.4'
+bucket: tgs-opendata-poseidon
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: far_stack.mdio/
+  copy:
+    headline: Poseidon far-angle stack seismic volume (MDIO)
+    lede: 'The far-angle stack of the Poseidon 3D survey: the imaged seismic amplitudes from the wider
+      source-receiver offset range, stored as a single MDIO v1 volume.'
+    text: 'This is the far-offset angle stack of the Poseidon survey, imaging the subsurface response
+      at wide incidence angles — the part of the amplitude-versus-offset behaviour most sensitive to fluid
+      and lithology contrasts and commonly paired with the near and mid stacks for AVO analysis.
+
+
+      The volume is one MDIO (Zarr-based) container: the 3D seismic amplitudes are the primary chunked,
+      compressed array, accompanied by coordinate and header arrays — inline, crossline, cdp-x, cdp-y,
+      time, trace headers, and a live trace mask — all self-described within the single volume rather
+      than as separate datasets.'
+  note: An MDIO/Zarr seismic volume; cdp-x, cdp-y, crossline, inline and headers are its internal array
+    components, not separate datasets.
+  refs:
+  - mdio-format-doc
+  - mdio-zarr-format
+  boundary: pin
+
+- prefix: full_stack_agc.mdio/
+  copy:
+    headline: Poseidon full stack with AGC seismic volume (MDIO)
+    lede: The full stack of the Poseidon 3D survey with automatic gain control applied, stored as a single
+      MDIO v1 volume.
+    text: 'This is the full-stack image of the Poseidon survey — all angle ranges summed for the highest
+      signal-to-noise structural picture — with automatic gain control (AGC) applied to balance amplitudes
+      across two-way time, making it the most readable volume for structural and stratigraphic interpretation.
+
+
+      The volume is one MDIO (Zarr-based) container: the AGC-balanced 3D amplitudes are the primary chunked,
+      compressed array, accompanied by inline, crossline, cdp-x, cdp-y, time, trace-header, and live-trace-mask
+      coordinate arrays, all self-described within the single volume.'
+  note: An MDIO/Zarr seismic volume; cdp-x, cdp-y, crossline, inline and headers are its internal array
+    components, not separate datasets.
+  refs:
+  - mdio-format-doc
+  - mdio-zarr-format
+  boundary: pin
+
+- prefix: mid_stack.mdio/
+  copy:
+    headline: Poseidon mid-angle stack seismic volume (MDIO)
+    lede: 'The mid-angle stack of the Poseidon 3D survey: imaged seismic amplitudes from the intermediate
+      offset range, stored as a single MDIO v1 volume.'
+    text: 'This is the mid-offset angle stack of the Poseidon survey, imaging the subsurface at intermediate
+      incidence angles. Together with the near and far stacks it supports amplitude-versus-offset and
+      angle-dependent reflectivity analysis across the survey.
+
+
+      The volume is one MDIO (Zarr-based) container: the 3D seismic amplitudes are the primary chunked,
+      compressed array, accompanied by inline, crossline, cdp-x, cdp-y, time, trace-header, and live-trace-mask
+      coordinate arrays, all self-described within the single volume.'
+  note: An MDIO/Zarr seismic volume; cdp-x, cdp-y, crossline, inline and headers are its internal array
+    components, not separate datasets.
+  refs:
+  - mdio-format-doc
+  - mdio-zarr-format
+  boundary: pin
+
+- prefix: near_stack.mdio/
+  copy:
+    headline: Poseidon near-angle stack seismic volume (MDIO)
+    lede: 'The near-angle stack of the Poseidon 3D survey: imaged seismic amplitudes from the short source-receiver
+      offset range, stored as a single MDIO v1 volume.'
+    text: 'This is the near-offset angle stack of the Poseidon survey, imaging the subsurface at small
+      incidence angles — the baseline amplitude response against which the mid and far stacks are compared
+      in amplitude-versus-offset analysis.
+
+
+      The volume is one MDIO (Zarr-based) container: the 3D seismic amplitudes are the primary chunked,
+      compressed array, accompanied by inline, crossline, cdp-x, cdp-y, time, trace-header, and live-trace-mask
+      coordinate arrays, all self-described within the single volume.'
+  note: An MDIO/Zarr seismic volume; cdp-x, cdp-y, crossline, inline and headers are its internal array
+    components, not separate datasets.
+  refs:
+  - mdio-format-doc
+  - mdio-zarr-format
+  boundary: pin
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,85 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: opentargets
+title: Open Targets Platform
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: opentargets-aws-datasets-doc
+  kind: publisher_doc
+  url: https://platform-docs.opentargets.org/data-access/platform-datasets-on-aws
+  label: Open Targets Platform Documentation — Platform datasets on AWS
+  excerpt: s3://open-targets-public-data-releases/platform/
+  retrieved_at: '2026-06-22'
+
+- id: opentargets-aws-registry-meta
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/opentargets/
+  label: Open Targets — Registry of Open Data on AWS (provider dataset catalog metadata)
+  excerpt: 'License: https://creativecommons.org/publicdomain/zero/1.0/ . Resources on AWS: arn:aws:s3:::open-targets-public-data-releases,
+    eu-west-1, S3 Bucket. aws s3 ls --no-sign-request s3://open-targets-public-data-releases/'
+  retrieved_at: '2026-06-22'
+
+- id: opentargets-homepage
+  kind: publisher_homepage
+  url: https://platform.opentargets.org/
+  label: Open Targets Platform homepage
+  excerpt: The Open Targets Platform is a comprehensive data integration tool that supports systematic
+    identification and prioritisation of potential therapeutic drug targets.
+  retrieved_at: '2026-06-22'
+
+- id: opentargets-licence-doc
+  kind: publisher_doc
+  url: https://platform-docs.opentargets.org/licence
+  label: Open Targets Platform Documentation — Licence
+  excerpt: Open Targets Platform is marked with CC0 1.0. This dedicates the data to the public domain,
+    allowing downstream users to consume the data without restriction. The codebases that power the Platform
+    — including our pipelines, GraphQL API, and React UI — are all open source and licensed under the
+    APACHE LICENSE, VERSION 2.0.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Integrated drug target identification and prioritisation data
+    lede: The Open Targets Platform integrates genetics, genomics, and biomedical evidence to support
+      systematic identification and prioritisation of therapeutic drug targets.
+    text: The Open Targets Platform is a data integration resource that brings together publicly available
+      evidence — human genetics, genomics, transcriptomics, drugs, animal models, and scientific literature
+      — to score and prioritise gene targets for diseases. It is built by Open Targets, a public-private
+      partnership including EMBL-EBI, the Wellcome Sanger Institute, and industry partners. The full Platform
+      output is released quarterly as Apache Parquet datasets covering targets, diseases, drugs, evidence,
+      and target-disease associations, and is openly available through FTP, Google Cloud, Microsoft Azure,
+      and the AWS Registry of Open Data. The data is dedicated to the public domain under CC0 1.0, while
+      the pipelines, GraphQL API, and web application that power the Platform are open source under Apache
+      2.0.
+  refs:
+  - opentargets-homepage
+  - opentargets-licence-doc
+  - opentargets-aws-datasets-doc
+
+source:
+  publisher: Open Targets
+  homepage_url: https://platform.opentargets.org/
+
+display:
+  canonical_path: /opentargets/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

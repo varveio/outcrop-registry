@@ -1,0 +1,122 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nyc-tlc-trip-records-pds
+title: NYC TLC Trip Record Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: coordinate-reprocessing
+  kind: web_research
+  url: https://github.com/toddwschneider/nyc-taxi-data/blob/master/README.md
+  label: NYC taxi data — note on July-2016 coordinate removal and May-2022 Parquet replacement
+  excerpt: Starting in July 2016, the TLC no longer provides pickup and dropoff coordinates; instead each
+    trip comes with taxi zone pickup and dropoff location IDs. In May 2022 the TLC changed the raw data
+    format from CSV to Parquet, replacing all historical files.
+  retrieved_at: '2026-06-22'
+
+- id: nyc-terms-of-use
+  kind: publisher_doc
+  url: https://www.nyc.gov/home/terms-of-use.page
+  label: NYC.gov Terms of Use (City of New York)
+  excerpt: All other design, information, text, graphics, images, pages, interfaces, links, software,
+    and other items and materials contained in or displayed on NYC.gov, and the selection and arrangements
+    thereof, are the property of the City of New York. All rights are reserved.
+  retrieved_at: '2026-06-22'
+
+- id: tlc-homepage
+  kind: publisher_homepage
+  url: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+  label: NYC Taxi & Limousine Commission — TLC Trip Record Data (homepage)
+  excerpt: Yellow and green taxi trip records include fields capturing pickup and drop-off dates/times,
+    pickup and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported
+    passenger counts.
+  retrieved_at: '2026-06-22'
+
+- id: tlc-trip-record-page
+  kind: publisher_doc
+  url: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+  label: NYC TLC Trip Record Data — dataset description & disclaimer
+  excerpt: 'Yellow and green taxi trip records include fields capturing pickup and drop-off dates/times,
+    pickup and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported
+    passenger counts. The data used in the attached datasets were collected and provided to the NYC Taxi
+    and Limousine Commission (TLC) by technology providers authorized under the Taxicab & Livery Passenger
+    Enhancement Programs (TPEP/LPEP). The trip data was not created by the TLC, and TLC makes no '
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: NYC.gov Terms of Use (City of New York)
+  url: https://www.nyc.gov/home/terms-of-use.page
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: NYC yellow & green taxi trips, 2009–2015 coordinate-level snapshot
+    lede: A frozen 2009–2015 archive of New York City yellow and green (boro) taxi trip records that uniquely
+      preserves the original pickup and drop-off GPS coordinates the TLC later removed.
+    text: 'New York City Taxi & Limousine Commission trip records capture each yellow and green (boro)
+      taxi ride — pickup and drop-off dates, times and locations, trip distances, itemized fares, rate
+      and payment types, and driver-reported passenger counts — collected through the TPEP/LPEP technology-provider
+      programs. This is a frozen legacy snapshot covering 2009 through 2015 only, in both Parquet and
+      the original bzip2 CSV; it does not track ongoing TLC data, which is published separately on the
+      current nyc-tlc distribution and the TLC trip-record page. Its distinguishing property is granularity:
+      it retains the original pickup_longitude/latitude and dropoff_longitude/latitude columns. When the
+      TLC reprocessed and replaced all historical trip files (Parquet, May 2022) it had already, from
+      July 2016, dropped point coordinates in favor of coarse taxi-zone IDs (PULocationID/DOLocationID)
+      — so for 2009–2015 this archive is finer-grained than the canonical files and its column schema
+      differs from current TLC Parquet. The TLC notes it did not create the data and makes no representations
+      as to its accuracy.'
+  refs:
+  - tlc-trip-record-page
+  - coordinate-reprocessing
+
+source:
+  publisher: New York City Taxi & Limousine Commission
+  homepage_url: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
+display:
+  canonical_path: /nyc-tlc-trip-records-pds/
+
+facts:
+- id: nyc-tlc-trip-records-pds-rel-0
+  intent: relationship
+  topic: lineage
+  scope: inherited
+  copy:
+    label: Current & ongoing TLC data
+    text: Current and ongoing NYC TLC trip data is published on the TLC trip-record distribution and its
+      public CloudFront mirror (d37ci6vzurychx.cloudfront.net/trip-data/); this archive is frozen at 2015
+      and is not updated.
+  relationship:
+    type: superseded_by
+    target: https://d37ci6vzurychx.cloudfront.net/trip-data/
+    direction: outbound
+  refs:
+  - coordinate-reprocessing
+
+- id: nyc-tlc-trip-records-pds-note-0
+  intent: operational_note
+  topic: provenance
+  scope: inherited
+  copy:
+    text: This is the retired AWS “Public Data Sets” (aws-pds) bucket and its owner is not publicly identified.
+      The AWS Open Data registry entry points at a different, account-gated bucket (s3://nyc-tlc) that
+      is effectively unusable for open access — this legacy bucket is what actually serves the 2009–2015
+      data anonymously.
+    headline: Legacy aws-pds bucket — the AWS registry entry is misleading
+  refs:
+  - coordinate-reprocessing
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

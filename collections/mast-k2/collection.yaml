@@ -1,0 +1,93 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: mast-k2
+title: 'MAST: K2 Mission Data'
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: mast-datause
+  kind: publisher_doc
+  url: https://archive.stsci.edu/data_use.html
+  label: MAST Data Use Policy (STScI)
+  excerpt: 'Most data hosted at MAST are in the public domain (see: open data), and therefore do not have
+    restrictions on use. There are, however, expectations (or in some cases, requirements) that researchers
+    acknowledge the originating mission and (usually) STScI in all scholarly publications. Following the
+    expiration of the applicable exclusive access period, science data become available for public use
+    without restriction.'
+  retrieved_at: '2026-06-22'
+
+- id: mast-homepage
+  kind: publisher_homepage
+  url: https://archive.stsci.edu/
+  label: MAST (Mikulski Archive for Space Telescopes) home
+  excerpt: Barbara A. Mikulski Archive for Space Telescopes
+  retrieved_at: '2026-06-22'
+
+- id: mast-k2-page
+  kind: publisher_doc
+  url: https://archive.stsci.edu/missions-and-data/k2
+  label: K2 — MAST Missions and Data page (STScI)
+  excerpt: 'The K2 mission observed 100 square degrees for 80 days, each across 20 different pointings
+    along the ecliptic. The mission began when the original Kepler mission ended due to the loss of the
+    second reaction wheel in 2013. Featured Data Products: Full Frame Images — Raw, calibrated, and uncertainty
+    full frame images. Target Pixel Files — Target pixel files at short or long cadence. Light Curves
+    — Extracted, calibrated light curves at short or long cadence.'
+  retrieved_at: '2026-06-22'
+
+- id: mast-k2-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/mast-k2/
+  label: K2 Mission Data — AWS Open Data registry (provider-maintained catalog)
+  excerpt: 'Resources on AWS — Description: K2 Mission data files. Resource type: S3 Bucket. Amazon Resource
+    Name (ARN): arn:aws:s3:::stpubdata/k2. AWS Region: us-east-1. AWS CLI Access (No AWS account required):
+    aws s3 ls --no-sign-request s3://stpubdata/k2/. License: Public domain. Attribution required for refereed
+    scientific papers.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: NASA K2 mission photometry — full-frame images, light curves, target pixel files
+    lede: The K2 mission is the Kepler spacecraft's extended survey, observing 20 fields along the ecliptic
+      in successive campaigns, archived at MAST (STScI) as calibrated FITS photometry.
+    text: 'K2 is the second-life mission of NASA''s Kepler spacecraft, flown after the 2013 failure of
+      a second reaction wheel left the telescope unable to hold its original stare. Instead, K2 pointed
+      at a sequence of fields along the ecliptic, each observed for roughly 80 days, with each pointing
+      designated a Campaign (c00, c01 … c18). Driven entirely by Guest Investigator proposals, it extended
+      Kepler''s high-precision time-series photometry to exoplanet transits, stellar variability, supernovae,
+      and solar-system science.
+
+
+      The archive holds the standard Kepler/K2 product tiers as FITS: full-frame images (raw, calibrated,
+      and uncertainty), target pixel files at short or long cadence, and extracted calibrated light curves,
+      organized by campaign. The data are hosted by the Mikulski Archive for Space Telescopes at STScI
+      and mirrored on AWS in the public stpubdata bucket.'
+  refs:
+  - mast-k2-page
+  - mast-k2-registry
+
+source:
+  publisher: Space Telescope Science Institute
+  homepage_url: https://archive.stsci.edu/
+
+display:
+  canonical_path: /mast-k2/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

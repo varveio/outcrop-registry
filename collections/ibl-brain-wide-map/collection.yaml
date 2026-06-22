@@ -1,0 +1,169 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: ibl-brain-wide-map
+title: IBL Neuropixels Brain Wide Map
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: ibl-atlas-genomics
+  kind: publisher_doc
+  url: https://docs.internationalbrainlab.org/_autosummary/iblatlas.genomics.html
+  label: iblatlas.genomics — AGEA and MERFISH atlas resources
+  excerpt: 'A package for working with Allen genomics datasets: AGEA and MERFISH. AGEA: This package provides
+    a way to load the Allen Gene Expression volumes. The 4345 volumes have been registered and formatted
+    into a binary file. gene-expression.bin is a float-16 binary file containing the gene expression volumes.'
+  retrieved_at: '2026-06-20'
+
+- id: ibl-atlas-streamlines
+  kind: publisher_doc
+  url: https://docs.internationalbrainlab.org/_autosummary/iblatlas.streamlines.html
+  label: iblatlas.streamlines — cortical depth streamlines
+  excerpt: Streamlines are the paths that connect the surface of the isocortex to the white matter surface
+    while following the curvature of these surfaces. For the xyz to depth position lookup the following
+    files have been generated with 10, 25 and 50 um resolution.
+  retrieved_at: '2026-06-20'
+
+- id: ibl-brain-wide-map-anchor-fence
+  kind: publisher_doc
+  url: https://www.internationalbrainlab.com/data
+  label: IBL Data page — license (CC-BY for data)
+  excerpt: All of our work is open source and licensed by CC-BY (publications and data), MIT (Software)
+  retrieved_at: '2026-06-20'
+
+- id: ibl-bwm-release-doc
+  kind: publisher_doc
+  url: https://docs.internationalbrainlab.org/notebooks_external/2025_data_release_brainwidemap.html
+  label: IBL 2025 Brain Wide Map data release documentation
+  excerpt: We have released data from 459 Neuropixel experimental sessions, which encompass 699 distinct
+    recordings, referred to as probe insertions. Those were obtained with 139 subjects performing the
+    IBL task across 12 different laboratories. As output of spike-sorting, there are 621,733 units; of
+    which 75,708 are considered to be of good quality. In total, 241 brain regions were recorded.
+  retrieved_at: '2026-06-20'
+
+- id: ibl-data-availability
+  kind: publisher_doc
+  url: https://www.internationalbrainlab.com/data
+  label: IBL Data page — Introduction to Publicly Available IBL Data
+  excerpt: 'Introduction to Publicly Available IBL Data. The Brainwide Map: Brain Wide Map data for download.
+    Reproducible Electrophysiology: Reproducible Electrophysiology data for download. All of our work
+    is open source and licensed by CC-BY (publications and data), MIT (Software)'
+  retrieved_at: '2026-06-20'
+
+- id: ibl-data-structure
+  kind: publisher_doc
+  url: https://docs.internationalbrainlab.org/notebooks_external/data_structure.html
+  label: IBL data and folder structure documentation
+  excerpt: 'Generally speaking, all the data for a single experiment session fits into a folder, which
+    name is characterised by: it''s lab name / a folder Subjects / the name of the subject (i.e. the mouse
+    nickname) / the date / the session number. For example mainenlab/Subjects/ZFM-01576/2020-12-01/001.'
+  retrieved_at: '2026-06-20'
+
+- id: ibl-data-terms
+  kind: publisher_doc
+  url: https://www.internationalbrainlab.com/data
+  label: IBL Data page — license (CC-BY for data)
+  excerpt: All of our work is open source and licensed by CC-BY (publications and data), MIT (Software)
+  retrieved_at: '2026-06-20'
+
+- id: ibl-homepage
+  kind: publisher_homepage
+  url: https://www.internationalbrainlab.com/
+  label: International Brain Laboratory homepage
+  excerpt: The International Brain Laboratory is a collaborative research group developing a global understanding
+    of the brain mechanisms underlying behaviour.
+  retrieved_at: '2026-06-20'
+
+- id: ibl-iblvideo
+  kind: publisher_doc
+  url: https://github.com/int-brain-lab/iblvideo
+  label: int-brain-lab/iblvideo README — Lightning Pose models
+  excerpt: LP is used for markerless tracking of animal parts in these videos, returning for each frame
+    x,y coordinates in px for each point and a likelihood (how certain was the network to have found that
+    point in a specific frame).
+  retrieved_at: '2026-06-20'
+
+- id: ibl-mesoscope
+  kind: publisher_doc
+  url: https://docs.internationalbrainlab.org/notebooks_external/loading_raw_mesoscope_data.html
+  label: IBL loading raw mesoscope (2-photon) data — suite2p
+  excerpt: 'Cellular activity recorded using a 2 photon mesoscope. Loading raw cell detection output:
+    Currently cell detection is done using suite2p. You can load the raw output of suite2p for loading
+    into their GUI.'
+  retrieved_at: '2026-06-20'
+
+- id: ibl-nma
+  kind: publisher_doc
+  url: https://github.com/int-brain-lab/nma-ibl
+  label: int-brain-lab/nma-ibl README — Neuromatch Academy materials
+  excerpt: Materials for NeuroMatchAcademy workshop for IBL data pipeline access.
+  retrieved_at: '2026-06-20'
+
+- id: ibl-one-access
+  kind: publisher_doc
+  url: https://docs.internationalbrainlab.org/notebooks_external/one_quickstart.html
+  label: IBL ONE Quick Start — public data server access
+  excerpt: Now we need to import the ONE library and open a connection to the IBL public data server.
+    To do so, we create an ONE object, and ask it to connect to the IBL public server. ONE.setup(base_url='https://openalyx.internationalbrainlab.org',
+    silent=True); one = ONE(password='international')
+  retrieved_at: '2026-06-20'
+
+- id: ibl-repro-ephys
+  kind: web_research
+  url: https://elifesciences.org/articles/100840
+  label: Reproducibility of in vivo electrophysiological measurements in mice (IBL, eLife)
+  excerpt: We assessed the reproducibility of electrophysiology measurements across ten different laboratories,
+    each recording Neuropixels probes targeting the same brain regions in mice performing the same decision-making
+    task.
+  retrieved_at: '2026-06-20'
+
+- id: ibl-ssbench
+  kind: publisher_doc
+  url: https://docs.internationalbrainlab.org/notebooks_external/2022_data_release_spikesorting_benchmarks.html
+  label: IBL 2022 spike sorting benchmark datasets release
+  excerpt: 'there is no one-size-fit-all: an algorithm that is well tailored to extract signals for a
+    given region or electrode type may perform poorly for another.'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Whole-brain Neuropixels activity map of mouse decision-making
+    lede: The IBL Brain Wide Map pools Neuropixels electrophysiology across twelve laboratories into a
+      brain-wide activity map recorded while mice perform a single standardized decision-making task.
+    text: The International Brain Laboratory built the Brain Wide Map to understand the neural basis of
+      decision-making in the mouse, systematically recording from nearly all major brain areas with Neuropixels
+      probes on an unbiased sampling grid and replicating each recording site in at least two laboratories.
+      The result is a map of activity at single-spike cellular resolution during the IBL decision-making
+      task. The release spans 459 Neuropixel sessions and 699 probe insertions from 139 mice across 12
+      laboratories, covering 241 brain regions and yielding 621,733 spike-sorted units, 75,708 of them
+      good quality. Beyond the spike data it captures the sensory stimuli presented to the mouse, the
+      mouse's choices and response times, and pose information from video via DeepLabCut. Data follow
+      the standard IBL data structure.
+  refs:
+  - ibl-bwm-release-doc
+
+source:
+  publisher: International Brain Laboratory
+  homepage_url: https://www.internationalbrainlab.com/
+
+display:
+  canonical_path: /ibl-brain-wide-map/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

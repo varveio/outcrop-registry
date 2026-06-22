@@ -1,0 +1,49 @@
+schema_version: '0.4'
+bucket: overturemaps-us-west-2
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: release/2026-04-15.0/
+  copy:
+    headline: April 2026 monthly Overture GeoParquet release
+    lede: The 2026-04-15.0 Overture release is a complete dated snapshot of the global map data across
+      all six themes, distributed as GeoParquet partitioned by theme and type.
+    text: 'This is the dated monthly Overture snapshot version 2026-04-15.0, one point on Overture''s
+      ongoing release timeline (versions in yyyy-mm-dd.x form). It carries the full catalog of core map
+      data for that release — addresses, base, buildings, divisions, places, and transportation — laid
+      out under theme=<theme>/type=<type>/ as GeoParquet.
+
+
+      Within each theme the data is split by feature type (for example base into bathymetry, infrastructure,
+      land, land_cover, land_use, and water; transportation into segment and connector), letting consumers
+      scan and pull only the layers they need. Because the snapshot bundles every theme, it inherits Overture''s
+      mixed per-theme licensing: ODbL for the OpenStreetMap-derived themes and CDLA-Permissive-2.0 for
+      places.'
+  refs:
+  - overture-cloud-sources-doc
+
+- prefix: release/2026-05-20.0/
+  copy:
+    headline: May 2026 monthly Overture GeoParquet release
+    lede: The 2026-05-20.0 Overture release is the next dated snapshot of the global map data across all
+      six themes, distributed as GeoParquet partitioned by theme and type.
+    text: 'This is the dated monthly Overture snapshot version 2026-05-20.0, the release that follows
+      2026-04-15.0 on Overture''s ongoing timeline. Like every release it carries the full set of core
+      map data — addresses, base, buildings, divisions, places, and transportation — under theme=<theme>/type=<type>/
+      as GeoParquet, with each successive snapshot reflecting updated source data.
+
+
+      The theme/type partitioning lets consumers query or download only the feature types they need rather
+      than the whole release. As a complete multi-theme snapshot it inherits Overture''s mixed per-theme
+      licensing: ODbL for the OpenStreetMap-derived themes (base, buildings, divisions, transportation)
+      and CDLA-Permissive-2.0 for places.'
+  refs:
+  - overture-cloud-sources-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

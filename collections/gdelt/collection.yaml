@@ -1,0 +1,122 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: gdelt
+title: GDELT
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: gdelt-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/gdelt/
+  label: AWS Open Data Registry — GDELT (gdelt.yaml)
+  excerpt: 'ARN: arn:aws:s3:::gdelt-open-data
+
+    Region: us-east-1
+
+    Type: S3 Bucket
+
+    License: http://www.gdeltproject.org/about.html#termsofuse
+
+    UpdateFrequency: Not currently being updated
+
+    ManagedBy: Unmanaged'
+  retrieved_at: '2026-06-17'
+
+- id: gdelt-data-page
+  kind: publisher_doc
+  url: https://www.gdeltproject.org/data.html
+  label: 'The GDELT Project — Data: Querying, Analyzing and Downloading'
+  excerpt: The GDELT 1.0 Event Database contains over a quarter-billion records spanning from 1979 onward
+    and updates daily, while GDELT 2.0 adds a wealth of new features, includes events reported in the
+    65 live translated languages, introduces a new "mentions" table, and updates every 15 minutes.
+  retrieved_at: '2026-06-17'
+
+- id: gdelt-event-codebook
+  kind: publisher_doc
+  url: http://data.gdeltproject.org/documentation/GDELT-Event_Codebook-V2.0.pdf
+  label: GDELT Event Database Data Format Codebook V2.0
+  excerpt: THE GDELT EVENT DATABASE DATA FORMAT CODEBOOK V2.0. The GDELT Event Database records over 300
+    categories of physical activities around the world, from riots and protests to peace appeals and diplomatic
+    exchanges, georeferenced to the city or mountaintop, across the entire planet dating back to January
+    1, 1979 and updated every 15 minutes.
+  retrieved_at: '2026-06-17'
+
+- id: gdelt-gkg-codebook
+  kind: publisher_doc
+  url: http://data.gdeltproject.org/documentation/GDELT-Global_Knowledge_Graph_Codebook-V2.1.pdf
+  label: GDELT Global Knowledge Graph (GKG) Data Format Codebook V2.1
+  excerpt: THE GDELT GLOBAL KNOWLEDGE GRAPH (GKG) DATA FORMAT CODEBOOK V2.1. The GDELT Global Knowledge
+    Graph connects the world's people, organizations, locations, themes, counts, images and emotions into
+    a single holistic network over the entire planet, updated every 15 minutes and incorporating the 65
+    live translated languages.
+  retrieved_at: '2026-06-17'
+
+- id: gdelt-homepage
+  kind: publisher_homepage
+  url: https://www.gdeltproject.org/
+  label: The GDELT Project homepage
+  excerpt: The GDELT Project is the largest, most comprehensive, and highest resolution open database
+    of human society ever created. It monitors the world's broadcast, print, and web news from nearly
+    every corner of every country in over 100 languages and identifies the people, locations, organizations,
+    counts, themes, sources, emotions, quotes, images and events driving our global society.
+  retrieved_at: '2026-06-17'
+
+- id: gdelt-terms-of-use
+  kind: publisher_doc
+  url: http://www.gdeltproject.org/about.html#termsofuse
+  label: The GDELT Project — Terms of Use (Using GDELT)
+  excerpt: The GDELT Project is an open platform for research and analysis of global society and thus
+    all datasets released by the GDELT Project are available for unlimited and unrestricted use for any
+    academic, commercial, or governmental use of any kind without fee. You may redistribute, rehost, republish,
+    and mirror any of the GDELT datasets in any form. However, any use or redistribution of the data must
+    include a citation to the GDELT Project and a link to this website (https://www.gdeltproject.org/).
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: The GDELT Project — Terms of Use (Using GDELT)
+  url: http://www.gdeltproject.org/about.html#termsofuse
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open database of the world's news media
+    lede: The GDELT Project is an open database of global society, monitoring broadcast, print, and web
+      news from nearly every country in over 100 languages.
+    text: 'The GDELT Project describes itself as the largest, most comprehensive, and highest-resolution
+      open database of human society ever created. Supported by Google Jigsaw, it monitors the world''s
+      broadcast, print, and web news every second of every day and identifies the people, locations, organizations,
+      counts, themes, sources, emotions, quotes, images, and events driving global society; the 2015 data
+      alone records nearly three quarters of a trillion emotional snapshots and more than 1.5 billion
+      location references, and the total archive spans more than 215 years. GDELT comes in two generations:
+      the GDELT 1.0 Event Database, with over a quarter-billion English-language records dating to 1979
+      and updated daily, and the GDELT 2.0 streams (released February 2015), which add events in the 65
+      live-translated languages, introduce a Mentions table, and update every 15 minutes across the Event,
+      Mentions, and Global Knowledge Graph products. The data is published on AWS as the anonymously accessible
+      gdelt-open-data S3 bucket in us-east-1, released as compressed CSV with an SNS topic announcing
+      new files; the bucket is currently noted as no longer being updated.'
+  refs:
+  - gdelt-homepage
+  - gdelt-data-page
+  - gdelt-aws-registry
+
+source:
+  publisher: The GDELT Project
+  homepage_url: https://www.gdeltproject.org/
+
+display:
+  canonical_path: /gdelt/
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,114 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: aws-public-blockchain
+title: AWS Public Blockchain
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: apb-analytics-readme
+  kind: publisher_doc
+  url: https://github.com/aws-samples/digital-assets-examples/blob/main/analytics/README.md
+  label: digital-assets-examples analytics README (v1.0 btc/eth layout; MIT-0; experimental)
+  excerpt: This library is licensed under the MIT-0 License.
+  retrieved_at: '2026-06-17'
+
+- id: apb-homepage
+  kind: publisher_homepage
+  url: https://registry.opendata.aws/aws-public-blockchain/
+  label: AWS Public Blockchain Data — Registry of Open Data on AWS (landing page)
+  excerpt: The AWS Public Blockchain Data initiative provides free access to blockchain datasets through
+    collaboration with data providers.
+  retrieved_at: '2026-06-17'
+
+- id: apb-mit0-license
+  kind: publisher_file
+  url: https://raw.githubusercontent.com/aws-samples/digital-assets-examples/main/LICENSE
+  label: digital-assets-examples LICENSE (MIT-0, covers example code only)
+  excerpt: Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+    and associated documentation files (the "Software"), to deal in the Software without restriction
+  retrieved_at: '2026-06-17'
+
+- id: apb-registry-terms
+  kind: registry_entry
+  url: https://registry.opendata.aws/aws-public-blockchain/
+  label: AWS Public Blockchain Data — Registry of Open Data (access + license/citation row)
+  excerpt: aws s3 ls --no-sign-request s3://aws-public-blockchain/
+  retrieved_at: '2026-06-17'
+
+- id: apb-repost-newchains
+  kind: publisher_doc
+  url: https://repost.aws/articles/AR3gztQGeSS8CfaKNNeyYwsQ/new-datasets-added-to-the-aws-public-blockchain-datasets-available-for-analytics-and-research
+  label: AWS re:Post — New datasets added to the AWS Public Blockchain Datasets
+  excerpt: 'New datasets added to the AWS Public Blockchain Datasets: available for analytics and research'
+  retrieved_at: '2026-06-17'
+
+- id: apb-repost-ton
+  kind: publisher_doc
+  url: https://repost.aws/articles/AR3ABC81yvTPW2ktfHiHPWIA/new-dataset-added-to-the-aws-public-blockchain-data-ton-the-open-network
+  label: 'AWS re:Post — New Dataset Added: TON (The Open Network)'
+  excerpt: 'New Dataset Added to the AWS Public Blockchain Data: TON (The Open Network)'
+  retrieved_at: '2026-06-17'
+
+- id: apb-sonarx-blog
+  kind: web_research
+  url: https://www.sonarx.com/blog/sonarx-partners-with-aws-to-power-blockchain-innovation
+  label: SonarX — Partners with AWS to Power Blockchain Innovation
+  excerpt: SonarX provides access to 70+ chains with assurance of their data quality framework and enterprise
+    ready infrastructure.
+  retrieved_at: '2026-06-17'
+
+- id: apb-web3-blog
+  kind: publisher_doc
+  url: https://aws.amazon.com/blogs/web3/access-bitcoin-and-ethereum-open-datasets-for-cross-chain-analytics/
+  label: AWS Web3 Blog — Access Bitcoin and Ethereum open datasets for cross-chain analytics
+  excerpt: After taking an initial download of the full blockchain from the first block in 2009 for Bitcoin
+    and in 2015 for Ethereum, an on-chain listener continuously delivers new data to the public Amazon
+    S3 bucket.
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Indexed on-chain data for eleven blockchains, as date-partitioned Parquet
+    lede: AWS Public Blockchain Data is an AWS Open Data initiative providing free, indexed on-chain data
+      across eleven chains, transformed into date-partitioned Parquet on a single public S3 bucket.
+    text: 'AWS Public Blockchain Data provides free access to blockchain datasets transformed into compressed
+      Parquet, partitioned by date for efficient querying, all under one public S3 bucket (arn:aws:s3:::aws-public-blockchain,
+      region us-east-2). AWS maintains the Bitcoin and Ethereum sets, backfilled from each chain''s first
+      block (Bitcoin 2009, Ethereum 2015) and kept current by an on-chain listener that delivers new data
+      daily. A later release adds partner-maintained chains: SonarX, an AWS Partner specializing in blockchain
+      data indexing, contributes Aptos, Arbitrum, Base, Provenance, and the XRP Ledger, while Cronos,
+      Stellar, and The Open Network (TON) are maintained by their respective organizations. The uniform
+      per-chain table layout is designed for cross-chain analysis with Amazon Athena, AWS Glue, and related
+      analytics services. Access is anonymous (aws s3 ls --no-sign-request s3://aws-public-blockchain/),
+      with no AWS account required.'
+  refs:
+  - apb-homepage
+  - apb-web3-blog
+  - apb-repost-newchains
+
+source:
+  publisher: AWS Public Blockchain Data (AWS Open Data)
+  homepage_url: https://registry.opendata.aws/aws-public-blockchain/
+
+display:
+  canonical_path: /aws-public-blockchain/
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

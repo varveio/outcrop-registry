@@ -1,0 +1,186 @@
+schema_version: '0.4'
+bucket: nasa-irsa-euclid-q1
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: contributed/q1/merged_objects/hats/euclid_q1_merged_objects-hats/dataset/
+  copy:
+    headline: Merged Objects HATS catalog — MER, PHZ, and SPE joined as spatial Parquet
+    lede: A contributed Parquet HATS dataset that joins the Euclid Q1 MER final, PHZ, and SPE catalogs
+      on MER Object ID, spatially partitioned for large-scale cross-matching.
+    text: 'Contains the partitioned data of the Euclid Q1 Merged Objects HATS catalog, which joins the
+      MER final catalog, the photometric-redshift (PHZ) catalogs, and the spectroscopic (SPE) catalogs
+      on MER Object ID into a single Parquet dataset, partitioned spatially with the HEALPix-based Hierarchical
+      Adaptive Tiling Scheme (HATS) for efficient cross-matching and large-scale analysis with tools such
+      as LSDB. The catalog is accompanied by a margin cache and an object_id index. Format: Parquet (HATS).'
+  refs:
+  - euclid-q1-hats-record
+
+- prefix: contributed/q1/merged_objects/hats/euclid_q1_merged_objects-hats_margin_10arcsec/dataset/
+  copy:
+    headline: Merged Objects HATS margin cache (10 arcsec)
+    lede: The 10-arcsecond boundary margin cache for the Euclid Q1 Merged Objects HATS catalog, holding
+      neighbouring rows just outside each spatial partition.
+    text: 'Contains the partitioned data of the margin cache for the Euclid Q1 Merged Objects HATS catalog
+      — a 10-arcsecond boundary halo of neighbouring rows around each spatial partition, so that spatial
+      joins and cross-matches at partition boundaries stay correct and complete when querying with HATS-aware
+      tools such as LSDB. Format: Parquet (HATS).'
+  refs:
+  - euclid-q1-hats-record
+
+- prefix: q1/MER/
+  copy:
+    headline: MER Level 2 multiwavelength co-added mosaics
+    lede: The Euclid Q1 Level 2 MER multiwavelength mosaics, combining the VIS and NISP imaging into co-added
+      science frames.
+    text: Contains the Euclid Q1 Level 2 MER multiwavelength co-added mosaics — the combined VIS optical
+      and NISP near-infrared imaging on which Q1 source detection and the MER catalogs are built. DOI
+      https://doi.org/10.26131/IRSA601.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/MER_SEG/
+  copy:
+    headline: MER mosaic segmentation maps
+    lede: Segmentation maps accompanying the Euclid Q1 MER multiwavelength mosaics.
+    text: Contains the segmentation maps that accompany the Euclid Q1 MER multiwavelength mosaics, marking
+      which detected source each mosaic pixel belongs to.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/NIR/
+  copy:
+    headline: NISP near-infrared calibrated frames (Y, J, H)
+    lede: The Euclid Q1 Level 2 calibrated near-infrared frames from the NISP instrument in the Y, J,
+      and H bands.
+    text: Contains the Euclid Q1 Level 2 calibrated NISP near-infrared imaging in the Y, J, and H bands
+      — the near-infrared counterpart to the VIS frames and an input to the MER mosaics. DOI https://doi.org/10.26131/IRSA600.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/RAW/
+  copy:
+    headline: Level 1 raw VIS and NISP frames
+    lede: The Euclid Q1 Level 1 raw, uncalibrated VIS and NISP detector frames.
+    text: Contains the Euclid Q1 Level 1 raw VIS and NISP frames — the uncalibrated detector readouts,
+      provided for users who need to reprocess from the lowest available level. DOI https://doi.org/10.26131/IRSA614.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/SIR/
+  copy:
+    headline: NISP slitless spectroscopy (2-D frames and 1-D spectra)
+    lede: 'The Euclid Q1 SIR slitless spectroscopy: Level 2 calibrated 2-D science frames and the combined
+      1-D spectra.'
+    text: Contains the Euclid Q1 NISP slitless spectroscopy from the SIR processing function — the Level
+      2 calibrated 2-D science frames and the combined 1-D spectra that feed the SPE redshift, lines,
+      and models catalogs. DOIs https://doi.org/10.26131/IRSA615 (2-D frames) and https://doi.org/10.26131/IRSA616
+      (1-D spectra).
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/VIS/
+  copy:
+    headline: VIS calibrated optical frames
+    lede: The Euclid Q1 Level 2 calibrated frames from the VIS optical instrument.
+    text: Contains the Euclid Q1 Level 2 calibrated VIS optical frames that, together with the NISP frames,
+      are combined into the MER multiwavelength mosaics. DOI https://doi.org/10.26131/IRSA599.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/VMPZ/
+  copy:
+    headline: Level 3 visibility masks
+    lede: The Euclid Q1 Level 3 visibility masks for the release's fields.
+    text: Contains the Euclid Q1 Level 3 visibility masks for the release's fields. DOI https://doi.org/10.26131/IRSA617.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/catalogs/
+  copy:
+    headline: Euclid Q1 tabular catalog products
+    lede: Groups the Euclid Q1 tabular catalogs — the MER, PHZ photometric-redshift, and SPE spectroscopic
+      catalogs, plus per-frame VIS and NIR detection catalogs.
+    text: 'Groups the Euclid Q1 tabular data products documented in the IRSA Q1 overview: the MER catalog
+      of sources detected on the multiwavelength mosaics; the PHZ photometric-redshift catalog and its
+      associated SED, classification, and physical-parameter products; the SPE spectroscopic redshift,
+      lines, and models catalogs derived from the SIR spectra; and the VIS and NIR catalogs of calibrated-frame
+      detections. Each sub-catalog carries its own IRSA DOI.'
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/catalogs/MER_FINAL_CATALOG/
+  copy:
+    headline: MER final catalog — Euclid Q1's primary source catalog
+    lede: 'The Euclid Q1 MER final catalog: one row per detected source with multiwavelength photometry,
+      positions, and basic measurements across the four Euclid bands.'
+    text: The MER final catalog is the primary photometric catalog of the Euclid Q1 release. Each entry
+      is a single source with photometry from the multiwavelength MER mosaics (VIS, Y, J, H, and any accompanying
+      external ground-based measurements), object IDs and coordinates (RA/Dec), fluxes and errors across
+      the four Euclid bands, classification indicators (point_like_probability, extended_probability),
+      and structural and morphological parameters — 476 columns in total. It is produced by the MER (MERge)
+      processing function, which combines the VIS and NISP imaging into co-added mosaics and detects and
+      characterises sources across them. DOI https://doi.org/10.26131/IRSA602.
+  refs:
+  - euclid-q1-mer-catalog-tutorial
+
+- prefix: q1/catalogs/NIR_CAL_CATALOG/
+  copy:
+    headline: NISP calibrated-frame detection catalog
+    lede: The Euclid Q1 catalog of detections measured on the individual NISP near-infrared calibrated
+      frames.
+    text: Contains the Euclid Q1 catalog of source detections made on the individual NISP near-infrared
+      calibrated frames, rather than on the co-added MER mosaics.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/catalogs/PHZ_PF_OUTPUT_CATALOG/
+  copy:
+    headline: PHZ photometric-redshift output catalog
+    lede: The Euclid Q1 outputs of the PHZ photometric-redshift processing function — the Photo-z catalog
+      and its associated SED, classification, and physical-parameter products.
+    text: 'Contains the Euclid Q1 outputs of the PHZ photometric-redshift processing function: the Photo-z
+      catalog together with the Star SED, Galaxy SED, Classification, QSO Physical Parameters, NIR Physical
+      Parameters, and Star Template catalogs documented in the IRSA Q1 overview. DOI https://doi.org/10.26131/IRSA604.'
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/catalogs/PHZ_PF_OUTPUT_FOR_L3/
+  copy:
+    headline: PHZ output prepared for Level 3
+    lede: The PHZ photometric-redshift processing-function outputs packaged as inputs to Euclid Level
+      3 processing.
+    text: Contains the PHZ photometric-redshift processing-function outputs prepared specifically as inputs
+      to the Euclid Level 3 processing, distinct from the general-purpose PHZ catalog.
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/catalogs/SPE_PF_OUTPUT_CATALOG/
+  copy:
+    headline: SPE spectroscopic output catalog
+    lede: The Euclid Q1 outputs of the SPE spectroscopic processing function — the redshift, lines, and
+      models catalogs derived from the SIR spectra.
+    text: 'Contains the Euclid Q1 outputs of the SPE spectroscopic processing function, derived from the
+      SIR spectra: the SPE Redshift catalogs (Quality, Galaxy/QSO/Star Candidates), the SPE Lines catalogs
+      (Spectral Lines, Atomic Indices, Molecular Indices, Continuum Features), and the SPE Models and
+      Star Models catalogs documented in the IRSA Q1 overview. DOIs https://doi.org/10.26131/IRSA605 through
+      IRSA613, plus IRSA626 and IRSA627.'
+  refs:
+  - euclid-q1-overview
+
+- prefix: q1/catalogs/VIS_CAL_CATALOG/
+  copy:
+    headline: VIS calibrated-frame detection catalog
+    lede: The Euclid Q1 catalog of detections measured on the individual VIS optical calibrated frames.
+    text: Contains the Euclid Q1 catalog of source detections made on the individual VIS optical calibrated
+      frames, rather than on the co-added MER mosaics.
+  refs:
+  - euclid-q1-overview
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,27 @@
+schema_version: '0.4'
+bucket: open-targets-public-data-releases
+backend: s3
+role: primary
+region: eu-west-1
+
+prefixes:
+- prefix: platform/
+  copy:
+    headline: Quarterly Open Targets Platform releases in Parquet
+    lede: Versioned Open Targets Platform data releases, each a complete quarterly snapshot of the integrated
+      target-disease evidence in Apache Parquet.
+    text: Each quarterly Platform release is published here as a self-contained set of Apache Parquet
+      output datasets, organised by version (for example the 25.12 and 26.03 releases). A release contains
+      the full Platform data model — targets, diseases, drugs, evidence, and target-disease associations
+      and related entity tables — so a researcher can pin an analysis to a specific dated release. The
+      columnar Parquet layout is designed for direct querying with pandas, polars, and pyspark against
+      the bucket. New releases land roughly every three months and are announced via the dataset's SNS
+      notification topic.
+  refs:
+  - opentargets-aws-datasets-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

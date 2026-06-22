@@ -1,0 +1,100 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: oceanomics
+title: OceanOmics
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: oceanomics-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/oceanomics/
+  label: registry.opendata.aws — oceanomics
+  excerpt: 'OceanOmics mainly generates two types of data: eDNA sequencing data (metabarcoding, metagenomics),
+    and genome assembly data (marine vertebrates).'
+
+- id: oceanomics-awsdata
+  kind: publisher_doc
+  url: https://github.com/MinderooFoundation/OceanOmics-OpenData/blob/master/aws-public-data.md
+  label: OceanOmics Public Datasets on AWS — data access & structure guide
+  excerpt: The OceanOmics Ocean Genomes data aims to sequence all marine vertebrates. Its main product
+    is single individual-genome sequencing data and genome assemblies. Data is stored in FASTA, BAM, and
+    FASTQ format... aws s3 ls --no-sign-request s3://minderoo-oceanomics/species/ ... aws s3 cp --no-sign-request
+    s3://minderoo-oceanomics/species/Enoplosus_armatus/fEnoArm2/assembly_curated/ . --recursive
+  retrieved_at: '2026-06-22'
+
+- id: oceanomics-bucket-layout
+  kind: publisher_doc
+  url: https://github.com/MinderooFoundation/OceanOmics-OpenData/blob/master/aws-public-data.md
+  label: github.com — aws public data
+  excerpt: 'One folder per species with the accepted scientific name, this folder contains samples in
+    the form of Tree of Life IDs (ToLID), then several folders containing genome assembly and sequencing
+    data. To list available species: aws s3 ls --no-sign-request s3://minderoo-oceanomics/species/'
+
+- id: oceanomics-homepage
+  kind: publisher_homepage
+  url: https://edna.minderoo.org
+  label: Minderoo OceanOmics dashboard (edna.minderoo.org)
+  excerpt: Applying marine genomics to transform ocean conservation!
+  retrieved_at: '2026-06-22'
+
+- id: oceanomics-paper-license
+  kind: publisher_doc
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12488967/
+  label: 'Ocean Genomes: reference genome resources for marine vertebrates (npj Biodiversity) — Data Availability'
+  excerpt: All Ocean Genomes sequencing data and genome assemblies will be openly accessible in the public
+    domain and available for use under a Creative Commons Attributions license CC BY 4.0.
+  retrieved_at: '2026-06-22'
+
+- id: oceanomics-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/oceanomics/
+  label: OceanOmics — Registry of Open Data on AWS
+  excerpt: 'Minderoo Foundation OceanOmics aims to establish environmental DNA (eDNA) as a tool to measure,
+    understand, and protect oceans. License: CC-BY 4.0. arn:aws:s3:::minderoo-oceanomics, us-west-2.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Marine vertebrate reference genomes and ocean eDNA sequencing data
+    lede: OceanOmics is the Minderoo Foundation's open marine-genomics resource, pairing high-quality
+      reference genome assemblies for marine vertebrates with environmental-DNA sequencing data from ocean
+      expeditions.
+    text: OceanOmics, run by the Minderoo Foundation and based at the University of Western Australia,
+      generates and openly shares marine-genomics data to support biodiversity monitoring and conservation.
+      It holds two complementary products. Ocean Genomes contributes high-quality reference genome assemblies
+      and the underlying long-read sequencing for marine vertebrates — ray-finned and cartilaginous fishes,
+      marine mammals, birds and reptiles — with the long-term aim of representing every marine vertebrate
+      family. The eDNA program contributes metabarcoding and metagenomics reads from environmental-DNA
+      samples collected across expeditions, used to develop eDNA as a scalable way to assess ecosystem
+      health. Assemblies, evaluation outputs and raw reads are released in FASTA, BAM and FASTQ formats
+      under CC BY 4.0.
+  refs:
+  - oceanomics-awsdata
+  - oceanomics-paper-license
+
+source:
+  publisher: Minderoo Foundation OceanOmics
+  homepage_url: https://edna.minderoo.org
+
+display:
+  canonical_path: /oceanomics/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

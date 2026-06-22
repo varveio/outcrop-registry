@@ -1,0 +1,30 @@
+schema_version: '0.4'
+bucket: astrogeo-ard
+outcrop_bucket: nasa-usgs-lunar-orbiter-laser-altimeter
+backend: s3
+role: primary
+region: us-west-2
+prefix: moon/lro/lola/
+
+prefixes:
+- prefix: moon/lro/lola/
+  copy:
+    headline: LOLA RDR COPC tiles with STAC index and thumbnails
+    lede: 'The full LOLA Cloud Optimized Point Cloud release: 15-degree tiles of lunar laser-altimetry
+      returns with per-tile browse thumbnails and a STAC catalog.'
+    text: Contains the Lunar Orbiter Laser Altimeter Reduced Data Record reformatted as Cloud Optimized
+      Point Cloud (COPC/LAZ) tiles spanning the Moon's surface. The returns are partitioned into 15-degree
+      by 15-degree longitude/latitude sections, each tile encoded as a .copc.laz file with an accompanying
+      JPEG browse thumbnail, and the 288 tiles are indexed by a SpatioTemporal Asset Catalog so a region
+      of interest can be queried and streamed without downloading the whole collection. Coordinates are
+      latitude, longitude, and radius in the IAU 2015 lunar frame (reference radius 1737.4 km), in the
+      -180 to 180 / center-longitude-0 domain. The COPC driver reads individual tiles and the PDAL STAC
+      driver queries at the collection level.
+  refs:
+  - lola-stac-docs
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

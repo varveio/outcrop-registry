@@ -1,0 +1,636 @@
+schema_version: '0.4'
+bucket: commoncrawl
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: cc-index/
+  copy:
+    headline: URL indexes to the corpus
+    lede: Common Crawl's URL indexes to its corpus, in both capture-level and columnar forms.
+    text: 'Two complementary indexes cover the WARC files: a capture-level CDXJ index, made of sorted,
+      plain-text lines each describing a single capture and optimised for per-page lookups; and a columnar
+      index stored in Apache Parquet at cc-index/table/cc-main/warc/, which supports efficient SQL queries
+      over the corpus and saves time and computing resources. Together they let users find which pages
+      exist in the corpus by individual capture or by large-scale analytical query.'
+  refs:
+  - cc-cdxj-index
+
+- prefix: cc-index/cdx/
+  copy:
+    headline: Capture-level URL index in CDXJ format
+    lede: The CDXJ index is a capture-level URL index to the WARC files in the Common Crawl corpus, optimised
+      for looking up individual page captures.
+    text: Each line is a sorted, plain-text record carrying a URL key and timestamp followed by a JSON
+      object with fields such as url, mime, status, digest, length, offset and filename, gzip-compressed
+      in blocks using the ZipNum/Ziplines cluster format. It is queryable through the public index server
+      at index.commoncrawl.org, which is built on pywb. The format extends the legacy Internet Archive
+      plain-text CDX capture format with a JSON payload, and in older documentation is still referred
+      to as the CDX index. This per-capture index is distinct from the columnar Parquet URL index under
+      cc-index/table/, which is built for large-scale analytical queries rather than individual lookups.
+  refs:
+  - cdxj-index
+
+- prefix: cc-index/collections/CC-MAIN-*/
+  copy:
+    headline: Per-crawl capture-level URL indexes
+    lede: The per-crawl capture-level URL index released alongside each monthly crawl, in the ZipNum-clustered
+      CDXJ format.
+    text: Common Crawl established the practice of releasing a URL index with each crawl in 2015, with
+      a new index available at the same time as each new crawl, beginning with the January and February
+      2015 crawls. The raw index data is published per crawl at cc-index/collections/CC-MAIN-YYYY-WW/indexes/.
+      It uses the ZipNum-clustered CDXJ format, a sorted, plain-text capture-level index optimised for
+      querying individual page captures, served through the public index server at index.commoncrawl.org.
+      This is the capture-level index, as distinct from the columnar Parquet index under cc-index/table/.
+  refs:
+  - cdxj-index
+
+- prefix: cc-index/table/cc-main/warc/
+  copy:
+    headline: Columnar (Parquet) URL index, queryable with SQL
+    lede: The columnar URL index is an analytics-oriented Apache Parquet index to the corpus, designed
+      to be queried directly with SQL via AWS Athena.
+    text: Storing the index in Parquet lets analytical queries scan only the columns they need, so selection
+      and filtering over which pages exist in the corpus runs efficiently without standing up a server;
+      recent big-data tools run impressively fast when only a few columns are touched. The index is partitioned
+      by monthly crawl (e.g. crawl=CC-MAIN-2018-09) and by subset (e.g. subset=warc, subset=robotstxt).
+      Each row describes a captured URL with columns such as url, url_host_name, url_host_registered_domain,
+      content_mime_type, fetch_status, content_digest, warc_filename, warc_record_offset and warc_record_length,
+      the same capture metadata as the CDXJ index but laid out column-wise. It can be queried with Athena,
+      Spark or Hive, and is the recommended way to run large-scale selection over the corpus.
+  refs:
+  - columnar-index
+
+- prefix: contrib/
+  copy:
+    headline: Community-contributed datasets
+    lede: Projects and datasets created by the community using Common Crawl data.
+    text: In-bucket deposits of datasets and derived corpora produced by third parties from the Common
+      Crawl corpus, kept separate from Common Crawl's own crawl output and indexes.
+  refs:
+  - cc-contrib-index
+
+- prefix: contrib/Nemotron/Nemotron-CC/data-jsonl/
+  copy:
+    headline: Nemotron-CC pretraining dataset (JSONL records)
+    lede: The JSONL records of Nemotron-CC, a 6.3-trillion-token pretraining dataset derived from Common
+      Crawl and published by NVIDIA.
+    text: 'Nemotron-CC is a long-horizon pretraining dataset that combines 4.4 trillion globally deduplicated
+      original tokens with 1.9 trillion synthetically generated tokens, drawn from 99 Common Crawl snapshots
+      spanning CC-MAIN-2013-20 through CC-MAIN-2024-30, and is English-only. It is distributed as JSONL
+      and Parquet, about 10.4 TiB across roughly 31,279 objects, organised into Hive-style partitions
+      by quality bucket (high, medium-high, medium, medium-low, low) and by kind (actual web text vs synthetic);
+      the synthetic portion covers distillation, diverse QA pairs, knowledge extraction, knowledge lists
+      and medium-quality wrapping. Individual JSONL records carry the fields text, language, warc_record_id
+      and url. The method centres on classifier ensembling, synthetic data rephrasing and reduced reliance
+      on heuristic filters, and is described in the paper Nemotron-CC: Transforming Common Crawl into
+      a Refined Long-Horizon Pretraining Dataset (Su et al., 2024).'
+  refs:
+  - nemotron-index
+
+- prefix: contrib/bdfi/
+  copy:
+    text: Listed on the Common Crawl contrib index as 'Web Archives for Social Sciences (BDFI Datathon)'
+      (BDFI / University of Bristol). No publisher dataset page or terms scoped to this prefix found this
+      run; lifecycle inferred from the catalog row only.
+    headline: Listed on the Common Crawl contrib index as 'Web Archives for Social…
+    lede: Listed on the Common Crawl contrib index as 'Web Archives for Social Sciences (BDFI Datathon)'
+      (BDFI / University of Bristol).
+  refs:
+  - cc-contrib-index
+
+- prefix: contrib/c4corpus/
+  copy:
+    headline: 'C4Corpus: multilingual Creative-Commons web corpus'
+    lede: C4Corpus is a multilingual web corpus of Creative-Commons-licensed pages extracted from Common
+      Crawl by the UKP Lab at TU Darmstadt.
+    text: 'The name C4 stands for "Creative Commons from Common Crawl": the corpus comprises about 12
+      million pages (over 10 billion tokens) across 50-plus languages, restricted to pages that carry
+      a Creative Commons licence. It was produced with DKPro C4CorpusTools, a toolkit for processing Common
+      Crawl that performs Creative Commons licence detection, boilerplate removal, language detection
+      and near-duplicate removal; the tooling itself is released under the Apache Software License v2.
+      The work is published as Habernal, Zayed and Gurevych, "C4Corpus: Multilingual Web-size Corpus with
+      Free License" (LREC 2016), and the corpus is mirrored here as a Common Crawl contributed dataset.'
+  refs:
+  - c4corpus-github
+
+- prefix: contrib/datacomp/
+  copy:
+    headline: DataComp-LM contributed corpora
+    lede: The DataComp-LM corpora contributed from a standardised testbed for language-model training
+      sets.
+    text: 'Three DataComp-LM artifacts derived from Common Crawl: DCLM-Pool, an unfiltered 240-trillion-token
+      corpus that has only undergone text extraction; DCLM-Baseline, a large-scale, meticulously curated
+      web-pretraining corpus; and DCLM-RefinedWeb, which applies all DCLM-Baseline processing steps to
+      DCLM-Pool except the OH2.5+ELI5 fastText filter. The work also provides effective pretraining recipes
+      on the OpenLM framework and a suite of 53 downstream evaluations.'
+  refs:
+  - dclm-arxiv
+
+- prefix: contrib/datacomp/DCLM-baseline/
+  copy:
+    headline: DCLM-Baseline curated pretraining corpus
+    lede: DCLM-Baseline is a 4-trillion-token, model-filtered pretraining corpus of plain-text web content
+      sourced from Common Crawl, built for the DataComp-LM benchmark.
+    text: DCLM-Baseline spans about 4 trillion tokens across 3 billion documents, produced by applying
+      heuristic cleaning and filtering (a reproduction of RefinedWeb), Bloom-filter deduplication, and
+      model-based filtering with a fastText classifier trained on instruction-formatted data. As a model-filtered
+      subset of DCLM-Pool, it trains a 7B model to 64% 5-shot MMLU with 2.6 trillion tokens. The producer
+      states it is intended for research use only within the DataComp-LM benchmark, not for training production-ready
+      models or for specific domains such as code and math, and notes it may carry biases present in the
+      underlying Common Crawl data.
+  refs:
+  - dclm-baseline-license
+
+- prefix: contrib/datacomp/DCLM-pool/jsonl/
+  copy:
+    headline: DCLM-Pool unfiltered Common Crawl corpus
+    lede: DCLM-Pool is a 240-trillion-token corpus extracted from Common Crawl, described as the largest
+      publicly available language-model training dataset.
+    text: DCLM-Pool is produced by running text extraction (resiliparse) over Common Crawl with no further
+      filtering, forming the unfiltered base of the DataComp-LM testbed for controlled dataset experiments.
+      The model-filtered DCLM-Baseline and the RefinedWeb-style DCLM-RefinedWeb are both derived from
+      this pool. The work, described in DataComp-LM (Li et al., 2024), also ships training recipes on
+      the OpenLM framework and a 53-task downstream evaluation suite.
+  refs:
+  - dclm-arxiv
+
+- prefix: contrib/datacomp/DCLM-refinedweb/
+  copy:
+    headline: DCLM-RefinedWeb reproduction corpus
+    lede: DCLM-RefinedWeb is a RefinedWeb-style reproduction corpus derived from DCLM-Pool as part of
+      the DataComp-LM project.
+    text: DCLM-RefinedWeb applies the full DCLM-Baseline processing pipeline to DCLM-Pool, with the exception
+      of the OH2.5+ELI5 fastText filter, reproducing a RefinedWeb-style dataset. It is one of three contributed
+      DataComp-LM corpora, alongside the unfiltered DCLM-Pool and the model-filtered DCLM-Baseline, from
+      the work described in DataComp-LM (Li et al., 2024).
+  refs:
+  - dclm-arxiv
+
+- prefix: contrib/depcc/
+  copy:
+    headline: DepCC dependency-parsed web corpus
+    lede: DepCC is a large dependency-parsed English corpus built from Common Crawl by the Language Technology
+      Group at the University of Hamburg.
+    text: DepCC comprises 365 million documents, 252 billion tokens, 7.5 billion named-entity occurrences
+      and 14.3 billion sentences, making it the largest linguistically analysed English corpus to date.
+      Each document is encoded in CoNLL-U format and delivered as gzip archives, with entries carrying
+      word ID, surface form, lemma, POS tags, morphological features, dependency relations, enhanced dependency
+      graphs and named-entity tags. It includes all English texts rather than only CC-licensed pages,
+      so users must respect the Terms of Use of the underlying Common Crawl data; the Hamburg resource
+      page states no explicit licence of its own. The work is described in Panchenko et al., "Building
+      a Web-Scale Dependency-Parsed Corpus from Common Crawl" (LREC 2018).
+  refs:
+  - depcc-hamburg
+
+- prefix: crawl-001/
+  copy:
+    headline: Earliest Common Crawl, in legacy ARC format
+    lede: An early Common Crawl archive stored in the legacy ARC format used before Common Crawl adopted
+      WARC in Summer 2013.
+    text: 'ARC was one of the first file formats for storing web crawls, developed originally by the Internet
+      Archive, encapsulating multiple resources such as HTML documents into a single file. Common Crawl
+      used ARC for its initial crawls through Summer 2013, switching to WARC from CC-MAIN-2013-20 onward,
+      so this pre-2013 archive is part of the historical, frozen portion of the corpus. ARC has notable
+      limitations relative to WARC: it lacks flexibility for additional metadata and does not store data
+      beyond the actual content, such as HTTP request and response headers. These early ARC crawls (2008-2012)
+      are supported by the legacy commoncrawl Java library, whose ARC files contain tuples of a UTF-8
+      URL and the raw downloaded content delimited by CRLF tokens.'
+  refs:
+  - arc-format-early-crawls
+
+- prefix: crawl-002/
+  copy:
+    headline: Early Common Crawl, in legacy ARC format
+    lede: An early Common Crawl archive stored in the legacy ARC format used before Common Crawl adopted
+      WARC in Summer 2013.
+    text: ARC, developed originally by the Internet Archive, was one of the first formats for storing
+      web crawls and encapsulates multiple resources into a single file. Common Crawl used it for its
+      initial crawls through Summer 2013 and moved to WARC from CC-MAIN-2013-20 onward, so this pre-2013
+      archive belongs to the historical, frozen part of the corpus, superseded by the WARC/WAT/WET formats.
+      ARC lacks flexibility for additional metadata and cannot store data beyond the content itself, such
+      as HTTP request and response headers. The early ARC crawls (2008-2012) are supported by the legacy
+      commoncrawl Java library, in which ARC files contain tuples of a UTF-8 URL and the raw downloaded
+      content delimited by CRLF tokens.
+  refs:
+  - arc-format-early-crawls
+
+- prefix: crawl-analysis/
+  copy:
+    headline: Per-crawl statistics
+    lede: Per-crawl statistics computed for each monthly archive.
+    text: 'Organised by crawl, these statistics are mined from the URL index files: the size of the monthly
+      crawls, the number of fetched pages, unique URLs and unique documents by content digest, the number
+      of distinct hosts, domains and top-level domains, and the distribution of pages and URLs across
+      MIME types, protocols (HTTP vs HTTPS) and content languages.'
+  refs:
+  - cc-crawl-statistics
+
+- prefix: crawl-analysis/CC-MAIN-*/
+  copy:
+    headline: Per-crawl statistics for each monthly archive
+    lede: The per-crawl statistics computed for each monthly archive, mined from the URL index files and
+      published per crawl.
+    text: These statistics are mined from the URL index files and count, per crawl, the distribution of
+      pages and URLs across hosts, domains, top-level domains, MIME types, protocols (HTTP vs HTTPS) and
+      content languages, plus counts of fetched pages, unique URLs and unique documents by content digest.
+      The aggregated output is published at crawl-analysis/CC-MAIN-<id>/stats/part-00000.gz, about 1 MiB
+      gzip-compressed per crawl, and drives the public plots at commoncrawl.github.io/cc-crawl-statistics.
+      Per-month page counts fluctuate due to changes in available seeds, revisit scheduling and crawler
+      operations, and unique-URL and unique-content-digest counts are lower than raw capture counts because
+      of duplicates.
+  refs:
+  - crawl-statistics
+
+- prefix: crawl-data/
+  copy:
+    headline: Crawl archives and news data
+    lede: Common Crawl's crawl archives, including the monthly main crawls and the separate CC-NEWS dataset.
+    text: 'Crawl output is organised by crawl: the monthly main crawls, each published as WARC files storing
+      the raw crawl data, WAT files storing computed metadata, and WET files storing extracted plaintext;
+      and the CC-NEWS sub-dataset, a worldwide news crawl published on a faster cadence. Community-contributed
+      extractions derived from the crawls are also deposited here.'
+  refs:
+  - cc-getstarted-crawldata
+
+- prefix: crawl-data/CC-MAIN-*/
+  copy:
+    headline: Monthly main crawls in WARC, WAT, and WET
+    lede: The monthly main crawls are Common Crawl's core archives, named CC-MAIN-YYYY-WW and published
+      in the WARC, WAT, and WET formats.
+    text: 'Crawls follow the CC-MAIN-YYYY-WW naming convention, where YYYY is the year and WW the ISO
+      week the crawl was launched (e.g. CC-MAIN-2024-46). Within each crawl, data lives under crawl-data/CC-MAIN-<id>/segments/<segment-id>/<file-type>/
+      in three derived formats: WARC holds the raw crawl data as a direct mapping of the crawl process,
+      storing HTTP request/response records and metadata; WAT holds computed metadata in JSON, including
+      HTTP headers and extracted links; and WET holds the extracted plaintext of crawled pages. All files
+      are gzip-compressed and reachable over native S3, CloudFront and the data.commoncrawl.org HTTPS
+      gateway. Common Crawl has used WARC since the Summer 2013 crawl (CC-MAIN-2013-20); each crawl is
+      also accompanied by a URL index for lookups.'
+  refs:
+  - commoncrawl-get-started
+
+- prefix: crawl-data/CC-MOZ-ANDROID-*/
+  kind: other
+  copy:
+    text: Inferred 2013 experimental device-user-agent crawl (Android); no current publisher source found.
+      Low confidence; not described editorially.
+    headline: Inferred 2013 experimental device-user-agent crawl
+    lede: Inferred 2013 experimental device-user-agent crawl (Android); no current publisher source found.
+  refs:
+  - cc-moz-negative
+
+- prefix: crawl-data/CC-MOZ-B2G-*/
+  kind: other
+  copy:
+    text: Inferred 2013 experimental device-user-agent crawl (Firefox OS/B2G); no current publisher source
+      found. Low confidence; not described editorially.
+    headline: Inferred 2013 experimental device-user-agent crawl
+    lede: Inferred 2013 experimental device-user-agent crawl (Firefox OS/B2G); no current publisher source
+      found.
+  refs:
+  - cc-moz-negative
+
+- prefix: crawl-data/CC-MOZ-DESKTOP-*/
+  kind: other
+  copy:
+    text: Inferred 2013 experimental device-user-agent crawl (desktop); no current publisher source found.
+      Low confidence; not described editorially.
+    headline: Inferred 2013 experimental device-user-agent crawl
+    lede: Inferred 2013 experimental device-user-agent crawl (desktop); no current publisher source found.
+  refs:
+  - cc-moz-negative
+
+- prefix: crawl-data/CC-MOZ-FENNEC-*/
+  kind: other
+  copy:
+    text: Inferred 2013 experimental device-user-agent crawl (Fennec mobile Firefox); no current publisher
+      source found. Low confidence; not described editorially.
+    headline: Inferred 2013 experimental device-user-agent crawl
+    lede: Inferred 2013 experimental device-user-agent crawl (Fennec mobile Firefox); no current publisher
+      source found.
+  refs:
+  - cc-moz-negative
+
+- prefix: crawl-data/CC-MOZ-IPHONE-*/
+  kind: other
+  copy:
+    text: Inferred 2013 experimental device-user-agent crawl (iPhone); no current publisher source found.
+      Low confidence; not described editorially.
+    headline: Inferred 2013 experimental device-user-agent crawl
+    lede: Inferred 2013 experimental device-user-agent crawl (iPhone); no current publisher source found.
+  refs:
+  - cc-moz-negative
+
+- prefix: crawl-data/CC-NEWS/
+  copy:
+    headline: Continuous crawl of global news sites
+    lede: CC-NEWS is a continuously collected crawl of news websites worldwide, published as a separate,
+      faster-cadence sub-dataset from the monthly main crawls.
+    text: 'CC-NEWS publishes WARC files daily, organised by year and month starting in 2016, so time-sensitive
+      content is available quickly: decoupling the news from the main dataset as a smaller sub-dataset
+      makes it feasible to publish WARC files shortly after they are written. The crawler was designed
+      to continuously release freshly crawled data and to incorporate new seeds quickly and efficiently.
+      It is published in WARC format like the main crawl, but uses the StormCrawler framework built on
+      Apache Storm rather than the Apache Nutch-based crawler used for the monthly crawls; its continuous,
+      news-focused cadence and separate crawler stack make it a distinct product within the corpus.'
+  refs:
+  - cc-news
+
+- prefix: crawl-data/wdc/
+  copy:
+    headline: Web Data Commons structured-data extractions
+    lede: Web Data Commons extractions of structured data drawn from the Common Crawl corpus, deposited
+      in-bucket by a third-party research project.
+    text: Web Data Commons is a research project started in 2012 and now mainly maintained by the Data
+      and Web Science Research Group at the University of Mannheim, which extracts structured data from
+      Common Crawl and offers it for public download to support researchers and companies. Its extractions
+      include large corpora of Microdata, Microformats, RDFa and schema.org annotations; relational HTML
+      web tables (around 147 million relational tables drawn from roughly 11 billion HTML tables); and
+      hyperlink graphs, such as a 2012 graph of about 3.5 billion pages and 128 billion links and a 2014
+      graph of about 1.7 billion pages. These are derived from the corpus by a third-party producer rather
+      than being original Common Crawl crawl output.
+  refs:
+  - wdc
+
+- prefix: hive_analysis/CC-MAIN-*/
+  kind: other
+  copy:
+    text: Inferred legacy per-crawl Hive analysis series, superseded by crawl-analysis/; ~18 members,
+      no current publisher source found. Low confidence; not described editorially.
+    headline: Inferred legacy per-crawl Hive analysis series, superseded by…
+    lede: Inferred legacy per-crawl Hive analysis series, superseded by crawl-analysis/; ~18 members,
+      no current publisher source found.
+  refs:
+  - hive-analysis-negative
+
+- prefix: index2012/
+  copy:
+    headline: Early one-off URL index over the 2012 corpus
+    lede: An early, retrospective URL index built over the 2012 Common Crawl corpus, predating the standardised
+      per-crawl index layout.
+    text: 'Common Crawl''s first public per-crawl URL index practice began in 2015, releasing a ZipNum-clustered
+      CDX index alongside each crawl under cc-index/collections/, starting with the January and February
+      2015 crawls. This index is distinct from that work: it is the earlier, one-off index built retrospectively
+      over the 2012 corpus, the earliest entry in Common Crawl''s index history, before the standardised
+      per-crawl collections/ layout was introduced.'
+  refs:
+  - original-index-2015
+
+- prefix: mapred-temp/
+  kind: other
+  copy:
+    text: Inferred legacy Hadoop pipeline temp directory; no publisher source found. Low confidence; not
+      described editorially.
+    headline: Inferred legacy Hadoop pipeline temp directory
+    lede: Inferred legacy Hadoop pipeline temp directory; no publisher source found.
+  refs:
+  - legacy-hadoop-negative
+
+- prefix: meanpath/
+  kind: other
+  copy:
+    text: Inferred legacy deposit (meanpath/), no current publisher source found that describes it. Low
+      confidence; not described editorially.
+    headline: Inferred legacy deposit
+    lede: Inferred legacy deposit (meanpath/), no current publisher source found that describes it.
+  refs:
+  - meanpath-negative
+
+- prefix: parse-output-test/segment/
+  kind: other
+  copy:
+    text: Inferred legacy Hadoop test parse-output segment directory; no publisher source found. Low confidence;
+      not described editorially.
+    headline: Inferred legacy Hadoop test parse-output segment directory
+    lede: Inferred legacy Hadoop test parse-output segment directory; no publisher source found.
+  refs:
+  - legacy-hadoop-negative
+
+- prefix: parse-output/
+  kind: other
+  copy:
+    text: Inferred legacy Hadoop parse-output directory; no publisher source found. Low confidence; not
+      described editorially.
+    headline: Inferred legacy Hadoop parse-output directory
+    lede: Inferred legacy Hadoop parse-output directory; no publisher source found.
+  refs:
+  - legacy-hadoop-negative
+
+- prefix: projects/cc-open-athena-test/CC-SUPPLEMENTAL-2026-22/
+  kind: other
+  copy:
+    headline: Supplemental crawl for Athena index testing
+    lede: A supplemental, non-CC-MAIN crawl used to validate Common Crawl's Athena-queryable columnar
+      indexing pipeline.
+    text: Common Crawl publishes a columnar Apache Parquet URL index that can be queried via AWS Athena.
+      This supplemental crawl is internal test material for Athena-queryable open table formats, indexed
+      under index/collections/ and index/table/cc-supplemental/warc/ with segments/, used to validate
+      the Athena indexing pipeline rather than as part of the main monthly corpus.
+  refs:
+  - ccsupp
+
+- prefix: projects/gneissweb-annotation-testing-v1/
+  copy:
+    headline: GneissWeb annotations
+    lede: The GneissWeb quality and category annotations at host and document granularity.
+    text: 'GneissWeb''s annotations come in two granularities: host-level aggregates, which let users
+      select hosts meeting quality thresholds, such as hosts where more than half of the high-quality
+      pages are categorised as medical or hosts with a high search-engine-style rank but a low GneissWeb
+      score; and per-document annotations, with one label per URL. The labels combine quality scoring
+      with category labels such as medical, education, technology and science.'
+  refs:
+  - gneissweb-annotations
+
+- prefix: projects/gneissweb-annotation-testing-v1/hosts/
+  copy:
+    headline: GneissWeb host-level quality annotations
+    lede: The host-level GneissWeb annotations, aggregating per-host data that lets users pick hosts meeting
+      quality and category thresholds.
+    text: GneissWeb annotations are quality and category labels that Common Crawl computed for every document
+      in its crawls, created using IBM Research's GneissWeb dataset and bloom filter, IBM's Data Prep
+      Kit, and the GneissWeb category classifiers. This host-level index aggregates those annotations
+      per host, letting users select hosts that meet quality thresholds, for example hosts where more
+      than half of the high-quality pages are categorised as medical, and combine that with category labels
+      such as medical, education, technology and science or with existing filters like language or top-level
+      domain. It is the host-level counterpart to the per-URL annotations, and is published both on Hugging
+      Face and in Common Crawl's S3 bucket.
+  refs:
+  - gneissweb-blog
+
+- prefix: projects/gneissweb-annotation-testing-v1/urls/
+  copy:
+    headline: GneissWeb per-document quality annotations
+    lede: The URL-level GneissWeb annotations, with one annotation per document so users can select the
+      subset of pages that pass GneissWeb's quality standard.
+    text: GneissWeb annotations are quality and category labels that Common Crawl computed for every document
+      (URL) in its crawls, created using IBM Research's GneissWeb dataset and bloom filter, IBM's Data
+      Prep Kit, and the GneissWeb category classifiers. This URL-level index carries one annotation per
+      document, letting users pick out the subset of documents that passes GneissWeb's quality standard
+      and identify topics via category labels such as medical, education, technology and science, optionally
+      combined with existing annotations like language or top-level domain. It is the document-level counterpart
+      to the host-level annotations, and is published both on Hugging Face and in Common Crawl's S3 bucket.
+  refs:
+  - gneissweb-blog
+
+- prefix: projects/headers-testing/
+  kind: other
+  copy:
+    headline: Internal test data for HTTP-header extraction
+    lede: A small internal Common Crawl test prefix related to extracting HTTP response-header metadata
+      from WARC records.
+    text: No dedicated publisher documentation describes this prefix; based on its naming and size it
+      is pipeline-test material for exposing structured HTTP header data, not part of the main corpus.
+  refs:
+  - headers
+
+- prefix: projects/host-index-testing/
+  copy:
+    headline: Host Index test releases
+    lede: The public test releases of the Host Index, which has one row for every web host in each crawl.
+    text: The in-testing versions of the Host Index, a dataset with one row per known web host per crawl
+      carrying summary information drawn from the crawl, the indexes, the web graph and Common Crawl's
+      raw crawler logs.
+  refs:
+  - cc-host-index
+
+- prefix: projects/host-index-testing/v2/
+  copy:
+    headline: Host Index, one row per web host per crawl
+    lede: The v2 public test release of the Host Index, a dataset with one row per web host per crawl
+      summarising crawl, index, web-graph and crawler-log data.
+    text: 'Each row carries summary information drawn from the crawl, the indexes, the web graph and raw
+      crawler logs: counts of pages crawled by HTTP status code (successes, redirects, not-found, not-changed
+      and so on), robots.txt fetch and bot-defence details, and language-distribution summaries such as
+      the fraction of non-English pages. This lets users select hosts that are, for example, mostly in
+      English or have an above-average search-engine-style rank. It can be queried directly from AWS with
+      SQL tools such as Amazon Athena or DuckDB, or downloaded (around 24 crawls of about 7 GB each).
+      Published under the naming convention cchost_index_testing_v2, this is explicitly test rather than
+      final data, released for public feedback.'
+  refs:
+  - hostindex-blog
+
+- prefix: projects/hyperlinkgraph/
+  copy:
+    headline: Host- and domain-level web graphs
+    lede: Common Crawl's regularly released host- and domain-level web graphs for visualising the crawl
+      data.
+    text: The web graphs that Common Crawl releases regularly at host and domain level, derived from the
+      crawls for visualising the link structure of the crawled web.
+  refs:
+  - cc-web-graphs
+
+- prefix: projects/mozilla-1m/
+  copy:
+    headline: Mozilla 1M experimental device-rendering crawl
+    lede: An early experimental Common Crawl that used Apache Nutch with device-specific Mozilla user
+      agents to test device-dependent rendering.
+    text: This experimental crawl ran Apache Nutch with several device-specific Mozilla user agents, including
+      Android, Firefox OS/B2G, desktop, Fennec and iPhone, across roughly one million URLs to test device-dependent
+      rendering. It predates Common Crawl's full production adoption of Apache Nutch, which the project
+      transitioned to in 2013.
+  refs:
+  - mozilla1m
+
+- prefix: projects/warc2table-testing/
+  kind: other
+  copy:
+    text: An internal/testing area under projects/ related to Common Crawl's WARC-to-columnar-table conversion
+      tooling (cc-pyspark / cc-index-table). No publisher documentation scoped to this prefix found; lifecycle
+      inferred from the 'projects/...-testing/' namespace.
+    headline: An internal/testing area under projects/ related to Common Crawl's…
+    lede: An internal/testing area under projects/ related to Common Crawl's WARC-to-columnar-table conversion
+      tooling (cc-pyspark / cc-index-table).
+  refs:
+  - cc-pyspark
+
+- prefix: projects/web-graph-testing/
+  kind: other
+  copy:
+    text: An internal/testing area under projects/ associated with Common Crawl's host- and domain-level
+      web-graph work (cc-webgraph / cc-pyspark); the production web graphs are documented at commoncrawl.org/web-graphs,
+      but no documentation scoped to this testing prefix was found. Lifecycle inferred from the 'projects/...-testing/'
+      namespace, not a publisher statement about this prefix.
+    headline: An internal/testing area under projects/ associated with Common…
+    lede: An internal/testing area under projects/ associated with Common Crawl's host- and domain-level
+      web-graph work (cc-webgraph / cc-pyspark); the production web graphs are documented at commoncrawl.org/web-graphs,
+      but no documentation scoped to this testing prefix was found.
+  refs:
+  - cc-webgraphs
+
+- prefix: projects/webgraph-outin-testing/v1/
+  kind: other
+  copy:
+    text: Internal/testing area under projects/ related to Common Crawl's web-graph work; no documentation
+      scoped to this prefix found. Lifecycle inferred from the 'projects/...-testing/' namespace.
+    headline: Internal/testing area under projects/ related to Common Crawl's…
+    lede: Internal/testing area under projects/ related to Common Crawl's web-graph work; no documentation
+      scoped to this prefix found.
+  refs:
+  - cc-webgraphs
+
+- prefix: projects/webgraph-outin-testing/v2/
+  kind: other
+  copy:
+    text: Internal/testing area under projects/ related to Common Crawl's web-graph work; no documentation
+      scoped to this prefix found. Lifecycle inferred from the 'projects/...-testing/' namespace.
+    headline: Internal/testing area under projects/ related to Common Crawl's…
+    lede: Internal/testing area under projects/ related to Common Crawl's web-graph work; no documentation
+      scoped to this prefix found.
+  refs:
+  - cc-webgraphs
+
+- prefix: stats-output/final/
+  kind: other
+  copy:
+    text: Inferred legacy Hadoop stats-output final directory; no publisher source found. Low confidence;
+      not described editorially.
+    headline: Inferred legacy Hadoop stats-output final directory
+    lede: Inferred legacy Hadoop stats-output final directory; no publisher source found.
+  refs:
+  - legacy-hadoop-negative
+
+- prefix: stats-output/intermediate/
+  kind: other
+  copy:
+    text: Inferred legacy Hadoop stats-output intermediate directory; no publisher source found. Low confidence;
+      not described editorially.
+    headline: Inferred legacy Hadoop stats-output intermediate directory
+    lede: Inferred legacy Hadoop stats-output intermediate directory; no publisher source found.
+  refs:
+  - legacy-hadoop-negative
+
+- prefix: stats-output/merged/
+  kind: other
+  copy:
+    text: Inferred legacy Hadoop stats-output merged directory; no publisher source found. Low confidence;
+      not described editorially.
+    headline: Inferred legacy Hadoop stats-output merged directory
+    lede: Inferred legacy Hadoop stats-output merged directory; no publisher source found.
+  refs:
+  - legacy-hadoop-negative
+
+- prefix: wikipedia/dbpedia/
+  kind: other
+  copy:
+    text: Inferred legacy DBpedia dump deposit (wikipedia/dbpedia/); no current publisher source found
+      that describes it in the commoncrawl bucket context. Low confidence; not described editorially.
+    headline: Inferred legacy DBpedia dump deposit
+    lede: Inferred legacy DBpedia dump deposit (wikipedia/dbpedia/); no current publisher source found
+      that describes it in the commoncrawl bucket context.
+  refs:
+  - dbpedia-negative
+
+- prefix: projects/hyperlinkgraph/cc-main-*/
+  copy:
+    text: Wildcard entry for the 58 projects/hyperlinkgraph/cc-main-* releases (e.g. cc-main-2017-aug-sep-oct,
+      cc-main-2025-oct-nov-dec). Each is a distinct dataset — a separate release sharing this naming and
+      structure — described here as one family rather than one entry per release.
+    headline: Wildcard entry for the 58 projects/hyperlinkgraph/cc-main-* releases
+    lede: Wildcard entry for the 58 projects/hyperlinkgraph/cc-main-* releases (e.g.
+
+stewardship:
+  last_reviewed_at: '2026-06-19'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

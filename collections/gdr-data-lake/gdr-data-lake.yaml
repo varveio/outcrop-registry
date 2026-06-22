@@ -1,0 +1,202 @@
+schema_version: '0.4'
+bucket: gdr-data-lake
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: FORGE/
+  copy:
+    headline: Utah FORGE downhole monitoring, April 2024 stimulations
+    lede: Distributed acoustic sensing and downhole geophone recordings from well 16B(78)-32 at the DOE
+      Utah FORGE enhanced-geothermal field laboratory, captured during the April 2024 hydraulic-fracture
+      stimulations.
+    text: 'Utah FORGE (Frontier Observatory for Research in Geothermal Energy) is the DOE Geothermal Technologies
+      Office flagship enhanced-geothermal field laboratory near Milford, Utah. The data covers high-rate
+      downhole monitoring recorded during the April 2024 hydraulic-fracture stimulations of wells 16A(78)-32
+      and 16B(78)-32: continuous and triggered Distributed Acoustic Sensing from a Neubrex NBX-S4100 Time-Gated
+      Digital interrogator in well 16B(78)-32 (10 kHz sampling, ~1.02 m spatial resolution, ~5,369 to
+      10,352 ft measured depth, in 12-second HDF5 files organized chronologically), alongside continuous
+      downhole geophone recordings from the GES tool. The recordings support analysis of cross-well strain,
+      far-field strain rate, microseismic activity, induced seismicity, and seismic imaging, and are released
+      through the GDR under CC BY 4.0.'
+  refs:
+  - forge-1680
+
+- prefix: egs_collab/experiment_1/
+  copy:
+    headline: EGS Collab Experiment 1 seismic monitoring at SURF
+    lede: Active-source (CASSM) seismic monitoring with distributed-sensing and microseismic streams from
+      the first EGS Collab hydraulic-stimulation experiment, recorded ~1.5 km underground at the Sanford
+      Underground Research Facility.
+    text: The EGS Collab project studies hydraulic stimulation in crystalline rock for geothermal energy
+      production through closely monitored underground experiments. Experiment 1 ran from April 2018 to
+      March 2019 at the 4850 ft level (~1.5 km depth) of the Sanford Underground Research Facility (SURF)
+      in Lead, South Dakota. The experiment_1 tree separates the Continuous Active-Source Seismic Monitoring
+      (CASSM) data — 17 piezoelectric sources fired in repeated stacked sequences and recorded by hydrophone
+      arrays, 18 three-component accelerometers, and 4 three-component geophones at 24 kHz, in SEG2 and
+      SEG-Y, ~5.01 TB — from the distributed-sensing and microseismic-monitoring streams of the same experiment,
+      used to image and characterize the stimulated reservoir. Released through the GDR under CC BY 4.0.
+  refs:
+  - egscollab-exp1-1368
+
+- prefix: egs_collab/experiment_2/DAS/
+  copy:
+    headline: EGS Collab Experiment 2 fiber-optic DAS from three interrogators
+    lede: Raw distributed acoustic sensing from a fiber loop grouted into the four monitoring boreholes
+      around the EGS Collab Experiment 2 volume, recorded by Silixa iDAS, Terra15 Treble, and Optasense
+      ODH3 interrogators.
+    text: EGS Collab Experiment 2 distributed fiber-optic acoustic sensing. A single loop of custom fiber
+      package — two multi-mode and four single-mode fibers — was grouted into the four monitoring boreholes
+      bracketing the experiment volume and connected to three DAS interrogators, a Silixa iDAS, a Terra15
+      Treble, and an Optasense ODH3, each recording strain rate along the fiber at different sampling
+      rates. The data is stored raw in native instrument formats (HDF5 and TDMS), organized by interrogator
+      and by timestamped acquisition, with metadata embedded in the files; the Optasense outputs additionally
+      include processed Strain products and per-acquisition test and config folders. Total ~212 TB, released
+      through the GDR under CC BY 4.0.
+  refs:
+  - egscollab-exp2-das-1606
+
+- prefix: egs_collab/experiment_2/active_seismic/
+  copy:
+    headline: EGS Collab Experiment 2 active-source seismic monitoring
+    lede: Continuous Active Source Seismic Monitoring (CASSM) for EGS Collab Experiment 2, the active-source
+      counterpart to the experiment's passive microseismic monitoring at SURF.
+    text: Continuous Active Source Seismic Monitoring (CASSM) for EGS Collab Experiment 2 at the Sanford
+      Underground Research Facility. CASSM repeatedly fires controlled active sources and stacks the recordings
+      to image the stimulated volume, complementing the experiment's passive microseismic monitoring.
+      Released through the GDR (submission 1700) under CC BY 4.0.
+  refs:
+  - egscollab-exp2-active-1700
+
+- prefix: egs_collab/experiment_2/passive_seismic/
+  copy:
+    headline: EGS Collab Experiment 2 microseismic monitoring at SURF
+    lede: Continuous seismic waveform data from the stimulation and thermal-circulation phases of EGS
+      Collab Experiment 2, recorded February to September 2022 at the Sanford Underground Research Facility.
+    text: 'Passive-seismic (microseismic) monitoring for EGS Collab Experiment 2: continuous seismic waveform
+      data recorded during the experiment''s stimulation and thermal-circulation test phases, February
+      to September 2022, at the Sanford Underground Research Facility in Lead, South Dakota, from boreholes
+      1,200 to 1,500 m below surface. Recordings come from 16 three-component accelerometers and a 24-channel
+      hydrophone array. The data is raw timestamp-named binary files with accompanying sensor calibration
+      certificates, separated into the ''stimulation'' and ''thermal_circulation'' phases, and is typically
+      read with ObsPy following SEED naming conventions. Released through the GDR under CC BY 4.0.'
+  refs:
+  - egscollab-exp2-passive-1607
+
+- prefix: imperialvalleydas/
+  copy:
+    headline: Dark-fiber DAS seismic data from California's Imperial Valley
+    lede: Continuous distributed acoustic sensing recorded over a ~28 km segment of unused telecom 'dark
+      fiber' between Calipatria and Imperial, demonstrating basin-scale geothermal monitoring.
+    text: The Imperial Valley Dark Fiber Project recorded Distributed Acoustic Sensing seismic data by
+      interrogating a ~28 km segment of repurposed, unused telecommunications 'dark fiber' between Calipatria
+      and Imperial in Southern California's Imperial Valley, on November 12-13, 2020. The data is ~1.09
+      TB of HDF5 (.h5) files, readable with MATLAB or Python h5py. The project demonstrates dark-fiber
+      DAS for basin-scale geothermal exploration and monitoring in this tectonically active region. Released
+      through the GDR under CC BY 4.0.
+  refs:
+  - imperialvalleydas-1499
+
+- prefix: newberry_mt_data/
+  copy:
+    headline: DEEPEN magnetotelluric and gravity data from Newberry Volcano
+    lede: Full-tensor broadband magnetotelluric and gravity data acquired at Newberry Volcano, Oregon,
+      for the DEEPEN project's 3D play-fairway analysis of magmatic geothermal plays.
+    text: The DEEPEN project (DE-risking Exploration of geothermal Plays in magmatic ENvironments) acquired
+      combined full-tensor broadband magnetotelluric (MT) and gravity data at Newberry Volcano in Central
+      Oregon during 2022 and 2023, processed and inverted by Enthalpion Energy LLC with NREL support.
+      The work is part of a 3D play-fairway analysis spanning conventional hydrothermal, superhot EGS,
+      and supercritical play types, aimed at understanding the volcano's South Flank and the extent of
+      its magma chamber. The data is ~305.88 GB of raw binary MT files, released through the GDR under
+      CC BY 4.0.
+  refs:
+  - newberry-1514
+
+- prefix: soda_lake/raw_seismic/
+  copy:
+    headline: 2010 raw 3D/3C seismic-reflection survey of Soda Lake
+    lede: Petroleum-quality three-dimensional, three-component reflection survey records collected in
+      2010 around the Soda Lake geothermal field near Fallon, Nevada.
+    text: Raw seismic-reflection records from a 2010 three-dimensional, three-component (3D/3C) survey
+      of the Soda Lake geothermal field near Fallon, Nevada (~36 square miles), acquired to petroleum-industry
+      standards by Magma Energy (now CYRQ Energy). The raw seismic comes as 8,321 SEG-Y shot records —
+      each a vibrator source location across three geophone components, ~171 GB — accompanied by ~1 GB
+      of field logs and metadata and ~47 MB of project reports. Released through the GDR under CC BY 4.0.
+  refs:
+  - soda-lake-1655
+
+- prefix: wholescale/
+  copy:
+    headline: WHOLESCALE Nevada geothermal seismic surveys (SubTER)
+    lede: Passive-seismic node surveys from the DOE SubTER WHOLESCALE project at the San Emidio and Crescent
+      Valley geothermal areas in Nevada, aimed at imaging geothermal permeability.
+    text: 'The WHOLESCALE project, funded under the DOE Subsurface Technology and Engineering R&D (SubTER)
+      initiative (award EE0007698), advances imaging and characterization of geothermal permeability.
+      It groups large-node passive-seismic deployments at Nevada geothermal sites: the 2016 San Emidio
+      survey (1,301 vertical-component instruments over ~160 hours in December 2016, archived in both
+      SEGD and MSEED), the Crescent Valley greenfield survey (989 vertical-component instruments for 75
+      hours, recorded December 2016, SEGD, with no discrete seismic events identified), and a separate
+      2021 San Emidio survey. Recordings are stored as one-minute-increment files. Released through the
+      GDR under CC BY 4.0.'
+  refs:
+  - wholescale-1395-1567-1478
+
+- prefix: wholescale/2021_seismic/
+  copy:
+    headline: 2021 San Emidio geothermal seismic survey (WHOLESCALE)
+    lede: The 2021 seismic acquisition at the San Emidio geothermal field in Nevada, a follow-on to the
+      WHOLESCALE project's 2016 survey there.
+    text: The 2021 seismic survey at the San Emidio geothermal field in Nevada, a follow-on acquisition
+      to the project's 2016 San Emidio survey. It is part of the DOE Subsurface Technology and Engineering
+      R&D (SubTER) WHOLESCALE project (award EE0007698), which advances imaging and characterization of
+      geothermal permeability. Released through the GDR (submission 1478) under CC BY 4.0.
+  refs:
+  - san-emidio-2021-1478
+
+- prefix: wholescale/subter_seismic/crescent_valley/
+  copy:
+    headline: 2016 Crescent Valley greenfield seismic survey, Nevada
+    lede: A 989-node, 75-hour passive-seismic deployment at the Crescent Valley greenfield geothermal
+      play in Nevada, recorded December 2016 under the WHOLESCALE project.
+    text: 'The 2016 WHOLESCALE seismic survey of the Crescent Valley greenfield geothermal play in Nevada:
+      989 vertical-component instruments deployed for 75 hours in September 2016, with data recorded December
+      9-15, 2016, stored as one-minute SEGD files (~469.57 GB). The survey delivered acoustic energy across
+      a 1750 m x 2250 m x 300 m volume; no discrete seismic events were identified. Released through the
+      GDR (submission 1567) under CC BY 4.0.'
+  refs:
+  - crescent-valley-1567
+
+- prefix: wholescale/subter_seismic/san_emidio/
+  copy:
+    headline: 2016 San Emidio geothermal seismic survey (SEGD)
+    lede: Passive-seismic recordings from 1,301 vertical-component nodes deployed for ~160 hours at the
+      San Emidio geothermal field in December 2016, in SEGD format.
+    text: 'The SEGD-format recordings of the 2016 WHOLESCALE passive-seismic survey at the San Emidio
+      geothermal field in Nevada: 1,301 vertical-component instruments collecting continuously over ~160
+      hours, December 5-11, 2016, stored as one-minute-increment files (~1.27 TB SEGD). The survey was
+      part of the DOE Subsurface Technology and Engineering R&D (SubTER) effort to image and characterize
+      geothermal permeability. The companion san_emidio_mseed prefix carries the same survey in MSEED
+      format. Released through the GDR under CC BY 4.0.'
+  refs:
+  - san-emidio-1395
+
+- prefix: wholescale/subter_seismic/san_emidio_mseed/
+  copy:
+    headline: 2016 San Emidio geothermal seismic survey (MSEED)
+    lede: The MSEED (miniSEED) rendering of the 2016 San Emidio WHOLESCALE passive-seismic survey, the
+      same 1,301-node deployment offered in SEGD under the sibling san_emidio prefix.
+    text: The MSEED (miniSEED) format of the 2016 WHOLESCALE passive-seismic survey at the San Emidio
+      geothermal field in Nevada — the same 1,301 vertical-component instrument deployment recorded over
+      ~160 hours in December 2016 that the sibling san_emidio prefix provides in SEGD (~1.3 TB MSEED).
+      Data is in one-minute-increment files suitable for ObsPy and SEED workflows. The survey was part
+      of the DOE SubTER project to image and characterize geothermal permeability. Released through the
+      GDR under CC BY 4.0.
+  refs:
+  - san-emidio-1395
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

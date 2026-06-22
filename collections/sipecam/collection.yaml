@@ -1,0 +1,86 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: sipecam
+title: SiPeCaM Open Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: sipecam-homepage
+  kind: publisher_homepage
+  url: https://github.com/CONABIO/sipecam-open-data/blob/main/README.md
+  label: SiPeCaM / CONABIO project site
+  retrieved_at: '2026-06-20'
+
+- id: sipecam-readme
+  kind: publisher_doc
+  url: https://github.com/CONABIO/sipecam-open-data/blob/main/README.md
+  label: SiPeCaM open-data README (CONABIO/sipecam-open-data)
+  excerpt: 'SiPeCam is a National Monitoring System of Biodiversity and Permanent Sites for Calibration
+    that collects a great amount of visual and sound data... SiPeCaM project data is available to the
+    community free of charge. The Amazon bucket contains a subset of the complete data set from the project
+    and can be found in: s3://sipecam-open-data in the us-east-1 AWS region.'
+  retrieved_at: '2026-06-20'
+
+- id: sipecam-s3info
+  kind: publisher_doc
+  url: https://github.com/CONABIO/sipecam-open-data/blob/main/docs/s3_information.md
+  label: SiPeCaM S3 bucket structure (docs/s3_information.md)
+  excerpt: 'In this bucket s3://sipecam-open-data there are 3 types of data: images (.jpg), videos (.mp4),
+    audio (.avi). ... data/ <cumulusr>/ <node nomenclature>/ <serial number device>/ <extraction date
+    (YYYY-MM-DD)>/ <TYPE OF DATA>/ (images_videos, audio) - Audio can be Ultrasonic or Audible ... alf_data/
+    (This use is for Afresco).'
+  retrieved_at: '2026-06-20'
+
+- id: snmb-context
+  kind: web_research
+  url: https://github.com/CONABIO/sipecam-open-data/blob/main/README.md
+  label: CONABIO — Sistema Nacional de Monitoreo de la Biodiversidad (SNMB)
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: 'Mexico-wide biodiversity monitoring: camera-trap imagery and field audio'
+    lede: SiPeCaM is CONABIO's national biodiversity monitoring and permanent-calibration-sites system,
+      publishing camera-trap imagery and field audio collected across Mexico for training and reference.
+    text: 'A national monitoring system of biodiversity and permanent sites for calibration, run by CONABIO
+      (Comisión Nacional para el Conocimiento y Uso de la Biodiversidad), Mexico''s federal biodiversity
+      commission. It collects visual and sound data and makes it freely available to the community, so
+      others can train neural-network models and use the records as a reference for which species were
+      present at a site over time. Visual data supports identification to class, family, genus or species;
+      sound data includes bat calls recorded in the field with external specialists.
+
+
+      The published bucket carries a subset of the complete project dataset across three data types: images
+      (.jpg), videos (.mp4) and audio (.avi), with audio further split into ultrasonic and audible recordings.
+      Under the easy-access data/ path the records nest by monitoring cumulo (a cluster of sites), then
+      node nomenclature, capture-device serial number, extraction date, and finally the type-of-data folder.'
+  refs:
+  - sipecam-readme
+  - sipecam-s3info
+
+source:
+  publisher: CONABIO (Comisión Nacional para el Conocimiento y Uso de la Biodiversidad) — SiPeCaM
+  homepage_url: https://sipecam.conabio.gob.mx/
+
+display:
+  canonical_path: /sipecam/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

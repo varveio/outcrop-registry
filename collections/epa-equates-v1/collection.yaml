@@ -1,0 +1,91 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: epa-equates-v1
+title: EPA EQUATES CMAQ Air Quality
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: epa-equates-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/epa-equates-v1/
+  label: 'AWS Open Data registry: EPA EQUATES CMAQ 2019 3D Gridded and Column data (license + access)'
+  excerpt: These datasets are products of the U.S. Government and are intended for public access and use.
+    Unless otherwise specified, all data produced by the U.S EPA is, by default, in the public domain
+    and are not subject to domestic copyright protection under 17 U.S.C. § 105.
+  retrieved_at: '2026-06-22'
+
+- id: epa-equates-data-dictionary
+  kind: publisher_file
+  url: https://cmas-equates.s3.amazonaws.com/EQUATES_Data_Dictionary_for_CMAS_Data_Warehouses.html
+  label: EQUATES Data Dictionary for CMAS Data Warehouses (CMAQ COLUMN + CONC3D)
+  excerpt: 'Column totals represent vertically integrated concentrations, available for both 12US1 and
+    108NHEMI domains (NO2_COLUMN, CO_COLUMN, SO2_COLUMN, HCHO_COLUMN, O3_COLUMN, JNO2_COLUMN, AOD550).
+    CONC3D contains hourly concentrations: 35 layers and 27 species for 12US1, 44 layers and 22 species
+    for 108NHEMI.'
+  retrieved_at: '2026-06-22'
+
+- id: epa-equates-homepage
+  kind: publisher_homepage
+  url: https://www.epa.gov/cmaq/equates
+  label: EQUATES project page (US EPA CMAQ)
+  excerpt: EPA's Air QUAlity TimE Series Project (EQUATES) contains modeled meteorology, emissions, air
+    quality and pollutant deposition datasets spanning 2002-2019 over the conterminous U.S. (CONUS) at
+    12km and the Northern Hemisphere at 108km grid spacing.
+  retrieved_at: '2026-06-22'
+
+- id: epa-equates-readme-access
+  kind: publisher_file
+  url: https://cmas-equates.s3.amazonaws.com/readme.html
+  label: EQUATES Input and Output Data readme (AWS access instructions)
+  excerpt: 'This dataset is available as part of the AWS Open Data Program, therefore egress fees are
+    not charged to either the host or the person downloading the data. Once you have it installed, you
+    can use it without credentials. Example commands: aws s3 ls --summarize --region=us-east-1 --human-readable
+    --recursive s3://'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: CMAQ-modeled gridded air quality from EPA's EQUATES project
+    lede: EPA's Air QUAlity TimE Series (EQUATES) project provides Community Multiscale Air Quality (CMAQ)
+      v5.3.2 model output as hourly gridded pollutant fields over the contiguous U.S. and the Northern
+      Hemisphere.
+    text: 'EQUATES is the U.S. Environmental Protection Agency''s multi-year air-quality modeling effort,
+      pairing WRF meteorology with the CMAQ photochemical model (version 5.3.2) to produce a consistent
+      record of pollutant concentrations and deposition. This collection holds the CMAQ output as compressed
+      netCDF/HDF5 files in I/O API data structures, organized by modeling domain: ''12US1'', the conterminous
+      U.S. (including parts of Canada and Mexico) at 12 km grid spacing, and ''108NHEMI'', the Northern
+      Hemisphere at 108 km grid spacing. For each domain the output is split into vertical COLUMN totals
+      (integrated species columns such as NO2, O3, HCHO and aerosol optical depth) and 3D CONC3D fields
+      (hourly per-layer concentrations across dozens of species). The data are processed COMBINE products
+      intended for human-health, ecological, model-evaluation and model-development applications, distributed
+      through the CMAS Data Warehouse and the AWS Open Data Sponsorship Program.'
+  refs:
+  - epa-equates-aws-registry
+  - epa-equates-data-dictionary
+
+source:
+  publisher: U.S. Environmental Protection Agency
+  homepage_url: https://www.epa.gov/
+
+display:
+  canonical_path: /epa-equates-v1/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,102 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: euclid-q1
+title: Euclid Quick Release 1 (Q1)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: euclid-q1-hats-record
+  kind: catalog_metadata
+  url: https://vao.stsci.edu/directory/getRecord.aspx?id=ivo://irsa.ipac/Euclid/HATS/Euclid_Q1_Merged_Objects
+  label: IRSA Euclid Q1 Merged Objects HATS — VO Resource Record
+  excerpt: The IRSA HATS Catalog contains multiple collections in the Hierarchical Adaptive Tiling Scheme.
+  retrieved_at: '2026-06-20'
+
+- id: euclid-q1-irsa-homepage
+  kind: publisher_homepage
+  url: https://irsa.ipac.caltech.edu/data/Euclid/docs/overview_q1.html
+  label: Euclid at IRSA (NASA/IPAC Infrared Science Archive)
+  excerpt: 'Euclid Quick Release 1 (Q1) consists of approximately 35 TB of imaging, spectroscopy, and
+    catalogs covering four non-contiguous fields: Euclid Deep Field North, Euclid Deep Field Fornax, Euclid
+    Deep Field South, and LDN1641.'
+  retrieved_at: '2026-06-20'
+
+- id: euclid-q1-mer-catalog-tutorial
+  kind: publisher_doc
+  url: https://caltech-ipac.github.io/irsa-tutorials/euclid-intro-mer-catalog/
+  label: 'Euclid Q1: MER Catalogs — IRSA Tutorials'
+  excerpt: Each entry is a single source with associated photometry from the multiwavelength MER Mosaics
+    (VIS, Y, J, H, and any accompanying external ground-based measurements), along with other basic measurements,
+    like size and shape.
+  retrieved_at: '2026-06-20'
+
+- id: euclid-q1-overview
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/data/Euclid/docs/overview_q1.html
+  label: Euclid Quick Release 1 (Q1) Overview — IRSA
+  excerpt: 'Euclid Quick Release 1 (Q1) consists of approximately 35 TB of imaging, spectroscopy, and
+    catalogs covering four non-contiguous fields: Euclid Deep Field North (22.9 sq deg), Euclid Deep Field
+    Fornax (12.1 sq deg), Euclid Deep Field South (28.1 sq deg), and LDN1641.'
+  retrieved_at: '2026-06-20'
+
+- id: irsa-cloud-access
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/cloud_access/
+  label: IRSA Cloud Data Access
+  excerpt: The data are freely available and no special permissions or credentials are required. However,
+    most tools will look for credentials by default and raise an error when none are found. To avoid this,
+    make an anonymous connection. Typically this is done by including a parameter such as --no-sign-request
+    or anonymous=True.
+  retrieved_at: '2026-06-20'
+
+- id: irsa-data-use-terms
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/data_use_terms.html
+  label: Terms of Use of Data Hosted by IRSA
+  excerpt: Most data served by IRSA is public, with no usage restrictions. It is best practice for users
+    of data hosted at IRSA to include the appropriate acknowledgements and citations in any publications.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: Terms of Use of Data Hosted by IRSA
+  url: https://irsa.ipac.caltech.edu/data_use_terms.html
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Euclid mission's first public Quick Release (Q1)
+    lede: Euclid Q1 is the first Quick Release from ESA's Euclid mission — roughly 35 TB of imaging, spectroscopy,
+      and catalogs over four deep fields, served by NASA/IPAC's IRSA.
+    text: 'Euclid Quick Release 1 (Q1) is approximately 35 TB of imaging, spectroscopy, and catalogs covering
+      four non-contiguous fields: Euclid Deep Field North (22.9 sq deg), Euclid Deep Field Fornax (12.1
+      sq deg), Euclid Deep Field South (28.1 sq deg), and LDN1641. It contains VIS and NISP calibrated
+      and raw frames, MER multiwavelength co-added mosaics, SIR slitless spectroscopy, Level 3 visibility
+      masks, and an extensive set of catalogs — the MER, PHZ photometric-redshift, and SPE spectroscopic-redshift,
+      lines, and models catalogs. IRSA serves the full release with browsable and cloud access alongside
+      the Euclid Data Explorer, astroquery, and the SIA/TAP/SCS/SSA virtual-observatory protocols, each
+      product carrying its own IRSA DOI. Using the data requires citing the Q1 journal article and the
+      appropriate DOI and including ESA''s Quick Release acknowledgement.'
+  refs:
+  - euclid-q1-overview
+
+source:
+  publisher: ESA Euclid mission / NASA-IPAC Infrared Science Archive (IRSA)
+  homepage_url: https://irsa.ipac.caltech.edu/data/Euclid/
+
+display:
+  canonical_path: /euclid-q1/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

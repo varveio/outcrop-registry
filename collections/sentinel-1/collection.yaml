@@ -1,0 +1,81 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: sentinel-1
+title: Sentinel-1 (Copernicus C-band SAR)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: sentinel-legal-notice
+  kind: publisher_doc
+  url: https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice
+  label: Legal Notice on the use of Copernicus Sentinel Data and Service Information (European Commission)
+  excerpt: 'users shall have a free, full and open access to Copernicus Sentinel Data and Service Information
+    without any express or implied warranty... Where the Copernicus Sentinel Data and Service Information
+    have been adapted or modified, the user shall provide the following notice: ''Contains modified Copernicus
+    Sentinel data [Year]'' for Sentinel data.'
+  retrieved_at: '2026-06-22'
+
+- id: sentinel1-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/sentinel-1/
+  label: Sentinel-1 — Registry of Open Data on AWS (Element 84)
+  excerpt: 'Description: This dataset represents the global Sentinel-1 GRD archive. License: Access to
+    Sentinel data is free, full and open for the broad Regional, National, European and International
+    user community. Managed By: Element 84. AWS CLI Access (No AWS account required): aws s3 ls --no-sign-request
+    s3://sentinel-s1-l1c/'
+  retrieved_at: '2026-06-22'
+
+- id: sentinel1-esa-homepage
+  kind: publisher_homepage
+  url: https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-1
+  label: Copernicus Sentinel-1 mission page (Copernicus Data Space Ecosystem)
+  excerpt: The Sentinel-1 mission comprises a constellation of two polar-orbiting satellites, operating
+    day and night. These satellites use C-band synthetic aperture radar imaging, which allows them to
+    capture images in all weather conditions.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: Legal Notice on the use of Copernicus Sentinel Data and Service Information (European Commission)
+  url: https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Copernicus C-band radar imaging of Earth, day and night
+    lede: Sentinel-1 is the Copernicus C-band Synthetic Aperture Radar mission, a constellation of ESA
+      radar satellites imaging Earth through cloud and darkness, distributed on AWS by Element 84.
+    text: Sentinel-1 is the European Radar Observatory of the Copernicus programme, jointly run by the
+      European Commission and the European Space Agency. A constellation of polar-orbiting satellites
+      — Sentinel-1A, the now-retired 1B, and Sentinel-1C — carries C-band synthetic aperture radar that
+      images the planet day and night and in all weather, because radar is unaffected by cloud or lack
+      of sunlight. The mission acquires in four imaging modes spanning resolutions to 5 m and swaths to
+      400 km, with dual polarization, short revisit times, and products distributed at Level-0, SLC, GRD,
+      and OCN levels. Its data underpins sea-ice and iceberg mapping, glacier-velocity and ground-deformation
+      monitoring (subsidence, earthquakes, volcanoes), maritime surveillance, and land and emergency mapping.
+      On AWS the imagery is published by Element 84 in the eu-central-1 region under the free, full and
+      open Copernicus Sentinel data terms.
+  refs:
+  - sentinel1-esa-homepage
+  - sentinel1-aws-registry
+
+source:
+  publisher: ESA / Copernicus (distributed on AWS by Element 84)
+  homepage_url: https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-1
+
+display:
+  canonical_path: /sentinel-1/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

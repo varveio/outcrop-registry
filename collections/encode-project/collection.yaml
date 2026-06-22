@@ -1,0 +1,85 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: encode-project
+title: Encyclopedia of DNA Elements (ENCODE)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: encode-aws-access
+  kind: publisher_doc
+  url: https://www.encodeproject.org/aws-public-dataset/
+  label: 'ENCODE: announcing ENCODE as an AWS Public Data Set'
+  excerpt: You can now directly access ENCODE files via S3:// URIs for all your local cloud computing
+    needs.
+  retrieved_at: '2026-06-20'
+
+- id: encode-data-use-policy
+  kind: publisher_doc
+  url: https://www.encodeproject.org/about/data-use-policy/
+  label: ENCODE Data Use Policy
+  excerpt: Accordingly, to encourage the widest possible use of the datasets, all data produced will be
+    available for unrestricted use immediately upon release to public databases, eliminating the nine-month
+    moratorium used previously in earlier phases of ENCODE. For guidelines on how to cite ENCODE data
+    in your publications, please visit the Citing ENCODE page.
+  retrieved_at: '2026-06-20'
+
+- id: encode-homepage
+  kind: publisher_homepage
+  url: https://www.encodeproject.org/
+  label: ENCODE Project portal (encodeproject.org)
+  excerpt: The Encyclopedia of DNA Elements (ENCODE) — a comprehensive parts list of functional elements
+    in the human and mouse genomes, served by the ENCODE Data Coordinating Center at Stanford University.
+  retrieved_at: '2026-06-20'
+
+- id: encode-s3-layout
+  kind: catalog_metadata
+  url: https://www.encodeproject.org/files/ENCFF002COS/?format=json
+  label: ENCODE portal file record — cloud_metadata S3 key (date-partitioned layout)
+  excerpt: https://encode-public.s3.amazonaws.com/2014/06/06/956cba28-ccff-4cbd-b1c8-39db4e3de572/ENCFF002COS.narrowPeak.gz
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: ENCODE Data Use Policy
+  url: https://www.encodeproject.org/about/data-use-policy/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Functional-element parts list of the human and mouse genomes
+    lede: The Encyclopedia of DNA Elements (ENCODE) is an NHGRI-funded consortium cataloguing functional
+      elements across the human and mouse genomes, with every released and archived file mirrored to s3://encode-public
+      by the ENCODE Data Coordinating Center.
+    text: 'The Encyclopedia of DNA Elements (ENCODE) builds a comprehensive parts list of functional elements
+      in the human and mouse genomes, served by the ENCODE Data Coordinating Center at Stanford University.
+      Like the Human Genome Project, the consortium seeks rapid dissemination: all data is available for
+      unrestricted use immediately upon release to public databases, with no moratorium. The s3://encode-public
+      bucket is the publicly readable cloud mirror, in us-west-2 and reachable without an AWS account,
+      where the Data Coordinating Center publishes every released and archived file. Each file record
+      on the ENCODE portal links its cloud_metadata directly to the matching S3 object. ENCODE requests,
+      but does not require, that researchers cite the consortium and reference accession numbers when
+      they use the data.'
+  refs:
+  - encode-homepage
+  - encode-data-use-policy
+
+source:
+  publisher: The ENCODE Project (Encyclopedia of DNA Elements)
+  homepage_url: https://www.encodeproject.org/
+
+display:
+  canonical_path: /encode-project/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

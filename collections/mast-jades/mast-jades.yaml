@@ -1,0 +1,250 @@
+schema_version: '0.4'
+bucket: stpubdata
+outcrop_bucket: mast-jades
+backend: s3
+role: primary
+region: us-east-1
+prefix: mast/hlsp/jades/
+
+prefixes:
+- prefix: mast/hlsp/jades/dr1/goods-s/bundles/
+  copy:
+    headline: JADES DR1 GOODS-S packaged data bundles
+    lede: Packaged ZIP bundles of the JADES Data Release 1 NIRSpec deep/HST-tier products for the GOODS-S
+      field, for convenient bulk download.
+    text: Convenience bundles for JADES Data Release 1 in GOODS-S, packaging the NIRSpec deep-tier (deephst)
+      spectral and image products into downloadable ZIP archives so users can retrieve a full product
+      set in one transfer rather than file by file. Part of the first JADES release, which centered on
+      GOODS-S NIRCam imaging and an initial set of NIRSpec spectra.
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr1/goods-s/catalogs/
+  copy:
+    headline: JADES DR1 GOODS-S catalogs
+    lede: Photometric and spectroscopic catalogs from JADES Data Release 1 for the GOODS-S field, listing
+      detected sources with measured properties and redshifts.
+    text: 'Tabular catalogs accompanying JADES Data Release 1 in GOODS-S: source photometry across the
+      NIRCam bands together with the spectroscopic measurements and redshift estimates derived from the
+      DR1 NIRSpec observations. These catalogs link the imaging mosaics and extracted spectra to a common
+      list of identified sources for the survey''s first field.'
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr1/goods-s/spectra/
+  copy:
+    headline: JADES DR1 GOODS-S NIRSpec spectra
+    lede: NIRSpec extracted spectra from JADES Data Release 1 for GOODS-S, delivered as 1D and 2D FITS
+      products organized by disperser configuration and the deep/HST target tier.
+    text: Extracted NIRSpec spectra for the GOODS-S field from the first JADES release, provided as 1D
+      and 2D FITS products. Spectra are organized by disperser/filter configuration and by the deephst
+      target tier, spanning the low-resolution prism and medium-resolution grating modes that JADES uses
+      to measure redshifts and emission lines for early-universe galaxies.
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr2/goods-s/images/
+  copy:
+    headline: JADES DR2 GOODS-S NIRCam imaging mosaics
+    lede: Drizzled NIRCam imaging mosaics of GOODS-S from JADES Data Release 2, expanding and updating
+      the deep multi-band coverage of the field.
+    text: Deep NIRCam imaging mosaics for the GOODS-S field from JADES Data Release 2, delivered as drizzled
+      (drz) FITS mosaics across the survey's multi-band filter set. DR2 broadened and refined the GOODS-S
+      imaging from the first release with updated mosaics and photometry, providing the deep multi-band
+      imaging foundation for source detection and the photometric catalogs.
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr3/goods-n/catalogs/
+  copy:
+    headline: JADES DR3 GOODS-N catalogs
+    lede: Photometric and spectroscopic catalogs from JADES Data Release 3 for the GOODS-N field, the
+      release that added northern-field coverage.
+    text: 'Tabular catalogs from JADES Data Release 3 for the GOODS-N field: NIRCam photometry together
+      with NIRSpec-derived spectroscopic measurements and redshifts for sources in the northern deep field.
+      DR3 extended JADES to GOODS-N and substantially grew the spectroscopic sample, and these catalogs
+      index the field''s imaging and spectra to a shared source list.'
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr3/goods-n/images/
+  copy:
+    headline: JADES DR3 GOODS-N NIRCam imaging mosaics
+    lede: Drizzled NIRCam imaging mosaics of the GOODS-N field from JADES Data Release 3, the survey's
+      first deep imaging of the northern field.
+    text: Deep NIRCam imaging mosaics for GOODS-N from JADES Data Release 3, delivered as drizzled (drz)
+      FITS mosaics. DR3 introduced GOODS-N coverage to JADES with roughly 56 square arcminutes of new
+      mosaics, complementing the GOODS-S imaging and underpinning the northern-field catalogs and spectroscopic
+      target selection.
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr3/goods-n/spectra/
+  copy:
+    headline: JADES DR3 GOODS-N NIRSpec spectra
+    lede: NIRSpec extracted spectra of the GOODS-N field from JADES Data Release 3, organized by disperser/filter
+      configuration and target tier.
+    text: Extracted NIRSpec spectra for GOODS-N from JADES Data Release 3, provided as 1D and 2D FITS
+      products. Spectra are arranged by disperser/filter configuration — the low-resolution clear-prism
+      and the medium-resolution gratings (f070lp-g140m, f170lp-g235m) — and by target tier (e.g. mediumhst,
+      mediumjwst), giving redshifts and emission-line measurements for the northern deep field.
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr3/goods-s/catalogs/
+  copy:
+    headline: JADES DR3 GOODS-S catalogs
+    lede: Photometric and spectroscopic catalogs from JADES Data Release 3 for the GOODS-S field, with
+      the release's expanded source and redshift sample.
+    text: 'Tabular catalogs from JADES Data Release 3 for GOODS-S: NIRCam photometry alongside the spectroscopic
+      measurements and redshifts produced from the DR3 NIRSpec observations. DR3 grew the GOODS-S spectroscopic
+      sample to several thousand spectra, and these catalogs tie the field''s imaging and spectra to a
+      common, expanded list of identified sources.'
+  refs:
+  - jades-datapage
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/clear-prism/goods-s-mediumhst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the medium/HST-selected
+      target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned by disperser/filter
+      (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings) and by target tier
+      (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism
+    lede: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the medium/HST-selected
+      target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/clear-prism/goods-s-mediumjwst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the medium/JWST-selected
+      target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned by disperser/filter
+      (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings) and by target tier
+      (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism
+    lede: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the medium/JWST-selected
+      target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/clear-prism/goods-s-mediumjwst1180/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the medium/JWST
+      1180-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned by disperser/filter
+      (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings) and by target tier
+      (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism
+    lede: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the medium/JWST
+      1180-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/clear-prism/goods-s-ultradeep/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the ultra-deep
+      target tier (the longest-exposure JADES pointings). One leaf of the DR3 GOODS-S spectra tree, which
+      is partitioned by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m
+      gratings) and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism
+    lede: DR3 GOODS-S NIRSpec spectra taken with the low-resolution clear-prism (R~100), for the ultra-deep
+      target tier (the longest-exposure JADES pointings).
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f070lp-g140m/goods-s-mediumhst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f070lp-g140m grating (R~1000),
+      for the medium/HST-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned
+      by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings)
+      and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f070lp-g140m grating (R~1000),
+      for the medium/HST-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f070lp-g140m/goods-s-mediumjwst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f070lp-g140m grating (R~1000),
+      for the medium/JWST-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned
+      by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings)
+      and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f070lp-g140m grating (R~1000),
+      for the medium/JWST-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f070lp-g140m/goods-s-ultradeep/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f070lp-g140m grating (R~1000),
+      for the ultra-deep target tier (the longest-exposure JADES pointings). One leaf of the DR3 GOODS-S
+      spectra tree, which is partitioned by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m
+      and f290lp-g395m gratings) and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f070lp-g140m grating (R~1000),
+      for the ultra-deep target tier (the longest-exposure JADES pointings).
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f170lp-g235m/goods-s-mediumhst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f170lp-g235m grating (R~1000),
+      for the medium/HST-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned
+      by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings)
+      and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f170lp-g235m grating (R~1000),
+      for the medium/HST-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f170lp-g235m/goods-s-mediumjwst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f170lp-g235m grating (R~1000),
+      for the medium/JWST-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned
+      by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings)
+      and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f170lp-g235m grating (R~1000),
+      for the medium/JWST-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f170lp-g235m/goods-s-mediumjwst1180/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f170lp-g235m grating (R~1000),
+      for the medium/JWST 1180-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is
+      partitioned by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m
+      gratings) and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f170lp-g235m grating (R~1000),
+      for the medium/JWST 1180-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f290lp-g395m/goods-s-mediumhst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the medium/HST-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned
+      by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings)
+      and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the medium/HST-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f290lp-g395m/goods-s-mediumjwst/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the medium/JWST-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is partitioned
+      by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m gratings)
+      and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the medium/JWST-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f290lp-g395m/goods-s-mediumjwst1180/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the medium/JWST 1180-selected target tier. One leaf of the DR3 GOODS-S spectra tree, which is
+      partitioned by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m and f290lp-g395m
+      gratings) and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the medium/JWST 1180-selected target tier.
+
+- prefix: mast/hlsp/jades/dr3/goods-s/spectra/f290lp-g395m/goods-s-ultradeep/
+  copy:
+    text: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the ultra-deep target tier (the longest-exposure JADES pointings). One leaf of the DR3 GOODS-S
+      spectra tree, which is partitioned by disperser/filter (clear-prism, plus the f070lp-g140m, f170lp-g235m
+      and f290lp-g395m gratings) and by target tier (mediumhst, mediumjwst, mediumjwst1180, ultradeep).
+    headline: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution…
+    lede: DR3 GOODS-S NIRSpec spectra taken with the medium-resolution f290lp-g395m grating (R~1000),
+      for the ultra-deep target tier (the longest-exposure JADES pointings).
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

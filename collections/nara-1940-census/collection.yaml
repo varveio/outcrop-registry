@@ -1,0 +1,92 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nara-1940-census
+title: NARA 1940 Census
+status: reviewed
+sensitivity_class: sensitive_pii_risk
+publication_scope: full
+
+refs:
+- id: nara-1940-developer-doc
+  kind: publisher_doc
+  url: https://www.archives.gov/developer/1940-census
+  label: 'NARA developer documentation: 1940 Census on the AWS Registry of Open Data'
+  excerpt: The National Archives and Records Administration (NARA) published the 1940 Census dataset to
+    the Amazon Web Services (AWS) Registry of Open Data. ... over 15 terabytes of data ... includes the
+    metadata index, the population schedules, the enumeration district maps, and the enumeration district
+    descriptions for the 1940 Census records. The metadata index for the datasets is 251 megabytes, and
+    all of the 3.7 million images ... total 15.1439 terabytes.
+  retrieved_at: '2026-06-17'
+
+- id: nara-1940-faqs
+  kind: publisher_doc
+  url: https://www.archives.gov/research/census/1940/faqs
+  label: NARA 1940 Census FAQs (organization by enumeration district)
+  excerpt: You can locate people by identifying the enumeration district in which they lived in 1940 and
+    then browsing the census population schedules for that enumeration district.
+  retrieved_at: '2026-06-17'
+
+- id: nara-1940-registry
+  kind: registry_entry
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/nara-1940-census.yaml
+  label: 'AWS Open Data Registry entry: nara-1940-census.yaml (License, ManagedBy, Resources)'
+  excerpt: 'License: "US Government work". ManagedBy: National Archives and Records Administration (NARA).
+    UpdateFrequency: Not updated. Resources: ARN: arn:aws:s3:::nara-1940-census; Region: us-east-2; Type:
+    S3 Bucket. Contact: public.dataset.program@nara.gov'
+  retrieved_at: '2026-06-17'
+
+- id: nara-homepage
+  kind: publisher_homepage
+  url: https://www.archives.gov/
+  label: National Archives and Records Administration homepage (archives.gov)
+  excerpt: National Archives | The National Archives and Records Administration (NARA) is the nation's
+    record keeper.
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: The digitized 1940 U.S. Census on AWS
+    lede: 'The 1940 U.S. Census is NARA''s open-data release of the full decennial census: ~3.7 million
+      digitized images of population schedules, district maps, and district descriptions, plus a JSON
+      metadata index.'
+    text: 'The 1940 Census population schedules were created by the Bureau of the Census to enumerate
+      every person living in the United States on April 1, 1940. The National Archives and Records Administration
+      (NARA) digitized the schedules and released them publicly on April 2, 2012, and published the records
+      to the AWS Registry of Open Data. Alongside the schedules, the release includes enumeration district
+      maps of counties, cities, and minor civil divisions showing district boundaries and numbers, and
+      written enumeration district descriptions, with nationwide coverage that includes territorial areas.
+
+
+      The imagery totals 15.1439 terabytes across roughly 3.7 million JPG images, organized under the
+      population-schedules/, ed-maps/, and ed-descriptions/ prefixes, with a 251-megabyte JSON metadata
+      index under metadata/. As federal records the materials are a US Government work, and the data can
+      be listed and pulled anonymously with --no-sign-request; portions and individual states or territories
+      can be retrieved by prefix.'
+  refs:
+  - nara-1940-registry
+  - nara-1940-developer-doc
+
+source:
+  publisher: U.S. National Archives and Records Administration (NARA)
+  homepage_url: https://www.archives.gov/
+
+display:
+  canonical_path: /nara-1940-census/
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,75 @@
+schema_version: '0.4'
+bucket: motional-nuscenes
+backend: s3
+role: primary
+region: ap-northeast-1
+
+prefixes:
+- prefix: public/
+  copy:
+    text: Public distribution root for Motional's openly released driving datasets, organizing the nuScenes
+      v1.0 release alongside the nuImages and nuPlan products.
+    headline: Public distribution root for Motional's openly released driving…
+
+- prefix: public/nuimages-v1.0/
+  copy:
+    headline: nuImages v1.0 — 2D image annotations with boxes and masks
+    lede: nuImages is Motional's large-scale 2D image dataset of about 93,000 annotated camera images
+      selected from nuScenes driving logs, with bounding boxes and instance masks.
+    text: 'nuImages extends the nuScenes program to 2D image understanding: roughly 93,000 camera images
+      curated from nearly 500 driving logs, chosen with active learning to surface rare and challenging
+      scenes plus uniform sampling for diversity across weather, lighting, and location. Each annotated
+      keyframe carries 2D bounding boxes and instance-segmentation masks for foreground objects, with
+      additional semantic masks for background surface categories. Every keyframe is surrounded by six
+      past and six future camera frames at 2 Hz, giving temporal context across the standard six-camera
+      multi-view rig. The release is organized into the annotation metadata, the annotated sample images,
+      and the surrounding sweep frames split out per camera.'
+  refs:
+  - nuscenes-paper
+
+- prefix: public/nuplan-v0.1/
+  copy:
+    headline: nuPlan v0.1 — early planning-benchmark mini split and maps
+    lede: An early v0.1 drop of nuPlan, Motional's closed-loop ML planning benchmark, providing a mini
+      scenario database and the HD semantic maps.
+    text: This is an early v0.1 release of nuPlan, Motional's closed-loop, machine-learning planning benchmark
+      for autonomous vehicles built from large-scale human-driving logs. The v0.1 distribution contains
+      a mini scenario database for getting started together with the nuPlan HD semantic maps used to ground
+      vehicle and agent trajectories. The full nuPlan benchmark spans roughly 1,500 hours of driving across
+      four cities (Boston, Pittsburgh, Las Vegas, and Singapore); this early version is a small precursor
+      superseded by later releases.
+  refs:
+  - nuscenes-paper
+
+- prefix: public/nuplan-v0.2/
+  copy:
+    headline: nuPlan v0.2 — updated planning-benchmark database and maps
+    lede: The v0.2 release of nuPlan, Motional's closed-loop planning benchmark, adding an updated scenario
+      database alongside a mini split and the HD maps.
+    text: This v0.2 release advances nuPlan, Motional's closed-loop ML planning benchmark for autonomous
+      vehicles, building on the earlier v0.1 drop. It ships a full v0.2 scenario database plus a mini
+      database for quick experimentation, together with the nuPlan HD semantic maps. nuPlan pairs a large
+      human-driving dataset with a lightweight closed-loop simulator and planning-specific metrics; the
+      full benchmark covers about 1,500 hours of driving across Boston, Pittsburgh, Las Vegas, and Singapore.
+  refs:
+  - nuscenes-paper
+
+- prefix: public/v1.0/
+  copy:
+    headline: nuScenes v1.0 full release — sensor blobs, metadata, and CAN bus
+    lede: The nuScenes v1.0 release packages the complete multimodal sensor data — camera, lidar, and
+      radar — together with 3D annotations and vehicle CAN-bus signals for 1,000 driving scenes.
+    text: 'The v1.0 release is the core nuScenes distribution: per-split archives of the sensor sample
+      and sweep blobs (camera images, lidar and radar point clouds) paired with the corresponding annotation
+      metadata for the trainval, test, and mini splits. It also ships the raw CAN-bus expansion (velocities,
+      accelerations, torque, steering angles, wheel speeds) as a separate archive, and a checksum manifest
+      for download verification. Together these cover the 1,000 twenty-second scenes from Boston and Singapore
+      annotated with 3D bounding boxes across 23 classes.'
+  refs:
+  - nuscenes-paper
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

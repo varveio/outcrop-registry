@@ -1,0 +1,29 @@
+schema_version: '0.4'
+bucket: nasa-irsa-wise
+outcrop_bucket: wise-unwise
+backend: s3
+role: primary
+region: us-west-2
+prefix: unwise/
+
+prefixes:
+- prefix: unwise/neo7/catalogs/time_domain/healpix_k5/unwise-neo7-time_domain-healpix_k5.parquet/
+  copy:
+    headline: unWISE NEO7 Time-Domain Catalog (HEALPix-k5 Parquet)
+    lede: The unWISE NEO7 Time-Domain Catalog is a 43-billion-detection W1/W2 catalog built from time-resolved
+      WISE/NEOWISE coadds, served as HEALPix order-5-partitioned Apache Parquet.
+    text: The unWISE Time-Domain Catalog (neo7) is derived from time-resolved coadds, each of which stacks
+      together the WISE/NEOWISE exposures from a single biannual sky pass, capturing the infrared sky's
+      variability over the mission. It contains roughly 43 billion total detections in the W1 (3.4 micron)
+      and W2 (4.6 micron) bands. The catalog is distributed as Apache Parquet partitioned by HEALPix order
+      5 (k5), nested under HEALPix order 0 (k0), which lets sky-region queries read only the partitions
+      covering the area of interest. It is one of three unWISE products hosted by IRSA and should be cited
+      via DOI 10.26131/IRSA580 and the catalog paper (Meisner, Caselden, Schlafly & Kiwy).
+  refs:
+  - aws-registry-unwise
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

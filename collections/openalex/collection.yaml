@@ -1,0 +1,142 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: openalex
+title: OpenAlex
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: openalex-authors-entity
+  kind: publisher_doc
+  url: https://developers.openalex.org/api-reference/authors
+  label: OpenAlex docs — Authors entity
+  excerpt: Authors are people who create works. OpenAlex indexes tens of millions of disambiguated author
+    profiles.
+  retrieved_at: '2026-06-19'
+
+- id: openalex-awards-entity
+  kind: publisher_doc
+  url: https://developers.openalex.org/api-reference/awards
+  label: OpenAlex docs — Awards entity
+  excerpt: Awards represent research grants and funding awards. They link funders to the works they have
+    funded.
+  retrieved_at: '2026-06-19'
+
+- id: openalex-entities-overview
+  kind: publisher_doc
+  url: https://docs.openalex.org/api-entities/entities-overview
+  label: OpenAlex docs — Entities overview
+  excerpt: The OpenAlex dataset describes scholarly entities and how those entities are connected to each
+    other. Types of entities include works, authors, sources, institutions, topics, publishers, and funders.
+    Together, these make a huge web (or more technically, heterogeneous directed graph) of hundreds of
+    millions of entities and billions of connections between them all.
+  retrieved_at: '2026-06-19'
+
+- id: openalex-funders-entity
+  kind: publisher_doc
+  url: https://developers.openalex.org/api-reference/funders
+  label: OpenAlex docs — Funders entity (context for Awards)
+  excerpt: A funder is an organization that funds research.
+  retrieved_at: '2026-06-19'
+
+- id: openalex-homepage
+  kind: publisher_homepage
+  url: https://openalex.org/
+  label: OpenAlex homepage (openalex.org)
+  excerpt: OpenAlex is an open index and catalog of the global scholarly record, published by OurResearch,
+    a nonprofit organization.
+  retrieved_at: '2026-06-19'
+
+- id: openalex-intro-identity
+  kind: publisher_doc
+  url: https://developers.openalex.org/api-reference/introduction
+  label: OpenAlex API Reference — Introduction
+  excerpt: OpenAlex is an open index and catalog of the global scholarly record, published by OurResearch,
+    a nonprofit organization.
+  retrieved_at: '2026-06-19'
+
+- id: openalex-magfmt-license-txt
+  kind: publisher_file
+  url: https://openalex-mag-format.s3.amazonaws.com/data_dump_v1/LICENSE.txt
+  label: OpenAlex MAG-format snapshot LICENSE.txt (ODC-BY)
+  excerpt: 'Open Data License: ODC-BY (https://opendatacommons.org/licenses/by/1-0/)
+
+
+    When using the OpenAlex MAG format data in a product or service, or including data in a redistribution,
+    please acknowledge Microsoft Academic using the URI https://aka.ms/msracad.'
+  retrieved_at: '2026-06-19'
+
+- id: openalex-main-license-txt
+  kind: publisher_file
+  url: https://openalex.s3.amazonaws.com/LICENSE.txt
+  label: OpenAlex bucket-root LICENSE.txt (CC0 1.0 Universal)
+  excerpt: 'Creative Commons Legal Code
+
+
+    CC0 1.0 Universal'
+  retrieved_at: '2026-06-19'
+
+- id: openalex-snapshot-format
+  kind: publisher_doc
+  url: https://developers.openalex.org/download/snapshot-format
+  label: OpenAlex docs — Snapshot format (openalex S3 bucket, JSON Lines, data/ by entity)
+  excerpt: All OpenAlex data is stored in Amazon S3 in the openalex bucket. The bucket contains one prefix
+    (folder) for each entity type.
+  retrieved_at: '2026-06-19'
+
+- id: openalex-works-entity
+  kind: publisher_doc
+  url: https://developers.openalex.org/api-reference/works
+  label: OpenAlex docs — Works entity
+  excerpt: Works are scholarly documents like journal articles, books, datasets, and theses. OpenAlex
+    indexes hundreds of millions of works.
+  retrieved_at: '2026-06-19'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open scholarly graph of works, authors, sources, and citations
+    lede: OpenAlex is OurResearch's open index and catalog of the global scholarly record — works, authors,
+      sources, institutions, topics, publishers, funders, and awards — published as a complete, joinable
+      S3 snapshot.
+    text: 'OpenAlex, published by the nonprofit OurResearch, is an open index and catalog of the global
+      scholarly record: a heterogeneous graph of hundreds of millions of entities and billions of connections
+      among them. It covers more than twenty entity types — works (journal articles, books, datasets,
+      theses), authors, sources, institutions, topics, keywords, publishers, funders, and awards — all
+      sharing OpenAlex IDs so they join into a single interlinked graph rather than independent tables,
+      and look up by external identifiers such as DOI, ORCID, ROR, and PMID. Beyond the free website and
+      API, the complete database is offered as a downloadable snapshot in the openalex S3 bucket: gzip-compressed
+      JSON Lines, one record per line, with one folder per entity type and records partitioned by updated_date.
+      The bucket is public and reachable anonymously (AWS CLI --no-sign-request); the free tier refreshes
+      on a quarterly cadence, with monthly snapshots and daily change files on paid plans. OurResearch,
+      the steward behind OpenAlex, also operates Unpaywall and other open-scholarship infrastructure,
+      and positions OpenAlex as a comprehensive alternative to proprietary indexes such as the former
+      Microsoft Academic Graph, Scopus, and Web of Science.'
+  refs:
+  - openalex-intro-identity
+  - openalex-snapshot-format
+
+source:
+  publisher: OurResearch
+  homepage_url: https://openalex.org/
+
+display:
+  canonical_path: /openalex/
+
+stewardship:
+  last_reviewed_at: '2026-06-19'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

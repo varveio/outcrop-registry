@@ -1,0 +1,28 @@
+schema_version: '0.4'
+bucket: fomo-dataset
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: data/*/
+  copy:
+    headline: Per-deployment seasonal recording sessions
+    lede: The twelve dated recording sessions of the FoMo dataset, each a single seasonal deployment that
+      re-runs the same six trajectories with the same multi-sensor suite.
+    text: 'Each dated session corresponds to one of FoMo''s twelve deployments across the year — e.g.
+      2024-11-21, 2024-11-28, 2025-01-10 — so the family spans the full seasonal range from deep-snow
+      winter to summer vegetation. Within a session the uncrewed ground vehicle''s synchronized streams
+      are recorded together: lidar scans, radar images, stereo and monocular camera frames, audio, IMU
+      and wheel-odometry logs, GNSS-PPK ground-truth trajectories, calibration sequences, and metadata.
+      Because every deployment shares this structure, the sessions are described once here as a release
+      family rather than individually; the seasonal date is what distinguishes them. All sessions are
+      released under CC BY 4.0 (s3://fomo-dataset/LICENSE.txt).'
+  refs:
+  - fomo-tutorial-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

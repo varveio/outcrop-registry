@@ -1,0 +1,81 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: surface-pm2-5-v6gl
+title: SatPM2.5 — Satellite-Derived Surface PM2.5 (V6.GL.03)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: satpm-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/surface-pm2-5-v6gl/
+  label: AWS Open Data Registry — SatPM2.5 (satpmdata) bucket metadata + usage example
+  excerpt: 'License: Creative Commons Attribution 4.0 International (https://creativecommons.org/licenses/by/4.0/).
+    Managed By: https://satpm.org. Resources: arn:aws:s3:::satpmdata/, Region us-east-1, S3 Bucket. aws
+    s3 ls --no-sign-request s3://satpmdata/'
+  retrieved_at: '2026-06-22'
+
+- id: satpm-homepage
+  kind: publisher_homepage
+  url: https://sites.wustl.edu/acag/datasets/surface-pm2-5/
+  label: ACAG SatPM2.5 dataset homepage (Washington University in St. Louis)
+  excerpt: Global and regional ground-level fine particulate matter (PM2.5) concentrations are estimated
+    by combining aerosol optical depth from satellite instruments (MODIS, MISR, SeaWiFS, VIIRS) with the
+    GEOS-Chem chemical transport model and ground-based observations.
+  retrieved_at: '2026-06-22'
+
+- id: satpm-v6gl03-doc
+  kind: publisher_doc
+  url: https://www.satpm.org/v6-gl-03
+  label: SatPM V6.GL.03 product page + license + access (satpm.org, WashU ACAG)
+  excerpt: We estimate annual and monthly ground-level fine particulate matter (PM2.5) for 1998-2024 by
+    combining Aerosol Optical Depth (AOD) retrievals (Dark Target, Deep Blue, MAIAC) ... with the GEOS-Chem
+    chemical transport model, and subsequently calibrating to global ground-based observations using a
+    residual Convolutional Neural Network (CNN). Annual and monthly datasets are provided in NetCDF [.nc]
+    format. Gridded files use the WGS84 projection. SatPM2.5 V6.GL.03 are licensed under CC BY 4.0. Browse
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Satellite-derived global surface PM2.5 estimates (V6.GL.03)
+    lede: SatPM2.5 V6.GL.03 is the Atmospheric Composition Analysis Group's most state-of-the-science
+      global estimate of ground-level fine particulate matter, gridded monthly and annually for 1998-2024.
+    text: 'SatPM2.5 V6.GL.03 estimates ground-level fine particulate matter (PM2.5) concentrations worldwide
+      by fusing satellite aerosol optical depth retrievals (Dark Target, Deep Blue, and MAIAC) from NASA
+      instruments aboard MODIS/Terra, MODIS/Aqua, MISR/Terra, SeaWiFS/SeaStar, VIIRS/SNPP, and VIIRS/NOAA20
+      with the GEOS-Chem chemical transport model, then calibrating the geophysical estimate to global
+      ground-based observations with a residual Convolutional Neural Network. Produced by the Atmospheric
+      Composition Analysis Group at Washington University in St. Louis, V6.GL.03 covers 1998-2024 and
+      is provided as gridded monthly and annual mean PM2.5 fields in NetCDF, in two spatial resolutions:
+      a fine 0.01 deg grid and a coarse 0.1 deg grid (WGS84). The estimates are intended primarily for
+      large-scale studies. The data is released under CC BY 4.0 and cited to Shen et al. (2024, ACS ES&T
+      Air).'
+  refs:
+  - satpm-v6gl03-doc
+  - satpm-homepage
+
+source:
+  publisher: Atmospheric Composition Analysis Group (ACAG), Washington University in St. Louis
+  homepage_url: https://sites.wustl.edu/acag/datasets/surface-pm2-5/
+
+display:
+  canonical_path: /surface-pm2-5-v6gl/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

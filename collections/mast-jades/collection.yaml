@@ -1,0 +1,96 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: mast-jades
+title: JADES — JWST Advanced Deep Extragalactic Survey (MAST HLSP)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: jades-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/mast-jades/
+  label: AWS Open Data Registry — JADES (mast-jades) catalog entry
+  excerpt: 'AWS CLI Access (No AWS account required): aws s3 ls --no-sign-request s3://stpubdata/mast/hlsp/jades/
+    . License: CC BY 4.0 license.'
+  retrieved_at: '2026-06-22'
+
+- id: jades-datapage
+  kind: publisher_doc
+  url: https://jades-survey.github.io/scientists/data.html
+  label: JADES Survey — Data Access (DR1/DR2/DR3 products & spectra configs)
+  excerpt: 'JADES data products span DR1, DR2 and DR3: NIRCam imaging mosaics for GOODS-S and GOODS-N,
+    NIRSpec 1D and 2D spectra, photometric and spectroscopic catalogs, and packaged bundles.'
+  retrieved_at: '2026-06-22'
+
+- id: jades-homepage
+  kind: publisher_homepage
+  url: https://archive.stsci.edu/hlsp/jades
+  label: JADES HLSP page (MAST / STScI)
+  excerpt: The JWST Advanced Deep Extragalactic Survey (JADES) is the largest deep survey program in JWST
+    early operations, conducted by the combined NIRCam and NIRSpec GTO teams.
+  retrieved_at: '2026-06-22'
+
+- id: mast-abouthlsp
+  kind: publisher_doc
+  url: https://outerspace.stsci.edu/display/MASTDOCS/About+HLSPs
+  label: MAST — About HLSPs (CC BY 4.0 license)
+  excerpt: The data products will be integrated with other MAST data collections and offered widely to
+    the public subject to a CC BY 4.0 license, which requires that users acknowledge the contributors
+    and MAST in any published work.
+  retrieved_at: '2026-06-22'
+
+- id: mast-datause
+  kind: publisher_doc
+  url: https://archive.stsci.edu/publishing/data-use
+  label: MAST Data Use Policy — HLSPs under CC BY 4.0
+  excerpt: Some data products, such as high-level science products (HLSPs) which are created by the community
+    and are made available through MAST, are covered under a Creative Commons Attribution license (CC
+    BY 4.0).
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: JADES — JWST deep imaging and spectroscopy of GOODS-S and GOODS-N
+    lede: The JWST Advanced Deep Extragalactic Survey (JADES) is the largest deep extragalactic program
+      of JWST's early operations, releasing NIRCam imaging and NIRSpec spectroscopy of the GOODS-S and
+      GOODS-N fields through MAST.
+    text: 'JADES is a coordinated NIRCam imaging and NIRSpec multi-object spectroscopy survey of the GOODS-S
+      and GOODS-N deep fields, carried out by the JWST NIRCam and NIRSpec Guaranteed Time Observation
+      teams and published as a MAST High-Level Science Product. It pairs deep multi-band NIRCam mosaics
+      with thousands of NIRSpec spectra to study galaxy formation and the early universe.
+
+
+      The products are organized by release (DR1, DR2, DR3) and field (goods-s, goods-n), splitting into
+      imaging mosaics, photometric and spectroscopic catalogs, extracted spectra, and packaged bundles.
+      NIRSpec spectra are further keyed by disperser/filter configuration — the low-resolution clear-prism
+      plus medium-resolution gratings — and by target depth tier. Data are served from the public stpubdata
+      S3 bucket under CC BY 4.0.'
+  refs:
+  - jades-homepage
+  - jades-datapage
+
+source:
+  publisher: Space Telescope Science Institute (MAST)
+  homepage_url: https://archive.stsci.edu/hlsp/jades
+
+display:
+  canonical_path: /mast-jades/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

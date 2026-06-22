@@ -1,0 +1,484 @@
+schema_version: '0.4'
+bucket: 1000genomes
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: 1000G_2504_high_coverage/
+  copy:
+    headline: 30x high-coverage re-sequencing of the expanded 3,202-sample cohort
+    lede: This is the New York Genome Center's 30x high-coverage re-sequencing of the 1000 Genomes cohort
+      — the 2,504 unrelated phase 3 panel plus 698 related samples — aligned to GRCh38 as CRAMs.
+    text: This contains the high-coverage (30x) re-sequencing of the 1000 Genomes Project samples by the
+      New York Genome Center (NYGC), funded by NHGRI. It covers the 2,504 unrelated samples that made
+      up the project's third and final phase panel, plus an additional 698 related samples, bringing the
+      total sequenced to high-coverage by NYGC to 3,202. NYGC aligned the data to the GRCh38 reference
+      assembly and shared the resulting CRAMs, which are listed in the IGSR data portal and accessible
+      from FTP sites hosted by EMBL-EBI and NCBI as well as on AWS and AnVIL. Across the expanded cohort,
+      SNV and short indel discovery was performed and a comprehensive set of structural variants was generated
+      by integrating multiple analytic methods. The high-coverage resource underpins later imputation
+      reference panels and is distributed alongside the original phase 3 low-coverage data, so the same
+      individuals are available both as the historical project alignments and as modern 30x GRCh38 CRAMs.
+  refs:
+  - 30x-nygc
+
+- prefix: alignment_indices/
+  copy:
+    headline: Alignment-file index manifests
+    lede: Alignment index manifests — the alignment.index files that enumerate the project's available
+      alignment files.
+    text: The project's alignment index manifests. alignment.index files enumerate the available alignment
+      files across the project; the BAM/CRAM alignments they catalogue are held in the project's alignment
+      directories.
+  refs:
+  - alnidx-dacc
+
+- prefix: changelog_details/
+  copy:
+    headline: No external documentation found for this folder
+    text: The cited source describes only that the project's data is organised by type, which does not
+      document this folder specifically.
+  refs:
+  - changelog-dacc
+
+- prefix: complete_genomics_indices/
+  copy:
+    headline: No external documentation found for this folder
+    text: The cited source describes only that the project's data is organised by type, which does not
+      document this folder specifically.
+  refs:
+  - cgidx-dacc
+
+- prefix: data/
+  copy:
+    headline: Per-individual sequence reads and alignments
+    lede: 'The project''s sequence and alignment data: raw FASTQ reads organised by individual and their
+      BAM/CRAM alignments.'
+    text: 'The project''s primary sequence and alignment data, organised by individual: raw FASTQ sequence
+      files per individual, with BAM/CRAM alignments. These reads and alignments are the underlying basis
+      for the integrated variant call sets.'
+  refs:
+  - data-dacc
+
+- prefix: hgsv_sv_discovery/
+  copy:
+    headline: HGSVC structural-variation discovery data
+    lede: Human Genome Structural Variation Consortium (HGSVC) data, building a high-quality catalogue
+      of structural variation using various sequencing approaches.
+    text: 'Data associated with the Human Genome Structural Variation Consortium (HGSVC), assembled to
+      create a high-quality catalogue of structural variation using various sequencing approaches. Continuing
+      the philosophy of the 1000 Genomes Project, the data producers release the data prior to publication
+      in line with Fort Lauderdale principles: users may use the data for many studies but are expected
+      to let the producers make the first presentations and publish the first paper with global analyses.
+      The project plans global analyses of sequence quality, structural variants, STRs and microsatellites,
+      haplotypes and LD patterns, and regions of general interest such as HLA. Consult the accompanying
+      data reuse statement before use.'
+  refs:
+  - hgsvc
+
+- prefix: phase1/
+  copy:
+    headline: Phase 1 — the first integrated 1000 Genomes call set
+    lede: Phase 1 produced the project's first integrated variant calls — bi-allelic SNP and indel calls
+      with genotype dosages — for 1,092 individuals mapped to GRCh37.
+    text: Phase 1 contains the project's first integrated variant calls, covering 1,092 individuals mapped
+      to GRCh37. The calls are bi-allelic SNP and indel calls and include LDAF and genotype-dosage values
+      produced by Mach/Thunder imputation-based refinement. It followed the project's pilot studies and
+      preceded the more comprehensive phase 3 release.
+  refs:
+  - phase1-dacc
+
+- prefix: phase1/analysis_results/ancestry_deconvolution/
+  copy:
+    headline: Phase 1 ancestry deconvolution
+    lede: Per-population ancestry deconvolution for the ASW, CLM, MXL and PUR phase 1 populations, with
+      global-proportion files.
+    text: Per-population ancestry deconvolution archives for ASW, CLM, MXL and PUR, along with global-proportion
+      text files, documented by a README dated 20120604.
+  refs:
+  - int-p1ancestry
+
+- prefix: phase1/analysis_results/consensus_call_sets/
+  copy:
+    headline: Phase 1 consensus call sets by variant type
+    lede: The phase 1 consensus call sets, organised into SNP, indel and structural-variant subfolders.
+    text: The phase 1 consensus call sets, grouped by variant type into snps/, indels/ and sv/ subfolders,
+      documented by a README dated 20120620.
+  refs:
+  - int-p1consensus
+
+- prefix: phase1/analysis_results/experimental_validation/
+  copy:
+    headline: Phase 1 experimental validation
+    lede: Phase 1 experimental validation data, organised by variant type.
+    text: The phase 1 experimental validation results, grouped into snps/, indels/ and sv/ subfolders,
+      documented by a README dated 20120620.
+  refs:
+  - int-p1expval
+
+- prefix: phase1/analysis_results/functional_annotation/
+  copy:
+    headline: Functional annotation of phase 1 variants
+    lede: The phase 1 functional annotation, split into annotated VCFs and annotation sets.
+    text: The phase 1 functional annotation, organised into annotated_vcfs/ and annotation_sets/, documented
+      by a README dated 20120621.
+  refs:
+  - int-p1funcanno
+
+- prefix: phase1/analysis_results/input_call_sets/
+  copy:
+    headline: Phase 1 input call sets
+    lede: 'The per-method input call sets fed into phase 1 integration: exome and whole-genome SNP, indel
+      and deletion sites.'
+    text: 'The phase 1 input call sets: exome SNP call sets (Illumina/WCMC/BCM and SOLiD/BCM), the whole-genome
+      union VQSR2b low-coverage SNP set, the union of annotated and filtered low-coverage indels, and
+      the merged 5-way low-coverage deletion calls, documented by a README dated 20120621.'
+  refs:
+  - int-p1input
+
+- prefix: phase1/analysis_results/integrated_call_sets/
+  copy:
+    headline: Phase 1 v3 integrated call set
+    lede: 'This is the phase 1 v3 integrated call set: integrated SNP, indel and structural-variant genotypes
+      for the phase 1 samples on the 20101123 freeze.'
+    text: The phase 1 v3 integrated call set, combining SNPs, indels and structural variants with per-sample
+      genotypes, dated to the 20101123 freeze. It provides per-chromosome integrated genotype VCFs, a
+      whole-genome sites VCF, and the sample panel and pedigree files identifying the phase 1 samples
+      and family structure.
+  refs:
+  - int-p1ics
+
+- prefix: phase1/analysis_results/paper/
+  copy:
+    headline: Phase 1 publication and integrative annotation
+    lede: The phase 1 Nature paper (nature11632) and its supplement, with integrative annotation data.
+    text: The phase 1 paper 1000genomes_phase1_nature11632.pdf and its supplementary PDF, alongside an
+      integrative_annotation/ subfolder.
+  refs:
+  - int-p1paper
+
+- prefix: phase1/analysis_results/shapeit2_phased_haplotypes/
+  copy:
+    headline: Phase 1 SHAPEIT2 phased haplotypes
+    lede: These are SHAPEIT2-phased haplotypes for 1,092 phase 1 samples, covering over 36 million SNPs
+      and 1.3 million indels and structural variations.
+    text: These haplotypes were phased using a new version of SHAPEIT2 that can combine genotype likelihoods
+      with genotypes from SNP microarrays on the same samples. Covering 1,092 samples across over 36 million
+      SNPs and 1.3 million indels and structural variations, they achieve lower genotype discordance and
+      improved imputation performance into downstream GWAS samples, especially at low frequency.
+  refs:
+  - int-p1shapeit
+
+- prefix: phase1/analysis_results/supporting/
+  copy:
+    headline: Supporting files for the phase 1 analysis results
+    lede: Supporting files for the phase 1 analysis, spanning genome masks, ancestral alignments, variant
+      scores, and related resources.
+    text: Supporting files accompanying the phase 1 analysis results, documented by a 2012 README. Organised
+      into subfolders covering accessible genome masks, ancestral alignments, axiom genotypes, COSMIC/HGMD
+      overlap, cryptic relation analysis, excluded indel sites, exome pull-down, highly differentiated
+      sites, omni haplotypes, and variant GERP scores.
+  note: The phase1/analysis_results/supporting tree contains supplementary files (genome masks, ancestral
+    alignments, variant scores) that accompany the phase 1 analysis results publication — they are an
+    integral sub-tree of the phase 1 analysis_results product, not a separately cataloged dataset, and
+    the project's data page describes such files as 'intermediate and working data as well as analysis
+    files described in publications.'
+  refs:
+  - 1000g-phase1-supporting-readme
+  boundary: pin
+
+- prefix: phase3/
+  copy:
+    headline: Phase 3 — the project's final integrated variant release
+    lede: 'Phase 3 is the 1000 Genomes Project''s final, most comprehensive release: an integrated set
+      of phased haplotypes with more than 80 million variants for 2,504 individuals from 26 populations.'
+    text: 'Phase 3 contains the project''s final integrated release: phased haplotypes spanning more than
+      80 million variants — multi-allelic SNPs, indels and a diverse set of structural variants — for
+      2,504 individuals from 26 populations. Alignments were produced on GRCh37, with a subsequent re-alignment
+      to GRCh38 that incorporates decoy sequence, alternative haplotypes and EBV. It is the most comprehensive
+      of the project''s three staged releases, following the pilot studies and the phase 1 call set.'
+  refs:
+  - phase3-dacc
+
+- prefix: phase3/integrated_sv_map/
+  copy:
+    headline: Phase 3 integrated structural-variation map
+    lede: This is the phase 3 integrated map of 68,818 structural variants across 2,504 individuals from
+      26 populations.
+    text: This integrated map contains 68,818 structural variants across 2,504 individuals from 26 populations,
+      including 40,975 deletions, 6,025 duplications, 786 inversions, 2,929 multi-allelic CNVs, and mobile
+      element insertions (12,748 ALU, 3,048 LINE1, 835 SVA). Large deletions were genotyped using Beagle
+      and phased with the SHAPEIT2 method, and MVNCall was used to add the other structural-variant classes.
+  refs:
+  - int-svmap
+
+- prefix: pilot_data/
+  copy:
+    headline: Pilot data — the project's three method-development pilots
+    lede: The 1000 Genomes Project's three pilot studies — a low-coverage whole-genome study, a high-coverage
+      trio study, and an exon-targeted study — all mapped to NCBI build 36.
+    text: 'The pilot data covers the project''s three pilot studies: a low-coverage whole-genome study
+      of 179 individuals, a high-coverage study of two trios, and an exon-targeted study of nearly 700
+      individuals. All pilot data was mapped to the NCBI build 36 reference assembly, predating the GRCh37
+      alignments used from phase 1 onward.'
+  refs:
+  - pilot-dacc
+
+- prefix: pilot_data/release/2009_12/
+  copy:
+    headline: Pilot 2 and Pilot 3 SNP calls (December 2009)
+    lede: This December 2009 pilot release holds SNP calls for the Pilot 2 (SRP000032) and Pilot 3 (SRP000033)
+      sequence data and alignments.
+    text: This release contains SNP calls based on the Pilot 2 (SRP000032) sequence data and alignments,
+      and SNP calls based on the Pilot 3 (SRP000033) sequence data and alignments.
+  refs:
+  - int-pilot200912
+
+- prefix: release/
+  copy:
+    headline: Variant call-set releases by phase
+    lede: The project's variant call sets, published as VCF files in release directories organised by
+      phase.
+    text: Integrated variant call sets, distributed as VCF files in release directories by phase. Each
+      dated subdirectory is a distinct release of variant calls from a project milestone.
+  refs:
+  - release-dacc
+
+- prefix: release/2008_12/
+  copy:
+    headline: Pilot trio and SOLiD SNP and indel calls (December 2008)
+    lede: This December 2008 release carries CEU and YRI trio variant calls together with SOLiD indel
+      and SNP files for sample NA19240.
+    text: This release bundles trio variant calls — a CEU trio call set including X-chromosome and rs-identifier
+      annotations, and a YRI child call set — together with SOLiD indel and SNP files for sample NA19240,
+      accompanied by README files.
+  refs:
+  - int-rel200812
+
+- prefix: release/2009_02/
+  copy:
+    headline: Pilot 1 low-coverage SNP calls (February 2009)
+    lede: This is an early Pilot 1 release of intermediate SNP calls for 104 individuals from the low-coverage
+      pilot.
+    text: This release holds SNP calls from 104 individuals in the low-coverage pilot (Pilot 1). The README
+      notes these are intermediate results, not based on the sequencing data from the complete pilot.
+  refs:
+  - int-rel200902
+
+- prefix: release/2009_04/
+  copy:
+    headline: Pilot per-population samples, haplotypes and sites (April 2009)
+    lede: This April 2009 release provides per-population sample lists, haplotypes and variant sites for
+      the CEU, JPT+CHB and YRI pilot populations.
+    text: 'This release provides, for each of three pilot populations, a sample list, a haplotype file
+      and a sites file: CEU (Samples, hap, sites), JPT+CHB (Samples, hap, sites) and YRI (Samples, hap,
+      sites), with an accompanying README.'
+  refs:
+  - int-rel200904
+
+- prefix: release/2009_05/
+  copy:
+    headline: Consensus indel calls (May 2009)
+    lede: This May 2009 release delivers a single archive of consensus indel calls dated 15 May 2009.
+    text: This release contains a consensus set of indel calls packaged as one 62M gzipped tar archive
+      dated 15 May 2009, with an accompanying README describing the consensus indel calls.
+  refs:
+  - int-rel200905
+
+- prefix: release/20101123/
+  copy:
+    headline: Phase 1 interim consensus SNP release (20101123)
+    lede: 'This is an interim phase 1 release: a consensus SNP call set of 38.88 million sites generated
+      by VQSR from the low-coverage data of the 20101123 sequence and alignment index.'
+    text: This interim phase 1 release contains a consensus SNP call set of 38.88 million SNP sites, generated
+      by VQSR from the low-coverage data of the sequence and alignment index dated 20101123. Genotypes
+      were called with SNPTools from Baylor College of Medicine, and a small number of sites are being
+      experimentally validated.
+  refs:
+  - int-rel20101123
+
+- prefix: release/2010_11/
+  copy:
+    headline: Redirect stub — data moved to release/20100804/
+    lede: 'An empty redirect stub: a single README noting that the data was relocated to release/20100804/.'
+    text: Only one file, a 256-byte README stating that the data has moved to the release/20100804/ directory.
+      It contains no data of its own and serves only as a redirect to the relocated release.
+  note: Contains only a single redirect README file stating that data has moved to release/20100804/ —
+    it has no actual data and is an empty organizational stub, not a distinct release that should be browsed
+    or cited on its own.
+  refs:
+  - 1000g-release-2010-11-readme
+  boundary: pin
+
+- prefix: release/20130502/
+  copy:
+    headline: Phase 3 final variant call set
+    lede: 'This is the 1000 Genomes phase 3 final variant call set: phased genotypes for chr1-22, chrX
+      and chrY for 2,504 individuals from 26 populations.'
+    text: This is the final variant call set, with phased genotypes for chromosomes 1-22, X and Y, derived
+      from the phase 3 analysis of the 1000 Genomes sequence data. It covers 2,504 individuals from 26
+      populations and includes approximately 78.1 million SNPs, 3.1 million indels, and structural variants.
+  refs:
+  - int-rel20130502
+
+- prefix: sequence_indices/
+  copy:
+    headline: Sequence-file index manifests
+    lede: Sequence index manifests — the sequence.index files that enumerate the project's available raw
+      sequence files.
+    text: The project's sequence index manifests. sequence.index files enumerate the available sequence
+      files across the project; the raw FASTQ sequence data they catalogue is organised by individual.
+  refs:
+  - seqidx-dacc
+
+- prefix: technical/
+  copy:
+    headline: Reference genomes, annotation sets, and technical resources
+    lede: The project's technical resources, including the reference genomes and annotation sets used
+      across the project's analyses.
+    text: 'The project''s technical resources: the reference genomes and annotation sets that the project''s
+      alignment and analysis work builds on, held under technical/reference/, alongside other supporting
+      technical material.'
+  refs:
+  - technical-dacc
+
+- prefix: technical/browser/vcf_to_ped_converter/
+  copy:
+    headline: Intermediate and working browser-tool data
+    lede: Part of the project's working and intermediate data, accompanied by README files.
+    text: The project organises its data by collection and includes data shared pre-publication, intermediate
+      and working data, and analysis files described in publications, with README files providing additional
+      information. This is part of that intermediate and working material.
+  note: The technical/browser/vcf_to_ped_converter tree contains a versioned file-format converter tool
+    (version_1.1/), not a data product — a user would download and run this software but would never cite
+    it as a standalone genomic dataset, and it is not listed as a data product in the project's catalog.
+  refs:
+  - 1000g-igsr-data-page
+  boundary: pin
+
+- prefix: technical/method_development/
+  copy:
+    headline: Intermediate and working method-development data
+    lede: Part of the project's working and intermediate data, accompanied by README files.
+    text: The project organises its data by collection and includes data shared pre-publication, intermediate
+      and working data, and analysis files described in publications, with README files providing additional
+      information. This is part of that intermediate and working material.
+  note: The technical/method_development tree contains pipeline-development artifacts (BAM verification
+    tests, BQSR recalibration reports, format conversion tools) with no published README or independent
+    catalog entry — it is intermediate working material under the project's technical area, not a dataset
+    the project enumerates as a published product.
+  refs:
+  - 1000g-igsr-data-page
+  boundary: pin
+
+- prefix: technical/ncbi_varpipe_data/
+  copy:
+    headline: NCBI variant-pipeline alignment data
+    lede: NCBI variant-pipeline alignment data and indexes from 2010-2012.
+    text: 'An alignment/ subfolder of NCBI variant-pipeline alignment data, with index and summary files:
+      ncbi.20100804.alignment.index, ncbi.20100804.alignment.summary and ncbi.20111114.alignment.index,
+      spanning 2010 to 2012.'
+  refs:
+  - int-varpipe
+
+- prefix: technical/other_exome_alignments/
+  copy:
+    headline: Alternative MOSAIK exome alignments
+    lede: An alternative exome alignment set of MOSAIK exome BAM alignments, organised by sample.
+    text: Per-sample exome alignment folders, organised by sample identifier, holding MOSAIK exome BAM
+      alignments as an alternative exome alignment set.
+  refs:
+  - int-otherexome
+
+- prefix: technical/phase3_EX_or_LC_only_alignment/
+  copy:
+    headline: Phase 3 exome-only and low-coverage-only alignments
+    lede: The phase 3 alignments for samples sequenced by exome-only or low-coverage-only, with separate
+      indexes.
+    text: Per-sample alignments for exome-only or low-coverage-only samples in a data/ subfolder, with
+      two alignment indexes — 20130502.exome_only.alignment.index and 20130502.lc_only.alignment.index.
+  refs:
+  - int-p3exlc
+
+- prefix: technical/pilot2_high_cov_GRCh37_bams/
+  copy:
+    headline: Pilot 2 high-coverage GRCh37 alignments
+    lede: Per-sample high-coverage BAM alignments for the Pilot 2 GRCh37 alignment set.
+    text: A data/ subfolder of per-sample high-coverage BAM alignments, with pilot2_GRCh37.alignment.index
+      describing the Pilot 2 GRCh37 alignments.
+  refs:
+  - int-pilot2bam
+
+- prefix: technical/pilot3_exon_targetted_GRCh37_bams/
+  copy:
+    headline: Pilot 3 exon-targeted GRCh37 alignments
+    lede: Per-sample exon-targeted BAM alignments for the Pilot 3 GRCh37 alignment set.
+    text: A data/ subfolder of per-sample exon-targeted BAM alignments, with pilot3_GRCh37.alignment.index
+      describing the Pilot 3 GRCh37 alignments.
+  refs:
+  - int-pilot3bam
+
+- prefix: technical/qc/
+  copy:
+    headline: Cross-platform sample-checking table
+    lede: A sample-concordance checking table comparing the Illumina and 454 sequencing platforms.
+    text: sample.checking.table.illumina+454.gz and its README — a sample-concordance checking table comparing
+      the Illumina and 454 sequencing platforms.
+  refs:
+  - int-qc
+
+- prefix: technical/reference/
+  copy:
+    headline: Project reference genomes and annotation resources
+    lede: The project's reference assemblies and annotation resources, including the GRCh37 and GRCh38
+      reference genomes.
+    text: 'The project''s reference resources: the human_g1k_v37 (GRCh37) reference FASTA with its README,
+      and a GRCh38_reference_genome/ subfolder with the GRCh38 full-analysis-set FASTA including decoy
+      and HLA sequence. It also carries a dbSNP 132 VCF, exome pull-down targets, phase 2 reference assembly
+      sequence, and a GENCODE GTF annotation.'
+  refs:
+  - int-reference
+
+- prefix: technical/simulations/
+  copy:
+    headline: Intermediate and working simulation data
+    lede: Part of the project's working and intermediate data, accompanied by README files.
+    text: The project organises its data by collection and includes data shared pre-publication, intermediate
+      and working data, and analysis files described in publications, with README files providing additional
+      information. This is part of that intermediate and working material.
+  note: Read-simulation and alignment-comparison runs (ART simulator outputs, multi-platform alignment
+    comparisons) with no README or catalog entry — it is exploratory methods work under the project's
+    technical area, not a dataset independently listed or citable as a published product.
+  refs:
+  - 1000g-igsr-data-page
+  boundary: pin
+
+- prefix: technical/supporting/
+  copy:
+    headline: Illumina Human1KGP-12 chip resources
+    lede: Annotation and validation-intensity resources for the Illumina Human1KGP-12 genotyping chip.
+    text: An Illumina_Human1KGP-12/ subfolder holding annotation and validation-intensity resources for
+      the Illumina Human1KGP-12 genotyping chip.
+  refs:
+  - int-supporting
+
+- prefix: technical/working/
+  copy:
+    headline: Experimental, internal-use working data
+    lede: Experimental, non-public-release data that the project marks as suitable for internal project
+      use only.
+    text: Data flagged by the project's own README as having experimental, non-public-release status and
+      as suitable for internal project use only. Use it with caution.
+  note: The technical/working tree is explicitly marked by the project's own README as 'experimental (non
+    public release) status and suitable for internal project use only' — it is an internal scratch workspace
+    of ~19,919 objects across 434 date-stamped subdirectories, not a citable dataset the project publishes.
+  refs:
+  - 1000g-technical-working-readme
+  boundary: pin
+
+stewardship:
+  last_reviewed_at: unset
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,31 @@
+schema_version: '0.4'
+bucket: iwmi-datasets
+outcrop_bucket: cropland-partitioining
+backend: s3
+role: primary
+region: af-south-1
+prefix: Cropland_partition/
+
+prefixes:
+- prefix: Cropland_partition/Probability_LUWA_classes/
+  copy:
+    headline: Per-class probability rasters for the LUWA cropland classification
+    lede: Probability GeoTIFFs giving the modeled likelihood of each LUWA (Land Use for Water Accounting)
+      class in the rainfed/irrigated cropland partition for Africa.
+    text: 'These layers carry the modeled per-class probabilities of the LUWA (Land Use for Water Accounting)
+      classification produced by the cropland-partitioning framework — the continuous likelihood surfaces
+      underlying the rainfed-versus-irrigated assignment rather than the final hard-classified map. The
+      framework translates eight remote-sensing land-cover products to the LUWA scheme and applies a Budyko
+      water balance to derive these probabilities across continental Africa.
+
+
+      Each class is published as its own probability GeoTIFF, accompanied by the generating script used
+      to produce the probability maps.'
+  refs:
+  - cropland-registry-yaml
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

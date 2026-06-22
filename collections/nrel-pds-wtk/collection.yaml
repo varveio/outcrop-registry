@@ -1,0 +1,145 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nrel-pds-wtk
+title: NREL Wind Integration National Dataset (WIND) Toolkit
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: bchrrr-oedi
+  kind: catalog_metadata
+  url: https://data.openei.org/submissions/6218
+  label: Bias Corrected NOAA HRRR Wind Resource Data for Grid Integration Applications — OEDI submission
+  excerpt: NREL has processed the native HRRR data, resulting in the bias corrected and interpolated HRRR
+    (BC-HRRR) dataset for weather years 2015 to 2023.
+  retrieved_at: '2026-06-20'
+
+- id: now23-oedi
+  kind: catalog_metadata
+  url: https://data.openei.org/submissions/4500
+  label: 2023 National Offshore Wind data set (NOW-23) — OEDI submission
+  excerpt: the latest wind resource data set for offshore regions in the United States, which supersedes,
+    for its offshore component, the Wind Integration National Dataset (WIND) Toolkit. Outputs are available
+    at 5 minute resolution, and for all regions we have also included output files at hourly resolution.
+  retrieved_at: '2026-06-20'
+
+- id: nrel-homepage
+  kind: publisher_homepage
+  url: https://data.openei.org/submissions/2
+  label: National Renewable Energy Laboratory (NREL) homepage
+  retrieved_at: '2026-06-20'
+
+- id: nrel-pds-wtk-anchor-license-fence
+  kind: catalog_metadata
+  url: https://catalog.data.gov/dataset/wind-integration-national-dataset-wind-toolkit
+  label: DOE/NREL Wind Integration National Dataset (WIND) Toolkit — data.gov catalog record (CC-BY-4.0,
+    public)
+  excerpt: 'License: https://creativecommons.org/licenses/by/4.0/  Access Level: public  Publisher: National
+    Renewable Energy Laboratory'
+  retrieved_at: '2026-06-20'
+
+- id: pr100-oedi
+  kind: catalog_metadata
+  url: https://data.openei.org/submissions/5749
+  label: 'PR100: Puerto Rico Grid Resilience and Transition to 100% Renewable Energy — OEDI submission'
+  excerpt: 20 years (2001-2020) of data were developed using a numerical weather prediction (NWP) model
+    for land-based wind (LBW) and offshore wind (OSW) resource assessments for Puerto Rico.
+  retrieved_at: '2026-06-20'
+
+- id: sup3rwind-oedi
+  kind: catalog_metadata
+  url: https://data.openei.org/submissions/6210
+  label: Super-Resolution for Renewable Energy Resource Data with Wind from Reanalysis (Sup3rWind) — OEDI
+    submission
+  excerpt: 'This data contains paired European Centre for Medium-Range Weather Forecasts Reanalysis version
+    5 (ERA5) and the Wind Integration National Dataset Toolkit (WTK) images... The data includes two variables:
+    the u and v components of the wind velocity at 10m from the surface.'
+  retrieved_at: '2026-06-20'
+
+- id: wtk-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/nrel-pds-wtk/
+  label: NREL Wind Integration National Dataset — AWS Open Data Registry (prefix-to-dataset mapping)
+  excerpt: 'No AWS account required. aws s3 ls --no-sign-request s3://nrel-pds-wtk/  Region: us-west-2'
+  retrieved_at: '2026-06-20'
+
+- id: wtk-datagov-license
+  kind: catalog_metadata
+  url: https://catalog.data.gov/dataset/wind-integration-national-dataset-wind-toolkit
+  label: DOE/NREL Wind Integration National Dataset (WIND) Toolkit — data.gov catalog record (CC-BY-4.0,
+    public)
+  excerpt: 'License: https://creativecommons.org/licenses/by/4.0/  Access Level: public  Publisher: National
+    Renewable Energy Laboratory'
+  retrieved_at: '2026-06-20'
+
+- id: wtk-led-oedi
+  kind: catalog_metadata
+  url: https://data.openei.org/submissions/5987
+  label: WIND Toolkit Long-Term Ensemble Dataset (WTK-LED) — OEDI submission
+  excerpt: a meteorological dataset providing high-resolution time series, including interannual variability
+    and model uncertainty of wind speed.
+  retrieved_at: '2026-06-20'
+
+- id: wtk-mid-atlantic-3d-pbl
+  kind: publisher_doc
+  url: https://registry.opendata.aws/nrel-pds-wtk/
+  label: NREL Mid-Atlantic 3D PBL is one WRF model output, extracted as per-variable arrays
+  retrieved_at: '2026-06-20'
+
+- id: wtk-oedi-terms
+  kind: catalog_metadata
+  url: https://data.openei.org/submissions/2
+  label: Wind Integration National Dataset (WIND) Toolkit — OEDI submission (license, access, citation)
+  excerpt: 'Wind resource data for North America was produced using the Weather Research and Forecasting
+    Model (WRF). License: Creative Commons Attribution 4.0 International (https://creativecommons.org/licenses/by/4.0/).
+    Access: Public. aws s3 ls --no-sign-request s3://nrel-pds-wtk/'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Modeled U.S. and international wind resource for grid integration
+    lede: The WIND Toolkit is NREL's archive of physics-modeled wind resource time series — wind speed,
+      direction, and meteorology — published openly under CC-BY-4.0 through DOE's Open Energy Data Initiative.
+    text: 'The Wind Integration National Dataset (WIND) Toolkit is NREL''s modeled wind resource archive,
+      distributed via DOE''s Open Energy Data Initiative. Its core North American product was produced
+      with the Weather Research and Forecasting (WRF) model at 2-km resolution for 2007-2014, providing
+      wind speed and direction at 10-200 m hub heights along with temperature, pressure, precipitation,
+      humidity, and atmospheric stability.
+
+
+      Over time it has grown into a family of related NREL releases that share its WRF modeling lineage:
+      the NOW-23 offshore wind resource, which supersedes the original Toolkit''s offshore component;
+      the WIND Toolkit Long-Term Ensemble Dataset (WTK-LED) with model-uncertainty estimates; bias-corrected
+      NOAA HRRR data; Sup3rWind machine-learning super-resolution outputs; the Puerto Rico PR100 assessment;
+      and a set of international wind resource datasets. The data is published under CC-BY-4.0 in the
+      AWS Open Data bucket nrel-pds-wtk (us-west-2) and is readable anonymously with no AWS account.'
+  refs:
+  - wtk-oedi-terms
+  - wtk-led-oedi
+  - now23-oedi
+
+source:
+  publisher: National Renewable Energy Laboratory (NREL)
+  homepage_url: https://www.nrel.gov/
+
+display:
+  canonical_path: /nrel-pds-wtk/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

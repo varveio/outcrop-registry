@@ -1,0 +1,83 @@
+schema_version: '0.4'
+bucket: web-language-models
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: paracrawl/bonus/
+  copy:
+    headline: ParaCrawl bonus parallel corpora for further language pairs
+    lede: Bonus parallel corpora extending ParaCrawl beyond the official EU languages, covering further
+      and low-resource language pairs built with the project's pipeline.
+    text: 'These bonus corpora are additional and derived datasets produced with parts or all of the ParaCrawl
+      pipeline, reaching language pairs outside the official-EU-language scope of the main releases. Documented
+      sets include nine South and East Asian languages paired with English (Hindi, Nepali, Burmese, Thai,
+      Lao, Khmer, Vietnamese, Indonesian, and Korean), built with targeted crawling, document and sentence
+      alignment, parallel-corpus filtering, and a novel toxicity filter, and a Polish-Czech corpus of
+      24 million bilingual segments extracted from HTML, classified, split, deduplicated, and double-side
+      filtered with Bicleaner-ai.
+
+
+      The corpora are offered in formats including TXT (one parallel sentence per line), TMX (filtered
+      sentences with metadata), and deduplicated or raw variants. All bonus data is dedicated under Creative
+      Commons CC0.'
+  refs:
+  - paracrawl-moredata
+
+- prefix: paracrawl/bonus2/
+  copy:
+    text: A further set of ParaCrawl bonus corpora. No external documentation distinguishing this set
+      was found.
+    headline: A further set of ParaCrawl bonus corpora
+    lede: A further set of ParaCrawl bonus corpora.
+  refs:
+  - paracrawl-moredata
+
+- prefix: paracrawl/ebay/
+  copy:
+    text: Inferred ParaCrawl-pipeline parallel-data subset; no publisher source specifically documenting
+      the 'ebay' prefix was found this run. Likely a domain/source-specific bonus parallel set within
+      the web-language-models bucket. Recorded honestly as a low-confidence lifecycle note rather than
+      a fabricated description.
+    headline: Inferred ParaCrawl-pipeline parallel-data subset
+    lede: Inferred ParaCrawl-pipeline parallel-data subset; no publisher source specifically documenting
+      the 'ebay' prefix was found this run.
+  refs:
+  - paracrawl-moredata
+
+- prefix: paracrawl/monolingualv9/
+  copy:
+    headline: Monolingual web text from the ParaCrawl pipeline
+    lede: Large monolingual corpora produced with the ParaCrawl pipeline — web text extracted from HTML,
+      classified by language, sentence-split, and deduplicated.
+    text: 'These monolingual corpora come from the same harvesting pipeline as ParaCrawl''s parallel releases,
+      with text extracted from HTML, classified by language, split into sentences, and deduplicated. The
+      English monolingual dataset from ParaCrawl V8 (April 2021) reports 96,470,655,818 lines and 1,337,127,886,176
+      tokens, distributed as 128 files split by the hash of the line.
+
+
+      A related June 2022 release, Language Classified Web Text from ParaCrawl, draws on Internet Archive
+      holdings and targeted crawls, applying document-level classification from a fastText model for 189
+      languages and organizing the result by ISO 639-3 language code into per-language directories of
+      compressed text and URL files. All of this data is dedicated under Creative Commons CC0.'
+  refs:
+  - paracrawl-moredata
+
+- prefix: paracrawl/release*/
+  copy:
+    headline: ParaCrawl main release series, v1 through v9
+    lede: ParaCrawl's successive main parallel-corpus releases, from v1.0 (January 2018) to v9 (September
+      2021), each providing corpora to and from English for the official EU languages.
+    text: These numbered releases are ParaCrawl's main parallel-corpus deliveries, spanning v1.0 in January
+      2018 through v9 in September 2021, the final release for ParaCrawl Action 3. Each provides parallel
+      corpora to and from English for the official languages of the European Union, with new data added
+      on the project's release schedule. All releases are dedicated under Creative Commons CC0.
+  refs:
+  - paracrawl-homepage
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

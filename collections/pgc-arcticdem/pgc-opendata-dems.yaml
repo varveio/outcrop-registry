@@ -1,0 +1,47 @@
+schema_version: '0.4'
+bucket: pgc-opendata-dems
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: arcticdem/mosaics/
+  copy:
+    headline: Seamless terrain mosaics compiled from all strips
+    lede: ArcticDEM mosaics are gap-reduced 100 km tiles synthesized from the full stack of overlapping
+      strip DEMs using a median-style mosaicking method.
+    text: 'Mosaic tiles are formed into 100 km x 100 km tiles in the local projection using the entire
+      stack of strip DEMs as source data, so each draws on DEMs from all seasons with sufficient sun elevation
+      to acquire imagery.
+
+
+      Since 2020, PGC has used a median-style mosaicking method that takes the median of repeat strip
+      DEM elevations at each pixel, with filtering to remove outliers. Ancillary rasters record the number
+      of repeat DEMs, the median absolute deviation, and the time range of acquisitions at each pixel.'
+  refs:
+  - pgc-dem-products-data-description
+
+- prefix: arcticdem/strips/
+  copy:
+    headline: Individual strip DEMs at native temporal resolution
+    lede: ArcticDEM strip DEMs are time-dependent 2-meter surface models output directly from SETSM, each
+      corresponding to the overlap of a single satellite stereopair.
+    text: 'Strip DEMs are output directly from SETSM and preserve the source imagery''s temporal resolution.
+      Each corresponds to the overlap area of a stereopair image swath collected by Vantor''s polar-orbiting
+      satellites; dimensions vary with the sensor and off-nadir collection angle, with most strips 16-18
+      km wide and 110-120 km long.
+
+
+      SETSM processes each stereopair in smaller scene-DEM chunks, which are then coregistered and merged
+      into the final strip via the scenes2strips program. Where scene DEMs cannot be coregistered, the
+      strip is broken into multiple segments, and the strip DEM segment is the unit by which the data
+      is packaged and released. These strips are also the source material from which the seamless mosaics
+      are compiled.'
+  refs:
+  - pgc-dem-products-data-description
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

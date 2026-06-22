@@ -1,0 +1,44 @@
+# Outcrop Registry — blank bucket record.
+# Copy to collections/<slug>/<bucket>.yaml (one per bucket in the collection).
+# <bucket> is the file stem; it should match `outcrop_bucket` when the real bucket
+# name differs from the slug Outcrop serves it under.
+# See docs/record-format.md for the full field reference.
+
+schema_version: "0.4"                    # (required) always "0.4"
+bucket: example-bucket                   # (required) the real object-storage bucket name
+# outcrop_bucket: example-collection     # optional; the name Outcrop serves this bucket under (file stem)
+backend: s3                              # (required) s3 | gcs | azure_blob
+role: primary                            # (required) primary | mirror | replica | inventory | archive | …
+region: us-east-1
+prefix: ""                               # engine root prefix within the bucket (relative, no leading slash)
+# requester_pays: false
+# account_required: false
+# frozen: false                          # true only for an archived bucket superseded by a live mirror
+
+# prefixes[] — structurally significant paths within the bucket.
+# Add sourced copy for prefixes worth describing; use `boundary` ONLY to correct
+# the engine's boundary detection (pin a real dataset, or exclude a false one).
+prefixes:
+  - prefix: example-dataset/             # relative to the bucket root
+    # boundary: pin                      # pin | exclude — omit unless correcting the engine
+    copy:
+      headline: What this prefix is
+      lede: A one-line orientation.
+      text: >-
+        A short, sourced description of the dataset under this prefix.
+    refs: [aws-registry]                 # ids from the collection.yaml refs[] pool (or add local refs below)
+    # kind: named_dataset                # crawl | release | chain | table | named_dataset |
+                                         #   partitioned_table | stac_collection | other
+    # coverage: full                     # full | manifest | sampled | partial
+
+# refs:                                  # optional bucket-local evidence (in addition to the shared pool)
+#   - id: bucket-readme
+#     kind: publisher_doc
+#     url: https://example.org/docs/bucket
+#     label: Bucket README
+
+stewardship:
+  last_reviewed_at: "2026-06-22"
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: unverified

@@ -1,0 +1,80 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: japan-pointcloud
+title: Japan Prefectures, 3D Point Cloud Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: jp-aigid-homepage
+  kind: publisher_homepage
+  url: https://aigid.jp/
+  label: AIGID homepage (Association for Promotion of Infrastructure Geospatial Information Distribution)
+  excerpt: AIGID — Association for Promotion of Infrastructure Geospatial Information Distribution (一般社団法人社会基盤情報流通推進協議会),
+    steward of the Japan Prefectures 3D Point Cloud open-data publication.
+  retrieved_at: '2026-06-22'
+
+- id: jp-readme
+  kind: publisher_doc
+  url: https://github.com/aigidjp/opendata_japan_pointcloud/blob/main/README.md
+  label: AIGID opendata_japan_pointcloud README (overview, license, data types, key schema)
+  excerpt: 'This is 3D point cloud data created through airborne laser surveys for each prefecture across
+    Japan. License: Creative Commons Attribution 4.0 International (CC-BY 4.0). The datasets are available
+    at s3://japan-pointcloud bucket.'
+  retrieved_at: '2026-06-22'
+
+- id: jp-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/japan_pointcloud.yaml
+  label: AWS Open Data Registry — japan_pointcloud.yaml (catalog metadata)
+  excerpt: 'License: "Creative Commons Attribution 4.0 International (CC-BY 4.0)". ManagedBy: "[AIGID](https://aigid.jp/)".
+    Resources: ARN: arn:aws:s3:::japan-pointcloud, Region: ap-northeast-1, Type: S3 Bucket.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Nationwide Japanese prefectural 3D point clouds and LiDAR-derived terrain products
+    lede: Japan Prefectures, 3D Point Cloud Data is AIGID's open-data publication of high-precision airborne-LiDAR
+      point clouds and derived terrain grids for participating Japanese prefectures, released under CC-BY
+      4.0.
+    text: 'AIGID (the Association for Promotion of Infrastructure Geospatial Information Distribution)
+      publishes high-precision 3D point cloud data captured for individual Japanese prefectures, building
+      on the multi-year survey effort behind the Virtual Shizuoka work. Coverage is added prefecture by
+      prefecture — Tokyo, Yamanashi, Yamagata and Saitama documented as of 2025, with Hyogo, Ishikawa
+      and Shimane data also present in the bucket. Source data is acquired by airborne laser surveying
+      (LP), mobile mapping systems (MMS), unmanned laser scanning (ULS), UAV drones and narrow multibeam
+      sonar. Each prefecture''s deliverables include the original ground point clouds as LAS, plus derived
+      products: regular-interval elevation grids (TXT/TIFF), automatically generated contours (DXF), and
+      orthophoto / shaded-relief / red-relief imagery (TIFF). Object keys encode prefecture, acquisition
+      year and sequence, method, data type, format, coordinate-zone and National Basic Map Grid codes;
+      files are distributed as zip (or 7z) archives. The data supports infrastructure maintenance, disaster
+      prevention and autonomous-driving applications.'
+  refs:
+  - jp-readme
+  - jp-registry
+
+source:
+  publisher: AIGID (Association for Promotion of Infrastructure Geospatial Information Distribution)
+  homepage_url: https://aigid.jp/
+
+display:
+  canonical_path: /japan-pointcloud/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,125 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: geoglows-v2
+title: GEOGLOWS Hydrological Model Version 2
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: geoglows-access-download
+  kind: publisher_doc
+  url: https://data.geoglows.org/tutorials/download-datasets
+  label: GEOGLOWS Data Guide — Download Datasets
+  excerpt: aws s3 cp s3://geoglows-v2-retrospective/retrospective/<vpu-number-here> </local/save/path>
+    --recursive --no-sign-request
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-catalog
+  kind: publisher_doc
+  url: https://training.geoglows.org/rfs/datasets/catalog/
+  label: GEOGLOWS Training — Data Catalog
+  excerpt: Hourly river discharge data since January 1940 (Zarr format). ... 15-day streamflow forecasts
+    generated every day at midnight (Zarr format).
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-ggst
+  kind: publisher_doc
+  url: https://ggst.readthedocs.io/en/latest/
+  label: GRACE Groundwater Subsetting Tool (GGST) documentation
+  excerpt: GGST uses GRACE TWSa data and GLDAS data to estimate groundwater storage anomalies and allows
+    global monitoring of changes in groundwater for selected regions since 2002.
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-homepage
+  kind: publisher_homepage
+  url: https://data.geoglows.org/
+  label: GEOGLOWS Data Guide (data.geoglows.org)
+  excerpt: GEOGLOWS is the Group on Earth Observation's (GEO) Global Water Sustainability Program. One
+    of the offerings from this program is a global scale hydrologic model which provides daily forecasted
+    streamflow and historical streamflow data back to 1940.
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-hydrography-doc
+  kind: publisher_doc
+  url: https://data.geoglows.org/dataset-descriptions/gis-streams-and-catchments
+  label: GEOGLOWS GIS Streams and Catchments dataset description
+  excerpt: The GEOGLOWS V2 hydrography is built on TDX-Hydro, derived from a 12m Airbus DEM created by
+    the National Geospatial-Intelligence Agency (NGA) ... modified to 7 million rivers.
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-license-terms
+  kind: publisher_doc
+  url: https://data.geoglows.org/dataset-descriptions/license-and-terms
+  label: GEOGLOWS License and Terms of Use
+  excerpt: All GEOGloWS Datasets are licensed with the Creative Commons BY 4.0 (CCBY4.0) license. The
+    full text of the license can be found at https://creativecommons.org/licenses/by/4.0/. ... You must
+    give credit to GEOGloWS as described by this license.
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-retro-doc
+  kind: publisher_doc
+  url: https://data.geoglows.org/dataset-descriptions/retrospective-discharge
+  label: GEOGLOWS Retrospective Discharge dataset description
+  excerpt: 'The retrospective simulation spans approximately 80 years, beginning January 1st, 1940 and
+    extending to the present. ... Qout: average river water discharge downstream of each river reach.'
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-saber
+  kind: publisher_doc
+  url: https://training.geoglows.org/rfs/bias-correction/bias-correction/
+  label: GEOGLOWS Training — Bias Correction (SABER method)
+  excerpt: SABER is the Stream Analysis for Bias Estimation and Reduction method ... An SFDC is the ratio
+    of the simulated and observed FDC at river segments with gauges.
+  retrieved_at: '2026-06-20'
+
+- id: geoglows-v2-anchor-fence
+  kind: publisher_doc
+  url: https://data.geoglows.org/dataset-descriptions/license-and-terms
+  label: GEOGLOWS License and Terms of Use
+  excerpt: All GEOGloWS Datasets are licensed with the Creative Commons BY 4.0 (CCBY4.0) license. The
+    full text of the license can be found at https://creativecommons.org/licenses/by/4.0/. ... You must
+    give credit to GEOGloWS as described by this license.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: 'Global hydrologic model: streamflow back to 1940 plus daily forecasts'
+    lede: GEOGLOWS Hydrological Model Version 2 is a global-scale river model that publishes historical
+      streamflow back to 1940 and daily 15-day forecasts, alongside the supporting hydrography.
+    text: 'GEOGLOWS — the Group on Earth Observations Global Water Sustainability Program — runs a global-scale
+      hydrologic model offering daily forecasted streamflow and historical streamflow back to 1940. The
+      catalog spans three strands: a retrospective record of river discharge (hourly, daily, monthly,
+      and yearly Zarr time series, plus yearly maximums, return periods, and flow duration curves); daily
+      15-day forecasts generated every day at midnight as a 51-member ECMWF IFS ensemble in Zarr; and
+      the supporting hydrography of stream and catchment locations worldwide, including a global hydrography
+      product and supplementary Parquet tables.'
+  refs:
+  - geoglows-homepage
+  - geoglows-catalog
+
+source:
+  publisher: GEOGLOWS (Group on Earth Observations Global Water Sustainability Program) / Brigham Young
+    University
+  homepage_url: https://data.geoglows.org/
+
+display:
+  canonical_path: /geoglows-v2/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,83 @@
+schema_version: '0.4'
+bucket: sorel-20m
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: 09-DEC-2020/baselines/results/
+  copy:
+    headline: Baseline FFNN and LightGBM evaluation results
+    lede: Per-seed test-set results for the SOREL-20M baseline models, with index files that drive the
+      repository's ROC plotting scripts.
+    text: 'Results for the published baseline detectors: a feed-forward neural network and a LightGBM
+      gradient-boosted model, each trained across five seeds. Per-seed result sets (seed0–seed4, roughly
+      1GB each) sit under FFNN/ and lightgbm/ subfolders as results.csv outputs, accompanied by ffnn_results.json
+      and lgbm_results.json index files required to re-plot the ROC distributions with the repository''s
+      plot.py. These results reproduce the benchmark numbers in the SOREL-20M paper and let researchers
+      compare new detectors against a common baseline.'
+  refs:
+  - sorel-readme
+
+- prefix: 09-DEC-2020/binaries/
+  copy:
+    headline: Disarmed PE malware binaries (~8TB, zlib-compressed)
+    lede: The ~8TB collection of disarmed Windows PE malware samples, named by the SHA256 of the original
+      file and neutralized so they will not execute.
+    text: 'The full malware-binary corpus, approximately 8TB of zlib-compressed Windows Portable Executable
+      samples and the bulk of the dataset''s footprint. Every sample is disarmed: the OptionalHeader.Subsystem
+      flag and the FileHeader.Machine header value are both set to 0 to prevent accidental execution,
+      so a sample''s on-disk SHA256 differs from its filename, which reflects the original unmodified
+      file. Sophos and ReversingLabs note that reconstituting a runnable sample would take knowledge,
+      skill, and time. Only the malicious half is distributed here; benign samples are withheld and the
+      publishers do not assist with re-arming.'
+  refs:
+  - sorel-readme
+
+- prefix: 09-DEC-2020/lightGBM-features/
+  copy:
+    headline: Pre-extracted EMBER feature arrays for LightGBM
+    lede: Train, validation, and test EMBER-v2 features flattened into NumPy .npz arrays using SOREL-20M's
+      default time splits, ready for LightGBM training.
+    text: 'Ready-to-use feature arrays that spare consumers from extracting features themselves: train-features.npz
+      (113GB), validation-features.npz (22GB), and test-features.npz (37GB), partitioned by the default
+      first-seen-timestamp splits defined in the repository''s config.py. The contained features are identical
+      to those in the LMDB feature store but converted to flat NumPy arrays for convenience, and carry
+      only binary malware/benign labels (no behavioral tag information). They are intended as the direct
+      input to the LightGBM baseline training path.'
+  refs:
+  - sorel-readme
+
+- prefix: 09-DEC-2020/processed-data/ember_features/
+  copy:
+    headline: EMBER-v2 feature vectors in an LMDB store
+    lede: The ~72GB LMDB store of EMBER-v2 feature vectors keyed by sample SHA256 — the feature source
+      used to train the SOREL-20M baseline models.
+    text: An LMDB key-value store (~72GB) holding the EMBER-v2 feature vector for each sample, keyed by
+      the SHA256 of the original file and paired with the meta.db index that carries labels, tags, and
+      counts. Each value is a feature vector serialized with msgpack and compressed with zlib; the repository's
+      data loaders decompress and deserialize it automatically. This store, together with meta.db, is
+      the minimal input (~78GB) needed to retrain the baseline detectors, and feature vectors here are
+      identical to those flattened into the lightGBM-features .npz arrays.
+  refs:
+  - sorel-readme
+
+- prefix: 09-DEC-2020/processed-data/pe_metadata/
+  copy:
+    headline: Full PE metadata dumps in an LMDB store
+    lede: The ~480GB LMDB store of complete pefile-derived metadata dumps for every sample, keyed by original-file
+      SHA256.
+    text: An LMDB key-value store (~480GB) containing the full per-sample PE metadata extracted via the
+      pefile Python library — the most detailed and largest component of the processed data, and not required
+      for training the baseline models. Values are serialized with msgpack and compressed with zlib, matching
+      the storage convention of the EMBER feature store, and are keyed by the original file's SHA256.
+      The repository includes pe_full_metadata_example/ as a worked example of the JSON metadata a single
+      sample yields.
+  refs:
+  - sorel-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

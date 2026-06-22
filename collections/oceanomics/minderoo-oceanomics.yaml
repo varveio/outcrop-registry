@@ -1,0 +1,43 @@
+schema_version: '0.4'
+bucket: minderoo-oceanomics
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: eDNA/
+  copy:
+    headline: Environmental-DNA metabarcoding reads by expedition and assay
+    lede: Raw paired-end environmental-DNA sequencing reads from OceanOmics ocean expeditions, organized
+      by project (voyage) and then by metabarcoding assay such as 12S and 16S.
+    text: The eDNA program develops environmental DNA as a way to assess marine ecosystem health, and
+      this is its raw metabarcoding and metagenomics output. Reads are grouped one folder per OceanOmics
+      project code (typically a voyage), each holding the paired-end reads for every sample in that project.
+      Within a project, reads are split by sequencing assay (12S, 16S, and others), and each assay carries
+      an Unknown subfolder of demultiplexed reads that could not be assigned to a known barcode pair.
+      Files are paired-end FASTQ (.fq.gz).
+  refs:
+  - oceanomics-awsdata
+
+- prefix: species/*/
+  copy:
+    headline: Per-species marine vertebrate genome assemblies, evaluation, and raw reads
+    lede: 'Each subfolder is one marine vertebrate species'' Ocean Genomes assembly package: curated and
+      pre-curation genome assemblies, a mitogenome, quality-evaluation outputs, and the raw long- and
+      short-read sequencing behind them.'
+    text: 'Organized following the GenomeArk convention — one folder per species under its accepted scientific
+      name, then one folder per sample keyed by Tree of Life ID (ToLID). Within each sample, assembly_curated/
+      holds the final manually curated assembly (pseudo-chromosome or scaffold FASTA, curated using HiC
+      contact matrices); assembly_MT/ holds the HiFi-based mitogenome with gene predictions; and assembly_oceangenomes_v1/
+      holds the pre-curation assembly plus evaluation outputs — BUSCO completeness, GenomeScope size estimates,
+      per-haplotype results, and Merqury quality and QV statistics. genomic_data/ contains the raw reads
+      that produced the assembly: Illumina paired-end, HiC, and PacBio HiFi (BAM and FASTQ). Together
+      these let a user take any covered species from raw reads through evaluated, curated reference assembly.'
+  refs:
+  - oceanomics-awsdata
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

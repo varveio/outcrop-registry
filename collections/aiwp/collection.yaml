@@ -1,0 +1,96 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: aiwp
+title: AI Weather Prediction (AIWP) Model Reforecasts
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: aiwp-homepage
+  kind: publisher_homepage
+  url: https://aiweather.cira.colostate.edu
+  label: CIRA AI Weather Prediction real-time visualizations (project homepage)
+  excerpt: Real-time visualizations of pure AI-based numerical weather prediction reforecasts produced
+    by CIRA and NOAA-GSL.
+  retrieved_at: '2026-06-20'
+
+- id: aiwp-nodd-about-access
+  kind: publisher_doc
+  url: https://www.noaa.gov/information-technology/open-data-dissemination
+  label: NOAA Open Data Dissemination (NODD) — About the Program (free public access via AWS/GCP/Azure)
+  excerpt: While these data are available to the public, it can be difficult to download and work with
+    such large data volumes.
+  retrieved_at: '2026-06-20'
+
+- id: aiwp-nodd-faq-terms
+  kind: publisher_doc
+  url: https://www.noaa.gov/big-data-project-frequently-asked-questions
+  label: NOAA Open Data Dissemination (NODD) — Frequently Asked Questions (data access & use terms)
+  excerpt: The NOAA datasets made available through NODD are free for all users to access with no use
+    restrictions and do not require any registration to access. The data is fully open for public access
+    and can be downloaded with no egress charges.
+  retrieved_at: '2026-06-20'
+
+- id: aiwp-readme
+  kind: publisher_file
+  url: https://noaa-oar-mlwp-data.s3.amazonaws.com/README.txt
+  label: NOAA AIWP archive README.txt (bucket-root)
+  excerpt: 'This is an archive of pure AI-based numerical weather prediction reforecasts. ... The current
+    period of record is roughly 09/30/20 to present. Models currently included are: 1. FourCastNet v1
+    2. FourCastNet v2-small 3. Pangu-Weather 4. GraphCast Operational'
+  retrieved_at: '2026-06-20'
+
+- id: aiwp-registry-org
+  kind: registry_entry
+  url: https://registry.opendata.aws/aiwp/
+  label: AIWP bucket organizes top-level directories as distinct named AI weather models, each in GFS/IFS
+    initialization variants
+  excerpt: 's3://noaa-oar-mlwp-data/MMMM_vNNN_III/YYYY/mmdd/[filename].nc ... three AI weather prediction
+    models: FOUR (FourCastNetv2-small), PANG (Pangu-Weather), GRAP (GraphCast); each initialized with
+    NOAA GFS (no extension) and ECMWF IFS (directories ending in _IFS).'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Archive of pure AI weather-model reforecasts
+    lede: The AI Weather Prediction (AIWP) archive collects multi-year, twice-daily global 10-day reforecasts
+      from leading machine-learning weather models, citable via Radford et al. (2025, BAMS).
+    text: AIWP is an archive of pure AI-based numerical weather prediction reforecasts, assembled to let
+      the community evaluate and compare machine-learning weather models against one another. It currently
+      covers FourCastNet v1, FourCastNet v2-small, Pangu-Weather, and GraphCast Operational, with a period
+      of record running roughly from 30 September 2020 to the present. Runs are initialized at 00 and
+      12 UTC across all years, plus 06 and 18 UTC for 2023. Output is organized into one top-level directory
+      per model/version/initial-condition combination, named MMMM_vNNN_III and partitioned by year and
+      date (YYYY/mmdd/) as NetCDF files; a separate Derived folder adds calculated severe-weather parameters.
+      As of January 2025 the archive also began adding IFS-initialized versions of each model alongside
+      the GFS-initialized output. Real-time visualizations are at aiweather.cira.colostate.edu, and use
+      is documented in Radford et al. (2025, BAMS, https://doi.org/10.1175/BAMS-D-24-0057.1). NOAA provides
+      the data "as is."
+  refs:
+  - aiwp-readme
+
+source:
+  publisher: NOAA / CIRA AI Weather Prediction (AIWP)
+  homepage_url: https://aiweather.cira.colostate.edu
+
+display:
+  canonical_path: /aiwp/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

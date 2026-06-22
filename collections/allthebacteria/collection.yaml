@@ -1,0 +1,104 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: allthebacteria
+title: AllTheBacteria — Unified Bacterial Genome Assemblies
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: atb-access-assemblies-doc
+  kind: publisher_doc
+  url: https://allthebacteria.org/docs/assemblies/
+  label: AllTheBacteria documentation — Assemblies (AWS access, assemblies-list)
+  excerpt: 'Every Monday, a list of current assembly files is generated. Get the latest file with: aws
+    s3 ls --no-sign-request s3://allthebacteria-metadata/allthebacteria-assemblies/assemblies-list/data/
+    | sort | tail -n1'
+  retrieved_at: '2026-06-22'
+
+- id: atb-access-lexicmap-doc
+  kind: publisher_doc
+  url: https://allthebacteria.org/docs/lexicmap/
+  label: AllTheBacteria documentation — LexicMap (prebuilt index, AWS access)
+  excerpt: 'aws s3 ls s3://allthebacteria-lexicmap/202408/ --no-sign-request # output PRE genomes/ PRE
+    seeds/ ... Download the index (it''s 5.24 TiB!!!): aws s3 cp s3://allthebacteria-lexicmap/202408/
+    atb.lmi --recursive --no-sign-request'
+  retrieved_at: '2026-06-22'
+
+- id: atb-homepage
+  kind: publisher_homepage
+  url: https://allthebacteria.org/
+  label: AllTheBacteria homepage
+  excerpt: AllTheBacteria is a large-scale, collaborative, open-access project that assembles, annotates,
+    and catalogs millions of bacterial and archaeal genomes from public sequencing data.
+  retrieved_at: '2026-06-22'
+
+- id: atb-osf-license
+  kind: publisher_doc
+  url: https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/
+  label: AllTheBacteria OSF data license — CC-By Attribution 4.0 International
+  excerpt: CC-By Attribution 4.0 International. Creative Commons Attribution 4.0 International Public
+    License. By exercising the Licensed Rights (defined below), You accept and agree to be bound by the
+    terms and conditions of this Creative Commons Attribution 4.0 International Public License.
+  retrieved_at: '2026-06-22'
+
+- id: atb-osf-node
+  kind: catalog_metadata
+  url: https://api.osf.io/v2/nodes/xv7q9/
+  label: AllTheBacteria OSF project metadata (xv7q9)
+  excerpt: AllTheBacteria — All WGS isolate bacterial INSDC data to August 2024 uniformly assembled, QC-ed,
+    annotated, searchable
+  retrieved_at: '2026-06-22'
+
+- id: atb-overview
+  kind: publisher_doc
+  url: https://allthebacteria.org/docs/overview/
+  label: AllTheBacteria documentation — Overview
+  excerpt: The bacterial sequence data publicly available at the global DNA archives is a vast source
+    of information on the evolution of bacteria and their mobile elements. AllTheBacteria extends that
+    project, covering all data up to at least 2024.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Uniform reanalysis of every public bacterial genome assembly
+    lede: AllTheBacteria is an open reanalysis of all public bacterial isolate sequencing data, uniformly
+      assembled, QC-ed and searchable, published by the Iqbal lab and EMBL-EBI under CC-BY-4.0.
+    text: AllTheBacteria takes all whole-genome-sequenced bacterial and archaeal isolate data from the
+      public INSDC archives and re-processes it through a single uniform assembly, quality-control and
+      annotation pipeline, so that millions of genomes can be compared on equal footing. It extends the
+      2021 Blackwell et al. 661k-genome release, growing across successive releases (0.2, the 2024-08
+      increment and the 2025-05 increment) to more than 2.7 million assemblies up to date with INSDC data
+      through August 2024. The collection spans the per-sample FASTA assemblies, their metadata and weekly
+      file lists, and prebuilt search indexes including a LexicMap nucleotide-alignment index over the
+      assemblies. Data are hosted on AWS Open Data (eu-west-2), OSF and ENA, openly accessible without
+      credentials, and released under CC-BY Attribution 4.0 International.
+  refs:
+  - atb-overview
+  - atb-osf-node
+  - atb-osf-license
+
+source:
+  publisher: AllTheBacteria (Iqbal lab / EMBL-EBI)
+  homepage_url: https://allthebacteria.org/
+
+display:
+  canonical_path: /allthebacteria/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

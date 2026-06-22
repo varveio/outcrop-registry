@@ -1,0 +1,108 @@
+schema_version: '0.4'
+bucket: japan-pointcloud
+backend: s3
+role: primary
+region: ap-northeast-1
+
+prefixes:
+- prefix: Hyogo/
+  copy:
+    headline: Hyogo Prefecture LiDAR survey grids and relief imagery
+    lede: Hyogo Prefecture's airborne-LiDAR deliverables provide elevation grids, terrain-relief imagery
+      and canopy-height products derived from ground point clouds.
+    text: 'Hyogo Prefecture contributes airborne laser survey deliverables following the collection''s
+      product taxonomy: regular-interval elevation grids as DEM and DSM text grids, color/shaded-relief
+      imagery as TIFF (CSRelief), and DCHM (Digital Canopy Height Model) raster products. Deliverables
+      are keyed by acquisition method, data type, format and National Basic Map Grid code, and distributed
+      as zip archives under CC-BY 4.0.'
+  refs:
+  - jp-readme
+
+- prefix: Ishikawa/
+  copy:
+    headline: Ishikawa Prefecture LiDAR point clouds and derived products
+    lede: Ishikawa Prefecture's airborne-LiDAR deliverables provide original LAS point clouds alongside
+      derived imagery and text-grid terrain products.
+    text: 'Ishikawa Prefecture contributes airborne laser survey deliverables following the collection''s
+      product taxonomy: original ground point clouds as LAS, plus derived orthophoto/relief imagery (TIFF)
+      and regular-interval elevation grids (TXT). Deliverables are keyed under zone ''07'' by acquisition
+      method, data type, format and National Basic Map Grid code, and distributed as zip archives under
+      CC-BY 4.0.'
+  refs:
+  - jp-readme
+
+- prefix: Saitama/
+  copy:
+    headline: Saitama Prefecture multi-sensor road, river and mountainous point clouds
+    lede: Saitama's deliverables fuse airborne LiDAR, vehicle MMS, UAV drone and multibeam-sonar surveys
+      into a detailed 3D terrain model.
+    text: Saitama Prefecture contributes 3D point cloud data acquired by airborne laser surveying (FY2024),
+      vehicle-mounted mobile mapping systems (MMS, FY2021-FY2023), UAV drone surveying and narrow multibeam
+      sonar (FY2022-FY2023), integrated into a detailed 3D terrain model. The bucket's Saitama deliverables
+      span road corridors (MMS, LAS keyed by route), river areas (UAV/HYB, LAS keyed by river name), and
+      mountainous Sabo areas (LP, LAS keyed by area name), keyed under zone '09' (JGD2011 / Japan Plane
+      Rectangular CS IX, EPSG:6677) and distributed as zip archives.
+  refs:
+  - jp-readme
+
+- prefix: Shimane/
+  copy:
+    headline: Shimane Prefecture LiDAR point clouds, grids and contours
+    lede: Shimane Prefecture's airborne-LiDAR deliverables provide point clouds with derived elevation
+      grids and vector contour lines.
+    text: 'Shimane Prefecture contributes airborne laser survey deliverables following the collection''s
+      product taxonomy: original ground point clouds as LAS, regular-interval elevation grids (TXT), and
+      automatically generated contour lines as SHP vector data. Deliverables are keyed under zone ''03''
+      by acquisition method, data type, format and National Basic Map Grid code, and distributed as zip
+      archives under CC-BY 4.0.'
+  refs:
+  - jp-readme
+
+- prefix: Tokyo/
+  copy:
+    headline: Tokyo Metropolis high-density LiDAR point clouds and derived terrain products
+    lede: Tokyo's prefectural deliverables are high-density 3D point clouds (16+ points/m^2) covering
+      the Tama region, the 23 Wards and island coastlines, with derived grids and imagery.
+    text: Tokyo Metropolis contributes high-density 3D point cloud data acquired by airborne laser surveying
+      over land and, along the island regions' coasts, airborne laser bathymetry and narrow multibeam
+      sonar, integrated into a single dataset at 16 points per square metre or higher. Acquisition spanned
+      the Tama Region and island areas (FY2023) and Tokyo's 23 Wards (FY2024). Deliverables follow the
+      collection's product taxonomy — LAS ground point clouds plus derived elevation grids (TIFF), and
+      orthophoto / shaded-relief / red-relief imagery (TIFF) — keyed under zone '09' (JGD2011 / Japan
+      Plane Rectangular CS IX, EPSG:6677) by National Basic Map Grid code and distributed as zip archives.
+  refs:
+  - jp-readme
+
+- prefix: Yamagata/
+  copy:
+    headline: Yamagata Prefecture integrated ULS and MMS road point clouds
+    lede: Yamagata's prefecture-wide deliverables integrate unmanned laser scanning and mobile-mapping
+      point clouds for unified use.
+    text: Yamagata Prefecture contributes integrated 3D point cloud data obtained through unmanned laser
+      scanning (ULS) and a mobile mapping system (MMS), enabling unified use of the combined data; acquisition
+      spanned FY2022-FY2024 across the entire prefecture. The bucket's Yamagata deliverables are LAS point
+      clouds organized by route along road corridors (both MMS and ULS), keyed under zone '10' (JGD2011
+      / Japan Plane Rectangular CS X, EPSG:6678) and distributed as zip archives.
+  refs:
+  - jp-readme
+
+- prefix: Yamanashi/
+  copy:
+    headline: Yamanashi Prefecture airborne-LiDAR and MMS point clouds
+    lede: Yamanashi's prefecture-wide deliverables combine airborne laser surveying from multiple agencies
+      with mobile-mapping point clouds.
+    text: Yamanashi Prefecture contributes point cloud data acquired by airborne laser surveying conducted
+      by Yamanashi Prefecture, the MLIT Kanto Regional Development Bureau Fujikawa Sabo Office and the
+      Tokyo Metropolitan Government, together with mobile mapping system (MMS) point clouds collected
+      by the prefecture; FY2024 acquisition covers the entire prefecture. Deliverables follow the collection's
+      taxonomy — LAS point clouds with derived elevation grids (TXT), orthophoto/relief imagery (TIFF)
+      and contours (DXF) — keyed under zone '08' (JGD2011 / Japan Plane Rectangular CS VIII, EPSG:6676)
+      by National Basic Map Grid code and distributed as zip archives.
+  refs:
+  - jp-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,64 @@
+schema_version: '0.4'
+bucket: epa-equates-v1
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: CMAQ_108NHEMI/OUTPUT/COLUMN/
+  copy:
+    headline: Northern Hemisphere vertical column totals (108 km CMAQ)
+    lede: Vertically integrated pollutant column totals from CMAQ v5.3.2 over the 108NHEMI Northern Hemisphere
+      domain at 108 km grid spacing.
+    text: 'COMBINE column-total output for the 108NHEMI domain: vertically integrated concentrations of
+      seven species, including NO2, CO, SO2, formaldehyde (HCHO) and ozone columns, the NO2 photolysis
+      rate (JNO2) and aerosol optical depth at 550 nm (AOD550). Values are hourly netCDF/HDF5 fields in
+      I/O API structures, covering the 2019 modeling year, and are well suited to comparison against satellite
+      column retrievals across the hemispheric domain.'
+  refs:
+  - epa-equates-data-dictionary
+
+- prefix: CMAQ_108NHEMI/OUTPUT/CONC3D/
+  copy:
+    headline: Northern Hemisphere 3D hourly concentrations (108 km CMAQ)
+    lede: Hourly three-dimensional pollutant concentrations from CMAQ v5.3.2 over the 108NHEMI Northern
+      Hemisphere domain at 108 km grid spacing.
+    text: 'COMBINE 3D concentration output for the 108NHEMI domain: hourly per-layer pollutant fields
+      spanning 44 vertical layers and 22 species across the Northern Hemisphere. Files are compressed
+      netCDF/HDF5 in I/O API data structures for the 2019 modeling year. The full 3D vertical structure
+      supports analyses of long-range transport and upper-air chemistry that the column totals integrate
+      away.'
+  refs:
+  - epa-equates-data-dictionary
+
+- prefix: CMAQ_12US1/OUTPUT/COLUMN/
+  copy:
+    headline: Contiguous U.S. vertical column totals (12 km CMAQ)
+    lede: Vertically integrated pollutant column totals from CMAQ v5.3.2 over the 12US1 contiguous-U.S.
+      domain at 12 km grid spacing.
+    text: 'COMBINE column-total output for the 12US1 domain, covering the conterminous U.S. (and parts
+      of Canada and Mexico) at 12 km resolution: vertically integrated NO2, CO, SO2, formaldehyde and
+      ozone columns, plus the NO2 photolysis rate (JNO2) and aerosol optical depth at 550 nm (AOD550).
+      Output is hourly netCDF/HDF5 in I/O API structures for the 2019 modeling year, well matched to U.S.
+      satellite-column evaluation at the finer 12 km grid.'
+  refs:
+  - epa-equates-data-dictionary
+
+- prefix: CMAQ_12US1/OUTPUT/CONC3D/
+  copy:
+    headline: Contiguous U.S. 3D hourly concentrations (12 km CMAQ)
+    lede: Hourly three-dimensional pollutant concentrations from CMAQ v5.3.2 over the 12US1 contiguous-U.S.
+      domain at 12 km grid spacing.
+    text: 'COMBINE 3D concentration output for the 12US1 domain: hourly per-layer pollutant fields spanning
+      35 vertical layers and 27 species across the conterminous U.S. (including parts of Canada and Mexico)
+      at 12 km resolution. Files are compressed netCDF/HDF5 in I/O API data structures for the 2019 modeling
+      year. This is the largest product in the collection, resolving the full vertical concentration field
+      used for health, exposure and model-evaluation studies.'
+  refs:
+  - epa-equates-data-dictionary
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

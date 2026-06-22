@@ -1,0 +1,80 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: dataforgood-fb-forests
+title: High Resolution Canopy Height Maps (CHM v1) — WRI & Meta
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: dfg-forests-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/dataforgood-fb-forests/
+  label: AWS Open Data registry — High Resolution Canopy Height Maps by WRI and Meta
+  excerpt: 'Global and regional Canopy Height Maps (CHM). Created using machine learning models on high-resolution
+    worldwide Maxar satellite imagery. License: https://creativecommons.org/licenses/by/4.0/ . Managed
+    by Meta. aws s3 ls --no-sign-request s3://dataforgood-fb-data/forests/v1/alsgedi_global_v6_float/'
+  retrieved_at: '2026-06-22'
+
+- id: dfg-forests-meta-blog
+  kind: publisher_doc
+  url: https://sustainability.atmeta.com/blog/2024/04/22/using-artificial-intelligence-to-map-the-earths-forests/
+  label: Meta Sustainability — Using AI to Map the Earth's Forests (CHM launch)
+  excerpt: Today, Meta and World Resources Institute are launching a global map of tree canopy height
+    at a 1-meter resolution, allowing the detection of single trees at a global scale. In an effort to
+    advance open source forest monitoring, all canopy height data and artificial intelligence models are
+    free and publicly available.
+  retrieved_at: '2026-06-22'
+
+- id: dfg-forests-publisher-homepage
+  kind: publisher_homepage
+  url: https://dataforgood.fb.com/
+  label: Data for Good at Meta — homepage
+  excerpt: Data for Good at Meta builds privacy-preserving datasets and tools to support social-good,
+    sustainability, and climate research, including the High Resolution Canopy Height Maps published with
+    the World Resources Institute.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Global 1-meter canopy height maps from Meta and WRI
+    lede: The High Resolution Canopy Height Maps (CHM v1) are a global, 1-meter-resolution map of tree
+      canopy height built by Data for Good at Meta and the World Resources Institute, resolving individual
+      trees worldwide.
+    text: The High Resolution Canopy Height Maps are a global tree-canopy-height product released in 2024
+      by Data for Good at Meta together with the World Resources Institute, produced by machine-learning
+      models trained on high-resolution Maxar satellite imagery. At 1-meter resolution the maps resolve
+      individual trees at a global scale, supporting forest monitoring, carbon and biomass estimation,
+      and climate work. This collection is the original (v1) product, published as cloud-optimized GeoTIFF
+      tiles with per-tile observation-date metadata and quality masks. Coverage includes a global float-valued
+      map plus higher-attention regional products for California, Sao Paulo, and Sub-Saharan Africa, alongside
+      the released model weights. The data and models are free and openly available under CC-BY-4.0; a
+      separate Version 2 product (built on newer imagery) is published as its own collection.
+  refs:
+  - dfg-forests-aws-registry
+  - dfg-forests-meta-blog
+
+source:
+  publisher: Data for Good at Meta
+  homepage_url: https://dataforgood.fb.com/
+
+display:
+  canonical_path: /dataforgood-fb-forests/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

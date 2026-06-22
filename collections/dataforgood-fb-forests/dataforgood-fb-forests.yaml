@@ -1,0 +1,31 @@
+schema_version: '0.4'
+bucket: dataforgood-fb-data
+outcrop_bucket: dataforgood-fb-forests
+backend: s3
+role: primary
+region: us-east-1
+prefix: forests/
+
+prefixes:
+- prefix: forests/
+  copy:
+    headline: High Resolution Canopy Height Maps (CHM v1), global and regional
+    lede: The CHM v1 release of Meta and WRI's High Resolution Canopy Height Maps, holding the global
+      float-valued canopy-height map plus California, Sao Paulo, and Sub-Saharan Africa regional products
+      as cloud-optimized GeoTIFFs.
+    text: Contains the version-1 release of the High Resolution Canopy Height Maps produced by Data for
+      Good at Meta and the World Resources Institute from Maxar satellite imagery. The global product
+      lives under v1/alsgedi_global_v6_float as cloud-optimized GeoTIFF canopy-height tiles (chm), each
+      paired with a per-tile GeoJSON carrying the observation date (metadata) and a corresponding quality
+      mask (msk), with a tiles.geojson tile index at the release root. Higher-attention regional maps
+      for California, Sao Paulo, and Sub-Saharan Africa, plus the released model weights, are organized
+      as sibling releases. All tiles give canopy height at 1-meter resolution. Imagery credit for CHM
+      is © 2016 Maxar.
+  refs:
+  - dfg-forests-aws-registry
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,102 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: openneuro
+title: OpenNeuro
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: openneuro-anchor-fence
+  kind: publisher_doc
+  url: https://docs.openneuro.org/faq.html
+  label: OpenNeuro FAQ — dataset licensing (CC0)
+  excerpt: To reduce uncertainty for data consumers, all newly published datasets are released under CC0,
+    as are new versions of previously released datasets.
+  retrieved_at: '2026-06-20'
+
+- id: openneuro-elife
+  kind: web_research
+  url: https://elifesciences.org/articles/71774
+  label: Markiewicz et al., "The OpenNeuro resource for sharing of neuroscience data" (eLife, 2021)
+  excerpt: OpenNeuro, a BRAIN Initiative data archive that provides the ability to openly share data from
+    a broad range of brain imaging data types following the FAIR principles for data sharing.
+  retrieved_at: '2026-06-20'
+
+- id: openneuro-faq-deface
+  kind: publisher_doc
+  url: https://docs.openneuro.org/faq.html
+  label: OpenNeuro FAQ — defacing / de-identification requirement
+  excerpt: OpenNeuro does not accept datasets that have not been defaced for privacy considerations.
+  retrieved_at: '2026-06-20'
+
+- id: openneuro-faq-license
+  kind: publisher_doc
+  url: https://docs.openneuro.org/faq.html
+  label: OpenNeuro FAQ — dataset licensing (CC0)
+  excerpt: To reduce uncertainty for data consumers, all newly published datasets are released under CC0,
+    as are new versions of previously released datasets.
+  retrieved_at: '2026-06-20'
+
+- id: openneuro-homepage
+  kind: publisher_homepage
+  url: https://openneuro.org/
+  label: OpenNeuro homepage
+  excerpt: OpenNeuro is a free and open platform for sharing neuroimaging data, validated against the
+    Brain Imaging Data Structure (BIDS) standard.
+  retrieved_at: '2026-06-20'
+
+- id: openneuro-userguide-access
+  kind: publisher_doc
+  url: https://docs.openneuro.org/user_guide.html
+  label: OpenNeuro User Guide — public datasets need no account
+  excerpt: OpenNeuro does not require you to have an account to browse and download public datasets, but
+    having an account does allow you to save those that interest you.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open archive of shared neuroimaging data
+    lede: OpenNeuro is a free, open archive for sharing a broad range of human brain imaging data, released
+      under CC0 and mirrored to a public Amazon S3 bucket.
+    text: 'OpenNeuro is a BRAIN Initiative data archive that openly shares a broad range of brain imaging
+      data types, following the FAIR principles for data sharing. Newly published datasets, and new versions
+      of existing ones, are released under a Creative Commons Zero (CC0) public-domain dedication, which
+      places no restrictions on use; each version carries a unique DOI for citation and may include a
+      HowToAcknowledge field with the provider''s preferred attribution.
+
+
+      Every dataset is published to the public Amazon S3 bucket s3://openneuro.org/ (us-east-1), which
+      anyone can read anonymously with no AWS account using --no-sign-request. No account is required
+      to browse or download public datasets; data is reachable through the browser, S3, DataLad, direct
+      git, the openneuro-cli, and a GraphQL API. An account is needed only to save datasets, subscribe
+      to updates, or manage your own.'
+  refs:
+  - openneuro-faq-license
+  - openneuro-userguide-access
+  - openneuro-elife
+
+source:
+  publisher: OpenNeuro
+  homepage_url: https://openneuro.org/
+
+display:
+  canonical_path: /openneuro/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

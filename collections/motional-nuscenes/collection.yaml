@@ -1,0 +1,84 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: motional-nuscenes
+title: nuScenes Autonomous Driving Dataset
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: nuscenes-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/motional-nuscenes/
+  label: nuScenes — Registry of Open Data on AWS (usage example)
+  excerpt: aws s3 ls s3://motional-nuscenes/ --region ap-northeast-1 --no-sign-request
+  retrieved_at: '2026-06-22'
+
+- id: nuscenes-homepage
+  kind: publisher_homepage
+  url: https://www.nuscenes.org/nuscenes
+  label: nuScenes dataset homepage (Motional)
+  excerpt: nuScenes comprises 1000 scenes, each 20s long and fully annotated with 3D bounding boxes for
+    23 classes and 8 attributes.
+  retrieved_at: '2026-06-22'
+
+- id: nuscenes-paper
+  kind: web_research
+  url: https://ar5iv.labs.arxiv.org/html/1903.11027
+  label: 'Caesar et al., nuScenes: A multimodal dataset for autonomous driving (CVPR 2020)'
+  excerpt: As manual labeling of faces and license plates is prohibitively expensive for 1.4M images,
+    we use state-of-the-art object detection techniques. Eventually we use the predicted boxes to blur
+    faces and license plates in the images.
+  retrieved_at: '2026-06-22'
+
+- id: nuscenes-terms
+  kind: publisher_doc
+  url: https://www.nuscenes.org/terms-of-use
+  label: nuScenes / Motional Terms of Use (CC BY-NC-SA 4.0)
+  excerpt: Unless specifically labeled otherwise, these Datasets are provided to You under a Creative
+    Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License ("CC BY-NC-SA 4.0"),
+    with the additional terms included herein.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-NC-SA-4.0
+  status: verified
+  name: CC-BY-NC-SA-4.0
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Multimodal autonomous-driving dataset with full 360 sensor suite
+    lede: nuScenes is Motional's large-scale autonomous-driving dataset — 1,000 driving scenes from Boston
+      and Singapore captured with cameras, lidar, and radar and fully annotated with 3D boxes.
+    text: 'nuScenes, developed by Motional (formerly nuTonomy/Aptiv), captures 1,000 twenty-second driving
+      scenes from Boston and Singapore using a real self-driving car''s full sensor suite: 6 cameras,
+      1 lidar, and 5 radars, each with 360-degree field of view, plus raw CAN-bus signals (velocity, steering,
+      wheel speeds). Every scene is annotated with 3D bounding boxes spanning 23 object classes and 8
+      attributes, totalling roughly 1.4 million boxes over about 1.4 million camera images. The S3 bucket
+      also distributes the related Motional releases nuImages (2D image annotations) and nuPlan (a closed-loop
+      planning benchmark). Faces and license plates are detected and blurred for privacy. The data is
+      published for non-commercial research under CC BY-NC-SA 4.0; commercial use requires a separate
+      license from Motional.'
+  refs:
+  - nuscenes-paper
+  - nuscenes-homepage
+
+source:
+  publisher: Motional
+  homepage_url: https://www.nuscenes.org/
+
+display:
+  canonical_path: /motional-nuscenes/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

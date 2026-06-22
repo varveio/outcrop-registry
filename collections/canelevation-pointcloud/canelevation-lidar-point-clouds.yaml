@@ -1,0 +1,288 @@
+schema_version: '0.4'
+bucket: canelevation-lidar-point-clouds
+backend: s3
+role: primary
+region: ca-central-1
+
+prefixes:
+- prefix: pointclouds_nuagespoints/
+  copy:
+    headline: All CanElevation LiDAR acquisition projects, grouped by acquiring source
+    lede: The root of the CanElevation LiDAR Point Clouds product, grouping every airborne LiDAR acquisition
+      project first by acquiring organization or jurisdiction and then by individual survey.
+    text: Groups every airborne LiDAR acquisition project in the CanElevation LiDAR Point Clouds product,
+      partitioned first by the acquiring organization or jurisdiction — NRCan and provincial, territorial
+      and municipal partners — and then by individual survey. Each survey is distributed as its own acquisition
+      project, without integration between projects, so density, resolution and acquisition date vary.
+      All point clouds are Cloud Optimized Point Cloud (COPC) .LAZ 1.4 files in NAD83(CSRS)/UTM with CGVD2013
+      elevations.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/AB/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/BC/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/DUC/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/HC/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/MB/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/NB/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/NL/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/NRCAN/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects acquired directly by Natural Resources Canada
+      within the CanElevation LiDAR Point Clouds product. Each project is distributed on its own, without
+      integration between projects, so density, resolution and acquisition date vary. Files are Cloud
+      Optimized Point Cloud (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects acquired directly by…
+    lede: Groups the airborne LiDAR acquisition projects acquired directly by Natural Resources Canada
+      within the CanElevation LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/NU/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/NWT/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/ON/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/PC/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/PEI/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/QC/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/SK/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/SNCA/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/TRCA/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/UNIV_SHERBROOKE/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this partner within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/VILLE_OTTAWA/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this municipal partner within
+      the CanElevation LiDAR Point Clouds product. Each project is distributed on its own, without integration
+      between projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point
+      Cloud (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this municipal partner within
+      the CanElevation LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/VILLE_REGINA/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects contributed by this municipal partner within
+      the CanElevation LiDAR Point Clouds product. Each project is distributed on its own, without integration
+      between projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point
+      Cloud (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects contributed by this…
+    lede: Groups the airborne LiDAR acquisition projects contributed by this municipal partner within
+      the CanElevation LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/YT/
+  copy:
+    text: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product. Each project is distributed on its own, without integration between
+      projects, so density, resolution and acquisition date vary. Files are Cloud Optimized Point Cloud
+      (COPC) .LAZ 1.4 in NAD83(CSRS)/UTM with CGVD2013 elevations.
+    headline: Groups the airborne LiDAR acquisition projects for this jurisdiction…
+    lede: Groups the airborne LiDAR acquisition projects for this jurisdiction within the CanElevation
+      LiDAR Point Clouds product.
+  refs:
+  - canelevation-opencanada
+
+- prefix: pointclouds_nuagespoints/tmp/
+  copy:
+    text: A staging path within the product, separate from the main jurisdiction and partner groupings.
+      Its contents are Cloud Optimized Point Cloud (COPC) .LAZ files like the rest of the product, but
+      the prefix is a working location rather than a curated grouping.
+    headline: A staging path within the product, separate from the main…
+    lede: A staging path within the product, separate from the main jurisdiction and partner groupings.
+  refs:
+  - canelevation-opencanada
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

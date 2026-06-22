@@ -1,0 +1,124 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: m3ed
+title: M3ED
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: m3ed-access
+  kind: publisher_doc
+  url: https://m3ed.io/download/
+  label: M3ED Download / AWS access page (m3ed.io)
+  excerpt: M3ED files are hosted in Amazon AWS arn:aws:s3:::m3ed-dist. You may download each sequence
+    individually by clicking on the link in Sequences. Additionally, we provide a python script to download
+    the data. You can use the bucket directly from AWS. The file structure is specified in the dataset_list.yaml.
+  retrieved_at: '2026-06-22'
+
+- id: m3ed-datafiles
+  kind: publisher_doc
+  url: https://m3ed.io/data_overview/datafiles/
+  label: M3ED Data Files documentation (HDF5 layout, m3ed.io)
+  excerpt: data.h5 with events, grayscale and RGB imagers, LiDAR, and IMU data. The grayscale stereo pair
+    is stored in the groups /ovc/left and /ovc/right. IMU data is recorded in the group /ovc/imu. This
+    data was recorded with an Ouster OS1-64-U in the group /ouster.
+  retrieved_at: '2026-06-22'
+
+- id: m3ed-folders
+  kind: publisher_doc
+  url: https://m3ed.io/data_overview/folderst/
+  label: M3ED Folder Structure documentation (m3ed.io)
+  excerpt: 'Each sequence is recorded individually in the processed folder. data.h5: time synchronized
+    and event decoded. Use these files to access the event camera data, the grayscale and RGB imagers,
+    the lidar, and the IMU. depth_gt.h5: ground truth depth and poses from FasterLIO, for the left event
+    camera. pose_gt.h5: similar to depth_gt.h5, but without the depth information. semantics.h5: InternImage
+    semantic outputs.'
+  retrieved_at: '2026-06-22'
+
+- id: m3ed-homepage
+  kind: publisher_homepage
+  url: https://m3ed.io/
+  label: M3ED project homepage (m3ed.io)
+  excerpt: M3ED is the first multi-sensor event camera dataset focused on high-speed dynamic motions in
+    robotics applications. M3ED provides high-quality synchronized and labeled data from multiple platforms,
+    including ground vehicles, legged robots, and aerial robots.
+  retrieved_at: '2026-06-22'
+
+- id: m3ed-input
+  kind: publisher_doc
+  url: https://m3ed.io/data_overview/folderst/
+  label: M3ED Input Files documentation (raw_bags & lidar_calibrations, m3ed.io)
+  excerpt: 'Input Files: These are the files that are used by the build system to generate the h5 files.
+    raw_bags: stores the unprocessed data obtained from the sensor tower. These files are not time corrected
+    and events are stored in binary format. lidar_calibrations (npz): stores the manually tuned LiDAR
+    calibrations. Multiple bags can share the same calibration file.'
+  retrieved_at: '2026-06-22'
+
+- id: m3ed-license
+  kind: publisher_doc
+  url: https://m3ed.io/
+  label: M3ED License statement (m3ed.io, CC BY-SA 4.0)
+  excerpt: M3ED is released under the Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license.
+    You are allowed to share and adapt under the condition that you give the appropriate credit, indicate
+    if changes were made, and distribute your contributions under the same license.
+  retrieved_at: '2026-06-22'
+
+- id: m3ed-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/m3ed/
+  label: registry.opendata.aws — m3ed
+  excerpt: Multi-robot, Multi-Sensor, Multi-Environment Event Dataset (M3ED). M3ED is the first multi-sensor
+    event camera dataset focused on high-speed dynamic motions in robotics applications with synchronized
+    data from multiple platforms.
+
+- id: m3ed-site
+  kind: publisher_doc
+  url: https://m3ed.io/
+  label: m3ed.io
+  excerpt: 'M3ED is a single dataset composed of recording sequences organized by platform and environment:
+    wheeled ground vehicles (car), legged robots (spot), and aerial robots (falcon). Processed data is
+    available as per-sequence downloadable h5 files, with ground-truth depth/pose and sensor calibration
+    provided per sequence.'
+
+terms:
+  license: CC-BY-SA-4.0
+  status: verified
+  name: Creative Commons Attribution Share Alike 4.0 International
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Multi-robot, multi-sensor event-camera dataset for high-speed robotics
+    lede: M3ED is a synchronized event-camera, frame, LiDAR and IMU dataset from cars, quadrupeds, and
+      drones, published by the University of Pennsylvania under CC BY-SA 4.0.
+    text: M3ED (Multi-Robot, Multi-Sensor, Multi-Environment Event Dataset) captures high-speed dynamic
+      motion for robotics, pairing stereo Prophesee event cameras (1280x720) with grayscale and RGB imagers,
+      a 64-beam Ouster LiDAR, and an IMU, all time-synchronized and event-decoded. Recordings span three
+      platforms - wheeled vehicles (car), legged robots (spot), and aerial robots (falcon) - across forest,
+      urban, indoor and outdoor environments, by day and night. Each sequence ships as an HDF5 file alongside
+      FasterLIO depth and pose ground truth, InternImage semantic outputs, Kalibr camera/LiDAR calibration,
+      and preview videos. The dataset accompanies the CVPR 2023 Workshop on Event Vision paper by Chaney,
+      Cladera, Wang, Bisulco, Hsieh, Korpela, Kumar, Taylor, and Daniilidis.
+  refs:
+  - m3ed-homepage
+  - m3ed-license
+
+source:
+  publisher: University of Pennsylvania (Daniilidis / Kumar Robotics, GRASP Lab)
+  homepage_url: https://m3ed.io/
+
+display:
+  canonical_path: /m3ed/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

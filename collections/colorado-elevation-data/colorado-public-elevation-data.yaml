@@ -1,0 +1,152 @@
+schema_version: '0.4'
+bucket: colorado-public-elevation-data
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: 2015/
+  copy:
+    headline: 2015 Colorado lidar DEMs (Montrose/Delta/Gunnison and Routt/Moffat)
+    lede: Lidar-derived digital elevation models from the State of Colorado's 2015 acquisition year, covering
+      the Montrose-Delta-Gunnison and Routt-Moffat areas of western Colorado.
+    text: The 2015 project year holds bare-earth digital elevation models produced from lidar collected
+      over western Colorado, grouped by acquisition area — Montrose, Delta and Gunnison counties, and
+      the Routt-Moffat region. DEMs are stored as ESRI .img rasters with companion .aux.xml statistics
+      sidecars. As one of the earlier project years in the State of Colorado elevation archive, it forms
+      part of the multi-year, area-by-area assembly of historical lidar terrain data the OIT GIS team
+      has made openly available.
+  refs:
+  - co-elev-guide-main
+
+- prefix: 2016/Cheraw/
+  copy:
+    headline: 2016 Cheraw lidar DEM
+    lede: Lidar-derived digital elevation models for the Cheraw area of southeastern Colorado from the
+      State of Colorado's 2016 acquisition year.
+    text: Part of the 2016 project year, this Cheraw-area collection contains bare-earth digital elevation
+      models built from lidar, stored under a DEM/ subfolder as ESRI .img rasters with .aux.xml statistics
+      sidecars. It is one of several county and community lidar projects compiled for that year within
+      the State of Colorado elevation archive.
+  refs:
+  - co-elev-guide-main
+
+- prefix: 2016/Fremont/
+  copy:
+    headline: 2016 Fremont County lidar DEM
+    lede: Lidar-derived digital elevation models for Fremont County, Colorado, from the State of Colorado's
+      2016 acquisition year.
+    text: Part of the 2016 project year, this Fremont County collection contains bare-earth digital elevation
+      models derived from lidar, stored under a DEM/ subfolder as ESRI .img rasters with .aux.xml statistics
+      sidecars. It sits alongside the other 2016 county lidar projects in the State of Colorado elevation
+      archive.
+  refs:
+  - co-elev-guide-main
+
+- prefix: 2016/Pitkin/DEM_IMG/
+  copy:
+    headline: 2016 Pitkin County lidar DEMs
+    lede: Lidar-derived digital elevation models for Pitkin County, Colorado, from the State of Colorado's
+      2016 acquisition year.
+    text: Part of the 2016 project year, this Pitkin County collection holds bare-earth digital elevation
+      models produced from lidar terrain mapping of the county, stored as ESRI .img rasters with .aux.xml
+      statistics sidecars. Pitkin County lidar of this era was acquired through a partnership of the county,
+      the City of Aspen, USGS and the Colorado Water Conservation Board and used to generate thousands
+      of DEM tiles; this collection makes the resulting elevation models available within the State of
+      Colorado elevation archive.
+  refs:
+  - co-elev-guide-main
+
+- prefix: 2016/Pueblo/
+  copy:
+    headline: 2016 Pueblo County lidar DEM
+    lede: Lidar-derived digital elevation models for Pueblo County, Colorado, from the State of Colorado's
+      2016 acquisition year.
+    text: Part of the 2016 project year, this Pueblo County collection contains bare-earth digital elevation
+      models derived from lidar, stored under a DEM/ subfolder as ESRI .img rasters with .aux.xml statistics
+      sidecars. It is one of the southern-Colorado county lidar projects compiled for 2016 within the
+      State of Colorado elevation archive.
+  refs:
+  - co-elev-guide-main
+
+- prefix: 2016/Teller/
+  copy:
+    headline: 2016 Teller County lidar DEM
+    lede: Lidar-derived digital elevation models for Teller County, Colorado, from the State of Colorado's
+      2016 acquisition year.
+    text: Part of the 2016 project year, this Teller County collection contains bare-earth digital elevation
+      models derived from lidar, stored as ESRI .img rasters. It is one of the county lidar projects compiled
+      for 2016 within the State of Colorado elevation archive.
+  refs:
+  - co-elev-guide-main
+
+- prefix: 2018/Fremont_Custer/
+  copy:
+    headline: 2018 Fremont-Custer lidar bare-earth and hydro DEMs
+    lede: Bare-earth and hydro-flattened lidar digital elevation models covering Fremont and Custer counties,
+      Colorado, from the State of Colorado's 2018 acquisition year.
+    text: Part of the 2018 project year, this Fremont-Custer collection contains lidar-derived digital
+      elevation models held under a DEM_BARE_HYDRO/ subfolder — bare-earth, hydro-conditioned terrain
+      models — as ESRI .img rasters with .aux.xml statistics sidecars. The CWCB_PARK file prefixing reflects
+      its production for the Colorado Water Conservation Board's elevation program, and it extends the
+      State of Colorado elevation archive into the Fremont-Custer area.
+  refs:
+  - co-elev-guide-main
+
+- prefix: 2019/Park/
+  copy:
+    headline: 2019 Park County lidar DEMs
+    lede: Lidar-derived digital elevation models for Park County, Colorado, from the State of Colorado's
+      2019 acquisition year.
+    text: Part of the 2019 project year, this Park County collection contains lidar-derived digital elevation
+      models held under a DEM/ subfolder as ESRI .img rasters with .aux.xml statistics sidecars. The CWCB_PARK
+      file prefixing reflects production for the Colorado Water Conservation Board's elevation program,
+      extending the State of Colorado elevation archive into Park County.
+  refs:
+  - co-elev-guide-main
+
+- prefix: DEM/DEM.tiles/
+  copy:
+    headline: Pre-tiled DEM cache for fast map display
+    lede: A pre-rendered tile cache of Colorado elevation, packaged for fast web map and GIS display rather
+      than as source raster downloads.
+    text: This is a tiled-cache rendering of the elevation data, stored in ESRI compact-cache .bundle
+      files under a tile/ hierarchy with accompanying JSON tiling-scheme metadata and a thumbnail. It
+      is a display-optimized derivative for streaming the statewide DEM into map viewers and GIS clients,
+      distinct from the per-project source DEMs delivered as .img and .tif rasters elsewhere in the collection.
+  refs:
+  - co-elev-guide-main
+
+- prefix: USGS_one_meter_dem/
+  copy:
+    headline: USGS one-meter digital elevation models
+    lede: One-meter-resolution digital elevation models sourced from the USGS 3D Elevation Program, mirrored
+      for Colorado in the State of Colorado elevation archive.
+    text: This collection holds USGS one-meter DEMs — high-resolution bare-earth elevation rasters produced
+      under the USGS 3D Elevation Program (3DEP) — as GeoTIFF (.tif) files with .aux.xml statistics sidecars,
+      following the standard USGS_<project>_<tile> naming convention. Added in 2025, it complements the
+      state's own project-year lidar by mirroring the nationally consistent USGS one-meter elevation layer
+      for Colorado.
+  refs:
+  - co-elev-guide-main
+
+- prefix: usdot_data_2025/*/
+  copy:
+    headline: 2025 USDOT corridor lidar by region
+    lede: The State of Colorado's 2025 USDOT lidar collection, organized into one subfolder per region
+      or transportation corridor across the Front Range and Colorado's interstate system.
+    text: 'Acquired in 2025 in connection with U.S. Department of Transportation corridor work, this lidar
+      collection is partitioned by region and corridor: the Denver Regional Council of Governments (DRCOG)
+      area, the broader Front Range, the northern and southern I-25 corridors (I25N, I25S2), a series
+      of I-70 corridor segments (I70A and I70BC through I70I), plus a tileindex describing the tiling.
+      Each subfolder holds the elevation products for its region; together they form the most recent acquisition
+      year in the State of Colorado elevation archive, extending dense lidar coverage along the state''s
+      primary transportation corridors.'
+  refs:
+  - co-elev-guide-main
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

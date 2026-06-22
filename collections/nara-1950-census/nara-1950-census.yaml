@@ -1,0 +1,133 @@
+schema_version: '0.4'
+bucket: nara-1950-census
+backend: s3
+role: primary
+region: us-east-2
+
+prefixes:
+- prefix: 1950-IndianCensus/
+  copy:
+    headline: Indian Reservation population schedules
+    lede: Digitized Form P8 Indian Reservation schedules — about 35,000 images recording residents of
+      Native American reservations in the 1950 census.
+    text: The digitized Indian Reservation population schedules, the Form P8 schedules enumerators used
+      to count residents of Native American reservations in 1950 — roughly 35,000 images. These are the
+      only records that carry a Native American Reservation Name in the metadata index. The images here
+      are JPEG; the full-resolution TIFF masters are under tiff/1950-IndianCensus/.
+  refs:
+  - nara1950-devdoc-portions
+
+- prefix: 1950-Territories/
+  copy:
+    headline: Territories population schedules
+    lede: Population schedules for U.S. territories and overseas areas enumerated in the 1950 census.
+    text: The digitized population schedules for U.S. territories and overseas areas covered by the 1950
+      census. These areas were enumerated on special forms documented for the dataset, including the Form
+      P5 Overseas Census Report, the Form P80 Population of American Samoa and Form P81 American Samoa
+      Individual Census Report, and the Form P82 Population and Housing of Alaska.
+  refs:
+  - nara1950-devdoc-portions
+
+- prefix: 1950census-descriptions/
+  copy:
+    headline: Enumeration district descriptions
+    lede: Digitized written descriptions of the geographic areas covered by each 1950 enumeration district.
+    text: Digitized JPEG images of the written descriptions of the geographic areas included within each
+      enumeration district of the 1950 census. Paired with the maps and the metadata index, these descriptions
+      help identify which enumeration district — and therefore which population schedule — covers a given
+      place. The images are organized by state, following paths such as 1950census-descriptions/Alaska/.
+  refs:
+  - nara1950-devdoc-portions
+
+- prefix: 1950census-maps/
+  copy:
+    headline: Enumeration district maps
+    lede: Digitized annotated maps showing the enumeration-district boundaries used in the 1950 census.
+    text: Digitized JPEG images of annotated maps of counties, cities, and other minor civil divisions
+      that show enumeration districts, census tracts, and the related boundaries and numbers used for
+      the census. The metadata index links each enumeration district to its map image, so a place can
+      be traced to the district whose schedule covers it. The images are organized by state, following
+      paths such as 1950census-maps/Alaska/.
+  note: The ~8,351 objects across 1,979 county subfolders are geographic delivery tiles of one documented
+    product — the 1950 Census Enumeration District Maps series — described by NARA as a single nationwide
+    collection of ~9,600 map images organized by state and county for delivery, not as one dataset per
+    county.
+  refs:
+  - nara1950-devdoc-portions
+  - nara-1950-aws-registry-maps
+  boundary: pin
+
+- prefix: 1950census/
+  copy:
+    headline: Population schedules (JPEG)
+    lede: JPEG images of the population-schedule forms enumerators used to record every person counted
+      in the 1950 census, organized by state and territory.
+    text: 'The digitized population schedules of the 1950 census: the forms Census enumerators used to
+      record U.S. citizens as of April 1, 1950, the heart of the dataset. Most are the microfilmed P1
+      ''Census of Population and Housing'' form, interspersed with Individual Census Reports and other
+      special forms. The images here are the JPEG derivatives of the microfilm scans; the full-resolution
+      TIFF masters of these same schedules are published separately under tiff/1950census/. Content is
+      organized by state and territory, following folder names such as 43290879-Alaska, with the organization
+      enumerated in the metadata index.'
+  refs:
+  - nara1950-devdoc-portions
+
+- prefix: census-maps-highres/
+  copy:
+    headline: Enumeration district maps
+    lede: Digitized maps of the 1950 census enumeration districts.
+    text: 'This folder contains enumeration district map images of the kind documented for the dataset:
+      annotated JPEG maps of counties, cities, and minor civil divisions showing enumeration districts,
+      census tracts, and related boundaries. No cited source describes how this folder differs from the
+      bucket''s other map images.'
+  note: The ~8,345 objects across 1,979 county subfolders are geographic delivery tiles of the same 1950
+    Census Enumeration District Maps series at higher resolution — a delivery variant of one documented
+    nationwide product, not one dataset per county; NARA describes the map collection as a single series
+    organized by state and county.
+  refs:
+  - nara1950-devdoc-portions
+  - nara-1950-aws-registry-maps
+  boundary: pin
+
+- prefix: metadata/
+  copy:
+    headline: JSON metadata index to the dataset
+    lede: The full JSON metadata index linking states, counties, and enumeration districts to their schedule,
+      map, and description images.
+    text: The full metadata index to the 1950 Census holdings, in JSON format. Each entry is keyed by
+      state and county/city and lists, per enumeration district, the district number and description,
+      the microfilm roll number, the folder and image file names, and — where applicable — the Native
+      American Reservation Name. Each entry cross-references the relevant population-schedule images under
+      1950census/, the map image under 1950census-maps/, and the description image under 1950census-descriptions/,
+      making this the index used to navigate from a place to the right scanned records.
+  refs:
+  - nara1950-metadata-index
+
+- prefix: tiff/
+  copy:
+    headline: TIFF preservation masters of the census schedules
+    lede: The full-resolution TIFF masters of the population schedules and Indian Reservation schedules.
+    text: The full-resolution TIFF preservation masters, grouped by image type into tiff/1950census/ (the
+      population schedules) and tiff/1950-IndianCensus/ (the Indian Reservation schedules), mirroring
+      the JPEG copies elsewhere in the bucket. Microfilm-source TIFFs are 8-bit grayscale, digitized at
+      300 dpi with about 4,700 pixels on the long edge, at roughly 19 MB each; paper-source TIFFs are
+      48-bit color, digitized at 400 dpi, at roughly 125 MB each. Use these for archival-quality images
+      rather than the smaller JPEG derivatives, which are compressed to the 90% high-quality level.
+  refs:
+  - nara1950-devdoc-portions
+
+- prefix: zip/
+  copy:
+    headline: zip/ folder
+    lede: A folder in the 1950 Census bucket; no cited source describes its contents.
+    text: No external documentation was found describing this folder. It sits within the 1950 Census bucket
+      alongside the documented schedule, map, description, and metadata portions, but the available sources
+      do not state what it contains or how it differs from them.
+  refs:
+  - nara1950-devdoc-portions
+
+stewardship:
+  last_reviewed_at: unset
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

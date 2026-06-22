@@ -1,0 +1,41 @@
+schema_version: '0.4'
+bucket: satpmdata
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: V6GL03/CoarseResolution/
+  copy:
+    headline: Coarse-resolution (0.1 deg) gridded surface PM2.5
+    lede: The 0.1 deg x 0.1 deg V6.GL.03 grids deliver monthly and annual mean ground-level PM2.5 as NetCDF,
+      sized for global and regional analysis.
+    text: Coarse-resolution V6.GL.03 holds the 0.1 deg x 0.1 deg gridded ground-level PM2.5 estimates
+      in NetCDF (WGS84), where coarse-resolution averages are a simple mean of within-grid values. Files
+      are organized by variable, then split into monthly fields under Monthly/<year>/ (named V6GL03.CNNPM25.0p10...)
+      and yearly fields under Annual/, spanning 1998-2024. At roughly one hundredth the on-disk footprint
+      of the fine-resolution product, these grids are the convenient choice for large-scale and time-series
+      studies that do not need the finest spatial detail.
+  refs:
+  - satpm-v6gl03-doc
+
+- prefix: V6GL03/FineResolution/
+  copy:
+    headline: Fine-resolution (0.01 deg) gridded surface PM2.5
+    lede: The 0.01 deg x 0.01 deg V6.GL.03 grids provide the highest-resolution monthly and annual mean
+      ground-level PM2.5 fields, as NetCDF.
+    text: Fine-resolution V6.GL.03 holds the 0.01 deg x 0.01 deg gridded ground-level PM2.5 estimates
+      in NetCDF (WGS84), gridded at the finest resolution of the incorporated information sources. Files
+      are organized by variable, then monthly fields under Monthly/<year>/ and yearly fields under Annual/,
+      spanning 1998-2024. The publisher cautions these grids are unlikely to fully resolve PM2.5 gradients
+      at the gridded resolution because some input sources are coarser. This is the large product in the
+      collection (hundreds of gigabytes); the coarse-resolution sibling offers the same estimates at a
+      far smaller footprint for studies that do not need 0.01 deg detail.
+  refs:
+  - satpm-v6gl03-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

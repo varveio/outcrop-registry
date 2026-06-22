@@ -1,0 +1,96 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: tsbench
+title: TSBench Time Series Forecasting Benchmark
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: tsbench-access-example
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/tsbench/
+  label: AWS Open Data Registry — TSBench access example (--no-sign-request)
+  excerpt: aws s3 ls --no-sign-request s3://odp-tsbench/
+  retrieved_at: '2026-06-22'
+
+- id: tsbench-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/tsbench/
+  label: registry.opendata.aws — tsbench
+  excerpt: TSBench comprises thousands of benchmark evaluations for time series forecasting methods. It
+    provides various metrics (i.e. measures of accuracy, latency, number of model parameters, ...) of
+    13 time series forecasting methods across 44 heterogeneous datasets.
+
+- id: tsbench-homepage
+  kind: publisher_homepage
+  url: https://github.com/awslabs/gluon-ts/tree/master/src/gluonts/nursery/tsbench
+  label: TSBench project page (GluonTS nursery, awslabs/gluon-ts)
+  excerpt: The evaluations of these 13 forecasting methods on all 44 datasets are publicly available on
+    the Registry of Open Data on AWS.
+  retrieved_at: '2026-06-22'
+
+- id: tsbench-readme
+  kind: publisher_doc
+  url: https://github.com/awslabs/gluon-ts/blob/master/src/gluonts/nursery/tsbench/README.md
+  label: TSBench README (GluonTS nursery)
+  excerpt: TSBench is the most comprehensive evaluation of forecasting methods to date. It evaluates 13
+    forecasting methods included in GluonTS across 44 publicly available datasets, using multiple performance
+    measures. The evaluations of these 13 forecasting methods on all 44 datasets are publicly available
+    on the Registry of Open Data on AWS.
+  retrieved_at: '2026-06-22'
+
+- id: tsbench-registry-yaml
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/tsbench.yaml
+  label: AWS Open Data Registry dataset metadata for TSBench (tsbench.yaml)
+  excerpt: "License: \"[CC BY](https://creativecommons.org/licenses/by/4.0/)\"\nManagedBy: \"[Amazon Web\
+    \ Services](https://aws.amazon.com)\"\nResources:\n  - Description: TSBench Evaluation Metrics and\
+    \ Probabilistic Forecasts\n    ARN: arn:aws:s3:::odp-tsbench\n    Region: us-east-1\n    Type: S3\
+    \ Bucket"
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Benchmark evaluations of 13 time-series forecasting methods across 44 datasets
+    lede: TSBench is an AWS Labs benchmark that scores 13 GluonTS forecasting methods on 44 heterogeneous
+      datasets, publishing both summary metrics and the full probabilistic forecasts.
+    text: 'TSBench is a large-scale benchmark of time-series forecasting, produced by the GluonTS team
+      at AWS Labs and detailed in ''Multi-Objective Model Selection for Time Series Forecasting'' (Borchert
+      et al., arXiv:2202.08485). It evaluates 13 forecasting methods, spanning both classical statistical
+      models and deep-learning approaches with multiple hyperparameter settings, against 44 publicly available
+      datasets. For each run it records accuracy, latency, and model-size metrics, and retains the underlying
+      probabilistic forecasts so results can be re-scored.
+
+
+      The tabular metrics are compact (around 10 MiB), while the retained forecasts run to roughly 600
+      GiB across thousands of training runs. The full collection is published as a public-read S3 bucket
+      through the Registry of Open Data on AWS under CC BY 4.0.'
+  refs:
+  - tsbench-readme
+  - tsbench-registry-yaml
+
+source:
+  publisher: Amazon Web Services (GluonTS / AWS Labs)
+  homepage_url: https://github.com/awslabs/gluon-ts/tree/master/src/gluonts/nursery/tsbench
+
+display:
+  canonical_path: /tsbench/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

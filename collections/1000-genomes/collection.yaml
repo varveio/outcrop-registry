@@ -1,0 +1,401 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: 1000-genomes
+title: 1000 Genomes
+status: reviewed
+sensitivity_class: sensitive_pii_risk
+publication_scope: full
+
+refs:
+- id: 1000g-ftp-release-listing
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/
+  label: ftp.1000genomes.ebi.ac.uk — release
+  excerpt: 'Release directories listed: 2008_12/, 2009_02/, 2009_04/, 2009_05/, 2009_08/, 2010_11/, 20100804/,
+    20101123/, 20110521/, 20130502/. The 2010_11/ directory was last modified 2011-02-16.'
+  retrieved_at: '2026-06-18'
+
+- id: 1000g-igsr-data-page
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/data
+  label: www.internationalgenome.org — data
+  excerpt: Data is organised by collection and includes data shared pre-publication, intermediate and
+    working data as well as analysis files described in publications. A set of README files provides additional
+    information.
+  retrieved_at: '2026-06-18'
+
+- id: 1000g-phase1-supporting-readme
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/supporting/
+  label: ftp.1000genomes.ebi.ac.uk — supporting
+  excerpt: 'Directory contains README_supporting_info_20120621 and subdirectories: accessible_genome_masks/,
+    ancestral_alignments/, axiom_genotypes/, cosmic_hgmd_overlap/, cryptic_relation_analysis/, excluded_indel_sites/,
+    exome_pull_down/, highly_differentiated_sites/, omni_haplotypes/, variant_gerp_scores/.'
+  retrieved_at: '2026-06-18'
+
+- id: 1000g-release-2010-11-readme
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/2010_11/
+  label: ftp.1000genomes.ebi.ac.uk — 2010 11
+  excerpt: 'Directory contains only one file: README_data_has_moved_to_release_20100804_dir (256 bytes).
+    The directory is a redirect stub; actual data was relocated to release/20100804/.'
+  retrieved_at: '2026-06-18'
+
+- id: 1000g-technical-working-readme
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/README.technical_working
+  label: ftp.1000genomes.ebi.ac.uk — README.technical working
+  excerpt: 'WARNING: This directory contains data that has experimental (non public release) status and
+    is suitable for internal project use only. Please use with caution.'
+  retrieved_at: '2026-06-18'
+
+- id: 30x-nygc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/announcements/3202-samples-at-high-coverage-from-NYGC/
+  label: IGSR announcement — 3,202 samples at 30x from NYGC
+  excerpt: high-coverage (30x) data for an additional 698 samples ... 2,504 samples ... brings the total
+    number of samples sequenced to high-coverage by NYGC to 3,202, in work funded by NHGRI. NYGC aligned
+    the data to the GRCh38 reference assembly and the CRAMs have been shared
+  retrieved_at: '2026-06-17'
+
+- id: alnidx-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — alignment index files
+  excerpt: 'Alignments: BAM/CRAM files in alignment directories'
+  retrieved_at: '2026-06-17'
+
+- id: cgidx-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — data organisation
+  excerpt: Data is organized by type
+  retrieved_at: '2026-06-17'
+
+- id: changelog-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — data organisation
+  excerpt: Data is organized by type
+  retrieved_at: '2026-06-17'
+
+- id: data-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — sequence and alignment data
+  excerpt: 'Sequence data: Raw FASTQ files organized by individual ... Alignments: BAM/CRAM files'
+  retrieved_at: '2026-06-17'
+
+- id: hgsvc
+  kind: publisher_file
+  url: https://www.internationalgenome.org/data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement/
+  label: HGSVC Data Reuse statement (in-collection README)
+  excerpt: all the data associated with the Human Genome Structural Variation Consortium (HGSVC) to create
+    a high quality catalog of structural variation using various sequencing approaches
+  retrieved_at: '2026-06-17'
+
+- id: igsr-disclaimer-colbuk
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/IGSR_disclaimer
+  label: IGSR Disclaimer / Data Use page (EMBL-EBI)
+  excerpt: data made available by IGSR comes from many different owners and that consequently restrictions
+    on different pieces of data within IGSR and rights claimed on pieces of data vary. ... Data from the
+    1000 Genomes Project is now available without embargo, following the final publication from the project.
+  retrieved_at: '2026-06-17'
+
+- id: igsr-homepage
+  kind: publisher_homepage
+  url: https://www.internationalgenome.org/
+  label: IGSR / 1000 Genomes homepage
+  excerpt: International Genome Sample Resource (IGSR) maintains and shares the human genetic variation
+    resources built by the 1000 Genomes Project.
+  retrieved_at: '2026-06-17'
+
+- id: int-otherexome
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/other_exome_alignments/
+  label: technical other_exome_alignments FTP listing
+  excerpt: Per-sample exome alignment folders organized by sample identifier, holding MOSAIK exome BAM
+    alignments as an alternative exome alignment set.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1ancestry
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/ancestry_deconvolution/
+  label: phase1 ancestry_deconvolution FTP listing
+  excerpt: Per-population (ASW, CLM, MXL, PUR) ancestry deconvolution ZIP archives plus global-proportion
+    text files; README_20120604_phase1_ancestry_deconvolution.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1consensus
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/consensus_call_sets/
+  label: phase1 consensus_call_sets FTP listing
+  excerpt: snps/, indels/, sv/, README_20120620_consensus_call_sets.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1expval
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/experimental_validation/
+  label: phase1 experimental_validation FTP listing
+  excerpt: README_experimental_validation_20120620, indels/, snps/, sv/.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1funcanno
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/functional_annotation/
+  label: phase1 functional_annotation FTP listing
+  excerpt: README_functional_annotation_20120621, annotated_vcfs/, annotation_sets/.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1ics
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/
+  label: phase1 integrated_call_sets FTP listing
+  excerpt: ALL.chr1.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.vcf.gz, ALL.wgs.integrated_phase1_v3.20101123.snps_indels_sv.sites.vcf.gz,
+    integrated_call_samples.20101123.ALL.panel, integrated_call_samples.20101123.ped.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1input
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/input_call_sets/
+  label: phase1 input_call_sets FTP listing
+  excerpt: Exome SNP call sets (Illumina/WCMC/BCM, SOLiD/BCM), whole-genome union VQSR2b SNPs low coverage,
+    union annotated/filtered indels low coverage, merged 5-way deletion calls low coverage, README_input_call_sets_20120621.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1paper
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/paper/
+  label: phase1 paper FTP listing
+  excerpt: 1000genomes_phase1_nature11632.pdf, 1000genomes_phase1_nature11632_supplementary.pdf, integrative_annotation/.
+  retrieved_at: '2026-06-21'
+
+- id: int-p1shapeit
+  kind: publisher_doc
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/shapeit2_phased_haplotypes/README_shapeit2_phased_haplotypes
+  label: README_shapeit2_phased_haplotypes (phase 1 SHAPEIT2)
+  excerpt: The haplotypes were phased using a new version of SHAPEIT2 that can handle genotype likelihoods
+    and genotypes available from SNP microarrays on the same samples. These haplotypes for 1,092 samples
+    cover over 36 million SNPs, 1.3 million indels and structural variations, and achieve lower genotype
+    discordance and improved imputation performance into downstream GWAS samples, especially at low frequency.
+  retrieved_at: '2026-06-21'
+
+- id: int-p3exlc
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/phase3_EX_or_LC_only_alignment/
+  label: technical phase3_EX_or_LC_only_alignment FTP listing
+  excerpt: 20130502.exome_only.alignment.index, 20130502.lc_only.alignment.index, data/ holding per-sample
+    exome-only or low-coverage-only alignments.
+  retrieved_at: '2026-06-21'
+
+- id: int-pilot200912
+  kind: publisher_doc
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2009_12/README_2009_12_release
+  label: README_2009_12_release (pilot 2 and pilot 3)
+  excerpt: SNP calls based on the pilot2 (SRP000032) sequence data and alignments; SNP calls based on
+    the pilot3 (SRP000033) sequence data and alignments.
+  retrieved_at: '2026-06-21'
+
+- id: int-pilot2bam
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/pilot2_high_cov_GRCh37_bams/
+  label: technical pilot2_high_cov_GRCh37_bams FTP listing
+  excerpt: data/ holding per-sample high-coverage BAM alignments and pilot2_GRCh37.alignment.index describing
+    the Pilot 2 GRCh37 alignments.
+  retrieved_at: '2026-06-21'
+
+- id: int-pilot3bam
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/pilot3_exon_targetted_GRCh37_bams/
+  label: technical pilot3_exon_targetted_GRCh37_bams FTP listing
+  excerpt: data/ holding per-sample exon-targeted BAM alignments and pilot3_GRCh37.alignment.index describing
+    the Pilot 3 GRCh37 alignments.
+  retrieved_at: '2026-06-21'
+
+- id: int-qc
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/qc/20090429_sample_checking/
+  label: technical qc sample-checking FTP listing
+  excerpt: 'sample.checking.table.illumina+454.gz and sample.checking.table.readme: a sample-concordance
+    checking table comparing Illumina and 454 sequencing platforms.'
+  retrieved_at: '2026-06-21'
+
+- id: int-reference
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/
+  label: technical reference FTP listing
+  excerpt: human_g1k_v37.fasta.gz with README.human_g1k_v37.fasta.txt, GRCh38_reference_genome/ (GRCh38_full_analysis_set_plus_decoy_hla.fa),
+    dbsnp132 VCF, exome_pull_down_targets/, phase2_reference_assembly_sequence/, gencode GTF.
+  retrieved_at: '2026-06-21'
+
+- id: int-rel200812
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/2008_12/
+  label: 1000 Genomes release/2008_12 FTP listing
+  excerpt: CEU.trio.dec.with.x.with.rs.calls.gz, YRI.child.dec.intersect.calls.gz, SOLiD InDel and SNP
+    files for sample NA19240, README files.
+  retrieved_at: '2026-06-21'
+
+- id: int-rel200902
+  kind: publisher_doc
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/2009_02/README_release_2009_02
+  label: README_release_2009_02 (Pilot 1, Feb 2009)
+  excerpt: SNP calls from 104 individuals in the low coverage pilot, Pilot 1. These are intermediate results,
+    NOT based on the sequencing data from the complete Pilot.
+  retrieved_at: '2026-06-21'
+
+- id: int-rel200904
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/2009_04/
+  label: 1000 Genomes release/2009_04 FTP listing
+  excerpt: CEU.Samples, CEU.hap, CEU.sites, JPTCHB.Samples, JPTCHB.hap, JPTCHB.sites, YRI.Samples, YRI.hap,
+    YRI.sites, README_release_2009_04.
+  retrieved_at: '2026-06-21'
+
+- id: int-rel200905
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/2009_05/
+  label: 1000 Genomes release/2009_05 FTP listing
+  excerpt: consensus-indel-calls-15may09.tgz (62M), README.consensus_indel_calls.
+  retrieved_at: '2026-06-21'
+
+- id: int-rel20101123
+  kind: publisher_doc
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20101123/interim_phase1_release/README.20110511_interim_phase1_release
+  label: README.20110511_interim_phase1_release (phase 1 interim)
+  excerpt: This release contains a consensus SNP call set of 38.88 million SNP sites generated by VQSR
+    from the low coverage data from the sequence and alignment index dated 20101123. Genotypes were called
+    with SNPTools from Baylor College of Medicine. A small number of sites are being experimentally validated.
+  retrieved_at: '2026-06-21'
+
+- id: int-rel20130502
+  kind: publisher_doc
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/README_phase3_callset_20150220
+  label: README_phase3_callset_20150220 (1000 Genomes phase 3 final call set)
+  excerpt: The final variant call set with phased genotypes for chr1-22, chrX and chrY based on the phase3
+    analysis of the 1000 Genomes sequence data. The call set comprises 2,504 individuals from 26 populations
+    and includes approximately 78.1 million SNPs, 3.1 million indels and structural variants.
+  retrieved_at: '2026-06-21'
+
+- id: int-supporting
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/supporting/
+  label: technical supporting FTP listing
+  excerpt: Illumina_Human1KGP-12/ holding annotation and validation-intensity resources for the Illumina
+    Human1KGP-12 genotyping chip.
+  retrieved_at: '2026-06-21'
+
+- id: int-svmap
+  kind: publisher_doc
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/README_phase3_sv_callset_20150224
+  label: README_phase3_sv_callset_20150224 (phase 3 integrated SV map)
+  excerpt: The integrated map contains 68,818 structural variants across 2,504 individuals from 26 populations,
+    including 40,975 deletions, 6,025 duplications, 786 inversions, 2,929 multi-allelic CNVs and mobile
+    element insertions (12,748 ALU, 3,048 LINE1, 835 SVA). Large deletions were genotyped using Beagle
+    and phased with the Shapeit2 method; MVNCall was used to add other structural variant classes.
+  retrieved_at: '2026-06-21'
+
+- id: int-varpipe
+  kind: publisher_file
+  url: http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/ncbi_varpipe_data/
+  label: technical ncbi_varpipe_data FTP listing
+  excerpt: alignment/ subtree, ncbi.20100804.alignment.index, ncbi.20100804.alignment.summary, ncbi.20111114.alignment.index
+    (NCBI variant pipeline alignment data, 2010-2012).
+  retrieved_at: '2026-06-21'
+
+- id: measured-1000genomes
+  kind: measured_structure
+  url: s3://1000genomes/
+  label: Measured bucket structure
+  excerpt: 'Engine path-namespace snapshot: 604 prefixes, 477318 objects.'
+
+- id: phase1-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — Phase 1 description
+  excerpt: bi-allelic calling ... genotype dosage values ... Alignments were mapped to GRCh37
+  retrieved_at: '2026-06-17'
+
+- id: phase3-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — Phase 3 description
+  excerpt: an integrated set of phased haplotypes with more than 80 million variants ... multi-allelic
+    SNPs, indels, and a diverse set of structural variants
+  retrieved_at: '2026-06-17'
+
+- id: pilot-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — pilot phase description
+  excerpt: targetted 1000 genes in nearly 700 individuals ... mapped to the NCBI36 reference assembly
+  retrieved_at: '2026-06-17'
+
+- id: release-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — variant releases
+  excerpt: 'Variants: VCF files in release directories by phase'
+  retrieved_at: '2026-06-17'
+
+- id: seqidx-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — sequence index files
+  excerpt: 'Sequence data: Raw FASTQ files organized by individual'
+  retrieved_at: '2026-06-17'
+
+- id: technical-dacc
+  kind: publisher_doc
+  url: https://www.internationalgenome.org/category/data-access/
+  label: IGSR Data access — technical resources
+  excerpt: 'Technical resources: Reference genomes, annotation sets in technical/reference/'
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: IGSR Disclaimer / Data Use page (EMBL-EBI)
+  url: https://www.internationalgenome.org/IGSR_disclaimer
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open catalogue of human genetic variation across 26 populations
+    lede: The 1000 Genomes Project, maintained as the International Genome Sample Resource (IGSR) by EMBL-EBI,
+      is an openly consented catalogue of human genetic variation built from samples spanning 26 worldwide
+      populations.
+    text: The 1000 Genomes Project created a catalogue of common human genetic variation — SNPs, indels
+      and structural variants with their haplotype context — from openly consented samples donated by
+      people who declared themselves healthy. IGSR was established at EMBL-EBI to keep that data usable,
+      to update it to the current reference assembly, and to extend it with newer sequencing of the same
+      samples and data from other openly consented projects such as the Human Genome Structural Variation
+      Consortium. The resource brings together the project's original low-coverage, exome and high-coverage
+      data alongside these later additions, all under an unusually open consent that lets the data be
+      fully publicly accessible and shared freely; variants can also be viewed in genomic context in Ensembl.
+      1000 Genomes data is now available without embargo following the project's final publication. Because
+      IGSR carries data from many different owners, restrictions and claimed rights vary between and within
+      subsets and can change over time, so users should consult the data reuse statement accompanying
+      each collection.
+  refs:
+  - igsr-homepage
+  - igsr-disclaimer-colbuk
+
+source:
+  publisher: International Genome Sample Resource (IGSR)
+  homepage_url: https://www.internationalgenome.org/
+
+display:
+  canonical_path: /1000-genomes/
+
+stewardship:
+  last_reviewed_at: unset
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

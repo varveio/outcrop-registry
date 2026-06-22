@@ -1,0 +1,90 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: isdasoil
+title: iSDAsoil African Soil Property Maps
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: isdasoil-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/isdasoil/
+  label: iSDAsoil dataset metadata, AWS Registry of Open Data
+  excerpt: aws s3 ls --no-sign-request s3://isdasoil/
+  retrieved_at: '2026-06-22'
+
+- id: isdasoil-homepage
+  kind: publisher_homepage
+  url: https://www.isda-africa.com/isdasoil/
+  label: iSDAsoil homepage (iSDA)
+  excerpt: iSDAsoil delivers predictive data on over 20 soil properties at 30-meter resolution across
+    the entire African continent, using machine learning trained on field soil samples.
+  retrieved_at: '2026-06-22'
+
+- id: isdasoil-plos-paper
+  kind: publisher_doc
+  url: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3001441
+  label: Hengl et al. 2021, iSDAsoil continent-scale soil property map (PLOS Biology)
+  excerpt: The iSDAsoil data are completely open access under a CC-BY 4.0 licence.
+  retrieved_at: '2026-06-22'
+
+- id: isdasoil-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/isdasoil/
+  label: registry.opendata.aws — isdasoil
+  excerpt: 'iSDAsoil: The first global map of soil properties at 30 m resolution. Predicted soil property
+    maps for the entire African continent. Layers include nutrients (nitrogen, phosphorus, potassium),
+    pH, organic carbon, texture, bulk density and more.'
+
+- id: isdasoil-stac-structure
+  kind: publisher_doc
+  url: https://www.isda-africa.com/isdasoil/isdasoil-on-aws/
+  label: iSDAsoil on AWS (iSDA data-access page)
+  excerpt: All iSDAsoil data can be found in a publicly accessible Amazon S3 bucket. All data has been
+    prepared as cloud-optimised geoTIFFs. A single file covers the whole of Africa.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Continent-scale predicted soil-property maps for Africa at 30 m
+    lede: iSDAsoil is the first continent-scale soil-property and nutrient map of Africa at 30 m resolution,
+      published by iSDA under CC-BY 4.0.
+    text: iSDAsoil provides machine-learning predictions of more than 20 soil properties and nutrients
+      across the whole of Africa at 30 m resolution, trained on over 100,000 analysed soil samples combined
+      with an extensive collection of remote-sensing covariates. Properties span chemistry and fertility
+      (pH, organic and total carbon, total nitrogen, extractable phosphorus, potassium, calcium and aluminium
+      and other nutrients), physical texture (clay, silt and sand content) and structure (bulk density,
+      depth to bedrock), most predicted at two standard depth intervals, 0-20 cm and 20-50 cm, with an
+      accompanying model-error layer expressing prediction uncertainty. Every layer is distributed as
+      a cloud-optimised GeoTIFF covering the entire continent, with STAC metadata and thumbnails. The
+      data is openly accessible from the public s3://isdasoil bucket, the Google Earth Engine catalog
+      and a free REST API, and is also published on Zenodo per property.
+  refs:
+  - isdasoil-plos-paper
+  - isdasoil-aws-registry
+
+source:
+  publisher: iSDA (Innovative Solutions for Decision Agriculture)
+  homepage_url: https://www.isda-africa.com/isdasoil/
+
+display:
+  canonical_path: /isdasoil/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

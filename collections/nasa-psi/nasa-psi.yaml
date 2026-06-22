@@ -1,0 +1,51 @@
+schema_version: '0.4'
+bucket: nasa-psi
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: DSI/
+  copy:
+    headline: DSI — directional solidification of transparent alloys in microgravity
+    lede: The DECLIC Directional Solidification Insert (DSI) provides in situ, real-time characterization
+      of solid-liquid interface patterns during directional solidification in microgravity.
+    text: The DECLIC Directional Solidification Insert (DSI) provides in situ, real-time characterization
+      of solid-liquid interface patterns as transparent model alloys undergo directional solidification
+      in microgravity. Observing this growth in microgravity isolates the physics that selects solidification
+      patterns, which is otherwise obscured on the ground.
+  refs:
+  - dsi-investigation
+
+- prefix: OASIS/
+  copy:
+    headline: OASIS — smectic liquid-crystal films in microgravity
+    lede: Observation and Analysis of Smectic Islands In Space (OASIS) probes the interfacial and hydrodynamic
+      behavior of freely suspended liquid-crystal films in space.
+    text: Observation and Analysis of Smectic Islands In Space (OASIS) probes the interfacial and hydrodynamic
+      behavior of freely suspended liquid-crystal films aboard the ISS — the thinnest known stable condensed-phase
+      structures. Studying these films in space removes gravity-driven effects, isolating the physics
+      that governs how the films behave and flow.
+  refs:
+  - oasis-investigation
+
+- prefix: pk4/
+  copy:
+    headline: PK-4 — complex (dusty) plasma laboratory on the ISS
+    lede: Plasma Kristall-4 (PK-4) is a joint Russian-European laboratory for investigating complex (dusty)
+      plasmas aboard the ISS, in the ESA Columbus module.
+    text: Plasma Kristall-4 (PK-4) is a joint Russian-European laboratory for the investigation of complex
+      (dusty) plasmas aboard the ISS, located in the ESA Columbus module. In the NASA PSI repository it
+      is registered as investigation PSI-5.
+  note: Each `pk4_cNN_r1-2-3` sub-directory is one sequentially-numbered campaign of the single Plasma
+    Kristall-4 experiment, not a separate dataset.
+  refs:
+  - pk4-investigation
+  - nasa-psi-pk4-investigation
+  boundary: pin
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

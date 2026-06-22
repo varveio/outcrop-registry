@@ -1,0 +1,87 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: lei
+title: Legal Entity Identifier (LEI) and Legal Entity Reference Data (LE-RD)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: aws-registry-lei
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/lei/
+  label: AWS Open Data Registry — gleif dataset metadata (arn:aws:s3:::gleif, CC0)
+  excerpt: 'License: Creative Commons (CC0) license. Resources: ARN: arn:aws:s3:::gleif, Region: eu-central-1,
+    Type: S3 Bucket. ManagedBy: GLEIF. UpdateFrequency: Three times daily (about every 8 hours).'
+  retrieved_at: '2026-06-22'
+
+- id: gleif-goldencopy-overview
+  kind: publisher_doc
+  url: https://www.gleif.org/en/lei-data/gleif-golden-copy
+  label: GLEIF Golden Copy and Delta Files — overview
+  excerpt: GLEIF publishes three sets of updated Golden Copy Files daily (02:00 UTC, 10:00 UTC, 18:00
+    UTC). The Golden Copy comprises LEI records (LEI-CDF), relationship records (RR-CDF) and reporting
+    exceptions, distributed in XML, CSV and JSON formats.
+  retrieved_at: '2026-06-22'
+
+- id: gleif-homepage
+  kind: publisher_homepage
+  url: https://www.gleif.org/en
+  label: GLEIF homepage (Global Legal Entity Identifier Foundation)
+  excerpt: The Global Legal Entity Identifier Foundation (GLEIF) was established by the Financial Stability
+    Board in June 2014. GLEIF is tasked to support the implementation and use of the Legal Entity Identifier
+    (LEI).
+  retrieved_at: '2026-06-22'
+
+- id: gleif-terms-cc0
+  kind: publisher_doc
+  url: https://www.gleif.org/en/meta/lei-data-terms-of-use
+  label: GLEIF LEI Data Terms of Use (CC0 1.0 Universal)
+  excerpt: The data available through the Access Service are provided under the CC0 licence, see CC0 1.0
+    Universal (CC0 1.0).
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: GLEIF Golden Copy — the global LEI register and its reference data
+    lede: 'The complete Global LEI Index from the Global Legal Entity Identifier Foundation (GLEIF): every
+      Legal Entity Identifier and its Legal Entity Reference Data, published three times daily as deduplicated
+      Golden Copy files under CC0.'
+    text: 'GLEIF maintains the Legal Entity Identifier (LEI), a 20-character ISO 17442 code that uniquely
+      identifies legal entities in financial transactions, together with the Legal Entity Reference Data
+      (LE-RD) attached to each one. This collection mirrors GLEIF''s Golden Copy: a deduplicated, authoritative
+      snapshot of the Global LEI Index in which each LEI appears exactly once, spanning current and historical
+      records. Three concatenated data products are published — LEI-CDF records (Level 1 ''who is who''
+      entity reference data), Relationship Records (RR-CDF, the Level 2 ''who owns whom'' direct and ultimate
+      parent relationships), and Reporting Exceptions (where an entity cannot or does not report a parent).
+      Each product is delivered in CSV, JSON and XML, refreshed three times a day (02:00, 10:00 and 18:00
+      UTC) and organized into date- and time-partitioned gzip files. The data is published under CC0 1.0,
+      placing it in the public domain for any use.'
+  refs:
+  - gleif-goldencopy-overview
+  - aws-registry-lei
+
+source:
+  publisher: Global Legal Entity Identifier Foundation (GLEIF)
+  homepage_url: https://www.gleif.org/en
+
+display:
+  canonical_path: /lei/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

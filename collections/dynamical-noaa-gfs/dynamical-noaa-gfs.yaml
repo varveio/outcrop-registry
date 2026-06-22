@@ -1,0 +1,60 @@
+schema_version: '0.4'
+bucket: dynamical-noaa-gfs
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: noaa-gfs-analysis/v0.1.0.icechunk/
+  copy:
+    headline: NOAA GFS best-estimate analysis of past weather (v0.1.0)
+    lede: dynamical.org's hourly, global 0.25° best estimate of past weather from NOAA GFS, built by concatenating
+      the first hours of each successive forecast, published as the v0.1.0 Icechunk/Zarr store.
+    text: 'The v0.1.0 release of dynamical.org''s NOAA GFS analysis: the Global Forecast System''s best
+      estimate of past weather from 2021-05-01 onward. GFS starts a new run every 6 hours, and dynamical.org
+      concatenates the first 6 hours of each forecast along a single time dimension to produce an hourly,
+      global 0.25° (~20km) record over latitude, longitude, and time. Twenty-four variables span temperatures,
+      winds, precipitation, soil moisture, atmospheric ozone, and more. It is built from NOAA Open Data
+      Dissemination GRIB files, with operational data from NOAA NOMADS, opens in one line via dynamical_catalog,
+      and is licensed under CC BY 4.0. A related NOAA GEFS analysis offers a much longer historical record.'
+  refs:
+  - gfs-analysis-page
+
+- prefix: noaa-gfs-analysis/vpara0.icechunk/
+  copy:
+    text: A separate, much smaller Icechunk store version of dynamical.org's NOAA GFS analysis, labelled
+      vpara0. It shares the analysis dataset's structure — data values in chunks/, chunk-reference metadata
+      in manifests/, and snapshots/, transactions/, and refs/ tracking versioned commits.
+    headline: A separate, much smaller Icechunk store version of dynamical.org's…
+    lede: A separate, much smaller Icechunk store version of dynamical.org's NOAA GFS analysis, labelled
+      vpara0.
+  refs:
+  - gfs-analysis-page
+
+- prefix: noaa-gfs-forecast/
+  copy:
+    headline: Past and present NOAA GFS forecasts, analysis-ready
+    lede: An archive of NOAA GFS forecasts — global 0.25° fields, initialized every 6 hours with lead
+      times to 16 days — reprocessed by dynamical.org into a single Icechunk/Zarr store.
+    text: Past and present forecasts from NOAA NWS/NCEP's Global Forecast System (GFS), covering 2021-05-01
+      onward. Each run is identified by an init_time and steps forward along a lead_time dimension to
+      384 hours (16 days) — hourly to 120 hours, 3-hourly thereafter — on a global 0.25° (~20km) grid.
+      Twenty variables span temperatures, winds, precipitation, soil moisture, atmospheric ozone, and
+      more. The store is built from NOAA Open Data Dissemination GRIB files, with operational data from
+      NOAA NOMADS, bit-rounded for compression, and opens in one line via the dynamical_catalog package.
+      Licensed under CC BY 4.0.
+  refs:
+  - gfs-forecast-page
+
+- prefix: noaa-gfs-analysis/vpara0.icechunk/refs/
+  copy:
+    text: The version-pointer files of the single noaa-gfs-analysis/vpara0.icechunk data store, sitting
+      alongside its chunks, manifests, snapshots and transactions folders, so it is one internal piece
+      of that store rather than a dataset on its own.
+    headline: The version-pointer files of the single…
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

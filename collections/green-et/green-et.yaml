@@ -1,0 +1,29 @@
+schema_version: '0.4'
+bucket: iwmi-datasets
+outcrop_bucket: green-et
+backend: s3
+role: primary
+region: af-south-1
+prefix: Water_accounting_plus/Africa/Rainfall_ET_M/
+
+prefixes:
+- prefix: Water_accounting_plus/Africa/
+  copy:
+    headline: Monthly Africa green-ET GeoTIFFs with paired STAC items
+    lede: The Rainfall_ET_M series holds IWMI's monthly green-evapotranspiration rasters for Africa, one
+      Cloud-Optimized GeoTIFF per month with a matching STAC item JSON.
+    text: Each monthly file (AFR_DIWASA_ETRainfall_M_YYYY.MM.01.tif) is an int16 raster on the greenet
+      band, nodata -9999, scale factor 0.1, reporting green evapotranspiration in millimetres per month
+      across continental Africa at ~0.0095deg (~1 km, EPSG:4326). Every raster is accompanied by a sibling
+      STAC item JSON capturing its spatial and temporal footprint. The series is derived under the Water
+      Accounting+ framework from SSEBop ET (green ET = total ET - blue ET) and forms the Africa monthly
+      green-ET record of IWMI's DIWASA water-accounting suite, the rainfall-sourced counterpart to the
+      incremental (blue) ET series.
+  refs:
+  - green-et-dea-specs
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

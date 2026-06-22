@@ -1,0 +1,89 @@
+schema_version: '0.4'
+bucket: herbariumnsw-pds
+backend: s3
+role: primary
+region: ap-southeast-2
+
+prefixes:
+- prefix: DarwinCore/
+  copy:
+    text: Biodiversity metadata associated with the digitised specimens, recorded in digital form alongside
+      the images. No external documentation describes this prefix specifically.
+    headline: Biodiversity metadata associated with the digitised specimens…
+    lede: Biodiversity metadata associated with the digitised specimens, recorded in digital form alongside
+      the images.
+  refs:
+  - nsw-herbarium-digitisation-doc
+  terms:
+    license: CC-BY-4.0
+    status: verified
+    name: Creative Commons Attribution 4.0 International
+    url: https://creativecommons.org/licenses/by/4.0/
+    display_policy: include
+
+- prefix: Sensitive/
+  copy:
+    text: No external documentation found for this prefix.
+    headline: No external documentation found for this prefix
+  refs:
+  - nsw-herbarium-digitisation-doc
+  terms:
+    license: CC-BY-4.0
+    status: verified
+    name: Creative Commons Attribution 4.0 International
+    url: https://creativecommons.org/licenses/by/4.0/
+    display_policy: include
+
+- prefix: images/Reject/
+  kind: other
+  copy:
+    text: Inferred digitisation-QA reject staging from the folder name within the imaging pipeline; no
+      publisher source documents this prefix.
+    headline: Inferred digitisation-QA reject staging from the folder name within…
+
+- prefix: images/Sensitive/
+  copy:
+    text: No external documentation found for this prefix.
+    headline: No external documentation found for this prefix
+  refs:
+  - nsw-herbarium-digitisation-doc
+  terms:
+    license: CC-BY-4.0
+    status: verified
+    name: Creative Commons Attribution 4.0 International
+    url: https://creativecommons.org/licenses/by/4.0/
+    display_policy: include
+
+- prefix: images/bryo/
+  copy:
+    text: No external documentation found for this prefix.
+    headline: No external documentation found for this prefix
+  refs:
+  - nsw-herbarium-digitisation-doc
+  terms:
+    license: CC-BY-4.0
+    status: verified
+    name: Creative Commons Attribution 4.0 International
+    url: https://creativecommons.org/licenses/by/4.0/
+    display_policy: include
+
+- prefix: master/
+  kind: other
+  copy:
+    text: Small (7-object) top-level 'master' prefix; inferred reference/master staging within the imaging
+      pipeline. No publisher source documents this prefix — honest negative rather than a fabricated description.
+    headline: Small
+    lede: Small (7-object) top-level 'master' prefix; inferred reference/master staging within the imaging
+      pipeline.
+
+- prefix: images/5_latlong/
+  copy:
+    text: The 21 single-character sub-folders (1-9, a-l) are mechanical bucketing of one georeferenced
+      specimen-image set, not separate datasets, so they belong together under the one folder.
+    headline: The 21 single-character sub-folders
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

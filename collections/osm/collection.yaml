@@ -1,0 +1,170 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: osm
+title: OpenStreetMap
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: changeset-wiki
+  kind: publisher_doc
+  url: https://wiki.openstreetmap.org/wiki/Changeset
+  label: OSM Wiki — Changeset
+  excerpt: A changeset is a group of edits to the database by a single user over a short period of time.
+    Changeset Discussions show on the web interface as comments and replies (a discussion!) below the
+    changeset tags.
+  retrieved_at: '2026-06-17'
+
+- id: notes-wiki
+  kind: publisher_doc
+  url: https://wiki.openstreetmap.org/wiki/Notes
+  label: OSM Wiki — Notes
+  excerpt: The dump file contains notes text, status fields, and all comments, but no hidden notes.
+  retrieved_at: '2026-06-17'
+
+- id: osm-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/osm/
+  label: AWS Open Data registry — OpenStreetMap on AWS
+  excerpt: OSM is a free, editable map of the world, created and maintained by volunteers. Regular OSM
+    data archives are made available in Amazon S3 in both standard formats (OSM PBF, XML) and cloud-native
+    formats optimized for analytics workloads.
+  retrieved_at: '2026-06-17'
+
+- id: osm-aws-registry-yaml
+  kind: catalog_metadata
+  url: https://raw.githubusercontent.com/awslabs/open-data-registry/main/datasets/osm.yaml
+  label: AWS open-data-registry osm.yaml
+  excerpt: OSMF-managed planet and history PBFs, changeset and discussion XML, and OsmChange (XML) replication
+    files (primary)
+  retrieved_at: '2026-06-17'
+
+- id: osm-copyright
+  kind: publisher_doc
+  url: https://www.openstreetmap.org/copyright
+  label: OpenStreetMap Copyright and License (ODbL)
+  excerpt: OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL)
+    by the OpenStreetMap Foundation (OSMF). You are free to copy, distribute, transmit and adapt our data,
+    as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you
+    may distribute the result only under the same licence.
+  retrieved_at: '2026-06-17'
+
+- id: osm-discussions-changeset-wiki
+  kind: publisher_doc
+  url: https://wiki.openstreetmap.org/wiki/Changeset
+  label: OSM Wiki — Changeset (changeset discussions)
+  excerpt: Changeset Discussions show on the web interface as comments and replies (a discussion!) below
+    the changeset tags.
+  retrieved_at: '2026-06-17'
+
+- id: osm-discussions-dump
+  kind: web_research
+  url: https://wiki.openstreetmap.org/wiki/Planet.osm
+  label: OSM dumps — changesets-with-discussions (planet-dump-ng)
+  excerpt: the comments included with the changesets but dumped to a separate file called "discussions".
+  retrieved_at: '2026-06-17'
+
+- id: osm-fullhistory-index
+  kind: publisher_file
+  url: https://planet.openstreetmap.org/planet/full-history/
+  label: planet.openstreetmap.org — full-history dump index
+  excerpt: The full history planet file contains the full editing history of the OpenStreetMap database
+    in both XML and custom PBF formats.
+  retrieved_at: '2026-06-17'
+
+- id: osm-fullhistory-wiki
+  kind: publisher_doc
+  url: https://wiki.openstreetmap.org/wiki/Planet.osm/full
+  label: OSM Wiki — Planet.osm/full (full-history planet dump)
+  excerpt: For nodes, ways, and relations created after the introduction of API 0.5 (in October 2007),
+    the file includes all versions that ever existed, even if the objects have been deleted since.
+  retrieved_at: '2026-06-17'
+
+- id: osm-homepage
+  kind: publisher_homepage
+  url: https://www.openstreetmap.org/
+  label: OpenStreetMap homepage
+  excerpt: OpenStreetMap is a map of the world, created by people like you and free to use under an open
+    license.
+  retrieved_at: '2026-06-17'
+
+- id: osm-planet-home
+  kind: publisher_homepage
+  url: https://planet.openstreetmap.org/
+  label: planet.openstreetmap.org — home (history file note)
+  excerpt: Also available is the 'history' file which contains not only up-to-date data but also older
+    versions of data and deleted data items.
+  retrieved_at: '2026-06-17'
+
+- id: planet-page
+  kind: publisher_doc
+  url: https://planet.openstreetmap.org/
+  label: planet.openstreetmap.org — Planet OSM
+  excerpt: Each week, a new and complete copy of all data in OpenStreetMap is made available as both a
+    compressed XML file and a custom PBF format file.
+  retrieved_at: '2026-06-17'
+
+- id: planet-wiki
+  kind: publisher_doc
+  url: https://wiki.openstreetmap.org/wiki/Planet.osm
+  label: OSM Wiki — Planet.osm
+  excerpt: Planet.osm is the OpenStreetMap data in one file. It contains all the nodes, ways and relations
+    that make up our map.
+  retrieved_at: '2026-06-17'
+
+- id: tilelog-readme
+  kind: publisher_doc
+  url: https://github.com/openstreetmap/tilelog
+  label: openstreetmap/tilelog README
+  excerpt: Host logs contain the website host of sites using tile.openstreetmap.org, their average requests/second,
+    and their average requests/second that were cache misses in a given 24 hour UTC day. App logs contain
+    the referer of non-website usage, primarily from stand-alone mobile and desktop programs.
+  retrieved_at: '2026-06-17'
+
+terms:
+  license: ODbL-1.0
+  status: verified
+  name: Open Data Commons Open Database License v1.0
+  url: https://opendatacommons.org/licenses/odbl/1-0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: OpenStreetMap planet data, mirrored on AWS
+    lede: OpenStreetMap is a free, editable map of the whole world built by volunteer mappers and stewarded
+      by the OpenStreetMap Foundation, with its complete data archives mirrored on Amazon S3.
+    text: 'OpenStreetMap is a free, editable map of the whole world, created and maintained by a global
+      community of volunteer mappers who contribute roads, trails, cafes, railway stations, and much more.
+      The project began because most maps treated as free carry legal or technical restrictions on reuse.
+      The OpenStreetMap Foundation, a non-profit, supports the project and owns its core infrastructure.
+
+
+      Regular OSM data archives are made available in Amazon S3 in standard formats (OSM PBF and XML)
+      and cloud-native formats optimized for analytics. The OSMF-managed bucket in eu-central-1 is the
+      primary mirror of the weekly planet outputs also served from planet.openstreetmap.org, with a replicated
+      copy in us-west-2. The data is published under the Open Data Commons Open Database License (ODbL):
+      reuse requires crediting "© OpenStreetMap contributors" and releasing any derived database under
+      the same license.'
+  refs:
+  - osm-homepage
+  - osm-aws-registry
+  - osm-copyright
+
+source:
+  publisher: OpenStreetMap Foundation
+  homepage_url: https://www.openstreetmap.org/
+
+display:
+  canonical_path: /osm/
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

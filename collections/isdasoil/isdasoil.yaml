@@ -1,0 +1,44 @@
+schema_version: '0.4'
+bucket: isdasoil
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: covariates/*/
+  copy:
+    headline: Input covariate rasters used to predict the soil maps
+    lede: The remote-sensing and terrain covariate layers fed to the iSDAsoil prediction models, published
+      as 30 m GeoTIFFs.
+    text: Alongside the predicted outputs, iSDAsoil publishes the satellite and terrain covariate rasters
+      that the ensemble models drew on to map soil properties across Africa. These inputs combine radar
+      backscatter (ALOS PALSAR), digital elevation and the terrain derivatives computed from it, land-cover
+      classification, and reflectance composites from optical satellite missions, providing the environmental
+      predictors that let the models extrapolate point soil measurements to every 30 m pixel. Each covariate
+      is provided as a cloud-optimised GeoTIFF covering the whole continent with paired STAC metadata,
+      so the same predictor stack used in the mapping process can be inspected or reused downstream.
+  refs:
+  - isdasoil-plos-paper
+
+- prefix: soil_data/*/
+  copy:
+    headline: Predicted soil-property rasters (21 properties, two depths)
+    lede: Per-property predicted soil maps for Africa, each a 30 m cloud-optimised GeoTIFF with paired
+      STAC metadata and a thumbnail.
+    text: 'Each predicted soil property is published as its own continent-wide layer: a 30 m cloud-optimised
+      GeoTIFF accompanied by a STAC metadata JSON and a browse thumbnail. The set spans roughly 21 properties
+      including extractable nutrients (aluminium, calcium, iron, magnesium, potassium, phosphorus, sulphur,
+      zinc), pH, organic and total carbon, total nitrogen, the texture fractions clay, silt and sand,
+      stone content, bulk density and depth to bedrock. For most properties a single GeoTIFF carries four
+      bands, the predicted mean and its model error (one standard deviation) at the 0-20 cm and 20-50
+      cm depth intervals, so each layer ships both an estimate and a calibrated uncertainty. A single
+      file covers the whole of Africa, and values for several properties are stored transformed and must
+      be back-transformed per the layer''s metadata.'
+  refs:
+  - isdasoil-plos-paper
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

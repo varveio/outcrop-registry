@@ -1,0 +1,85 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: czi-cellxgene-census
+title: CZ CELLxGENE Discover Census
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: cellxgene-census-aws-access
+  kind: publisher_doc
+  url: https://chanzuckerberg.github.io/cellxgene-census/cellxgene_census_aws_open_data.html
+  label: CZ CELLxGENE Discover Census in AWS — data access docs
+  excerpt: A data release is a Census build that is publicly hosted in AWS. ... Users can bulk-download
+    Census data via the AWS CLI. ... aws s3 sync --no-sign-request s3://cellxgene-census-public-us-west-2/cell-census/2023-07-25/h5ads/
+    ./h5ads/
+  retrieved_at: '2026-06-20'
+
+- id: cellxgene-census-data-release-public
+  kind: publisher_doc
+  url: https://chanzuckerberg.github.io/cellxgene-census/cellxgene_census_docsite_data_release_info.html
+  label: cellxgene-census docs — Census data releases (publicly hosted, public access)
+  excerpt: What is a Census data release? It is a Census build that is publicly hosted online. ... CZ
+    CELLxGENE Discover plans to keep certain Census data releases available for public access for at least
+    5 years upon publication. ... CZ CELLxGENE Discover plans to perform weekly Census data releases,
+    available for public access for 1 month.
+  retrieved_at: '2026-06-20'
+
+- id: cellxgene-census-homepage
+  kind: publisher_homepage
+  url: https://cellxgene.cziscience.com/
+  label: CZ CELLxGENE Discover homepage
+  excerpt: CZ CELLxGENE Discover — explore, analyze, and download standardized single-cell datasets from
+    the Chan Zuckerberg Initiative.
+  retrieved_at: '2026-06-20'
+
+- id: cellxgene-census-readme-license
+  kind: publisher_doc
+  url: https://github.com/chanzuckerberg/cellxgene-census/blob/main/README.md
+  label: cellxgene-census README — Reuse (CC-BY for data, MIT for code)
+  excerpt: The contents of this Github repository are freely available for reuse under the [MIT license].
+    Data in the Census are available for re-use under the [CC-BY license](https://creativecommons.org/licenses/by/4.0/).
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Queryable single-cell corpus from CZ CELLxGENE Discover
+    lede: CZ CELLxGENE Discover Census is a free-to-use API-and-data service from the Chan Zuckerberg
+      Initiative for querying its single-cell corpus at low latency in Python or R.
+    text: 'The Census of CZ CELLxGENE Discover is a free-to-use service, both API and data, that lets
+      researchers query its single-cell corpus at low latency directly from Python or R. Each Census build
+      is a TileDB-SOMA collection paired with the source H5AD files behind it, named by a unique build
+      tag, normally the build date such as 2023-05-15, across two release tracks: Long-Term Supported
+      (LTS) and Weekly. The builds are publicly hosted in AWS S3 (us-west-2) and reachable anonymously
+      at no cost, with the Census Python and R API the recommended access path and bulk download available
+      through the AWS CLI. The data is available for re-use under CC-BY-4.0, with attribution to the original
+      data contributors; the MIT license covers only the project''s code, not the data.'
+  refs:
+  - cellxgene-census-readme-license
+  - cellxgene-census-aws-access
+
+source:
+  publisher: Chan Zuckerberg Initiative (CZ CELLxGENE Discover)
+  homepage_url: https://cellxgene.cziscience.com/
+
+display:
+  canonical_path: /czi-cellxgene-census/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

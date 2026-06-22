@@ -1,0 +1,109 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: canelevation-pointcloud
+title: CanElevation - LiDAR Point Clouds
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: canelevation-by-project
+  kind: registry_entry
+  url: https://registry.opendata.aws/canelevation-pointcloud/
+  label: 'CanElevation LiDAR Point Clouds — AWS Open Data registry entry (NRCan): data is delivered per
+    acquisition project, not as one integrated product.'
+  excerpt: Point cloud files are distributed by LiDAR acquisition project without integration between
+    projects.
+  retrieved_at: '2026-06-20'
+
+- id: canelevation-homepage
+  kind: publisher_homepage
+  url: https://natural-resources.canada.ca/
+  label: Natural Resources Canada — homepage
+  excerpt: Natural Resources Canada
+  retrieved_at: '2026-06-20'
+
+- id: canelevation-nrcan-product
+  kind: publisher_doc
+  url: https://natural-resources.canada.ca/science-data/science-research/geomatics/new-lidar-point-clouds-product-canada-you-ve-never-seen
+  label: A new LiDAR Point Clouds product for Canada — Natural Resources Canada
+  excerpt: The product is a part of the CanElevation Series created to support the National Elevation
+    Data Strategy led by NRCan and distributed under the Open Government Licence. This new dataset currently
+    contains the entirety of all LiDAR point cloud datasets acquired so far by NRCan, covering an area
+    close to 60,000 km2.
+  retrieved_at: '2026-06-20'
+
+- id: canelevation-ogl
+  kind: publisher_doc
+  url: https://open.canada.ca/en/open-government-licence-canada
+  label: Open Government Licence – Canada
+  excerpt: 'You are free to: Copy, modify, publish, translate, adapt, distribute or otherwise use the
+    Information in any medium, mode or format for any lawful purpose. You must: Acknowledge the source
+    of the Information by including any attribution statement specified by the Information Provider(s)
+    and, where possible, provide a link to this licence.'
+  retrieved_at: '2026-06-20'
+
+- id: canelevation-opencanada
+  kind: catalog_metadata
+  url: https://open.canada.ca/data/en/dataset/7069387e-9986-4297-9f55-0288e9676947
+  label: LiDAR Point Clouds - CanElevation Series — Open Government Portal dataset record
+  excerpt: The product is part of the CanElevation Series created to support the National Elevation Data
+    Strategy implemented by NRCan. It contains point clouds from various airborne LiDAR acquisition projects
+    conducted in Canada. Point cloud files are distributed by LiDAR acquisition project without integration
+    between projects. Files use the compressed .LAZ / Cloud Optimized Point Cloud (COPC) format. Open
+    Government Licence - Canada.
+  retrieved_at: '2026-06-20'
+
+- id: canelevation-various-projects
+  kind: publisher_doc
+  url: https://natural-resources.canada.ca/science-data/science-research/geomatics/new-lidar-point-clouds-product-canada-you-ve-never-seen
+  label: NRCan product page — the collection assembles distinct airborne LiDAR acquisition projects (NRCan
+    and partner surveys), each with its own area and year.
+  excerpt: This product contains point clouds from various airborne LiDAR acquisition projects conducted
+    in Canada, which may have been conducted by NRCan or by various partners.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: Open Government Licence – Canada
+  url: https://open.canada.ca/en/open-government-licence-canada
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open airborne LiDAR point clouds for Canada, by acquisition project
+    lede: The LiDAR Point Clouds product of Natural Resources Canada's CanElevation Series publishes airborne
+      LiDAR surveys from across Canada as Cloud Optimized Point Cloud (COPC) files, under the Open Government
+      Licence – Canada.
+    text: Part of NRCan's CanElevation Series, created to support Canada's National Elevation Data Strategy,
+      this product gathers airborne LiDAR point clouds acquired across Canada by NRCan and by provincial,
+      territorial and municipal partners. Each survey is distributed as its own acquisition project, without
+      integration between projects, so density, resolution and acquisition date vary from one project
+      to the next. Files use the compressed .LAZ / Cloud Optimized Point Cloud (COPC) format — an octree
+      reorganization of a LAZ 1.4 file that supports efficient streaming and visualization over HTTP —
+      in NAD83(CSRS) epoch 2010 with the appropriate UTM zone and orthometric elevations referenced to
+      CGVD2013. Distributed via AWS S3 under the Open Government Licence – Canada, the files are both
+      downloadable for local use and viewable directly via URL. Coverage is ongoing, expanding as new
+      acquisitions are completed.
+  refs:
+  - canelevation-opencanada
+  - canelevation-nrcan-product
+
+source:
+  publisher: Natural Resources Canada (NRCan)
+  homepage_url: https://natural-resources.canada.ca/
+
+display:
+  canonical_path: /canelevation-pointcloud/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

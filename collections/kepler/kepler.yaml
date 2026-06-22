@@ -1,0 +1,55 @@
+schema_version: '0.4'
+bucket: stpubdata
+outcrop_bucket: kepler
+backend: s3
+role: primary
+region: us-east-1
+prefix: kepler/
+
+prefixes:
+- prefix: kepler/public/ffi/
+  copy:
+    headline: Kepler full-frame images (FFIs)
+    lede: Full-detector readouts capturing every pixel on Kepler's focal plane, accumulated roughly once
+      per month across the mission.
+    text: Full-frame images use all the pixels on each detector channel, with Kepler accumulating one
+      full readout approximately once per month, before each data download, in addition to the targeted
+      photometry. Each FFI records the entire field of view rather than the small apertures around selected
+      targets, making the set valuable for astrometry, calibration, and studies of objects outside the
+      primary target list. Files are delivered as FITS (`_ffi.fits`).
+  refs:
+  - kepler-missions-data
+
+- prefix: kepler/public/lightcurves/
+  copy:
+    headline: Kepler light-curve files (LCFs)
+    lede: Calibrated, extracted flux time series for each Kepler target — the standard product for transit
+      and variability science.
+    text: Light-curve files are the extracted, calibrated brightness time series for each observed star,
+      the product most users of Kepler data work with directly. They distinguish long-cadence (30-minute,
+      `_llc.fits`) and short-cadence (1-minute, `_slc.fits`) sampling and are organized by quarter, reflecting
+      the spacecraft's quarterly observing segments. The flux time series were searched for the periodic
+      dips that signal transiting exoplanets, and also support variable-star and eclipsing-binary studies.
+      Files are FITS, organized by Kepler Input Catalog (KIC) target identifier.
+  refs:
+  - kepler-missions-data
+
+- prefix: kepler/public/target_pixel_files/
+  copy:
+    headline: Kepler target pixel files (TPFs)
+    lede: 'The rawest target-specific Kepler product: per-pixel time series and the aperture mask behind
+      each star''s photometry.'
+    text: Target pixel files are the rawest form of target-specific data from the Kepler archive, containing
+      the time series at the pixel level for the small region of the detector around each star together
+      with the aperture mask used to compute that target's photometry. They let users re-derive photometry
+      with custom apertures or inspect the pixel-level data behind a light curve, and like the light curves
+      distinguish long-cadence (`_lpd-targ.fits`) and short-cadence (`_spd-targ.fits`) sampling. Files
+      are delivered compressed as FITS (`fits.gz`), organized by Kepler Input Catalog (KIC) target identifier.
+  refs:
+  - kepler-missions-data
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

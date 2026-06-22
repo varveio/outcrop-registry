@@ -1,0 +1,28 @@
+schema_version: '0.4'
+bucket: sentinel-inventory
+outcrop_bucket: sentinel-inventory-sentinel-1
+backend: s3
+role: primary
+region: eu-central-1
+prefix: sentinel-s1-l1c/
+
+prefixes:
+- prefix: sentinel-s1-l1c/sentinel-s1-l1c-inventory/
+  copy:
+    headline: Daily inventory listings of the sentinel-s1-l1c bucket
+    lede: 'The named S3 Inventory configuration for the Sentinel-1 L1C archive: dated manifest runs that
+      each enumerate the bucket''s objects.'
+    text: This is the configured S3 Inventory destination for the Sentinel-1 L1C imagery bucket. Each
+      scheduled run writes a manifest plus partitioned data files — listings of object keys, sizes, and
+      modification times for the source archive — organized as dated runs and accompanied by the manifest
+      and symlink files that S3 Inventory produces. It exists so consumers can enumerate and reconcile
+      the archive in bulk from a static file set instead of issuing live listing calls against the imagery
+      bucket.
+  refs:
+  - sentinel1-aws-registry
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

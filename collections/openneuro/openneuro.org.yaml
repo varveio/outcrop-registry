@@ -1,0 +1,29 @@
+schema_version: '0.4'
+bucket: openneuro.org
+backend: s3
+role: primary
+region: us-east-1
+
+prefixes:
+- prefix: ds*/
+  copy:
+    headline: Published OpenNeuro datasets, one per accession prefix
+    lede: Each ds###### prefix is one published OpenNeuro dataset, released under CC0 and mirrored to
+      the public openneuro.org S3 bucket for anonymous download.
+    text: 'These prefixes hold OpenNeuro''s published datasets, one dataset per accession. Each is released
+      under a Creative Commons Zero (CC0) public-domain dedication — the default for newly published datasets
+      and new versions of existing ones — which places no restrictions on use, with every version assigned
+      a unique DOI for citation.
+
+
+      All are published to the public Amazon S3 bucket s3://openneuro.org/ (us-east-1), readable anonymously
+      with no AWS account using --no-sign-request and reachable via the browser, S3, DataLad, direct git,
+      and the openneuro-cli.'
+  refs:
+  - openneuro-faq-license
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

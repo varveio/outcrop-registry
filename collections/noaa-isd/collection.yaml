@@ -1,0 +1,115 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: noaa-isd
+title: NOAA Integrated Surface Database (ISD)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: noaa-isd-access-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/noaa-isd.yaml
+  label: AWS Open Data Registry — noaa-isd-pds public S3 bucket (anonymous access)
+  excerpt: 'Resources: - Description: ISD in original format; ARN: arn:aws:s3:::noaa-isd-pds; Region:
+    us-east-1; Type: S3 Bucket; Explore: [Browse Bucket](https://noaa-isd-pds.s3.amazonaws.com/index.html).
+    License: NOAA data disseminated through NODD are open to the public and can be used as desired.'
+  retrieved_at: '2026-06-22'
+
+- id: noaa-isd-aws-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/noaa-isd.yaml
+  label: AWS Open Data Registry — NOAA Integrated Surface Database (ISD) dataset metadata (noaa-isd.yaml)
+  excerpt: 'License: NOAA data disseminated through NODD are open to the public and can be used as desired.
+    NOAA makes data openly available to ensure maximum use of our data. NOAA requests attribution for
+    the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply
+    endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that
+    it is original, unaltered NOAA data. ManagedBy: NOAA. Resources: ARN arn:aws:s3:::noaa-isd-pds, Region
+    us-east'
+  retrieved_at: '2026-06-22'
+
+- id: noaa-isd-homepage
+  kind: publisher_homepage
+  url: https://www.ncei.noaa.gov/
+  label: NOAA National Centers for Environmental Information (NCEI) homepage
+  excerpt: NOAA National Centers for Environmental Information (NCEI) is responsible for hosting and providing
+    access to one of the most significant archives on Earth.
+  retrieved_at: '2026-06-22'
+
+- id: noaa-isd-lite-tech
+  kind: publisher_doc
+  url: https://www.ncei.noaa.gov/pub/data/noaa/isd-lite/isd-lite-technical-document.txt
+  label: NCEI ISD-Lite Technical Document
+  excerpt: 'The ISD-Lite product is designed to be an easier to work with subset of the larger Integrated
+    Surface Data hourly dataset. ISD-Lite contains eight common hourly time-series climatological variables
+    represented in a fixed-width format. The elements extracted are: 1. Air temperature; 2. Dew point
+    temperature; 3. Sea level pressure; 4. Wind direction; 5. Wind speed; 6. Total cloud cover; 7. One-hour
+    accumulated liquid precipitation; 8. Six-hour accumulated liquid precipitation.'
+  retrieved_at: '2026-06-22'
+
+- id: noaa-isd-ncei-product
+  kind: publisher_doc
+  url: https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database
+  label: 'NCEI — Global Hourly: Integrated Surface Database (ISD) product page'
+  excerpt: 'The Integrated Surface Database (ISD) is a global database that consists of hourly and synoptic
+    surface observations compiled from numerous sources into a single common ASCII format and common data
+    model. ISD integrates data from more than 100 original data sources. ISDLite is a derived product
+    that makes it easier to work with for general research and scientific purposes. It is a subset of
+    the full ISD containing eight common surface parameters in a fixed-width format free of duplicate
+    values, '
+  retrieved_at: '2026-06-22'
+
+- id: noaa-isd-readme
+  kind: publisher_file
+  url: https://www.ncei.noaa.gov/pub/data/noaa/readme.txt
+  label: NCEI ISD readme.txt (FTP/HTTPS access point readme)
+  excerpt: 'This directory contains ISH/ISD data in directories by year. The filenames correspond with
+    the station numbers listed in the ish-history.txt file -- eg, 723150-03812-2006 corresponds with USAF
+    number 723150 and WBAN number 03812. All data files are compressed as indicated by the "gz" extension.
+    IMPORTANT NOTE: The non-U.S. data in ISD are subject to WMO Resolution 40 restrictions, and cannot
+    be redistributed to other users or customers.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Global hourly and synoptic surface weather observations
+    lede: The Integrated Surface Database (ISD) is NOAA NCEI's global archive of hourly and synoptic land-surface
+      weather observations, integrated from more than 100 sources into a single common format.
+    text: 'The Integrated Surface Database integrates hourly and synoptic surface observations from over
+      35,000 stations worldwide into one common ASCII format and data model, drawing on more than 100
+      original data sources with records reaching back to 1901 and over 14,000 stations updated daily.
+      Each station-year file carries the full observed parameter set: wind speed and direction, gust,
+      temperature, dew point, cloud data, sea-level and station pressure, altimeter setting, present weather,
+      visibility, precipitation over several accumulation periods, and snow depth. Alongside the full
+      database, NCEI publishes ISD-Lite, a fixed-width subset of eight common parameters intended for
+      trend and climatological work, plus station-history, inventory, format documentation, and reader
+      software. Produced by NOAA''s National Centers for Environmental Information and mirrored on AWS
+      as part of the NOAA Open Data Dissemination program.'
+  refs:
+  - noaa-isd-ncei-product
+  - noaa-isd-aws-registry
+
+source:
+  publisher: NOAA National Centers for Environmental Information (NCEI)
+  homepage_url: https://www.ncei.noaa.gov/
+
+display:
+  canonical_path: /noaa-isd/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

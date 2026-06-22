@@ -1,0 +1,156 @@
+schema_version: '0.4'
+bucket: virtual-shizuoka
+backend: s3
+role: primary
+region: ap-northeast-1
+
+prefixes:
+- prefix: 2019/ALB/
+  copy:
+    headline: FY2019 airborne laser bathymetry, southeast Mt. Fuji and eastern Izu
+    lede: Airborne laser bathymetry (ALB) point clouds acquired in FY2019 over the southeastern Mt. Fuji
+      area and the eastern Izu Peninsula of Shizuoka Prefecture.
+    text: The FY2019 airborne laser bathymetry survey captures shallow-water and coastal terrain across
+      southeast Mt. Fuji and the eastern Izu Peninsula, complementing the topographic laser scans. The
+      release carries Ground point clouds plus the derived Ortho, Contour, and Grid products, tiled to
+      the National Basic Map Grid (zone 08) and distributed as zipped LAS (with DXF contours and TIFF
+      orthophotos).
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2019/LP/
+  copy:
+    headline: FY2019 aerial laser scanning, southeast Mt. Fuji and eastern Izu
+    lede: Airborne laser scanning (LP) point clouds from the FY2019 survey of southeast Mt. Fuji and the
+      eastern Izu Peninsula.
+    text: The FY2019 aerial laser scanning campaign produced topographic point clouds over southeast Mt.
+      Fuji and the eastern Izu Peninsula. The release pairs Ground point clouds with the derived Grid
+      elevation, Contour, and Ortho products, tiled by National Basic Map Grid section in zone 08 and
+      delivered as zipped LAS, DXF, and TIFF.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2019/MMS/Ground/
+  copy:
+    headline: FY2019 mobile-mapping ground point clouds, southeast Mt. Fuji and eastern Izu
+    lede: Vehicle-mounted mobile mapping system (MMS) ground point clouds from the FY2019 survey of southeast
+      Mt. Fuji and the eastern Izu Peninsula.
+    text: Mobile mapping system scans captured at street level along roads in the FY2019 acquisition area
+      provide dense ground point clouds that complement the airborne coverage. Tiled to the National Basic
+      Map Grid in zone 08 and distributed as zipped LAS.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2020/ALB/
+  copy:
+    headline: FY2020 airborne laser bathymetry, western Izu Peninsula
+    lede: Airborne laser bathymetry (ALB) point clouds from the FY2020 survey of the western Izu Peninsula.
+    text: The FY2020 airborne laser bathymetry survey extends coastal and shallow-water terrain capture
+      to the western Izu Peninsula. The release carries Ground point clouds with derived Ortho, Contour,
+      and Grid products tiled to the National Basic Map Grid (zone 08), distributed as zipped LAS, DXF,
+      and TIFF.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2020/LP/
+  copy:
+    headline: FY2020 aerial laser scanning, western Izu Peninsula
+    lede: Airborne laser scanning (LP) point clouds from the FY2020 survey of the western Izu Peninsula.
+    text: The FY2020 aerial laser scanning campaign produced topographic point clouds over the western
+      Izu Peninsula, paired with derived Grid, Contour, and Ortho products. Tiled by National Basic Map
+      Grid section in zone 08 and delivered as zipped LAS, DXF, and TIFF.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2020/MMS/Ground/
+  copy:
+    headline: FY2020 mobile-mapping ground point clouds, western Izu Peninsula
+    lede: Vehicle-mounted mobile mapping system (MMS) ground point clouds from the FY2020 survey of the
+      western Izu Peninsula.
+    text: Street-level mobile mapping scans from the FY2020 acquisition over the western Izu Peninsula
+      provide dense road-corridor ground point clouds, tiled to the National Basic Map Grid in zone 08
+      and distributed as compressed LAS (zip and 7z).
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2021/ALB/
+  copy:
+    headline: FY2021 airborne laser bathymetry, Mt. Fuji and eastern Shizuoka
+    lede: Airborne laser bathymetry (ALB) point clouds from the FY2021 survey of the Mt. Fuji area and
+      eastern Shizuoka.
+    text: The FY2021 airborne laser bathymetry survey covers coastal and shallow-water terrain across
+      the Mt. Fuji region and eastern Shizuoka. Tiled to the National Basic Map Grid (zone 08) and distributed
+      as zipped LAS point clouds.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2021/Backpack/Ground/
+  copy:
+    headline: FY2021 backpack-mounted mobile-mapping ground point clouds, Mt. Fuji and eastern Shizuoka
+    lede: Backpack mobile mapping system ground point clouds from the FY2021 survey of the Mt. Fuji area
+      and eastern Shizuoka.
+    text: Backpack-mounted mobile mapping captures pedestrian-accessible terrain that vehicle-mounted
+      systems cannot reach, producing dense ground point clouds for the FY2021 Mt. Fuji and eastern Shizuoka
+      area. Tiled to the National Basic Map Grid in zone 08 and distributed as zipped LAS.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2021/LP/
+  copy:
+    headline: FY2021 aerial laser scanning, Mt. Fuji, eastern and midwest Shizuoka
+    lede: Airborne laser scanning (LP) point clouds from the FY2021 survey spanning Mt. Fuji, eastern
+      Shizuoka, and midwest Shizuoka.
+    text: The FY2021 aerial laser scanning campaign produced topographic point clouds across the Mt. Fuji
+      region, eastern Shizuoka, and midwest Shizuoka, including the Mt. Fuji summit example tile. Releases
+      pair Ground point clouds with derived Grid, Contour, and Ortho products, tiled by National Basic
+      Map Grid section in zone 08 and delivered as zipped LAS, DXF, and TIFF.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2021/MMS/Ground/
+  copy:
+    headline: FY2021 mobile-mapping ground point clouds, Mt. Fuji and eastern Shizuoka
+    lede: Vehicle-mounted mobile mapping system (MMS) ground point clouds from the FY2021 survey of the
+      Mt. Fuji area and eastern Shizuoka.
+    text: Street-level mobile mapping scans from the FY2021 acquisition provide dense road-corridor ground
+      point clouds across the Mt. Fuji region and eastern Shizuoka. Tiled to the National Basic Map Grid
+      in zone 08 and distributed as compressed LAS (zip and 7z).
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2022/LP/
+  copy:
+    headline: FY2022 aerial laser scanning of Shizuoka Prefecture
+    lede: Airborne laser scanning (LP) point clouds added in the FY2022 acquisition year of Virtual Shizuoka.
+    text: Aerial laser scanning point clouds from the FY2022 acquisition, continuing Virtual Shizuoka's
+      annual topographic survey of the prefecture. Tiled to the National Basic Map Grid (zone 08) and
+      distributed as zipped LAS.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2025/ALB/
+  copy:
+    headline: FY2025 airborne laser bathymetry of Shizuoka Prefecture
+    lede: Airborne laser bathymetry (ALB) point clouds added in the FY2025 acquisition year of Virtual
+      Shizuoka.
+    text: Airborne laser bathymetry point clouds from the FY2025 acquisition, extending Virtual Shizuoka's
+      coastal and shallow-water terrain coverage. Tiled to the National Basic Map Grid (zone 08) and distributed
+      as zipped LAS.
+  refs:
+  - vshizuoka-readme
+
+- prefix: 2025/LP/
+  copy:
+    headline: FY2025 aerial laser scanning of Shizuoka Prefecture
+    lede: Airborne laser scanning (LP) point clouds added in the FY2025 acquisition year of Virtual Shizuoka.
+    text: Aerial laser scanning point clouds from the FY2025 acquisition, continuing Virtual Shizuoka's
+      annual topographic survey of the prefecture. Tiled to the National Basic Map Grid (zone 08) and
+      distributed as zipped LAS.
+  refs:
+  - vshizuoka-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,129 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: daylight-osm
+title: Daylight Map Distribution of OpenStreetMap
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: daylight-attribution
+  kind: publisher_doc
+  url: https://daylightmap.org/attribution.html
+  label: Daylight Map Distribution attribution & licensing terms (ODbL — © OpenStreetMap contributors)
+  excerpt: 'Daylight Map Distribution is open data licensed under the Open Data Commons Open Database
+    License (ODbL). Attribution: © OpenStreetMap contributors available under the Open Database License.'
+  retrieved_at: '2026-06-22'
+
+- id: daylight-earth
+  kind: publisher_doc
+  url: https://daylightmap.org/earth/
+  label: Daylight Earth Table documentation
+  excerpt: 'The Daylight Earth Table organizes nearly one billion OpenStreetMap features into a 3-level
+    ontology: theme, class, and subclass. A small fishpond would be found in the water theme, pond class,
+    and fishpond subclass.'
+  retrieved_at: '2026-06-22'
+
+- id: daylight-features-elements
+  kind: publisher_doc
+  url: https://aws.amazon.com/blogs/publicsector/querying-daylight-openstreetmap-distribution-amazon-athena/
+  label: Querying the Daylight OpenStreetMap Distribution with Amazon Athena (AWS Public Sector blog)
+  excerpt: 'In the osm_features table, all OSM geometries are converted to more common geometric data
+    types: points, lines, and (multi)polygons. The table includes approximately one billion features with
+    pre-computed attributes such as bounding boxes, lengths, and areas.'
+  retrieved_at: '2026-06-22'
+
+- id: daylight-homepage
+  kind: publisher_homepage
+  url: https://daylightmap.org/
+  label: Daylight Map Distribution homepage
+  excerpt: Daylight is a complete distribution of global, open map data that's freely available with support
+    from community and professional mapmakers.
+  retrieved_at: '2026-06-22'
+
+- id: daylight-labels
+  kind: publisher_doc
+  url: https://daylightmap.org/2023/03/20/water-labels.html
+  label: Daylight cartographic label centerlines announcement
+  excerpt: Daylight derives curved centerlines from polygonal OSM water geometries to improve dynamic
+    label placement, introducing directionality so labels follow the shape and orientation of the feature
+    they represent.
+  retrieved_at: '2026-06-22'
+
+- id: daylight-landcover
+  kind: publisher_doc
+  url: https://daylightmap.org/2023/10/11/landcover.html
+  label: Daylight Global Landcover dataset announcement
+  excerpt: 'Vectorized landcover features derived from the European Space Agency''s 2020 World Cover (10m)
+    rasters. The final dataset includes 8 main classes: Snow, Forest, Urban, Grass, Crop, Barren, Water,
+    and Shrub.'
+  retrieved_at: '2026-06-22'
+
+- id: daylight-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/daylight-osm/
+  label: Daylight Map Distribution of OpenStreetMap — AWS Registry of Open Data entry (ODbL; anonymous
+    access)
+  excerpt: 'License: Open Database License (ODbL). Managed By: Meta. Update Frequency: Quarterly. AWS
+    CLI Access (No AWS account required): aws s3 ls --no-sign-request s3://daylight-openstreetmap/parquet/osm_features/'
+  retrieved_at: '2026-06-22'
+
+- id: daylight-release-odbl
+  kind: publisher_doc
+  url: https://daylightmap.org/2023/05/18/daylight-v126-released.html
+  label: Daylight Map Distribution v1.26 release notes (planet 100% OSM, ODbL)
+  excerpt: Daylight planet files are composed of 100% OSM data, released under the terms of the Open Database
+    License.
+  retrieved_at: '2026-06-22'
+
+- id: daylight-urban
+  kind: publisher_doc
+  url: https://daylightmap.org/2023/11/27/urban.html
+  label: Daylight Global Urban Areas dataset announcement
+  excerpt: Vectorized urban area features derived from the European Space Agency's 2020 World Cover (10m)
+    rasters. The full dataset contains 37,000 polygonal areas around the globe; a lighter version consists
+    of only the largest 1000 areas globally.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: ODbL-1.0
+  status: verified
+  name: Open Data Commons Open Database License v1.0
+  url: https://opendatacommons.org/licenses/odbl/1-0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Validated, quality-controlled distribution of OpenStreetMap
+    lede: Daylight is a free, tested distribution of global OpenStreetMap data curated by Meta's Daylight
+      Map team and published under the Open Database License.
+    text: Daylight packages a stable, validated snapshot of the global OpenStreetMap map together with
+      derived cartographic layers, combining community OSM contributions with quality and consistency
+      checks so downstream users get a reproducible street-scale world map. Beyond the standard planet
+      PBF, it ships two Athena-optimized Parquet variants — osm_features (nearly one billion renderable
+      geometries) and osm_elements (the full model, including all seven billion nodes and geometry-less
+      relations) — plus the Earth Table classification and derived landcover, urban-areas, and label-centerline
+      layers. Releases are versioned and refreshed quarterly, and the whole distribution is open data
+      under ODbL with attribution to OpenStreetMap contributors.
+  refs:
+  - daylight-registry
+  - daylight-homepage
+  - daylight-attribution
+
+source:
+  publisher: Meta (Daylight Map team)
+  homepage_url: https://daylightmap.org/
+
+display:
+  canonical_path: /daylight-osm/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

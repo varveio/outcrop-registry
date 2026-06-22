@@ -1,0 +1,112 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: naturalearth
+title: Natural Earth Map Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: naturalearth-about
+  kind: publisher_doc
+  url: https://www.naturalearthdata.com/about/
+  label: Natural Earth — About
+  excerpt: 'Natural Earth is a public domain map dataset available at 1:10m, 1:50m, and 1:110m scales.
+    Natural Earth solves a problem that many mapmakers face: finding suitable data for making small-scale
+    maps. The Map Update Committee coordinates this activity and is the final arbitrator on map features,
+    data creation, and data attributes.'
+  retrieved_at: '2026-06-22'
+
+- id: naturalearth-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/naturalearth/
+  label: Natural Earth — AWS Open Data Registry (anonymous S3 access example)
+  excerpt: aws s3 ls --no-sign-request s3://naturalearth/
+  retrieved_at: '2026-06-22'
+
+- id: naturalearth-homepage
+  kind: publisher_homepage
+  url: https://www.naturalearthdata.com/
+  label: Natural Earth homepage
+  excerpt: Natural Earth is a public domain map dataset available at 1:10m, 1:50m, and 1:110m scales.
+    Featuring tightly integrated vector and raster data, with Natural Earth you can make a variety of
+    visually pleasing, well-crafted maps with cartography or GIS software.
+  retrieved_at: '2026-06-22'
+
+- id: naturalearth-terms
+  kind: publisher_doc
+  url: https://www.naturalearthdata.com/about/terms-of-use/
+  label: Natural Earth — Terms of Use (public domain)
+  excerpt: All versions of Natural Earth raster + vector map data found on this website are in the public
+    domain. You may use the maps in any manner, including modifying the content and design, electronic
+    dissemination, and offset printing. No permission is needed to use Natural Earth. Crediting the authors
+    is unnecessary.
+  retrieved_at: '2026-06-22'
+
+- id: ne-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/naturalearth/
+  label: registry.opendata.aws — naturalearth
+  excerpt: Natural Earth is a public domain map dataset available at 1:10m, 1:50m, and 1:110 million scales.
+    Featuring tightly integrated vector and raster data ... The data is available as shapefile downloads
+    in ZIP archives.
+
+- id: ne-downloads
+  kind: publisher_doc
+  url: https://www.naturalearthdata.com/downloads/
+  label: www.naturalearthdata.com — downloads
+  excerpt: 'Natural Earth provides data at three detail levels (1:10m, 1:50m, 1:110m) organized into three
+    thematic categories: Cultural vectors, Physical vectors, and Raster data. Individual data themes are
+    accessible through separate pages for each scale and category combination.'
+
+- id: ne-versioning
+  kind: publisher_doc
+  url: https://www.naturalearthdata.com/blog/miscellaneous/natural-earth-v4-1-0-release-notes/
+  label: www.naturalearthdata.com — natural earth v4 1 0 release notes
+  excerpt: Natural Earth is released in numbered versions (e.g. v4.1.0, v5.x). A theme's version number
+    indicates the update cycle when that theme was last updated; an older version number indicates updates
+    have not been necessary since then.
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Public-domain global basemap data at 1:10m, 1:50m, and 1:110m
+    lede: Natural Earth is a public-domain vector and raster map dataset, built by NACIS volunteers, designed
+      for small-scale cartography at three nested scales.
+    text: 'Natural Earth provides tightly integrated vector and raster basemap data at 1:10 million, 1:50
+      million, and 1:110 million scales, built to solve the recurring problem of finding clean, ready-to-map
+      reference data for small-scale maps. Data is organized into three themes at each scale: Cultural
+      (countries, states and provinces, populated places, roads, railroads, airports, and administrative
+      boundaries), Physical (coastline, land and ocean polygons, rivers and lake centerlines, lakes, glaciated
+      areas, reefs, and bathymetry), and Raster (shaded relief, cross-blended hypsometric tints, and gray-earth
+      basemaps derived from NASA SRTM-Plus elevation). It is built and maintained by a collaboration of
+      volunteers supported by NACIS (North American Cartographic Information Society), with a Map Update
+      Committee acting as the final arbitrator on features and attributes. Every version is released into
+      the public domain and may be used, modified, and redistributed for any purpose without attribution.'
+  refs:
+  - naturalearth-about
+  - naturalearth-terms
+
+source:
+  publisher: Natural Earth (NACIS)
+  homepage_url: https://www.naturalearthdata.com/
+
+display:
+  canonical_path: /naturalearth/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

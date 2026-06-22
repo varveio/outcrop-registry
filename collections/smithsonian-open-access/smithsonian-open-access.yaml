@@ -1,0 +1,156 @@
+schema_version: '0.4'
+bucket: smithsonian-open-access
+backend: s3
+role: primary
+region: us-west-2
+
+prefixes:
+- prefix: 3d/
+  copy:
+    headline: Smithsonian 3-D images of objects and specimens
+    lede: Three-dimensional captures of Smithsonian objects and specimens, part of the Open Access corpus
+      released into the public domain under CC0.
+    text: Three-dimensional images of objects and specimens from across the Smithsonian make up this part
+      of the Open Access corpus. They sit alongside the institution's 2-D images and EDAN catalog metadata,
+      and like the rest of the corpus are dedicated to the public domain under CC0 1.0 for download, reuse,
+      and redistribution without restriction.
+  refs:
+  - si-aws-registry
+  - measured-smithsonian-open-access
+  boundary: pin
+
+- prefix: images/screen/nmnh/
+  copy:
+    text: images/screen/nmnh/ holds only 3 small objects and is not described in any publisher source
+      (the documented media/ and metadata/edan/ trees supersede it); inferred legacy/screen-resolution
+      staging path. No publisher source found describing this prefix — recorded as honest negative rather
+      than fabricated description.
+    headline: images/screen/nmnh/ holds only 3 small objects and is not described…
+    lede: images/screen/nmnh/ holds only 3 small objects and is not described in any publisher source
+      (the documented media/ and metadata/edan/ trees supersede it); inferred legacy/screen-resolution
+      staging path.
+  refs:
+  - si-aws-registry
+  tags:
+  - legacy
+
+- prefix: media/
+  copy:
+    headline: Open Access media files, grouped by owning Smithsonian unit
+    lede: Digitized media files from the Smithsonian Open Access corpus, organized into one subdirectory
+      per owning Smithsonian unit and released under CC0.
+    text: Digitized media files from the Smithsonian Open Access corpus are gathered here and grouped
+      into per-unit subdirectories named by internal Smithsonian acronym — for example nmnh (National
+      Museum of Natural History), npg (National Portrait Gallery), saam (Smithsonian American Art Museum),
+      nmaahc (National Museum of African American History and Culture), and nasm (National Air and Space
+      Museum). Each subdirectory carries the media for that owning unit, and all files are dedicated to
+      the public domain under CC0 1.0.
+  refs:
+  - si-github-readme
+
+- prefix: media/nasm/
+  copy:
+    headline: National Air and Space Museum media files
+    lede: Open Access media files contributed by the National Air and Space Museum (NASM), released into
+      the public domain under CC0.
+    text: Digitized media files from the National Air and Space Museum form this unit's part of the Smithsonian
+      Open Access corpus, identified in the README by the internal acronym NASM. The files are dedicated
+      to the public domain under CC0 1.0 for download, reuse, and redistribution without restriction.
+  refs:
+  - si-github-readme
+
+- prefix: media/nmaahc/
+  copy:
+    headline: National Museum of African American History and Culture media files
+    lede: Open Access media files contributed by the National Museum of African American History and Culture
+      (NMAAHC), released into the public domain under CC0.
+    text: Digitized media files from the National Museum of African American History and Culture form
+      this unit's part of the Smithsonian Open Access corpus, identified in the README by the internal
+      acronym NMAAHC. The files are dedicated to the public domain under CC0 1.0 for download, reuse,
+      and redistribution without restriction.
+  refs:
+  - si-github-readme
+
+- prefix: media/nmnh/
+  copy:
+    headline: National Museum of Natural History media files
+    lede: Open Access media files contributed by the National Museum of Natural History (NMNH), released
+      into the public domain under CC0.
+    text: Digitized media files from the National Museum of Natural History form this unit's part of the
+      Smithsonian Open Access corpus. The README documents NMNH as one of the owning Smithsonian units,
+      with collections that span anthropology, botany, entomology, paleobiology, mineral sciences, invertebrate
+      zoology, and the vertebrate-zoology divisions for birds, fishes, herpetology, and mammals. The files
+      are dedicated to the public domain under CC0 1.0.
+  refs:
+  - si-github-readme
+
+- prefix: media/npg/
+  copy:
+    headline: National Portrait Gallery media files
+    lede: Open Access media files contributed by the National Portrait Gallery (NPG), released into the
+      public domain under CC0.
+    text: Digitized media files from the National Portrait Gallery form this unit's part of the Smithsonian
+      Open Access corpus, identified in the README by the internal acronym NPG. The files are dedicated
+      to the public domain under CC0 1.0 for download, reuse, and redistribution without restriction.
+  refs:
+  - si-github-readme
+
+- prefix: media/saam/
+  copy:
+    headline: Smithsonian American Art Museum media files
+    lede: Open Access media files contributed by the Smithsonian American Art Museum (SAAM), released
+      into the public domain under CC0.
+    text: Digitized media files from the Smithsonian American Art Museum form this unit's part of the
+      Smithsonian Open Access corpus, identified in the README by the internal acronym SAAM. The files
+      are dedicated to the public domain under CC0 1.0 for download, reuse, and redistribution without
+      restriction.
+  refs:
+  - si-github-readme
+
+- prefix: metadata/
+  copy:
+    headline: Catalog metadata for the Open Access corpus
+    lede: Smithsonian catalog records describing the Open Access corpus, published from the EDAN content
+      repository under CC0.
+    text: Catalog records describing the Smithsonian Open Access corpus are published here, drawn from
+      EDAN, the Smithsonian's content repository, and made available under metadata/edan/. The records
+      describe the objects, specimens, artworks, and archival items represented by the corpus, and are
+      dedicated to the public domain under CC0 1.0.
+  refs:
+  - si-github-readme
+
+- prefix: metadata/edan/
+  copy:
+    headline: Smithsonian catalog records, line-delimited JSON by unit
+    lede: Over 11 million Smithsonian catalog records from EDAN, serialized as line-delimited JSON and
+      grouped into one subdirectory per owning unit, released under CC0.
+    text: 'More than 11 million Smithsonian catalog records, drawn from EDAN, are published here as line-delimited
+      JSON. The records are grouped by owning unit — subdirectories named by internal Smithsonian acronym
+      such as nmnh, npg, and saam — and, within a unit, distributed across files by the first two characters
+      of each record''s content serialization hash. A directory listing is published at metadata/edan/index.txt.
+
+
+      Each record carries the descriptive, structured metadata for an object, specimen, artwork, or archival
+      item. Schema documentation is available at edan.si.edu/openaccess/docs/, and all records are dedicated
+      to the public domain under CC0 1.0.'
+  refs:
+  - si-github-readme
+
+- prefix: metadata/edan/nmnh/
+  copy:
+    headline: National Museum of Natural History EDAN records
+    lede: Catalog records for the National Museum of Natural History (NMNH) from EDAN, serialized as line-delimited
+      JSON and released under CC0.
+    text: Line-delimited-JSON EDAN catalog records for the National Museum of Natural History are published
+      here, identified in the README by the internal acronym NMNH. The README further enumerates NMNH
+      departmental units — anthropology, botany, entomology, paleobiology, mineral sciences, invertebrate
+      zoology, and the vertebrate-zoology divisions for birds, fishes, herpetology, and mammals — each
+      carrying its own owning-unit code. All records are dedicated to the public domain under CC0 1.0.
+  refs:
+  - si-github-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

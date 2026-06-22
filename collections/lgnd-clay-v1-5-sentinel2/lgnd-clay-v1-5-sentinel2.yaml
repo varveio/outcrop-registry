@@ -1,0 +1,43 @@
+schema_version: '0.4'
+bucket: us-west-2.opendata.source.coop
+outcrop_bucket: lgnd-clay-v1-5-sentinel2
+backend: s3
+role: primary
+region: us-west-2
+prefix: clay/lgnd-clay-v1-5-sentinel-2-l2a/
+
+prefixes:
+- prefix: clay/lgnd-clay-v1-5-sentinel-2-l2a/aggregated/
+  copy:
+    headline: Monthly normalized time series of Clay embeddings per cell
+    lede: A normalized monthly embedding series that selects one representative Clay v1.5 embedding per
+      MajorTOM cell, built for consistent time-series analysis.
+    text: The aggregated product distills the scene-level embeddings into a normalized time series by
+      choosing one representative embedding per month for each MajorTOM cell. This removes redundancy
+      from overlapping scene coverage at MGRS-tile borders, normalizes observation frequency across regions
+      with differing revisit rates, and yields consistent monthly snapshots that simplify time-series
+      work and large-extent analysis. Records are organized by geohash, then year and month, as hive-partitioned
+      GeoParquet. It holds roughly 49.7 million embeddings occupying about 182GB.
+  refs:
+  - lgnd-clay-readme
+
+- prefix: clay/lgnd-clay-v1-5-sentinel-2-l2a/scene/
+  copy:
+    headline: Scene-level Clay embeddings per Sentinel-2 acquisition
+    lede: One Clay v1.5 embedding record per embedded Sentinel-2 scene, giving the highest temporal resolution
+      in the collection.
+    text: 'The scene product carries embeddings for each individual Sentinel-2 scene: for every MGRS tile,
+      LGND embeds the minimum number of scenes needed to maximize spatial coverage while minimizing cloud
+      cover, so some tiles contribute a single scene and others many. It is the right product when analyzing
+      individual acquisitions or when the finest available temporal resolution is required. Records are
+      organized by Grid Zone Designator (the first three characters of the MGRS tile), then year and month,
+      as hive-partitioned GeoParquet. In total it holds roughly 77.9 million embeddings occupying about
+      285GB.'
+  refs:
+  - lgnd-clay-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

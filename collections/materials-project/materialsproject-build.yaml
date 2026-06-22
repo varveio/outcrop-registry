@@ -1,0 +1,92 @@
+schema_version: '0.4'
+bucket: materialsproject-build
+backend: s3
+role: secondary
+region: us-east-1
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+prefixes:
+- prefix: collections/
+  copy:
+    headline: Derived property collections behind the MP API
+    lede: The high-level derived data that serves as the source for the collections available through
+      the Materials Project API.
+    text: This prefix in the build bucket contains the high-level derived data that comprises the source
+      for the collections available through the MP API. The collections are versioned by database release
+      date, with individual documents grouped into gzip-compressed JSON Lines files.
+  refs:
+  - mp-docs-overview
+
+- prefix: collections/*/
+  copy:
+    text: A prefix within the build bucket's collections, which are versioned by database release date
+      with documents grouped into gzip-compressed JSON Lines files. The available source does not separately
+      describe this prefix's contents.
+    headline: A prefix within the build bucket's collections, which are versioned…
+    lede: A prefix within the build bucket's collections, which are versioned by database release date
+      with documents grouped into gzip-compressed JSON Lines files.
+  refs:
+  - mp-docs-overview
+
+- prefix: current-build/
+  copy:
+    text: A prefix within the build bucket, which contains the high-level derived data behind the MP API
+      and website along with pre-built objects and images. The available source does not separately describe
+      this prefix's contents.
+    headline: A prefix within the build bucket, which contains the high-level…
+    lede: A prefix within the build bucket, which contains the high-level derived data behind the MP API
+      and website along with pre-built objects and images.
+  refs:
+  - mp-docs-overview
+
+- prefix: images/
+  copy:
+    headline: Pre-built images for website visualization
+    lede: Pre-built images for efficient visualization on the Materials Project website, stored in PNG
+      format.
+    text: This prefix in the build bucket contains pre-built images for efficient visualization on the
+      MP website. The images are stored in PNG format.
+  refs:
+  - mp-docs-overview
+
+- prefix: objects/
+  copy:
+    headline: Pre-built objects for website visualization
+    lede: Pre-built objects derived from the Materials Project collections for efficient visualization
+      on the website.
+    text: This prefix in the build bucket contains pre-built objects for efficient visualization on the
+      MP website. Like the collections, the pre-built objects are versioned by database release date,
+      with individual documents grouped into gzip-compressed JSON Lines files.
+  refs:
+  - mp-docs-overview
+
+- prefix: static-collections/
+  copy:
+    text: A prefix within the build bucket, which contains the high-level derived data behind the MP API
+      and website along with pre-built objects and images. The available source does not separately describe
+      this prefix's contents.
+    headline: A prefix within the build bucket, which contains the high-level…
+    lede: A prefix within the build bucket, which contains the high-level derived data behind the MP API
+      and website along with pre-built objects and images.
+  refs:
+  - mp-docs-overview
+
+- prefix: validation/
+  copy:
+    text: Small top-level build prefix (3 objects); no MP publisher source documents it as a product.
+      Plausibly related to the documented task-validation collection but unconfirmed; left undescribed
+      rather than guessed.
+    headline: Small top-level build prefix
+    lede: Small top-level build prefix (3 objects); no MP publisher source documents it as a product.
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

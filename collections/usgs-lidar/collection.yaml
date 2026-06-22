@@ -1,0 +1,106 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: usgs-lidar
+title: USGS 3DEP LiDAR Point Clouds (Entwine/STAC)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: usgs-3dep-announcement
+  kind: publisher_doc
+  url: https://www.usgs.gov/news/technical-announcement/usgs-3dep-lidar-point-cloud-now-available-amazon-public-dataset
+  label: USGS technical announcement — 3DEP Lidar Point Cloud available as Amazon Public Dataset
+  excerpt: The 3D Elevation Program was founded on the concept that high-resolution elevation data should
+    be provided unlicensed, free and open to the public.
+  retrieved_at: '2026-06-22'
+
+- id: usgs-lidar-hobu-homepage
+  kind: publisher_homepage
+  url: https://usgs.entwine.io/
+  label: USGS & Entwine project index (usgs.entwine.io)
+  excerpt: The point cloud data may be visualized with Potree or Plasio.js via the index at usgs.entwine.io.
+  retrieved_at: '2026-06-22'
+
+- id: usgs-lidar-readme
+  kind: publisher_doc
+  url: https://github.com/hobuinc/usgs-lidar/
+  label: hobuinc/usgs-lidar project README (3DEP EPT)
+  excerpt: 'This AWS Public Dataset project is about processing the USGS 3DEP LiDAR point cloud data into
+    a form that is cloud-friendly, streamable, lossless, and convenient. Public 3DEP LiDAR data is available
+    in two forms on AWS: A Requester Pays bucket at s3://usgs-lidar ... and a public access bucket at
+    s3://usgs-lidar-public containing EPT resources. Currently, there are more than 10 trillion LiDAR
+    points available in over 950 distinct resources.'
+  retrieved_at: '2026-06-22'
+
+- id: usgs-lidar-registry-yaml
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/usgs-lidar.yaml
+  label: AWS Open Data registry metadata — USGS 3DEP LiDAR Point Clouds (provider-maintained dataset catalog)
+  excerpt: 'License: US Government Public Domain https://www.usgs.gov/faqs/what-are-terms-uselicensing-map-services-and-data-national-map.
+    Resources: ARN: arn:aws:s3:::usgs-lidar-public, Region: us-west-2, Type: S3 Bucket; Explore: [STAC
+    Catalog](https://usgs-lidar-stac.s3-us-west-2.amazonaws.com/ept/catalog.json).'
+  retrieved_at: '2026-06-22'
+
+- id: usgs-lidar-stac-catalog
+  kind: publisher_file
+  url: https://usgs-lidar-stac.s3-us-west-2.amazonaws.com/ept/catalog.json
+  label: usgs-lidar-stac EPT STAC root catalog (ept/catalog.json)
+  excerpt: '{"type": "Catalog", "id": "3dep", "stac_version": "1.1.0", "description": "A catalog of USGS
+    3DEP Lidar hosted on AWS s3.", "links": [... {"rel": "item", "href": "https://s3-us-west-2.amazonaws.com/usgs-lidar-stac/ept/AK_BrooksCamp_2012.json"}
+    ...]}'
+  retrieved_at: '2026-06-22'
+
+- id: usgs-national-map-terms
+  kind: publisher_doc
+  url: https://www.usgs.gov/faqs/what-are-terms-uselicensing-map-services-and-data-national-map
+  label: USGS — Terms of use/licensing for The National Map services and data (public domain)
+  excerpt: 'Map services and data downloaded from The National Map are free and in the public domain.
+    There are no restrictions; however, we request that the following acknowledgment statement of the
+    originating agency be included in products and data derived from our map services: Map services and
+    data available from U.S. Geological Survey, National Geospatial Program.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: USGS 3DEP lidar published as cloud-streamable Entwine Point Tiles
+    lede: Nationwide USGS 3D Elevation Program (3DEP) lidar point clouds, reprocessed by Hobu, Inc. into
+      streamable Entwine Point Tiles (EPT) and openly published on AWS as U.S. government public-domain
+      data.
+    text: The USGS 3D Elevation Program (3DEP) collects high-resolution lidar elevation data across the
+      conterminous United States, Hawaii, and U.S. territories. Hobu, Inc., with the U.S. Army Corps of
+      Engineers CRREL and the AWS Public Datasets team, reprocessed these point clouds into Entwine Point
+      Tiles (EPT) — a lossless, full-density, streamable octree based on LASzip (LAZ) encoding — so the
+      data can be queried and visualized directly in the cloud rather than downloaded wholesale. Resources
+      are named for their USGS acquisition projects and span more than 10 trillion points across over
+      950 distinct resources, with raw LAZ available in a sibling Requester Pays bucket. As 3DEP elevation
+      data, it is provided unlicensed, free, and open to the public.
+  refs:
+  - usgs-lidar-readme
+  - usgs-3dep-announcement
+  - usgs-lidar-registry-yaml
+
+source:
+  publisher: Hobu, Inc. (USGS 3D Elevation Program / USACE CRREL)
+  homepage_url: https://usgs.entwine.io/
+
+display:
+  canonical_path: /usgs-lidar/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

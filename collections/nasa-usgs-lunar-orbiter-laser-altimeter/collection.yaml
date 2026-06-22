@@ -1,0 +1,87 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: nasa-usgs-lunar-orbiter-laser-altimeter
+title: NASA/USGS Lunar Orbiter Laser Altimeter (LOLA) Cloud-Optimized Point Cloud
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: lola-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/nasa-usgs-lunar-orbiter-laser-altimeter/
+  label: 'AWS Open Data Registry: NASA / USGS LOLA Cloud Optimized Point Cloud (no-sign-request access,
+    CC0 1.0)'
+  excerpt: 'AWS CLI Access (No AWS account required): aws s3 ls --no-sign-request s3://astrogeo-ard/moon/lro/lola/  License:
+    CC0 1.0  Managed By: NASA'
+  retrieved_at: '2026-06-22'
+
+- id: lola-stac-docs
+  kind: publisher_doc
+  url: https://stac.astrogeology.usgs.gov/docs/data/moon/lola/
+  label: 'USGS Astrogeology ARD docs: LOLA Spot Observations (CC0-1.0, copy/modify/distribute)'
+  excerpt: 'These data are released under the CC0-1.0 license, meaning you can copy, modify, and distribution
+    these data without permissions. We ask that you cite these data if you make use of them. The citation
+    to be used is: Laura, J.R. and Hare, T.M., 2023.'
+  retrieved_at: '2026-06-22'
+
+- id: lola-usgs-homepage
+  kind: publisher_homepage
+  url: https://www.usgs.gov/centers/astrogeology-science-center
+  label: USGS Astrogeology Science Center homepage
+  excerpt: The Astrogeology Science Center of the U.S. Geological Survey produces and serves planetary
+    cartographic and analysis-ready data products.
+  retrieved_at: '2026-06-22'
+
+- id: lola-usgs-release
+  kind: publisher_doc
+  url: https://www.usgs.gov/data/lunar-orbiter-laster-altimeter-lola-rdr-cloud-optimized-point-cloud-copc-data-release
+  label: 'USGS Data Release: LOLA RDR COPC Data Release (CC0 1.0, DOI 10.5066/P9V5JIWH)'
+  excerpt: Lunar Orbiter Laser Altimeter (LOLA) RDR Cloud Optimized Point Cloud (COPC) Data Release. The
+    data consists of LOLA Reduced Data Record spot observations reformatted into ASPRS LAZ/Cloud Optimized
+    Point Cloud file format. This work is marked with CC0 1.0 Universal.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Lunar topography as analysis-ready point clouds
+    lede: An analysis-ready release of the Lunar Orbiter Laser Altimeter (LOLA) record, published by USGS
+      Astrogeology as Cloud Optimized Point Clouds of the Moon's surface under CC0.
+    text: The Lunar Orbiter Laser Altimeter, aboard NASA's Lunar Reconnaissance Orbiter, has returned
+      more than 6.3 billion individual laser-altimetry shots of the lunar surface between July 2009 and
+      February 2023. This release reformats those LOLA Reduced Data Record spot observations into ASPRS
+      LAZ / Cloud Optimized Point Cloud (COPC) files for direct cloud query and analysis. Returns are
+      organized into 15-degree by 15-degree longitude/latitude tiles, each carrying latitude, longitude,
+      and radius coordinates in the IAU 2015 lunar reference frame, and the tiles are indexed by a SpatioTemporal
+      Asset Catalog (STAC) collection so they can be queried by region with PDAL and STAC clients. Produced
+      by the USGS Astrogeology Science Center (Laura and Hare, 2023; DOI 10.5066/P9V5JIWH) and released
+      under CC0 1.0.
+  refs:
+  - lola-usgs-release
+  - lola-stac-docs
+  - lola-aws-registry
+
+source:
+  publisher: USGS Astrogeology Science Center
+  homepage_url: https://www.usgs.gov/centers/astrogeology-science-center
+
+display:
+  canonical_path: /nasa-usgs-lunar-orbiter-laser-altimeter/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

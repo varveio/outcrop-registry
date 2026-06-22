@@ -1,0 +1,94 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: ecmwf-forecasts
+title: ECMWF real-time forecasts
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: ecmwf-aws-registry
+  kind: registry_entry
+  url: https://registry.opendata.aws/ecmwf-forecasts/
+  label: ECMWF real-time forecasts — Registry of Open Data on AWS
+  excerpt: No AWS account required. aws s3 ls --no-sign-request s3://ecmwf-forecasts/
+  retrieved_at: '2026-06-20'
+
+- id: ecmwf-homepage
+  kind: publisher_homepage
+  url: https://www.ecmwf.int/
+  label: ECMWF homepage
+  excerpt: ECMWF is both a research institute and a 24/7 operational service, producing and disseminating
+    numerical weather predictions to its Member States.
+  retrieved_at: '2026-06-20'
+
+- id: ecmwf-opendata-access
+  kind: publisher_doc
+  url: https://www.ecmwf.int/en/forecasts/datasets/open-data
+  label: ECMWF Open Data — free and open public availability
+  excerpt: A subset of ECMWF real-time forecast data from the IFS and AIFS models is made available to
+    the public free of charge.
+  retrieved_at: '2026-06-20'
+
+- id: ecmwf-opendata-terms
+  kind: publisher_doc
+  url: https://www.ecmwf.int/en/forecasts/datasets/open-data
+  label: ECMWF Open Data — licence, access and product description
+  excerpt: A subset of ECMWF real-time forecast data from the IFS and AIFS models is made available to
+    the public free of charge. Their use is governed by the Creative Commons CC-BY-4.0 licence and the
+    ECMWF Terms of Use. This means that the data may be redistributed and used commercially, subject to
+    appropriate attribution.
+  retrieved_at: '2026-06-20'
+
+- id: ecmwf-tail-licence
+  kind: publisher_doc
+  url: https://www.ecmwf.int/en/forecasts/datasets/open-data
+  label: ECMWF Open Data — licence, access and product description
+  excerpt: A subset of ECMWF real-time forecast data from the IFS and AIFS models is made available to
+    the public free of charge. Their use is governed by the Creative Commons CC-BY-4.0 licence and the
+    ECMWF Terms of Use. This means that the data may be redistributed and used commercially, subject to
+    appropriate attribution.
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Free open subset of ECMWF real-time IFS and AIFS forecasts
+    lede: ECMWF Open Data is a free, openly licensed subset of the European Centre's real-time weather
+      forecasts from the IFS and AIFS models, released under CC-BY-4.0.
+    text: 'ECMWF Open Data is the freely available subset of the European Centre for Medium-Range Weather
+      Forecasts'' real-time forecast products, drawn from the medium-range (high-resolution and ensemble)
+      and seasonal forecast models. It covers output from both the physics-based Integrated Forecasting
+      System (IFS) and the machine-learning Artificial Intelligence Forecasting System (AIFS): IFS data
+      are released at the end of the real-time dissemination schedule, AIFS data as soon as they are produced.
+      Products are available at 0.25-degree resolution in GRIB2, which has used CCSDS compression since
+      July 2023. Use is governed by the Creative Commons CC-BY-4.0 licence and the ECMWF Terms of Use,
+      permitting commercial redistribution and reuse subject to appropriate attribution. As of IFS Cycle
+      50r1 (May 2026) the scda and scwv streams were discontinued, with 06z/18z atmospheric and wave data
+      now served under stream=oper and stream=wave.'
+  refs:
+  - ecmwf-opendata-terms
+
+source:
+  publisher: European Centre for Medium-Range Weather Forecasts (ECMWF)
+  homepage_url: https://www.ecmwf.int/
+
+display:
+  canonical_path: /ecmwf-forecasts/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

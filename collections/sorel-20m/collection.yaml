@@ -1,0 +1,88 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: sorel-20m
+title: Sophos/ReversingLabs 20 Million Malware Detection Dataset (SOREL-20M)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: sorel-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/sorel-20m/
+  label: AWS Open Data Registry — Sophos/ReversingLabs 20 Million malware detection dataset
+  excerpt: It includes metadata and EMBER-v2 features for approximately 10 million benign and 10 million
+    malicious Portable Executable files, with disarmed but otherwise complete files for all malware samples.
+    arn:aws:s3:::sorel-20m/ (us-west-2). aws s3 ls --no-sign-request s3://sorel-20m/
+  retrieved_at: '2026-06-22'
+
+- id: sorel-homepage
+  kind: publisher_homepage
+  url: https://ai.sophos.com/2020/12/14/sophos-reversinglabs-sorel-20-million-sample-malware-dataset/
+  label: Sophos AI — SOREL-20M announcement (sophos.com)
+  excerpt: The malware we’re releasing is “disarmed” so that it will not execute. This means it would
+    take knowledge, skill, and time to reconstitute the samples and get them to actually run.
+  retrieved_at: '2026-06-22'
+
+- id: sorel-license-md
+  kind: publisher_file
+  url: https://raw.githubusercontent.com/sophos/SOREL-20M/master/LICENSE.md
+  label: SOREL-20M LICENSE.md (Apache License 2.0)
+  excerpt: Apache License Version 2.0, January 2004 http://www.apache.org/licenses/ TERMS AND CONDITIONS
+    FOR USE, REPRODUCTION, AND DISTRIBUTION.
+  retrieved_at: '2026-06-22'
+
+- id: sorel-readme
+  kind: publisher_file
+  url: https://raw.githubusercontent.com/sophos/SOREL-20M/master/README.md
+  label: SOREL-20M repository README (sophos/SOREL-20M)
+  excerpt: Sophos-ReversingLabs 20 Million dataset. The code included in this repository produced the
+    baseline models available at s3://sorel-20m/09-DEC-2020/baselines. This code depends on the SOREL
+    dataset available via Amazon S3 at s3://sorel-20m/09-DEC-2020/processed-data/. The SOREL-20M S3 bucket
+    is public, so no credentials are required.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: Apache-2.0
+  status: verified
+  name: Apache License 2.0
+  url: https://www.apache.org/licenses/LICENSE-2.0
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Benchmark of ~20M Windows PE files for malware detection research
+    lede: 'SOREL-20M is the Sophos-ReversingLabs 20 Million dataset: labels, EMBER-v2 features, and metadata
+      for ~10M benign and ~10M malicious Windows PE files, with disarmed-but-complete binaries for every
+      malware sample.'
+    text: SOREL-20M is a production-scale benchmark for training and evaluating machine-learning malware
+      detectors, released in December 2020 as a collaboration between Sophos AI and ReversingLabs. It
+      provides ground-truth labels, EMBER-v2 feature vectors, behavioral tag counts, and pefile-derived
+      metadata for roughly 20 million Windows Portable Executable files split evenly between benign and
+      malicious, alongside disarmed-but-otherwise-complete binaries for the malware half. The release
+      ships under one dated prefix (09-DEC-2020) holding the disarmed binaries (~8TB), pre-extracted LightGBM
+      .npz feature arrays, LMDB feature and metadata stores plus a meta.db index, and pre-trained feed-forward
+      neural network and LightGBM baseline models with evaluation results. The companion code repository
+      supplies training, evaluation, and plotting scripts. Total footprint is about 8TB, so consumers
+      are encouraged to fetch only the elements they need.
+  refs:
+  - sorel-readme
+  - sorel-aws-registry
+
+source:
+  publisher: Sophos AI
+  homepage_url: https://ai.sophos.com/
+
+display:
+  canonical_path: /sorel-20m/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

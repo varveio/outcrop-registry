@@ -1,0 +1,81 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: virtual-shizuoka
+title: Virtual Shizuoka 3D Point Cloud Data
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: vshizuoka-homepage
+  kind: publisher_homepage
+  url: https://aigid.jp/
+  label: AIGID (Association for Promotion of Infrastructure Geospatial Information Distribution) homepage
+  excerpt: AIGID — Association for promotion of Infrastructure Geospatial Information Distribution, steward
+    of the Virtual Shizuoka open point-cloud dataset.
+  retrieved_at: '2026-06-22'
+
+- id: vshizuoka-readme
+  kind: publisher_file
+  url: https://github.com/aigidjp/opendata_virtualshizuoka/blob/main/README.md
+  label: Virtual Shizuoka opendata README (AIGID, license + structure)
+  excerpt: 'The datasets of Virtual Shizuoka is distributed a dual license: CC-BY 4.0 and ODbL. [Creative
+    Commons Attribution 4.0 International (CC-BY 4.0)] [Open Data Commons Open Database License (ODbL)].
+    This dataset consists of 3D point cloud data of the entire Shizuoka Prefecture, measured using airborne
+    laser scanning, airborne lasar bathymetry and mobile mapping systems. The datasets are available at
+    `s3://virtual-shizuoka` bucket.'
+  retrieved_at: '2026-06-22'
+
+- id: vshizuoka-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/virtual_shizuoka/
+  label: AWS Open Data Registry — Virtual Shizuoka (anonymous S3 usage example)
+  excerpt: aws s3 ls --no-sign-request s3://virtual-shizuoka/
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0 OR ODbL-1.0
+  status: verified
+  name: CC-BY-4.0 OR ODbL-1.0
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Open 3D point cloud of Shizuoka Prefecture, Japan
+    lede: Virtual Shizuoka is a prefecture-wide open point-cloud archive that recreates Shizuoka, Japan
+      at 1:1 scale from laser-survey data, published by AIGID under CC-BY 4.0 / ODbL.
+    text: 'Virtual Shizuoka collects high-precision 3D point clouds measured across the whole of Shizuoka
+      Prefecture using airborne laser scanning, airborne laser bathymetry, and mobile mapping systems,
+      with the aim of building a digital-twin replica of the prefecture for disaster prevention, infrastructure
+      maintenance, autonomous driving, and tourism. Each point carries XYZ coordinates plus color and
+      classification, georeferenced to EPSG:6676 (JGD2011 Japan Plane Rectangular CS VIII).
+
+
+      The archive is organized by fiscal year of acquisition (2019-2025), then by survey method (LP airborne
+      laser, MMS mobile mapping, ALB airborne laser bathymetry, and Backpack mobile mapping) and product
+      type (Ground/Original point clouds, Grid elevation, Contour, and Ortho imagery). Coverage was acquired
+      area-by-area over successive years, beginning with the Mt. Fuji and Izu Peninsula regions. Files
+      are tiled to the National Basic Map Grid (level-500 sections) under zone 08, distributed as LAS
+      point clouds (DXF for contours, TIFF for orthophotos) compressed as ZIP or 7z.'
+  refs:
+  - vshizuoka-readme
+  - vshizuoka-registry
+
+source:
+  publisher: AIGID (Association for Promotion of Infrastructure Geospatial Information Distribution)
+  homepage_url: https://aigid.jp/
+
+display:
+  canonical_path: /virtual-shizuoka/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

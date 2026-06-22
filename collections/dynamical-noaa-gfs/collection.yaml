@@ -1,0 +1,91 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: dynamical-noaa-gfs
+title: NOAA GFS — dynamical.org Icechunk Zarr
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: dynamical-about-open
+  kind: publisher_doc
+  url: https://dynamical.org/about/
+  label: dynamical.org — About (open, free access)
+  excerpt: 'Open: No lock-in, free access, open source.'
+  retrieved_at: '2026-06-20'
+
+- id: dynamical-homepage
+  kind: publisher_homepage
+  url: https://dynamical.org/
+  label: dynamical.org homepage
+  excerpt: Easy, fast weather data.
+  retrieved_at: '2026-06-20'
+
+- id: dynamical-noaa-gfs-anchor-fence
+  kind: publisher_doc
+  url: https://dynamical.org/catalog/noaa-gfs-analysis/
+  label: dynamical.org — NOAA GFS analysis (catalog page)
+  excerpt: 'Dataset licensed under CC BY 4.0. Attribution and citation: NOAA NWS NCEP GFS data processed
+    by dynamical.org from NOAA Open Data Dissemination archives. Or NOAA GFS from dynamical.org.'
+  retrieved_at: '2026-06-20'
+
+- id: gfs-analysis-page
+  kind: publisher_doc
+  url: https://dynamical.org/catalog/noaa-gfs-analysis/
+  label: dynamical.org — NOAA GFS analysis (catalog page)
+  excerpt: 'Dataset licensed under CC BY 4.0. Attribution and citation: NOAA NWS NCEP GFS data processed
+    by dynamical.org from NOAA Open Data Dissemination archives. Or NOAA GFS from dynamical.org.'
+  retrieved_at: '2026-06-20'
+
+- id: gfs-forecast-page
+  kind: publisher_doc
+  url: https://dynamical.org/catalog/noaa-gfs-forecast/
+  label: dynamical.org — NOAA GFS forecast (catalog page)
+  excerpt: 'Dataset licensed under CC BY 4.0. Attribution and citation: NOAA NWS NCEP GFS data processed
+    by dynamical.org from NOAA Open Data Dissemination archives. Or NOAA GFS from dynamical.org.'
+  retrieved_at: '2026-06-20'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: NOAA GFS forecasts and best-estimate analysis, cloud-optimized
+    lede: dynamical.org's analysis-ready republication of NOAA's Global Forecast System (GFS), serving
+      global 0.25° forecasts and an hourly best-estimate analysis as one-line-loadable Icechunk/Zarr stores.
+    text: 'dynamical.org reprocesses output from NOAA NWS/NCEP''s Global Forecast System (GFS) — a coupled
+      atmosphere, ocean, land/soil, and sea-ice model producing dozens of atmospheric and land-soil variables
+      — into analysis-ready, cloud-optimized Icechunk/Zarr datasets. Two products are built from the same
+      global 0.25° (~20km) model output covering 2021-05-01 onward: a forecast archive (runs initialized
+      every 6 hours, indexed by init_time and stepping along lead_time to 16 days) and an analysis archive
+      (an hourly best estimate of past weather formed by concatenating the first hours of each successive
+      forecast along a single time dimension). Source GRIB files come from NOAA Open Data Dissemination
+      via the AWS Open Data Registry, with operational data from NOAA NOMADS; values are bit-rounded for
+      compression. Both datasets open in one line via the open-source dynamical_catalog Python package,
+      are stored with Source Cooperative (a Radiant Earth initiative) and AWS Open Data, and are licensed
+      under CC BY 4.0.'
+  refs:
+  - gfs-forecast-page
+  - gfs-analysis-page
+
+source:
+  publisher: dynamical.org
+  homepage_url: https://dynamical.org/
+
+display:
+  canonical_path: /dynamical-noaa-gfs/
+
+stewardship:
+  last_reviewed_at: '2026-06-20'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

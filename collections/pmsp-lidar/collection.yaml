@@ -1,0 +1,82 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: pmsp-lidar
+title: Prefeitura Municipal de São Paulo (PMSP) LiDAR Point Cloud
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: ept-format
+  kind: publisher_doc
+  url: https://entwine.io/entwine-point-tile.html
+  label: Entwine Point Tile (EPT) format specification — entwine.io
+  excerpt: The hierarchy section contains information about what nodes exist and how many points they
+    contain. The file format is a simple JSON object, with string keys of D-X-Y-Z mapping to a point count
+    for the corresponding file.
+  retrieved_at: '2026-06-22'
+
+- id: geosampa-terms
+  kind: publisher_doc
+  url: https://metadados.geosampa.prefeitura.sp.gov.br/geonetwork/srv/api/records/b9b1b6d2-eb59-49fc-8ba7-66e75eb552a6
+  label: GeoSampa metadata — Nuvem de pontos / MDT LiDAR (São Paulo municipality), access & use constraints
+  excerpt: MD_RestrictionCode codeListValue="semRestricoes"
+  retrieved_at: '2026-06-22'
+
+- id: pmsp-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/pmsp-lidar/
+  label: AWS Open Data Registry — Prefeitura Municipal de São Paulo (PMSP) LiDAR Point Cloud
+  excerpt: aws s3 ls --no-sign-request s3://ept-m3dc-pmsp/
+  retrieved_at: '2026-06-22'
+
+- id: pmsp-homepage
+  kind: publisher_homepage
+  url: https://geosampa.prefeitura.sp.gov.br/
+  label: GeoSampa — o mapa digital da cidade de São Paulo (homepage)
+  excerpt: GeoSampa - o mapa digital da cidade de São Paulo
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: No license asserted
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Airborne LiDAR point cloud of the city of São Paulo
+    lede: The PMSP LiDAR Point Cloud is São Paulo City Hall's aerial-survey LiDAR of the entire municipality,
+      published openly by GeoSampa as a full-density Entwine Point Tile octree.
+    text: 'Acquired by aerial survey beginning in 2017, this is the LiDAR point cloud behind the Mapa
+      3D Digital da Cidade (M3DC) of the Prefeitura Municipal de São Paulo. It covers the full municipal
+      area — on the order of 1,600 km² and tens of billions of returns — surveyed to PEC PCD Class ''A''
+      cartographic accuracy in the EPSG:31983 (SIRGAS 2000 / UTM 23S) reference frame. The point cloud
+      is published in the Entwine Point Tile (EPT) format: a lossless, full-density octree of LASzip-compressed
+      (.laz) tiles that streams directly to web point-cloud viewers and to PDAL/Entwine processing without
+      a full download. The same data is also distributed as plain LAZ tiles and through the GeoSampa portal;
+      the AWS Open Data copy mirrors the EPT build for cloud-native access. The collection is intended
+      to grow as further surveys are flown on demand.'
+  refs:
+  - pmsp-aws-registry
+  - geosampa-terms
+  - ept-format
+
+source:
+  publisher: GeoSampa (Prefeitura Municipal de São Paulo)
+  homepage_url: https://geosampa.prefeitura.sp.gov.br/
+
+display:
+  canonical_path: /pmsp-lidar/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

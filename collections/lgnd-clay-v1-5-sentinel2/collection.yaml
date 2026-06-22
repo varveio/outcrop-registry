@@ -1,0 +1,74 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: lgnd-clay-v1-5-sentinel2
+title: LGND Clay v1.5 Sentinel-2 Embeddings
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: lgnd-clay-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/lgnd-clay-v1-5-sentinel2/
+  label: AWS Open Data Registry — LGND Clay v1.5 Sentinel-2 (no-sign-request access)
+  excerpt: 'AWS CLI Access (No AWS account required): aws s3 ls --no-sign-request s3://us-west-2.opendata.source.coop/clay/lgnd-clay-v1-5-sentinel-2-l2a/'
+  retrieved_at: '2026-06-22'
+
+- id: lgnd-clay-homepage
+  kind: publisher_homepage
+  url: https://lgnd.ai/
+  label: LGND AI homepage
+  excerpt: The fastest way to turn imagery into insight.
+  retrieved_at: '2026-06-22'
+
+- id: lgnd-clay-readme
+  kind: publisher_file
+  url: https://data.source.coop/clay/lgnd-clay-v1-5-sentinel-2-l2a/README.md
+  label: LGND Clay Embeddings - Sentinel2 README (Source Cooperative)
+  excerpt: This product is licensed under CC BY 4.0. This repository contains a global dataset of Clay
+    v1.5 embeddings for Sentinel2, created by lgnd.ai. Each embedding is a 1024-dimensional float32 vector
+    associated with a 2560-meter MajorTOM grid cell.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Global Clay v1.5 embeddings of Sentinel-2 imagery
+    lede: LGND Clay v1.5 Sentinel-2 is a near-global set of 1024-dimensional Clay foundation-model embeddings
+      of Sentinel-2 L2A imagery, published by LGND on Source Cooperative under CC BY 4.0.
+    text: 'This collection encodes Sentinel-2 L2A imagery into 1024-dimensional float32 embedding vectors
+      produced by the Clay v1.5 geospatial foundation model, each tied to a 2560-meter MajorTOM grid cell.
+      Coverage is near-complete (~99.9%, estimated ~99.7%) across two time steps, June 2024 and June 2025,
+      with source imagery drawn from the public sentinel-cogs archive on AWS. The data is split into two
+      products: a scene product (~77.9 million embeddings, ~285GB) carrying one record per embedded Sentinel-2
+      scene, and an aggregated product (~49.7 million embeddings, ~182GB) that reduces each MajorTOM cell
+      to one representative embedding per month for consistent time-series analysis. Both share a common
+      schema (chip and cell identifiers, source STAC item, acquisition datetime, the embedding vector,
+      bbox, and chip geometry) and ship as hive-partitioned GeoParquet (v1.1, ZSTD level 15, Hilbert spatial
+      ordering).'
+  refs:
+  - lgnd-clay-readme
+
+source:
+  publisher: LGND
+  homepage_url: https://lgnd.ai/
+
+display:
+  canonical_path: /lgnd-clay-v1-5-sentinel2/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

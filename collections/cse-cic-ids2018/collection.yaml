@@ -1,0 +1,95 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: cse-cic-ids2018
+title: CSE-CIC-IDS2018 Intrusion Detection Dataset
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: cse-cic-ids2018-access
+  kind: publisher_doc
+  url: https://www.unb.ca/cic/datasets/ids-2018.html
+  label: CSE-CIC-IDS2018 — anonymous AWS S3 access instructions (CIC)
+  excerpt: aws s3 sync --no-sign-request --region <your-region> "s3://cse-cic-ids2018/" dest-dir
+  retrieved_at: '2026-06-22'
+
+- id: cse-cic-ids2018-cic-page
+  kind: publisher_doc
+  url: https://www.unb.ca/cic/datasets/ids-2018.html
+  label: CIC — CSE-CIC-IDS2018 dataset page (overview, contents, access)
+  excerpt: 'A collaborative project between the Communications Security Establishment (CSE) and the Canadian
+    Institute for Cybersecurity (CIC) that use the notion of profiles to generate cybersecurity dataset
+    in a systematic manner. The final dataset includes seven different attack scenarios: Brute-force,
+    Heartbleed, Botnet, DoS, DDoS, Web attacks, and infiltration of the network from inside. The attacking
+    infrastructure includes 50 machines and the victim organization has 5 departments and includes 420
+    mac'
+  retrieved_at: '2026-06-22'
+
+- id: cse-cic-ids2018-homepage
+  kind: publisher_homepage
+  url: https://www.unb.ca/cic/
+  label: Canadian Institute for Cybersecurity (CIC), University of New Brunswick
+  excerpt: Canadian Institute for Cybersecurity (CIC), University of New Brunswick.
+  retrieved_at: '2026-06-22'
+
+- id: cse-cic-ids2018-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/cse-cic-ids2018/
+  label: AWS Open Data Registry — CSE-CIC-IDS2018 (S3 bucket, no-sign-request)
+  excerpt: Resource type S3 Bucket. Amazon Resource Name (ARN) arn:aws:s3:::cse-cic-ids2018. AWS Region
+    ca-central-1. AWS CLI Access (No AWS account required) aws s3 ls --no-sign-request s3://cse-cic-ids2018/
+  retrieved_at: '2026-06-22'
+
+- id: cse-cic-ids2018-terms
+  kind: publisher_doc
+  url: https://www.unb.ca/cic/datasets/ids-2018.html
+  label: CSE-CIC-IDS2018 License & Terms of Use (CIC)
+  excerpt: License. You may redistribute, republish, and mirror the CSE-CIC-IDS2018 dataset in any form.
+    However, any use or redistribution of the data must include a citation to the CSE-CIC-IDS2018 dataset
+    and a link to this page in AWS.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NOASSERTION
+  status: verified
+  name: CSE-CIC-IDS2018 License & Terms of Use (CIC)
+  url: https://www.unb.ca/cic/datasets/ids-2018.html
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Benchmark intrusion-detection dataset with raw captures and flow features
+    lede: CSE-CIC-IDS2018 is a profile-driven intrusion-detection benchmark from the Communications Security
+      Establishment and the Canadian Institute for Cybersecurity, pairing raw network captures with extracted
+      flow features across seven attack scenarios.
+    text: CSE-CIC-IDS2018 is a benchmark dataset for developing and evaluating network intrusion-detection
+      systems, built collaboratively by the Communications Security Establishment (CSE) and the Canadian
+      Institute for Cybersecurity (CIC) at the University of New Brunswick. It is generated from abstract
+      user profiles that encode realistic application, protocol, and attack behaviour, then replayed in
+      a controlled AWS testbed of 50 attacking machines against a victim organization of five departments
+      spanning 420 machines and 30 servers. The captures cover seven attack families — Brute-force, Heartbleed,
+      Botnet, DoS, DDoS, Web attacks, and internal infiltration — recorded over February and March 2018.
+      Each machine's raw network traffic and system logs are provided alongside CSV files of 80 network-flow
+      features extracted with CICFlowMeter-V3, so the data supports both feature-extraction research on
+      the raw captures and machine-learning work on the ready-made flow tables.
+  refs:
+  - cse-cic-ids2018-cic-page
+
+source:
+  publisher: Canadian Institute for Cybersecurity (CIC), University of New Brunswick
+  homepage_url: https://www.unb.ca/cic/
+
+display:
+  canonical_path: /cse-cic-ids2018/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,214 @@
+schema_version: '0.4'
+bucket: osm-planet-eu-central-1
+backend: s3
+role: primary
+region: eu-central-1
+
+prefixes:
+- prefix: changesets/
+  copy:
+    headline: Changeset metadata dumps and their replication stream
+    lede: changesets/ groups the complete OSM XML metadata for every editing session ('changeset'), as
+      both a periodic full dump and a continuous replication stream.
+    text: changesets/ contains the changeset metadata for OpenStreetMap. A changeset is a group of edits
+      to the database by a single user over a short period; each carries metadata such as user, timestamp,
+      bounding box, editor, and a free-text comment — but not the geometry edits themselves. changesets/osm/
+      is the periodic full changeset dump in OSM XML, while changesets/replication/ is the continuous
+      diff stream of new and reopened changesets that keeps a local changeset database current between
+      full dumps.
+  refs:
+  - changeset-wiki
+
+- prefix: changesets/osm/
+  copy:
+    headline: Full changeset metadata dump (OSM XML)
+    lede: changesets/osm/ is the complete metadata for all changesets in OpenStreetMap, published as a
+      compressed OSM XML file.
+    text: 'changesets/osm/ contains the full changeset metadata dump: a single compressed OSM XML file
+      holding the envelope and tags of every changeset in OpenStreetMap — user, timestamp, bounding box,
+      editor, and comment — without the underlying geometry edits, recently around 8 GB. It is the bulk
+      companion to the live changesets/replication/ stream and the starting point for analysing editing
+      activity across the whole project.'
+  refs:
+  - changeset-wiki
+
+- prefix: changesets/replication/
+  copy:
+    headline: Changeset replication stream
+    lede: changesets/replication/ is a continuous diff stream of new and reopened changesets, for keeping
+      a local changeset database current.
+    text: 'changesets/replication/ contains the changeset replication stream: a minutely-style sequence
+      of small OSM XML diffs recording newly created and reopened changesets. It carries changeset metadata
+      rather than feature geometry, letting consumers track editing activity in near real time without
+      re-downloading the full changeset dump in changesets/osm/.'
+  refs:
+  - changeset-wiki
+
+- prefix: discussions/
+  copy:
+    headline: Changeset discussion dumps — the comment threads on OSM changesets
+    lede: The discussions dumps capture the public comment-and-reply threads attached to OpenStreetMap
+      changesets, dumped separately from the changeset metadata.
+    text: 'The discussions dumps contain OpenStreetMap changeset discussions: the public comment-and-reply
+      threads that appear beneath the changeset tags in the web interface, where mappers welcome newcomers,
+      flag problematic edits, and discuss the reasoning behind changes. Because the threads are public,
+      others in the community can contribute and see the rationale for any further changes agreed.
+
+
+      Changeset comment dumping was introduced in planet-dump-ng 1.1.0, which carries the comments together
+      with the changesets but writes them to a separate file named "discussions". The data is distributed
+      as bzip2-compressed XML and refreshed on the weekly planet cadence, letting consumers ingest the
+      conversation layer independently of the structural changeset metadata.'
+  refs:
+  - osm-discussions-changeset-wiki
+
+- prefix: notes/osn/
+  copy:
+    headline: Planet notes dump (OSN format)
+    lede: notes/osn/ is a complete export of OpenStreetMap Notes — the location-pinned comments mappers
+      leave to report errors and request fixes.
+    text: notes/osn/ contains the planet notes dump. Notes are a core OpenStreetMap feature that lets
+      anyone pin a comment to a location on the map to report errors, omissions, or things needing on-the-ground
+      verification; other contributors reply, resolve, and close them. This is a bzip2-compressed export
+      of the entire collection of notes in the OSN (OpenStreetMap Notes) XML format, containing notes
+      text, status fields, and all comments, but no hidden notes. It is user feedback about the map rather
+      than map geometry, so it sits alongside — not inside — the planet data and changesets, and is regenerated
+      regularly.
+  refs:
+  - notes-wiki
+
+- prefix: planet-full-history/
+  copy:
+    headline: Full-history planet dumps — every version of every OSM object
+    lede: The full-history planet dumps carry the complete editing history of the OpenStreetMap database,
+      not just the latest state of each feature.
+    text: 'The full-history planet dumps contain the entire edit history of OpenStreetMap rather than
+      a single current snapshot. For nodes, ways, and relations created since API 0.5 (October 2007),
+      the files include every version that ever existed, even objects deleted since their creation, with
+      changesets included alongside the geographic data.
+
+
+      They are distributed in both bzip2-compressed XML (history-latest.osm.bz2) and the custom OSM PBF
+      binary format (history-latest.osm.pbf), regenerated weekly. As of June 2026 the compressed bzip2
+      variant is around 250 GB and the PBF around 148 GB, while the uncompressed XML exceeds 4.5 TB. Because
+      they span the whole revision history, these dumps are intended for historical analysis and statistical
+      research; many standard OSM tools handle only current data and cannot process them.'
+  refs:
+  - osm-fullhistory-wiki
+
+- prefix: planet/
+  copy:
+    headline: Weekly planet dump and its replication diffs
+    lede: planet/ groups the complete weekly OpenStreetMap database — every node, way, and relation —
+      alongside the OsmChange diffs that keep a local copy current between releases.
+    text: 'planet/ is the core of the OpenStreetMap data distribution. Each week a new and complete copy
+      of all data in OpenStreetMap is published as both a custom binary PBF file (under planet/pbf/) and
+      a bzip2-compressed OSM XML file (under planet/osm/), covering every node, way, and relation in the
+      map. Generation normally starts around 01:10 UK time and is guaranteed to contain all updates prior
+      to that time.
+
+
+      Alongside the full dumps, planet/replication/ carries OsmChange (.osc) diff streams at three cadences
+      — minute, hour, and day — so consumers can apply incremental updates rather than re-downloading
+      the whole planet each week. The diffs follow the OsmChange specification and together allow full
+      reconstruction of the dataset.'
+  refs:
+  - planet-page
+
+- prefix: planet/osm/
+  copy:
+    headline: Weekly planet dump in compressed OSM XML
+    lede: planet/osm/ is the complete OpenStreetMap database serialized as a single bzip2-compressed OSM
+      XML file, regenerated weekly.
+    text: planet/osm/ contains the weekly planet dump in the OSM XML format — a single bzip2-compressed
+      text file holding all nodes, ways, and relations in OpenStreetMap. OSM XML is the larger, uncompressed-then-compressed
+      serialization, recently around 163 GB compressed. For most processing the PBF form under planet/pbf/
+      is preferred because it is more compact and faster to parse. A new complete copy is published each
+      week and is guaranteed to contain all updates prior to the dump's start time.
+  refs:
+  - planet-page
+
+- prefix: planet/pbf/
+  copy:
+    headline: Weekly planet dump in the compact PBF format
+    lede: planet/pbf/ is the complete OpenStreetMap database in the binary Protocolbuffer Binary Format
+      (PBF), the recommended form for processing the planet.
+    text: planet/pbf/ contains the weekly planet dump as a custom PBF (Protocolbuffer Binary Format) file
+      holding every node, way, and relation in OpenStreetMap. PBF is a more compact binary format that
+      is faster to process and should be used whenever possible, which makes it the default choice over
+      the equivalent OSM XML dump under planet/osm/. The latest weekly PBF file is roughly 87 GB. A new
+      complete copy is published each week.
+  refs:
+  - planet-page
+
+- prefix: planet/replication/
+  copy:
+    headline: OsmChange replication diffs at minute, hour, and day cadence
+    lede: planet/replication/ groups incremental OsmChange (.osc) diff streams that let a local OSM copy
+      stay current between weekly planet dumps, published at three frequencies.
+    text: planet/replication/ carries the replication diff streams for the OpenStreetMap database. Each
+      diff is an OsmChange (.osc) file recording the creates, modifications, and deletions since the previous
+      diff, organized by cadence into minute, hour, and day sub-streams. Together they let a consumer
+      keep a local copy of the planet current without re-downloading the full weekly dump. Minutely diffs
+      are the smallest and most frequent; hourly diffs combine the minutely ones, and daily diffs aggregate
+      further for consumers that update less often. All diffs follow the OsmChange specification.
+  refs:
+  - planet-wiki
+
+- prefix: planet/replication/day/
+  copy:
+    headline: Daily OsmChange diffs
+    lede: planet/replication/day/ combines a full day of OpenStreetMap edits into a single OsmChange diff,
+      for consumers updating daily.
+    text: 'planet/replication/day/ contains the daily replication diffs: OsmChange (.osc) files combining
+      a full day of edits into one diff, generally about 40–80 MB but occasionally growing to 300–400
+      MB on high-activity days. They are the coarsest replication cadence, suited to consumers that refresh
+      a local OpenStreetMap copy once per day.'
+  refs:
+  - planet-wiki
+
+- prefix: planet/replication/hour/
+  copy:
+    headline: Hourly OsmChange diffs
+    lede: planet/replication/hour/ combines an hour of OpenStreetMap edits into a single OsmChange diff,
+      for consumers updating hourly.
+    text: 'planet/replication/hour/ contains the hourly replication diffs: OsmChange (.osc) files that
+      combine an hour''s worth of minutely changes into a single diff. They serve as a convenience layer
+      over the minutely stream for consumers that synchronize their local OSM copy hourly rather than
+      every minute, trading latency for fewer, larger files.'
+  refs:
+  - planet-wiki
+
+- prefix: planet/replication/minute/
+  copy:
+    headline: Minutely OsmChange diffs
+    lede: planet/replication/minute/ is the smallest, most frequent replication stream — one OsmChange
+      diff per minute of OpenStreetMap activity.
+    text: 'planet/replication/minute/ contains the minutely replication diffs: small OsmChange (.osc)
+      files, one per minute, capturing every create, modify, and delete applied to the OpenStreetMap database
+      in that interval. These are the smallest and most frequent diffs, produced by osmdbt, and the lowest-latency
+      way to mirror OSM edits. Consumers that update less frequently use the hourly or daily aggregates
+      instead.'
+  refs:
+  - planet-wiki
+
+- prefix: tile_logs/standard_layer/
+  copy:
+    headline: Aggregated usage logs for the standard tile layer
+    lede: tile_logs/standard_layer/ contains daily, privacy-thresholded CSV statistics of who uses the
+      openstreetmap.org standard tile layer, by host and by application.
+    text: tile_logs/standard_layer/ contains the tile usage logs for the OSMF standard map layer (tile.openstreetmap.org),
+      generated by the tilelog tool. Host logs record the website host of sites using the tile service
+      with their average requests/second and cache-miss requests/second over a 24-hour UTC day; app logs
+      record the referer of non-website usage, primarily standalone mobile and desktop programs. For privacy
+      reasons only sites with at least 432,000 requests per day (a 5 requests/second average) are included.
+      The files are daily CSV aggregates — anonymised usage statistics for the standard layer, not raw
+      request logs and not map data.
+  refs:
+  - tilelog-readme
+
+stewardship:
+  last_reviewed_at: '2026-06-17'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

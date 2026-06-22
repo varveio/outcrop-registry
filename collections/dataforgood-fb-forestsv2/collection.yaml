@@ -1,0 +1,76 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: dataforgood-fb-forestsv2
+title: High Resolution Canopy Height Maps v2 (CHMv2) — WRI & Meta
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: chmv2-aws-registry
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/dataforgood-fb-forestsv2/
+  label: AWS Open Data Registry — Version 2 High Resolution Canopy Height Maps by WRI and Meta
+  excerpt: 'License: Creative Commons Attribution 4.0 International (https://creativecommons.org/licenses/by/4.0/).
+    AWS CLI Access (No AWS account required): aws s3 ls --no-sign-request s3://dataforgood-fb-data/forests/v2/global/dinov3_global_chm_v2_ml3/'
+  retrieved_at: '2026-06-22'
+
+- id: chmv2-homepage
+  kind: publisher_homepage
+  url: https://dataforgood.fb.com/
+  label: Meta Data for Good homepage
+  excerpt: Meta Data for Good — datasets and tools, including the High Resolution Canopy Height Maps produced
+    with the World Resources Institute.
+  retrieved_at: '2026-06-22'
+
+- id: chmv2-metablog
+  kind: publisher_doc
+  url: https://ai.meta.com/blog/world-resources-institute-dino-canopy-height-maps-v2/
+  label: Meta AI — Introducing Canopy Height Maps v2
+  excerpt: Canopy Height Maps v2 (CHMv2) is an open source model and world-scale maps generated with it,
+    in partnership with the World Resources Institute. CHMv2 uses the DINOv3 backbone and delivers substantial
+    improvements in accuracy, detail, and global consistency over the 2024 release.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC-BY-4.0
+  status: verified
+  name: Creative Commons Attribution 4.0 International
+  url: https://creativecommons.org/licenses/by/4.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Global 1 m canopy height maps from satellite imagery and AI
+    lede: Version 2 High Resolution Canopy Height Maps (CHMv2) is a worldwide 1-meter tree-height dataset
+      from Meta and the World Resources Institute, derived from Maxar imagery with a DINOv3 vision model
+      and calibrated to GEDI lidar.
+    text: CHMv2 estimates tree canopy height across the globe at roughly 1-meter resolution, mapping every
+      tree, gap, and canopy edge to support forest-health monitoring, restoration tracking, degradation
+      detection, and carbon-stock estimation. It is produced by Meta's Data for Good team with the World
+      Resources Institute's Land & Carbon Lab, using the DINOv3 self-supervised vision model on sub-meter
+      worldwide Maxar satellite imagery, with heights calibrated against GEDI spaceborne lidar. Version
+      2 substantially improves accuracy, detail, and global consistency over the 2024 release, raising
+      model R-squared from 0.53 to 0.86. The maps are distributed as cloud-optimized GeoTIFF tiles with
+      accompanying GeoJSON observation-date metadata, and are also available on Google Earth Engine.
+  refs:
+  - chmv2-metablog
+  - chmv2-aws-registry
+
+source:
+  publisher: Meta Data for Good (with World Resources Institute)
+  homepage_url: https://dataforgood.fb.com/
+
+display:
+  canonical_path: /dataforgood-fb-forestsv2/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

@@ -1,0 +1,25 @@
+schema_version: '0.4'
+bucket: abeja-cc-ja
+backend: s3
+role: primary
+region: ap-northeast-1
+
+prefixes:
+- prefix: ppi_filtered/
+  copy:
+    headline: Personal-information-filtered Japanese corpus subset
+    lede: An additional cut of the ABEJA CC JA corpus carrying enhanced filtering for sensitive personal
+      information, in the same JSONL format.
+    text: This subset applies stronger filtering for sensitive personal information on top of the standard
+      ABEJA CC JA cleaning pipeline, intended for uses that want the more conservatively redacted corpus.
+      Records keep the same JSON-Lines shape as the main release — a source url plus preprocessed Japanese
+      content — organized as a series of `passed_common_crawl_*.jsonl` files paralleling the base corpus's
+      common_crawl_0..19 layout.
+  refs:
+  - abeja-about-data-doc
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

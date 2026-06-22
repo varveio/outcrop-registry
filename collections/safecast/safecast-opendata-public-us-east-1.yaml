@@ -1,0 +1,31 @@
+schema_version: '0.4'
+bucket: safecast-opendata-public-us-east-1
+backend: s3
+role: secondary
+region: us-east-1
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+prefixes:
+- prefix: ingest/prd/
+  copy:
+    headline: Production ingest in the Safecast public open-data mirror
+    lede: The production-environment ingest tree within Safecast's AWS Open Data public mirror, holding
+      bulk exports of crowdsourced radiation and air-quality measurements under CC0.
+    text: Contains the production ingest of Safecast measurement exports served from the project's public
+      open-data endpoint on AWS. It carries the same CC0-dedicated radiation and air-quality readings
+      as the rest of the Safecast archive, retrievable anonymously from public cloud storage without an
+      account.
+  refs:
+  - safecast-aws-registry
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

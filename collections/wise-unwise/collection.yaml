@@ -1,0 +1,101 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: wise-unwise
+title: Unblurred Coadds of the Wide-field Infrared Survey Explorer (unWISE)
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: aws-registry-unwise
+  kind: catalog_metadata
+  url: https://registry.opendata.aws/wise-unwise/
+  label: AWS Open Data Registry — unWISE (nasa-irsa-wise) usage example
+  excerpt: aws s3 ls --no-sign-request s3://nasa-irsa-wise/unwise/
+  retrieved_at: '2026-06-22'
+
+- id: irsa-ack
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/ack.html
+  label: IRSA Acknowledgement
+  excerpt: If you use IRSA data or services in your research, please include the appropriate citations,
+    facilities keywords, and acknowledgements in your paper ... "This research has made use of the NASA/IPAC
+    Infrared Science Archive, which is funded by the National Aeronautics and Space Administration and
+    operated by the California Institute of Technology."
+  retrieved_at: '2026-06-22'
+
+- id: irsa-cloud-access
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/cloud_access/
+  label: IRSA Cloud Data Access
+  excerpt: The files are hosted through the AWS Open Data Sponsorship Program, allowing them to be downloaded
+    or accessed directly without credentials or egress charges. ... The data are freely available and
+    no special permissions or credentials are required. ... make an anonymous connection ... a parameter
+    such as `--no-sign-request` or `anonymous=True`.
+  retrieved_at: '2026-06-22'
+
+- id: irsa-homepage
+  kind: publisher_homepage
+  url: https://irsa.ipac.caltech.edu/Missions/wise.html
+  label: NASA/IPAC IRSA — WISE and NEOWISE mission page
+  excerpt: Wide-field Infrared Survey Explorer (WISE) and NEOWISE
+  retrieved_at: '2026-06-22'
+
+- id: irsa-terms
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/data_use_terms.html
+  label: Terms of Use of Data Hosted by IRSA
+  excerpt: Most data served by IRSA is public, with no usage restrictions. ... It is best practice for
+    users of data hosted at IRSA to include the appropriate acknowledgements and citations in any publications.
+  retrieved_at: '2026-06-22'
+
+- id: unwise-overview
+  kind: publisher_doc
+  url: https://irsa.ipac.caltech.edu/data/WISE/unWISE/overview.html
+  label: IRSA unWISE overview
+  excerpt: 'unWISE is a reprocessing of WISE data to improved depth and spatial resolution. If you use
+    the unWISE Time-Domain Catalog, please cite ... the dataset Digital Object Identifier (DOI): 10.26131/IRSA580.'
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: NONE
+  status: verified
+  name: No license (public domain / no instrument)
+  url: null
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: unWISE reprocessed WISE/NEOWISE coadds and time-domain catalog
+    lede: unWISE is a reprocessing of NASA's Wide-field Infrared Survey Explorer (WISE) imaging that preserves
+      native angular resolution and is optimized for forced photometry, hosted by NASA/IPAC IRSA.
+    text: 'unWISE reprocesses the WISE and NEOWISE all-sky infrared imaging to improved depth and spatial
+      resolution, producing unblurred coadds and source catalogs in the W1 (3.4 micron) and W2 (4.6 micron)
+      bands. The reprocessing methodology was developed by Lang (2014), with the coadds and catalogs produced
+      by Meisner, Lang & Schlegel, Schlafly, Meisner & Green, and Meisner, Caselden, Schlafly & Kiwy.
+      IRSA hosts three unWISE products: the coadded images, the unWISE source catalog, and the unWISE
+      Time-Domain Catalog (neo7), the last built from time-resolved coadds that each stack the exposures
+      from one biannual sky pass. The data are served from the nasa-irsa-wise S3 bucket through the AWS
+      Open Data Sponsorship Program and may be accessed anonymously without AWS credentials.'
+  refs:
+  - unwise-overview
+  - irsa-cloud-access
+  - aws-registry-unwise
+
+source:
+  publisher: NASA/IPAC Infrared Science Archive (IRSA)
+  homepage_url: https://irsa.ipac.caltech.edu/
+
+display:
+  canonical_path: /wise-unwise/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source

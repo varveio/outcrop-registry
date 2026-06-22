@@ -1,0 +1,86 @@
+schema_version: '0.4'
+record_version: 0.4.0
+slug: safecast
+title: Safecast — Open Environmental Radiation & Air-Quality Measurements
+status: reviewed
+sensitivity_class: unrestricted
+publication_scope: full
+
+refs:
+- id: safecast-aws-registry
+  kind: catalog_metadata
+  url: https://github.com/awslabs/open-data-registry/blob/main/datasets/safecast.yaml
+  label: AWS Open Data Registry — Safecast dataset metadata
+  excerpt: 'License: Safecast data is published under a CC0 designation. Bulk exports of air and radiation
+    measurements. ARN: arn:aws:s3:::safecast-opendata-public-us-east-1. Region: us-east-1. Type: S3 Bucket.'
+  retrieved_at: '2026-06-22'
+
+- id: safecast-homepage
+  kind: publisher_homepage
+  url: https://safecast.org/
+  label: Safecast project homepage
+  excerpt: Safecast is a global volunteer-centered citizen science project working to empower people with
+    data about their environments.
+  retrieved_at: '2026-06-22'
+
+- id: safecast-license-page
+  kind: publisher_doc
+  url: https://safecast.org/about/licenses-we-use/
+  label: Safecast — Licenses We Use (data CC0)
+  excerpt: Data is published under a CC0 designation. This is a public domain designation and means the
+    data is free and open for anyone to use under any circumstance. While you are not legally required
+    to attribute the data back to us, it's a nice thing to do – collecting the data was a lot of hard
+    work.
+  retrieved_at: '2026-06-22'
+
+- id: safecast-openness-faq
+  kind: publisher_doc
+  url: https://safecast.org/faq/openness-and-data-access/
+  label: Safecast FAQ — Openness and Data Access
+  excerpt: All Safecast data is published into the Public Domain under a CC0 designation. It's not necessary
+    to sign up to query or download data, so that can be done anonymously. It's also possible to download
+    the whole dataset at once as a large CSV file.
+  retrieved_at: '2026-06-22'
+
+terms:
+  license: CC0-1.0
+  status: verified
+  name: Creative Commons Zero v1.0 Universal
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  display_policy: include
+
+sample_policy:
+  raw_object_samples: allow
+  path_templates: allow
+  schema_samples: allow
+
+summary:
+  copy:
+    headline: Global volunteer-collected open radiation and air-quality measurements
+    lede: Safecast is a worldwide citizen-science dataset of crowdsourced radiation and air-quality readings,
+      started after the 2011 Fukushima disaster and released into the public domain under CC0.
+    text: Safecast is a global, volunteer-driven environmental monitoring project launched in 2011 in
+      the aftermath of the Fukushima Daiichi nuclear accident, when reliable, openly available radiation
+      data was scarce. Volunteers collect measurements with mobile and fixed Geiger-counter devices (and
+      later air-quality sensors), and Safecast publishes the readings as an open dataset that has grown
+      into one of the largest collections of background-radiation measurements ever assembled. The data
+      is released into the public domain under a CC0 designation so anyone can use, copy, and redistribute
+      it under any circumstance, and it is accessible anonymously through the api.safecast.org API, a
+      full-dataset CSV download, and bulk exports mirrored to public AWS storage.
+  refs:
+  - safecast-license-page
+  - safecast-openness-faq
+  - safecast-homepage
+
+source:
+  publisher: Safecast
+  homepage_url: https://safecast.org/
+
+display:
+  canonical_path: /safecast/
+
+stewardship:
+  last_reviewed_at: '2026-06-22'
+  last_reviewed_by: "system:source-verification"
+  generated_by: agent:web_research
+  verification_status: verified_by_source
