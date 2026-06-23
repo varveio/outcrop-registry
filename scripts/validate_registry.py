@@ -511,7 +511,7 @@ def validate_prefixes_v04(
         copy_val = pfx.get("copy") or {}
         if isinstance(copy_val, dict):
             enrichment_fields = {
-                "refs", "boundary", "terms", "declared_by", "expected_count",
+                "refs", "boundary", "featured", "terms", "declared_by", "expected_count",
                 "drift", "facts", "confidence", "coverage", "note", "tags",
                 "inherit", "stewardship", "id", "extent",
             }

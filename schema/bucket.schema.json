@@ -213,6 +213,10 @@
           "enum": ["pin", "exclude"],
           "description": "pin = engine missed a boundary here; exclude = engine wrongly emitted one. Absent = trust the engine."
         },
+        "featured": {
+          "type": "boolean",
+          "description": "Editorial pin: promote this prefix to the top of the Featured cards on its parent page. Only takes effect on an engine boundary (a dataset) — it reorders existing datasets, it cannot create a card for a folder or a prefix the engine did not discover. One card per family: if this prefix is a wildcard, the best-scoring matching dataset is featured (not every match). Per-entry; not inherited."
+        },
         "note": { "type": "string" },
         "declared_by": {
           "enum": ["publisher_catalog", "external_catalog", "publisher_doc"]

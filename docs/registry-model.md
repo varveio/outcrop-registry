@@ -65,6 +65,15 @@ Two kinds of justification, by what the correction asserts:
   objects). A `measured_structure` ref may back a `boundary` correction but nothing
   else (it can never justify a license, access, or other terms claim).
 
+### 3. Presentation channel — render time only
+
+A prefix item's `featured: true` is a presentation preference, not structure. Like
+enrichment it never changes what the engine discovered; it only promotes a dataset to
+the top of the **Featured** cards on its parent page. It takes effect only on a prefix
+the engine discovered as a dataset (a boundary), and a wildcard pin features the single
+best-scoring matching dataset (one card per family). No `refs` required — it asserts a
+preference, not a fact. See [`record-format.md`](record-format.md) § `featured` field.
+
 ---
 
 ## The `prefixes[]` shape

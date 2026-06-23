@@ -669,6 +669,7 @@ prefixes:
       status: unknown
       ...
     boundary: exclude            # OPTIONAL — pin | exclude
+    featured: true               # OPTIONAL — pin to the top of the Featured cards
     note: "..."                  # OPTIONAL — non-rendered maintainer note
     declared_by: publisher_doc   # OPTIONAL
     coverage: sampled            # OPTIONAL (omit when full)
@@ -720,6 +721,39 @@ Never use `boundary: exclude` to annotate a prefix the engine already handles
 correctly just to add editorial flavor. If the engine produced no boundary at a
 container prefix and you only want to explain its role, a `facts[]` entry is the
 right channel.
+
+### `featured` field
+
+An optional editorial pin. `featured: true` promotes this prefix to the top of the
+**Featured** cards on its parent page (the small set of "start here" datasets shown
+above the structure table).
+
+Featured is normally chosen automatically — Outcrop ranks a bucket's datasets by a
+blend of size and recency and shows a handful, one per dataset *family* (so a bucket
+of monthly snapshots shows the latest, not ten near-identical cards). Use `featured`
+only to override that automatic choice for a dataset you want to guarantee a top slot.
+
+Rules and behavior:
+
+- **Datasets only.** `featured` takes effect only on a prefix the engine discovered
+  as a dataset (a boundary). It reorders existing datasets; it cannot create a card
+  for a folder/container or for a prefix the engine never emitted. A `featured` pin
+  on a non-dataset prefix is silently inert.
+- **One card per family.** If the pinned prefix is a wildcard (e.g.
+  `crawl-data/CC-MAIN-*/`), the single best-scoring matching dataset is featured — a
+  wildcard pin means "always feature the best/most-recent member of this family,"
+  not "feature every match." This keeps the Featured row varied.
+- **Per-entry; not inherited.** Like `boundary` and `note`, `featured` applies only
+  to the entry that declares it and never cascades to descendants (it is unaffected
+  by `inherit`).
+- No `refs[]` are required — `featured` is an editorial preference, not a structural
+  correction.
+
+```yaml
+# Always feature the most recent main crawl, whichever it currently is:
+- prefix: crawl-data/CC-MAIN-*/
+  featured: true
+```
 
 ### `expected_count` and `drift`
 
