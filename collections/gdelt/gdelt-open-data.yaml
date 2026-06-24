@@ -17,11 +17,12 @@ prefixes:
       into their own fields, including geographic resolution to the city or landmark level and a numeric
       GoldsteinScale measuring each event type's theoretical potential impact on a country's stability.
       Coverage runs from January 1, 1979 to present, drawn from English-language sources and updated daily,
-      predating the 65 live-translated languages added in GDELT 2.0. Files are released as compressed
-      CSV; for the higher-frequency, multilingual successor with a paired Mentions table, see the v2 Event
-      stream.
+      predating the 65 live-translated languages added in GDELT 2.0. Files are stored one record per line
+      as tab-delimited CSV — per the codebook the files carry a `.csv` extension but are actually tab-delimited,
+      not comma-separated. For the higher-frequency, multilingual successor with a paired Mentions table,
+      see the v2 Event stream.
   refs:
-  - gdelt-data-page
+  - gdelt-event-codebook
 
 - prefix: v2/events/
   copy:
@@ -34,10 +35,11 @@ prefixes:
       adds a wealth of new fields, incorporates events reported in articles published in the 65 live-translated
       languages, and updates every 15 minutes rather than daily. Each Event record is paired with the
       Mentions table, which records every individual article that referenced the event over time. Files
-      are released as compressed CSV on a common UTC-timestamped naming scheme shared with the other GDELT
+      are released as tab-delimited CSV — the `.csv` extension notwithstanding, the records are tab-delimited
+      rather than comma-separated — on a common UTC-timestamped naming scheme shared with the other GDELT
       2.0 streams.
   refs:
-  - gdelt-data-page
+  - gdelt-event-codebook
 
 - prefix: v2/gkg/
   copy:
@@ -53,8 +55,10 @@ prefixes:
       of each mention within a document, the Global Content Analysis Measures (GCAM) drawing on more than
       2,300 emotional and thematic dimensions, quotation extraction, named-entity name lists, and the
       full set of live-translated languages. The format has moved out of Alpha Experimental status into
-      production, meaning it is stabilized. Files are released every 15 minutes as compressed CSV, keyed
-      by the same UTC timestamp naming used across the GDELT 2.0 streams.
+      production, meaning it is stabilized. Files are released every 15 minutes as tab-delimited CSV —
+      per the codebook the `.csv` extension is retained for tool compatibility even though the records
+      are tab-delimited, not comma-separated — keyed by the same UTC timestamp naming used across the
+      GDELT 2.0 streams.
   refs:
   - gdelt-gkg-codebook
 
@@ -69,8 +73,9 @@ prefixes:
       of the mention, the confidence of the extraction, and the position of the mention within the source
       document. Joined to the Event table on the event identifier, the two together let analysts reconstruct
       not just that an event occurred but the full trajectory and network of coverage surrounding it across
-      the world's media. Files are emitted every 15 minutes as compressed CSV on the shared GDELT 2.0
-      timestamped naming scheme.
+      the world's media. Files are emitted every 15 minutes as tab-delimited CSV — the `.csv` extension
+      notwithstanding, the records are tab-delimited rather than comma-separated — on the shared GDELT
+      2.0 timestamped naming scheme.
   refs:
   - gdelt-event-codebook
 

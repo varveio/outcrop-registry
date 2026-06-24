@@ -101,12 +101,15 @@ summary:
       and updated daily, and the GDELT 2.0 streams (released February 2015), which add events in the 65
       live-translated languages, introduce a Mentions table, and update every 15 minutes across the Event,
       Mentions, and Global Knowledge Graph products. The data is published on AWS as the anonymously accessible
-      gdelt-open-data S3 bucket in us-east-1, released as compressed CSV with an SNS topic announcing
-      new files; the bucket is currently noted as no longer being updated.'
+      gdelt-open-data S3 bucket in us-east-1, released as tab-delimited CSV — the files carry a `.csv`
+      extension but are tab-delimited, not comma-separated — with an SNS topic announcing new files; the
+      bucket is currently noted as no longer being updated.'
   refs:
   - gdelt-homepage
   - gdelt-data-page
   - gdelt-aws-registry
+  - gdelt-event-codebook
+  - gdelt-gkg-codebook
 
 source:
   publisher: The GDELT Project
