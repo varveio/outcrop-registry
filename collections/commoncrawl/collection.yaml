@@ -378,6 +378,22 @@ source:
 display:
   canonical_path: /commoncrawl/
 
+facts:
+- id: commoncrawl-legal-terms-0
+  intent: warning
+  topic: legal_terms
+  scope: inherited
+  copy:
+    label: Common Crawl Terms of Use — license to access the corpus
+    text: Common Crawl publishes the entire s3://commoncrawl corpus — the crawl archives, indexes and
+      derived data this record describes — under its own Terms of Use rather than a standard open-content
+      licence. The ToU grant a limited licence to access and use the data, but because the corpus is
+      crawled third-party web content, they disclaim ownership of that content and require users to
+      respect the copyrights and other rights of the original publishers.
+  refs:
+  - commoncrawl-terms
+  - commoncrawl-homepage
+
 stewardship:
   last_reviewed_at: '2026-06-19'
   last_reviewed_by: "system:source-verification"

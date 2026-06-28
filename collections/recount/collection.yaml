@@ -14,6 +14,13 @@ refs:
   excerpt: The data in recount2 is licensed under CC BY 4.0. The legal text can be found here.
   retrieved_at: '2026-06-20'
 
+- id: recount3-aws-open-data
+  kind: publisher_doc
+  url: https://registry.opendata.aws/recount/
+  label: recount3 — Registry of Open Data on AWS (License field; managed by Johns Hopkins University)
+  excerpt: 'License: recount3 is Public Domain, recount2 is CC0.'
+  retrieved_at: '2026-06-24'
+
 - id: recount3-docs-index
   kind: publisher_doc
   url: https://rna.recount.bio/docs/index.html
@@ -98,6 +105,25 @@ source:
 
 display:
   canonical_path: /recount/
+
+facts:
+- id: recount-legal-terms-0
+  intent: operational_note
+  topic: legal_terms
+  scope: inherited
+  copy:
+    label: No data license asserted
+    text: The recount3 documentation describes how the data is hosted and accessed but
+      asserts no explicit data license for the bucket as a whole, so by default we record
+      these objects as having no license asserted. The only license-adjacent statement is
+      third-party — the Registry of Open Data on AWS entry (managed by Johns Hopkins
+      University) characterizes "recount3 is Public Domain" — which we surface as context
+      but do not treat as a publisher license grant; reuse may be subject to the terms of
+      the underlying source systems (SRA, GTEx, TCGA). The recount2/ prefix carries its own
+      asserted terms (see that prefix).
+  refs:
+  - recount3-quick-access
+  - recount3-aws-open-data
 
 stewardship:
   last_reviewed_at: '2026-06-20'

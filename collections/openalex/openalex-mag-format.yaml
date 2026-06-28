@@ -11,6 +11,38 @@ terms:
   url: null
   display_policy: include
 
+refs:
+- id: openalex-magfmt-license-header
+  kind: publisher_file
+  url: https://openalex-mag-format.s3.amazonaws.com/data_dump_v1/LICENSE.txt
+  label: OpenAlex MAG-format LICENSE.txt — license header (ODC-BY-1.0)
+  excerpt: 'Open Data License: ODC-BY-1.0'
+  retrieved_at: '2026-06-24'
+- id: odc-by-1-0-canonical
+  kind: license_reference
+  url: https://opendatacommons.org/licenses/by/1-0/
+  label: Open Data Commons Attribution License (ODC-By) v1.0 — canonical text
+  excerpt: The Open Data Commons Attribution License is a license agreement intended to allow users
+    to freely share, modify, and use this Database subject only to the attribution requirements set
+    out in Section 4.
+  retrieved_at: '2026-06-24'
+
+facts:
+- id: openalex-magfmt-legal-terms-0
+  intent: operational_note
+  topic: legal_terms
+  copy:
+    label: ODC-BY-1.0 — attribution-required open data license
+    text: 'The MAG-format snapshot is published under ODC-BY-1.0, NOT the CC0 dedication that governs
+      the standard-format openalex bucket. A LICENSE.txt at the root of this bucket''s data_dump_v1/
+      payload states "Open Data License: ODC-BY (https://opendatacommons.org/licenses/by/1-0/)" and
+      asks reusers to acknowledge Microsoft Academic — so ODC-BY-1.0 demonstrably governs these
+      objects, and reuse carries an attribution obligation.'
+  refs:
+  - openalex-magfmt-license-header
+  - openalex-magfmt-license-txt
+  - odc-by-1-0-canonical
+
 prefixes:
 - prefix: data_dump_v1/
   copy:

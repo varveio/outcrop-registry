@@ -4,6 +4,13 @@ backend: s3
 role: primary
 region: us-east-1
 
+mirrors:
+- id: commoncrawl-https-gateway
+  backend: https
+  role: mirror
+  anonymous: true
+  base_url: https://data.commoncrawl.org/
+
 prefixes:
 - prefix: cc-index/
   copy:

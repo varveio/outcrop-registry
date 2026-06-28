@@ -394,6 +394,22 @@ source:
 display:
   canonical_path: /1000-genomes/
 
+facts:
+- id: 1000-genomes-legal-terms-0
+  intent: warning
+  topic: legal_terms
+  scope: inherited
+  copy:
+    label: IGSR data-use disclaimer — open, but rights vary by subset
+    text: IGSR (EMBL-EBI), which maintains the s3://1000genomes bucket this record describes, governs
+      reuse through its data-use disclaimer rather than a single named licence. 1000 Genomes Project
+      data is now available without embargo following the project's final publication, but because IGSR
+      aggregates data from many different owners, restrictions and claimed rights vary between subsets,
+      so the disclaimer puts the onus on users to ensure their use does not infringe third-party rights.
+  refs:
+  - igsr-disclaimer-colbuk
+  - igsr-homepage
+
 stewardship:
   last_reviewed_at: unset
   last_reviewed_by: "system:source-verification"

@@ -118,6 +118,22 @@ source:
 display:
   canonical_path: /gdelt/
 
+facts:
+- id: gdelt-legal-terms-0
+  intent: operational_note
+  topic: legal_terms
+  scope: inherited
+  copy:
+    label: GDELT Terms of Use — unrestricted use with attribution
+    text: The GDELT Project's Terms of Use govern every dataset it releases, including the
+      gdelt-open-data S3 bucket this record describes. The terms make all GDELT datasets available for
+      unlimited and unrestricted academic, commercial, or governmental use without fee and permit
+      redistribution and rehosting, on the single condition that any use or redistribution include a
+      citation to the GDELT Project and a link to its website.
+  refs:
+  - gdelt-terms-of-use
+  - gdelt-homepage
+
 stewardship:
   last_reviewed_at: '2026-06-17'
   last_reviewed_by: "system:source-verification"

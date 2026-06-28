@@ -67,6 +67,13 @@ refs:
     please acknowledge Microsoft Academic using the URI https://aka.ms/msracad.'
   retrieved_at: '2026-06-19'
 
+- id: openalex-license-docs
+  kind: publisher_doc
+  url: https://docs.openalex.org/
+  label: OpenAlex docs — data license (CC0)
+  excerpt: Our complete dataset is free under the CC0 license, which allows for transparency and reuse.
+  retrieved_at: '2026-06-24'
+
 - id: openalex-main-license-txt
   kind: publisher_file
   url: https://openalex.s3.amazonaws.com/LICENSE.txt
@@ -134,6 +141,21 @@ source:
 
 display:
   canonical_path: /openalex/
+
+facts:
+- id: openalex-legal-terms-0
+  intent: operational_note
+  topic: legal_terms
+  scope: inherited
+  copy:
+    label: CC0 1.0 — public-domain dedication
+    text: OpenAlex dedicates its complete dataset to the public domain under CC0 1.0 Universal, and a
+      LICENSE.txt stating CC0 1.0 Universal is included at the root of the openalex snapshot bucket — the
+      same bucket whose data/ prefixes (including data/works/) this record describes — so CC0 demonstrably
+      governs these objects, not just the project in general.
+  refs:
+  - openalex-main-license-txt
+  - openalex-license-docs
 
 stewardship:
   last_reviewed_at: '2026-06-19'

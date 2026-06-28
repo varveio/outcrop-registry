@@ -30,6 +30,18 @@ prefixes:
       combined AFESM release (afesm.fasta.gz). The constituent structures derive from AlphaFold DB (CC-BY-4.0)
       and the ESM Metagenomic Atlas, which carry their own upstream terms; fenced NOASSERTION pending
       a subject-local license.
+  facts:
+  - id: afesm-legal-terms
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: No subject-local license — upstream terms govern
+      text: AFESM concatenates AlphaFold DB (CC-BY-4.0) with the ESM Metagenomic Atlas (its own upstream
+        terms), as the AFESM paper describes; no publisher-owned, subject-local statement asserts one
+        SPDX redistribution license for the combined release, so no data license is asserted here — the
+        CC BY 4.0 that governs the colabfold/ prefix in this bucket does not apply to AFESM.
+    refs:
+    - afesm-paper-context
 
 - prefix: colabfold/
   copy:
@@ -46,6 +58,19 @@ prefixes:
       CC BY 4.0.'
   refs:
   - colabfold-downloads-license
+  facts:
+  - id: colabfold-legal-terms
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: CC BY 4.0 — attribution license
+      text: The ColabFold Downloads page — the publisher's own subject-local index of exactly the
+        databases distributed under this prefix (UniRef30, the ColabFold environmental database, the
+        BFD/MGnify combined database, PDB100/PDB70) — states that all of those files are released under
+        CC BY 4.0, so the attribution license demonstrably governs the objects here, distinct from the
+        no-license-asserted posture of the structure-database prefixes in this same bucket.
+    refs:
+    - colabfold-downloads-license
 
 - prefix: foldcomp/
   copy:
@@ -68,6 +93,19 @@ prefixes:
     name: No license asserted
     url: null
     display_policy: include
+  facts:
+  - id: foldcomp-legal-terms
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: No subject-local license — upstream terms govern
+      text: The Foldcomp databases here are compressed copies of AlphaFold DB and the ESM Metagenomic
+        Atlas (afdb_uniprot_v4, afdb_swissprot_v4, esmatlas), as the Foldcomp documentation itself
+        describes; AlphaFold DB carries CC-BY-4.0 and the ESM Atlas its own terms, and no publisher-owned,
+        subject-local statement asserts a single SPDX redistribution license for these Foldcomp builds —
+        so no data license is asserted here, distinct from the CC BY 4.0 colabfold/ prefix in this bucket.
+    refs:
+    - foldcomp-databases-doc
 
 - prefix: folddisco/
   copy:
@@ -89,6 +127,20 @@ prefixes:
     name: No license asserted
     url: null
     display_policy: include
+  facts:
+  - id: folddisco-legal-terms
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: No subject-local license — upstream terms govern
+      text: The FoldDisco indexes here are built over AlphaFold DB, the ESM Atlas, and the RCSB PDB
+        (afdb_proteome_v4_folddisco, Swiss-Prot, AFDB50, ESM30, PDB), as the FoldDisco documentation
+        describes; those structure sources carry their own upstream terms (AlphaFold DB is CC-BY-4.0,
+        the PDB is freely available, the ESM Atlas its own), and no publisher-owned, subject-local
+        statement asserts one SPDX redistribution license for these prebuilt indexes — so no data license
+        is asserted here, distinct from the CC BY 4.0 colabfold/ prefix in this bucket.
+    refs:
+    - folddisco-databases-doc
 
 - prefix: foldseek/
   copy:
@@ -110,6 +162,20 @@ prefixes:
     name: No license asserted
     url: null
     display_policy: include
+  facts:
+  - id: foldseek-legal-terms
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: No subject-local license — upstream terms govern
+      text: The Foldseek databases here are preprocessed copies of AlphaFold DB, the ESM Atlas, and the
+        RCSB PDB (Alphafold/UniProt, UniProt50, Proteome, Swiss-Prot, ESMAtlas30, PDB), as the Foldseek
+        documentation describes; those structure sources carry their own upstream terms (AlphaFold DB is
+        CC-BY-4.0, the PDB is freely available, the ESM Atlas its own), and no publisher-owned,
+        subject-local statement asserts one SPDX redistribution license for these search-ready builds —
+        so no data license is asserted here, distinct from the CC BY 4.0 colabfold/ prefix in this bucket.
+    refs:
+    - foldseek-databases-doc
 
 - prefix: metabuli/
   copy:
@@ -131,6 +197,19 @@ prefixes:
     name: No license asserted
     url: null
     display_policy: include
+  facts:
+  - id: metabuli-legal-terms
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: No subject-local license — upstream terms govern
+      text: The Metabuli reference databases here are built from GTDB, NCBI RefSeq, and T2T-CHM13, as the
+        Metabuli documentation describes; each of those reference sources carries its own upstream terms,
+        and no publisher-owned, subject-local statement asserts one SPDX redistribution license for these
+        prebuilt Metabuli bundles — so no data license is asserted here, distinct from the CC BY 4.0
+        colabfold/ prefix in this bucket.
+    refs:
+    - metabuli-databases-doc
 
 - prefix: mmseqs/hhsuite/
   copy:
@@ -154,6 +233,19 @@ prefixes:
     notes: The UniRef30/Uniclust30 HH-suite profile databases derive from UniProtKB (distributed by UniProt
       under CC BY 4.0). No publisher-owned, subject-local terms page asserts an SPDX redistribution license
       for these specific redistributed hhsuite tarballs, so fenced NOASSERTION pending subject-local terms.
+  facts:
+  - id: hhsuite-legal-terms
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: No subject-local license — upstream terms govern
+      text: The UniRef30/Uniclust30 HH-suite profile databases here are derived from UniProtKB (distributed
+        by UniProt under CC BY 4.0), as the Uniclust documentation describes; no publisher-owned,
+        subject-local statement asserts an SPDX redistribution license for these specific redistributed
+        hhsuite tarballs, so no data license is asserted here — distinct from the CC BY 4.0 colabfold/
+        prefix in this bucket.
+    refs:
+    - uniref30-hhsuite-context
 
 stewardship:
   last_reviewed_at: '2026-06-22'

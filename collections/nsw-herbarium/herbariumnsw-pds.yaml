@@ -15,11 +15,24 @@ prefixes:
   refs:
   - nsw-herbarium-digitisation-doc
   terms:
-    license: CC-BY-4.0
+    license: CC0-1.0
     status: verified
-    name: Creative Commons Attribution 4.0 International
-    url: https://creativecommons.org/licenses/by/4.0/
+    name: Creative Commons CC0 1.0 Universal
+    url: https://creativecommons.org/publicdomain/zero/1.0/
     display_policy: include
+  facts:
+  - id: nsw-herbarium-darwincore-legal-terms-0
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: CC0 1.0 — public-domain dedication (biocollections metadata)
+      text: The DarwinCore/ prefix holds the biocollections (DarwinCore Archive) metadata, which the
+        publisher's bucket-root ReadMe.txt dedicates to the public domain under CC0 — distinct from the
+        CC-BY-4.0 that governs the specimen images elsewhere in this bucket. The ReadMe ships in the same
+        bucket as these objects, so CC0 demonstrably governs this prefix's data.
+    refs:
+    - nsw-herbarium-bucket-readme
+    - nsw-herbarium-cc0-1.0
 
 - prefix: Sensitive/
   copy:
@@ -33,6 +46,19 @@ prefixes:
     name: Creative Commons Attribution 4.0 International
     url: https://creativecommons.org/licenses/by/4.0/
     display_policy: include
+  facts:
+  - id: nsw-herbarium-sensitive-legal-terms-0
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: CC-BY 4.0 — attribution required (specimen images)
+      text: This prefix holds high-resolution specimen images, which the publisher's bucket-root ReadMe.txt
+        releases under Creative Commons Attribution 4.0 (CC-BY) — distinct from the CC0 that covers the
+        biocollections metadata under DarwinCore/. The ReadMe ships in the same bucket as these images,
+        so CC-BY-4.0 demonstrably governs this prefix's data.
+    refs:
+    - nsw-herbarium-bucket-readme
+    - nsw-herbarium-cc-by-4.0
 
 - prefix: images/Reject/
   kind: other
@@ -53,6 +79,19 @@ prefixes:
     name: Creative Commons Attribution 4.0 International
     url: https://creativecommons.org/licenses/by/4.0/
     display_policy: include
+  facts:
+  - id: nsw-herbarium-images-sensitive-legal-terms-0
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: CC-BY 4.0 — attribution required (specimen images)
+      text: This prefix holds high-resolution specimen images, which the publisher's bucket-root ReadMe.txt
+        releases under Creative Commons Attribution 4.0 (CC-BY) — distinct from the CC0 that covers the
+        biocollections metadata under DarwinCore/. The ReadMe ships in the same bucket as these images,
+        so CC-BY-4.0 demonstrably governs this prefix's data.
+    refs:
+    - nsw-herbarium-bucket-readme
+    - nsw-herbarium-cc-by-4.0
 
 - prefix: images/bryo/
   copy:
@@ -66,6 +105,19 @@ prefixes:
     name: Creative Commons Attribution 4.0 International
     url: https://creativecommons.org/licenses/by/4.0/
     display_policy: include
+  facts:
+  - id: nsw-herbarium-images-bryo-legal-terms-0
+    intent: operational_note
+    topic: legal_terms
+    copy:
+      label: CC-BY 4.0 — attribution required (specimen images)
+      text: This prefix holds high-resolution bryophyte specimen images, which the publisher's bucket-root
+        ReadMe.txt releases under Creative Commons Attribution 4.0 (CC-BY) — distinct from the CC0 that
+        covers the biocollections metadata under DarwinCore/. The ReadMe ships in the same bucket as these
+        images, so CC-BY-4.0 demonstrably governs this prefix's data.
+    refs:
+    - nsw-herbarium-bucket-readme
+    - nsw-herbarium-cc-by-4.0
 
 - prefix: master/
   kind: other

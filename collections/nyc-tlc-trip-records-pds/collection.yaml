@@ -102,6 +102,21 @@ facts:
   refs:
   - coordinate-reprocessing
 
+- id: nyc-tlc-trip-records-pds-legal-terms-0
+  intent: warning
+  topic: legal_terms
+  scope: inherited
+  copy:
+    label: NYC.gov Terms of Use — City-published data, accuracy disclaimed
+    text: These trip records are published by the New York City Taxi & Limousine Commission, so the
+      materials on NYC.gov are governed by the City of New York's site-wide Terms of Use rather than a
+      named open-data licence. The TLC also states the trip data was collected and provided by the
+      TPEP/LPEP technology providers and was not created by the TLC, which makes no representations as
+      to its accuracy.
+  refs:
+  - nyc-terms-of-use
+  - tlc-trip-record-page
+
 - id: nyc-tlc-trip-records-pds-note-0
   intent: operational_note
   topic: provenance

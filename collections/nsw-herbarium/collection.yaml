@@ -49,6 +49,32 @@ refs:
     (ap-southeast-2). AWS CLI Access (No AWS account required): aws s3 ls --no-sign-request s3://herbariumnsw-pds/'
   retrieved_at: '2026-06-20'
 
+- id: nsw-herbarium-bucket-readme
+  kind: publisher_file
+  url: https://herbariumnsw-pds.s3.ap-southeast-2.amazonaws.com/ReadMe.txt
+  label: Herbarium NSW bucket-root ReadMe.txt — per-prefix licensing
+  excerpt: 'High resolution images of the preserved plant specimens from the National Herbarium of NSW
+    is for use via Amazon S3 under Creative Commons By Attribution licence (CC-BY). https://creativecommons.org/licenses/by/4.0/legalcode
+    Biocollections metadata associated with each of the collection items is provided as open data and
+    available as CC-0.'
+  retrieved_at: '2026-06-24'
+
+- id: nsw-herbarium-cc-by-4.0
+  kind: license_reference
+  url: https://creativecommons.org/licenses/by/4.0/
+  label: Creative Commons Attribution 4.0 International (CC BY 4.0) — license deed
+  excerpt: You are free to share and adapt the material for any purpose, even commercially, provided you
+    give appropriate credit, provide a link to the license, and indicate if changes were made.
+  retrieved_at: '2026-06-24'
+
+- id: nsw-herbarium-cc0-1.0
+  kind: license_reference
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  label: Creative Commons CC0 1.0 Universal — public-domain dedication deed
+  excerpt: The person who associated a work with this deed has dedicated the work to the public domain
+    by waiving all of his or her rights to the work worldwide under copyright law.
+  retrieved_at: '2026-06-24'
+
 terms:
   license: NOASSERTION
   status: verified

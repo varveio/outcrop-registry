@@ -95,6 +95,22 @@ source:
 display:
   canonical_path: /euclid-q1/
 
+facts:
+- id: euclid-q1-legal-terms-0
+  intent: operational_note
+  topic: legal_terms
+  scope: inherited
+  copy:
+    label: IRSA data-use terms — public, no usage restrictions
+    text: The Euclid Q1 release is served by NASA/IPAC's IRSA, whose data-use terms apply to the products
+      this record describes. IRSA states that most of the data it serves is public with no usage
+      restrictions, and confirms this release is freely available with no special permissions or
+      credentials required; users are asked, as best practice, to include the appropriate IRSA and
+      mission acknowledgements and citations in any publications.
+  refs:
+  - irsa-data-use-terms
+  - irsa-cloud-access
+
 stewardship:
   last_reviewed_at: '2026-06-20'
   last_reviewed_by: "system:source-verification"

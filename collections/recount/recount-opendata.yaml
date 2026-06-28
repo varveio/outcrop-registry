@@ -25,6 +25,20 @@ prefixes:
     name: Creative Commons Attribution 4.0 International
     url: https://creativecommons.org/licenses/by/4.0/
     display_policy: include
+  facts:
+  - id: recount2-legal-terms-0
+    intent: operational_note
+    topic: legal_terms
+    scope: inherited
+    copy:
+      label: CC BY 4.0 — attribution required
+      text: Unlike the rest of the recount bucket, the recount2 archive carries its own
+        asserted terms. The recount2 web resource (the publisher of this generation) states
+        that the recount2 data is licensed under CC BY 4.0, so reuse of objects under this
+        recount2/ prefix is governed by CC BY 4.0 — attribution required — overriding the
+        record-level "no license asserted" default.
+    refs:
+    - recount2-data-license
 
 - prefix: recount3/release/
   copy:
